@@ -14,7 +14,7 @@ async def get_vacancy_links(keyword: str, max_pages: int = 1) -> list[str]:
         page = await browser.new_page()
 
         for page_number in range(max_pages):
-            params = f"?text={keyword}&page={page_number}"
+            params = f"?text={keyword}&area=40&page={page_number}"
             url = BASE_URL + params
             logging.info(f"🔍 Открываем: {url}")
             await page.goto(url)
