@@ -1,38 +1,38 @@
-# src/run.py
-
 import asyncio
-import pandas as pd
+from src.config import SEARCH_KEYWORDS, CSV_PATH
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
-from src.utils import setup_logger
-from pathlib import Path
+from src.utils import setup_logger, save_to_csv, load_existing_links
+import logging
 
 async def main():
     setup_logger()
-    
-    keyword = "Data Scientist"
-    max_pages = 1  # можно увеличить позже
-    
-    print(f"🔎 Собираем вакансии по ключевому слову: {keyword}")
-    links = await get_vacancy_links(keyword, max_pages=max_pages)
-    print(f"🔗 Найдено {len(links)} ссылок")
+    all_links = set()
+    existing_links = load_existing_links(CSV_PATH)
+
+    logging.info("📌 Загрузка вакансий по ключевым словам...")
+
+    for keyword in SEARCH_KEYWORDS:
+        links = await get_vacancy_links(keyword, max_pages=10)
+        all_links.update(links)
+
+    new_links = list(set(all_links) - existing_links)
+    logging.info(f"🆕 Новых ссылок для обработки: {len(new_links)}")
 
     all_data = []
-    for i, link in enumerate(links, 1):
-        print(f"📄 [{i}/{len(links)}] Обрабатываем: {link}")
+    for i, link in enumerate(new_links, 1):
+        logging.info(f"📄 [{i}/{len(new_links)}] Обрабатываем: {link}")
         try:
             vacancy_data = await get_vacancy_details(link)
             all_data.append(vacancy_data)
         except Exception as e:
-            print(f"❌ Ошибка при обработке {link}: {e}")
+            logging.warning(f"⚠️ Ошибка при обработке {link}: {e}")
 
     if all_data:
-        df = pd.DataFrame(all_data)
-        Path("data").mkdir(parents=True, exist_ok=True)
-        df.to_csv("data/raw/vacancies.csv", index=False, encoding='utf-8-sig')
-        print("✅ Данные сохранены в data/raw/vacancies.csv")
+        save_to_csv(all_data, CSV_PATH)
+        logging.info(f"✅ Сохранено {len(all_data)} новых вакансий в {CSV_PATH}")
     else:
-        print("⚠️ Нет данных для сохранения")
+        logging.info("⚠️ Нет новых данных для сохранения")
 
 if __name__ == "__main__":
     asyncio.run(main())

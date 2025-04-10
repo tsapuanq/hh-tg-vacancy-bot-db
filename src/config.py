@@ -8,3 +8,5 @@ SEARCH_KEYWORDS = [
 ]
 
 BASE_URL = "https://hh.kz/search/vacancy"
+REGION_ID = 40  # Казахстан
+CSV_PATH = "data/raw/vacancies.csv"
