@@ -11,7 +11,7 @@ async def main():
     setup_logger()
     
     keyword = "Data Scientist"
-    max_pages = 2  # можно увеличить позже
+    max_pages = 1  # можно увеличить позже
     
     print(f"🔎 Собираем вакансии по ключевому слову: {keyword}")
     links = await get_vacancy_links(keyword, max_pages=max_pages)
