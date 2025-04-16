@@ -18,7 +18,7 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
             try:
                 await page.wait_for_selector('a[data-qa="serp-item__title"]', timeout=5000)
             except:
-                logging.warning(f"❌ Нет вакансий на странице {page_number}")
+                logging.warning(f"Нет вакансий на странице {page_number}")
                 break
 
             items = await page.query_selector_all('a[data-qa="serp-item__title"]')
