@@ -1,5 +1,4 @@
-# src/utils.py
-
+# utils.py
 import logging
 import pandas as pd
 from pathlib import Path
@@ -26,3 +25,8 @@ def save_to_csv(data: list[dict], csv_path: str):
         df_combined.to_csv(csv_path, index=False, encoding="utf-8-sig")
     else:
         pd.DataFrame(data).to_csv(csv_path, index=False, encoding="utf-8-sig")
+
+def save_raw_data(df: pd.DataFrame, file_path: str):
+    Path(file_path).parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(file_path, index=False, encoding="utf-8-sig")
+    logging.info(f"[INFO] Raw data saved to: {file_path}")

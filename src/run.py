@@ -1,10 +1,19 @@
+# run.py
+from dotenv import load_dotenv
+load_dotenv()
 import asyncio
-from src.config import SEARCH_KEYWORDS, CSV_PATH1
+import logging
+import pandas as pd
+from playwright.async_api import async_playwright
+from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
-from src.utils import setup_logger, save_to_csv, load_existing_links
-from playwright.async_api import async_playwright
-import logging
+from src.utils import (
+    setup_logger,
+    save_to_csv,
+    load_existing_links,
+    save_raw_data
+)
 
 MAX_CONCURRENT_TASKS = 30
 
@@ -22,12 +31,12 @@ async def scrape_single(link, semaphore, context, results, idx, total):
 async def main():
     setup_logger()
     all_links = set()
-    existing_links = load_existing_links(CSV_PATH1)
+    existing_links = load_existing_links(CSV_MAIN)
 
     logging.info("Загрузка вакансий по ключевым словам...")
 
     for keyword in SEARCH_KEYWORDS:
-        links = await get_vacancy_links(keyword, max_pages=10)
+        links = await get_vacancy_links(keyword, max_pages=1) #-------------------
         all_links.update(links)
 
     new_links = list(set(all_links) - existing_links)
@@ -49,10 +58,15 @@ async def main():
         await browser.close()
 
     if results:
-        save_to_csv(results, CSV_PATH1)
-        logging.info(f"Сохранено {len(results)} новых вакансий в {CSV_PATH1}")
+        df = pd.DataFrame(results)
+        save_to_csv(results, CSV_MAIN)
+        save_raw_data(df, CSV_RAW_DAILY)
+        logging.info(f"Сохранено {len(results)} новых вакансий")
     else:
         logging.info("Нет новых данных для сохранения")
 
-if __name__ == "__main__":
+def run_scraper():
     asyncio.run(main())
+
+if __name__ == "__main__":
+    run_scraper()

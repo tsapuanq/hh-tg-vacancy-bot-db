@@ -3,21 +3,74 @@ import re
 import ast
 from datetime import datetime
 
+# ======= Keywords фильтрация =======
+from src.config import SEARCH_KEYWORDS
+
+whitelist = [kw.lower() for kw in SEARCH_KEYWORDS] + [
+    "data", "данных", "ml", "machine learning", "analyst", "scientist", "ai", "аналитик", 'devops', 'data engineer'
+]
+
+blacklist = [
+    "маркет", "продаж", "java", "smm", "frontend", "backend", "developer", "qa", "тестировщик",
+    "финансист", "консультант", "1с", ".net", "technical director", "repair controller", "hr", "human resources"
+]
+
+def is_relevant(title: str) -> bool:
+    if not isinstance(title, str):
+        return False
+
+    t = title.lower()
+
+    if any(bad in t for bad in blacklist):
+        return False
+
+    if not any(kw in t for kw in whitelist):
+        return False
+
+    return True
+
 # ======= salary =======
-def clean_salary(s: str) -> str:
-    if not isinstance(s, str) or "не указано" in s.lower():
-        return "не указано"
-    s = re.sub(r"[а-яА-ЯёЁ]+", "", s.lower())
-    s = re.sub(r"[^\d\–\-– $€₸]", "", s).strip()
-    return s if s else "не указано"
+def extract_salary_range_with_currency(salary_str):
+    if pd.isna(salary_str) or "Не указано" in salary_str.lower():
+        return "Не указано"
+
+    text = salary_str.lower().replace('\xa0', ' ')
+
+    if '₸' in text:
+        currency = '₸'
+    elif '$' in text:
+        currency = '$'
+    elif '€' in text or 'eur' in text:
+        currency = '€'
+    else:
+        currency = ''
+
+    match = re.search(r'от\s+([\d\s]+)\s+до\s+([\d\s]+)', text)
+    if match:
+        min_val = match.group(1).replace(" ", "")
+        max_val = match.group(2).replace(" ", "")
+        return f"{min_val}–{max_val} {currency}"
+
+    match = re.search(r'от\s+([\d\s]+)', text)
+    if match:
+        min_val = match.group(1).replace(" ", "")
+        return f"от {min_val} {currency}"
+
+    match = re.search(r'до\s+([\d\s]+)', text)
+    if match:
+        max_val = match.group(1).replace(" ", "")
+        return f"до {max_val} {currency}"
+
+    return "Не указано"
 
 # ======= skills =======
 def clean_skills(skills_str):
     try:
         skills = ast.literal_eval(skills_str)
-        return [s.strip() for s in skills if isinstance(s, str) and s.strip()]
+        skills = [s.strip() for s in skills if isinstance(s, str) and s.strip()]
+        return skills if skills else "Не указано"
     except:
-        return []
+        return "Не указано"
 
 # ======= date =======
 month_map = {
@@ -42,9 +95,9 @@ def parse_russian_date(date_str: str) -> pd.Timestamp:
 # ======= description splitter (регулярками) =======
 def split_description_blocks(description: str) -> dict:
     blocks = {
-        "about_company": "",
-        "responsibilities": "",
-        "requirements": ""
+        "about_company": "Не указано",
+        "responsibilities": "Не указано",
+        "requirements": "Не указано"
     }
 
     section_patterns = {
@@ -69,7 +122,7 @@ def split_description_blocks(description: str) -> dict:
                 break  # Берем первый подходящий
 
     if not positions:
-        blocks["about_company"] = description
+        blocks["about_company"] = description.strip() if description.strip() else "Не указано"
         return blocks
 
     sorted_pos = sorted(positions.items(), key=lambda x: x[1])
@@ -79,19 +132,21 @@ def split_description_blocks(description: str) -> dict:
         key = sorted_pos[i][0]
         start = sorted_pos[i][1]
         end = sorted_pos[i + 1][1]
-        blocks[key] = description[start:end].strip()
+        block_text = description[start:end].strip()
+        blocks[key] = block_text if block_text else "Не указано"
 
     return blocks
 
 # ======= пайплайн =======
 def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
-    df["salary_range"] = df["salary"].apply(clean_salary)
-    df["skills_cleaned"] = df["skills"].apply(clean_skills)
+    df = df[df['title'].apply(is_relevant)].copy()
+    df["salary"] = df["salary"].apply(extract_salary_range_with_currency)
+    df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
 
     blocks = df["description"].dropna().apply(split_description_blocks)
-    df["about_company"] = blocks.apply(lambda x: x.get("about_company", ""))
-    df["responsibilities"] = blocks.apply(lambda x: x.get("responsibilities", ""))
-    df["requirements"] = blocks.apply(lambda x: x.get("requirements", ""))
+    df["about_company"] = blocks.apply(lambda x: x.get("about_company", "Не указано"))
+    df["responsibilities"] = blocks.apply(lambda x: x.get("responsibilities", "Не указано"))
+    df["requirements"] = blocks.apply(lambda x: x.get("requirements", "Не указано"))
 
     return df

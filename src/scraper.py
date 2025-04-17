@@ -20,7 +20,6 @@ async def get_vacancy_details(link: str, page) -> dict:
         "title": await clean('h1[data-qa="vacancy-title"]'),
         "company": await clean('a[data-qa="vacancy-company-name"]'),
         "location": await clean('span[data-qa="vacancy-view-raw-address"]'),
-        "city": await clean('span[data-qa="vacancy-serp__vacancy-address"]'),  
         "salary": await clean('span[data-qa="vacancy-salary-compensation-type-net"]'),
         "description": await clean('div[data-qa="vacancy-description"]'),
         "experience": await clean('span[data-qa="vacancy-experience"]'),
