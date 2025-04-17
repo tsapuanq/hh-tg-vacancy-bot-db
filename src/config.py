@@ -34,3 +34,6 @@ SEARCH_KEYWORDS = [
 BASE_URL = "https://hh.kz/search/vacancy"
 REGION_ID = 40  # Регион Казахстана
 CSV_PATH = "data/raw/vacancies.csv"
+CSV_PATH1 = "data/raw/vacancies1.csv"
+
+path_to_csv = 'C:/Users/User/hh_data_project/data/raw/vacancies.csv'

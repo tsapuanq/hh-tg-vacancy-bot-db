@@ -1,4 +1,4 @@
-import logging
+import logging 
 
 logging.basicConfig(
     format="%(levelname)s: %(asctime)s - %(message)s",
@@ -12,7 +12,7 @@ async def get_vacancy_details(link: str, page) -> dict:
 
     async def clean(selector: str, default="Не указано"):
         try:
-            return (await page.inner_text(selector)).replace('\xa0', ' ')
+            return (await page.inner_text(selector)).replace('\xa0', ' ').strip()
         except:
             return default
 
@@ -20,6 +20,7 @@ async def get_vacancy_details(link: str, page) -> dict:
         "title": await clean('h1[data-qa="vacancy-title"]'),
         "company": await clean('a[data-qa="vacancy-company-name"]'),
         "location": await clean('span[data-qa="vacancy-view-raw-address"]'),
+        "city": await clean('span[data-qa="vacancy-serp__vacancy-address"]'),  
         "salary": await clean('span[data-qa="vacancy-salary-compensation-type-net"]'),
         "description": await clean('div[data-qa="vacancy-description"]'),
         "experience": await clean('span[data-qa="vacancy-experience"]'),
@@ -28,6 +29,7 @@ async def get_vacancy_details(link: str, page) -> dict:
         "working_hours": await clean('div[data-qa="working-hours-text"]'),
         "work_format": await clean('p[data-qa="work-formats-text"]'),
         "link": link,
+        "published_date": await clean('p.vacancy-creation-time-redesigned span')
     }
 
     skills_selector = '[data-qa="skills-element"]'

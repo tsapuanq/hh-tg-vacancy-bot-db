@@ -11,3 +11,5 @@ __pycache__/
 # Playwright
 playwright.log
 *.webm
+
+*.csv

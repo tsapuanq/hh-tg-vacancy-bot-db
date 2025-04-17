@@ -1,12 +1,12 @@
 import asyncio
-from src.config import SEARCH_KEYWORDS, CSV_PATH
+from src.config import SEARCH_KEYWORDS, CSV_PATH1
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
 from src.utils import setup_logger, save_to_csv, load_existing_links
 from playwright.async_api import async_playwright
 import logging
 
-MAX_CONCURRENT_TASKS = 10  
+MAX_CONCURRENT_TASKS = 30
 
 async def scrape_single(link, semaphore, context, results, idx, total):
     async with semaphore:
@@ -22,7 +22,7 @@ async def scrape_single(link, semaphore, context, results, idx, total):
 async def main():
     setup_logger()
     all_links = set()
-    existing_links = load_existing_links(CSV_PATH)
+    existing_links = load_existing_links(CSV_PATH1)
 
     logging.info("Загрузка вакансий по ключевым словам...")
 
@@ -49,8 +49,8 @@ async def main():
         await browser.close()
 
     if results:
-        save_to_csv(results, CSV_PATH)
-        logging.info(f"Сохранено {len(results)} новых вакансий в {CSV_PATH}")
+        save_to_csv(results, CSV_PATH1)
+        logging.info(f"Сохранено {len(results)} новых вакансий в {CSV_PATH1}")
     else:
         logging.info("Нет новых данных для сохранения")
 
