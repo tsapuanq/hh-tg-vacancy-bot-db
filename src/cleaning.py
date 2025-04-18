@@ -69,6 +69,7 @@ def clean_skills(skills_str):
         skills = ast.literal_eval(skills_str)
         skills = [s.strip() for s in skills if isinstance(s, str) and s.strip()]
         return skills if skills else "Не указано"
+
     except:
         return "Не указано"
 
@@ -144,9 +145,9 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
 
-    blocks = df["description"].dropna().apply(split_description_blocks)
-    df["about_company"] = blocks.apply(lambda x: x.get("about_company", "Не указано"))
-    df["responsibilities"] = blocks.apply(lambda x: x.get("responsibilities", "Не указано"))
-    df["requirements"] = blocks.apply(lambda x: x.get("requirements", "Не указано"))
+    # blocks = df["description"].dropna().apply(split_description_blocks)
+    # df["about_company"] = blocks.apply(lambda x: x.get("about_company", "Не указано"))
+    # df["responsibilities"] = blocks.apply(lambda x: x.get("responsibilities", "Не указано"))
+    # df["requirements"] = blocks.apply(lambda x: x.get("requirements", "Не указано"))
 
     return df

@@ -13,7 +13,7 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
 
         for page_number in range(max_pages):
             url = f"{BASE_URL}?text={keyword}&area={REGION_ID}&page={page_number}"
-            logging.info(f"🔎 Парсим: {url}")
+            logging.info(f"Парсим: {url}")
             await page.goto(url)
             try:
                 await page.wait_for_selector('a[data-qa="serp-item__title"]', timeout=5000)

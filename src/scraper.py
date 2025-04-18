@@ -33,6 +33,9 @@ async def get_vacancy_details(link: str, page) -> dict:
 
     skills_selector = '[data-qa="skills-element"]'
     skills_elements = page.locator(skills_selector)
-    data["skills"] = await skills_elements.all_inner_texts() if await skills_elements.count() > 0 else []
+    raw_skills = await skills_elements.all_inner_texts() if await skills_elements.count() > 0 else []
+
+    data["skills"] = ",".join([s.strip() for s in raw_skills]) if raw_skills else "Не указано"
 
     return data
+

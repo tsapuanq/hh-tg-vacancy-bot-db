@@ -1,9 +1,8 @@
-# run.py
-from dotenv import load_dotenv
-load_dotenv()
+import os
 import asyncio
 import logging
 import pandas as pd
+from dotenv import load_dotenv
 from playwright.async_api import async_playwright
 from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
@@ -14,9 +13,17 @@ from src.utils import (
     load_existing_links,
     save_raw_data
 )
+import argparse
+
+# ================== CLI parser ==================
+parser = argparse.ArgumentParser()
+parser.add_argument("--mode", choices=["full", "daily"], default="daily")
+args = parser.parse_args()
+SCRAPE_MODE = args.mode
 
 MAX_CONCURRENT_TASKS = 30
 
+# ================== Scrape single vacancy ==================
 async def scrape_single(link, semaphore, context, results, idx, total):
     async with semaphore:
         try:
@@ -28,15 +35,19 @@ async def scrape_single(link, semaphore, context, results, idx, total):
         except Exception as e:
             logging.warning(f"Ошибка при обработке {link}: {e}")
 
-async def main():
+# ================== Main pipeline ==================
+
+async def run_scraper(mode: str = "daily"):
     setup_logger()
     all_links = set()
     existing_links = load_existing_links(CSV_MAIN)
 
+    logging.info(f"🔍 Режим запуска: {mode.upper()}")
     logging.info("Загрузка вакансий по ключевым словам...")
 
     for keyword in SEARCH_KEYWORDS:
-        links = await get_vacancy_links(keyword, max_pages=1) #-------------------
+        max_pages = 100 if mode == "full" else 1
+        links = await get_vacancy_links(keyword, max_pages=max_pages)
         all_links.update(links)
 
     new_links = list(set(all_links) - existing_links)
@@ -65,8 +76,13 @@ async def main():
     else:
         logging.info("Нет новых данных для сохранения")
 
-def run_scraper():
-    asyncio.run(main())
-
 if __name__ == "__main__":
-    run_scraper()
+    import argparse
+    from dotenv import load_dotenv
+
+    load_dotenv()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["full", "daily"], default="daily")
+    args = parser.parse_args()
+
+    asyncio.run(run_scraper(mode=args.mode))
