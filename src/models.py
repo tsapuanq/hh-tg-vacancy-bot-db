@@ -21,3 +21,6 @@ class Vacancy(Base):
     published_date_dt = Column(Date)           # если есть дата в формате YYYY-MM-DD
     skills = Column(Text)                      # список → строка через запятую
     published = Column(Boolean, default=False) # для Telegram фильтрации
+    about_company = Column(Text, nullable=True)
+    responsibilities = Column(Text, nullable=True)
+    requirements = Column(Text, nullable=True)

@@ -14,6 +14,9 @@ from src.utils import (
     save_raw_data
 )
 import argparse
+from src.db import SessionLocal
+from src.crud import insert_if_not_exists
+
 
 # ================== CLI parser ==================
 parser = argparse.ArgumentParser()
@@ -22,6 +25,7 @@ args = parser.parse_args()
 SCRAPE_MODE = args.mode
 
 MAX_CONCURRENT_TASKS = 30
+db = SessionLocal()
 
 # ================== Scrape single vacancy ==================
 async def scrape_single(link, semaphore, context, results, idx, total):
@@ -30,6 +34,7 @@ async def scrape_single(link, semaphore, context, results, idx, total):
             page = await context.new_page()
             logging.info(f"[{idx}/{total}] Обрабатываем: {link}")
             data = await get_vacancy_details(link, page)
+            insert_if_not_exists(db, data)
             results.append(data)
             await page.close()
         except Exception as e:
@@ -75,6 +80,8 @@ async def run_scraper(mode: str = "daily"):
         logging.info(f"Сохранено {len(results)} новых вакансий")
     else:
         logging.info("Нет новых данных для сохранения")
+
+    db.close()
 
 if __name__ == "__main__":
     import argparse

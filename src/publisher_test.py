@@ -19,7 +19,7 @@ async def main():
     rows_to_send = df.head(5)
 
     if rows_to_send.empty:
-        print("❌ Нет данных для отправки.")
+        print("Нет данных для отправки.")
         return
 
     bot = Bot(token=BOT_TOKEN)

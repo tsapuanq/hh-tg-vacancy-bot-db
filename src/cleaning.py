@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import ast
 from datetime import datetime
+from src.llm_summary import filter_vacancy_llm, summarize_description_llm
 
 # ======= Keywords фильтрация =======
 from src.config import SEARCH_KEYWORDS
@@ -140,14 +141,16 @@ def split_description_blocks(description: str) -> dict:
 
 # ======= пайплайн =======
 def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
-    df = df[df['title'].apply(is_relevant)].copy()
+    df["is_relevant"] = df.apply(lambda row: filter_vacancy_llm(row["title"], row["description"]), axis=1)
+    df = df[df["is_relevant"]].copy()
+
     df["salary"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
 
-    # blocks = df["description"].dropna().apply(split_description_blocks)
-    # df["about_company"] = blocks.apply(lambda x: x.get("about_company", "Не указано"))
-    # df["responsibilities"] = blocks.apply(lambda x: x.get("responsibilities", "Не указано"))
-    # df["requirements"] = blocks.apply(lambda x: x.get("requirements", "Не указано"))
+    summary_blocks = df["description"].apply(summarize_description_llm)
+    df["about_company"] = summary_blocks.apply(lambda x: x["about_company"])
+    df["responsibilities"] = summary_blocks.apply(lambda x: x["responsibilities"])
+    df["requirements"] = summary_blocks.apply(lambda x: x["requirements"])
 
     return df
