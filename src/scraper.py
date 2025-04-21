@@ -1,4 +1,5 @@
-import logging 
+import logging
+from src.utils import clean_text_safe  # добавь это, если ещё не подключил
 
 logging.basicConfig(
     format="%(levelname)s: %(asctime)s - %(message)s",
@@ -12,7 +13,8 @@ async def get_vacancy_details(link: str, page) -> dict:
 
     async def clean(selector: str, default="Не указано"):
         try:
-            return (await page.inner_text(selector)).replace('\xa0', ' ').strip()
+            text = await page.inner_text(selector)
+            return clean_text_safe(text)
         except:
             return default
 
@@ -27,15 +29,14 @@ async def get_vacancy_details(link: str, page) -> dict:
         "schedule": await clean('p[data-qa="work-schedule-by-days-text"]'),
         "working_hours": await clean('div[data-qa="working-hours-text"]'),
         "work_format": await clean('p[data-qa="work-formats-text"]'),
-        "link": link,
-        "published_date": await clean('p.vacancy-creation-time-redesigned span')
+        "link": clean_text_safe(link),  # на всякий
+        "published_date": await clean('p.vacancy-creation-time-redesigned span'),
     }
 
     skills_selector = '[data-qa="skills-element"]'
     skills_elements = page.locator(skills_selector)
     raw_skills = await skills_elements.all_inner_texts() if await skills_elements.count() > 0 else []
 
-    data["skills"] = ",".join([s.strip() for s in raw_skills]) if raw_skills else "Не указано"
+    data["skills"] = clean_text_safe(",".join([s.strip() for s in raw_skills])) if raw_skills else "Не указано"
 
     return data
-

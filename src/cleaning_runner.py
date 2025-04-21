@@ -29,7 +29,7 @@ def main():
     print(f"[INFO] Found latest raw file: {latest_raw_path}")
 
     df = pd.read_csv(latest_raw_path)
-    cleaned_df = run_cleaning_pipeline(df)
+    cleaned_df = run_cleaning_pipeline(df, encoding="utf-8", errors="ignore")
 
     save_processed_data(cleaned_df)
     print("[INFO] Cleaning complete.")

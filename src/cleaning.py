@@ -3,6 +3,7 @@ import re
 import ast
 from datetime import datetime
 from src.llm_summary import filter_vacancy_llm, summarize_description_llm
+import logging
 
 # ======= Keywords фильтрация =======
 from src.config import SEARCH_KEYWORDS
@@ -140,17 +141,73 @@ def split_description_blocks(description: str) -> dict:
     return blocks
 
 # ======= пайплайн =======
-def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
-    df["is_relevant"] = df.apply(lambda row: filter_vacancy_llm(row["title"], row["description"]), axis=1)
-    df = df[df["is_relevant"]].copy()
 
+# def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
+#     # 1. LLM‑фильтр
+#     df = df[
+#         df.apply(
+#             lambda r: filter_vacancy_llm(r.get("title", ""), r.get("description", "")),
+#             axis=1,
+#         )
+#     ].copy()
+
+#     # 2. Твои текущие очистки
+#     df["salary"] = df["salary"].apply(extract_salary_range_with_currency)
+#     df["skills"] = df["skills"].apply(clean_skills)
+#     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
+
+#     # 3. Gemini‑summary
+#     blocks = df["description"].apply(summarize_description_llm)
+#     df["about_company"] = blocks.map(lambda x: x["about_company"])
+#     df["responsibilities"] = blocks.map(lambda x: x["responsibilities"])
+#     df["requirements"] = blocks.map(lambda x: x["requirements"])
+
+#     return df
+
+
+def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
+    if df is None or not isinstance(df, pd.DataFrame):
+        logging.warning("[Pipeline] Input is not a DataFrame.")
+        return pd.DataFrame()
+
+    if df.empty:
+        logging.warning("[Pipeline] Пустой DataFrame — пропускаем очистку.")
+        return df
+
+    # дальше всё, как было
+
+    # 1. LLM‑фильтр через Gemini
+    df = df[
+        df.apply(
+            lambda r: filter_vacancy_llm(r.get("title", ""), r.get("description", "")),
+            axis=1,
+        )
+    ].copy()
+
+    if df.empty:
+        print("[WARNING] После LLM-фильтрации DataFrame стал пустым.")
+        return df
+
+    # 2. Классическая очистка
     df["salary"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
 
-    summary_blocks = df["description"].apply(summarize_description_llm)
-    df["about_company"] = summary_blocks.apply(lambda x: x["about_company"])
-    df["responsibilities"] = summary_blocks.apply(lambda x: x["responsibilities"])
-    df["requirements"] = summary_blocks.apply(lambda x: x["requirements"])
+    # 3. Summary от Gemini
+    blocks = df["description"].apply(summarize_description_llm)
+    df["about_company"] = blocks.map(lambda x: x.get("about_company", "Не указано"))
+    df["responsibilities"] = blocks.map(lambda x: x.get("responsibilities", "Не указано"))
+    df["requirements"] = blocks.map(lambda x: x.get("requirements", "Не указано"))
 
     return df
+
+def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
+    if df is None or not isinstance(df, pd.DataFrame):
+        logging.warning("[Pipeline] Input is not a DataFrame.")
+        return pd.DataFrame()
+
+    if df.empty:
+        logging.warning("[Pipeline] Пустой DataFrame — пропускаем очистку.")
+        return df
+
+    # дальше всё, как было

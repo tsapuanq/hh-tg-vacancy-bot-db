@@ -1,0 +1,1263 @@
+﻿title,company,location,salary,description,experience,employment_type,schedule,working_hours,work_format,link,published_date,skills
+Middle ML Engineer (NLP),ТОО DOCUMENTOLOG CREATIVE STUDIO,"Астана, проспект Мангилик Ел, 52А",Не указано,"Наша компания ищет специалиста в области NLP для работы на долгосрочной основе.
+
+Обязанности:
+- Создание сервисов на базе генеративных AI и классических ML/DL моделей;
+- Сбор, обработка и загрузка данных из различных источников (SQL, NoSQL), работа с Дата пайплайнами;
+- Разработка и поддержка API микросервисов, в т.ч. для деплоя моделей;
+- Следовать современным трендам в области AI/DS;
+- Сотрудничать с продуктовыми командами для успешного, своевременного внедрения и обслуживания сервисов;
+- Проводить исследования и эксперименты с различными наборами данных;
+- Управлять сложными рабочими процессами с данными и развивать экспертизу в предметной области.
+
+Требования:
+- Опыт работы не менее 2-х лет, из них:
+в сфере Data Science / ML Engineering / Data Engineering не менее 2-х лет;
+в сфере Deep Leanring и AI не менее 1 года;
+- Практический опыт работы в NLP: обучение, оценка и использование моделей;
+- Опыт работы с LLM: prompt engineering, evaluation, fine-tuning и т.д.;
+- Опыт построения ETL процессов и интеграции данных из различных источников (БД, API, файловые системы);
+- Опыт подготовки, аннотирования и предобработки данных для NLP задач;
+- Понимание принципов работы классических ML/DL алгоритмов и моделей;
+- Знание Python: умение писать чистый, тестируемый код;
+- Знание SQL, Git, Docker, CI/CD.
+- Плюс: опыт работы в построении Дата пайплайнов с помощью оркестраторов (Airflow, Dagster и т.д.) и/или распределённых систем (Spark, Hadoop и т.д.)
+
+Условия:
+
+- Оформление по ТК РК;
+- Режим работы 5/2, с 09:00 до 18:30, обед с 13:00 до 14:30;
+- Дружный коллектив и удобный офис.
+
+Система мотивации:
+- Беспроцентные займы: Финансовая поддержка сотрудников, проработавших в компании более 1 года;
+- Фантомные акции компании: Сотрудники с опытом работы более 1 года получают возможность получать процент от чистой прибыли компании. Количество фантомных акций увеличивается с каждым годом работы в знак признательности за преданность и лояльность сотрудника.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя или гибрид,https://almaty.hh.kz/vacancy/119492842?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,14 апреля 2025,"Data Science,Machine Learning,Английский — B1 — Средний,Python,SQL,NLP"
+Machine Learning Engineer (ML инженер),ТОО MacDent,"Астана, проспект Мангилик Ел, С3.5",Не указано,"Machine Learning Engineer (ML инженер) - специалист, который разрабатывает, дообучает, оптимизирует модели машинного обучения в продакшн.
+
+Общие задачи ML инженера:
+1.⁠ ⁠Подбор и дообучение моделей
+1.1 Использование готовых моделей
+1.2 Дообучение (fine-tuning) на специфичных данных
+2.⁠ ⁠Оптимизация и развертывание моделей
+2.1 Сжатие моделей
+2.2 Оптимизация скорости работы
+2.3 Разворачивает модели в API
+3.⁠ ⁠Разработка пайплайнов машинного обучения
+3.1 Автоматизация обучения
+3.2 Настройка сбора и обработки данных
+4.⁠ ⁠Интеграция моделей в продакшн
+4.1 Настройка обработки запросов от пользователей
+4.2 Оптимизация нагрузки (балансировка, кеширование)
+4.3 Мониторинг работы моделей (A/B тесты, логирование)
+
+Требуется знание:
+1.⁠ ⁠Язык программирование Python
+2.⁠ ⁠Фреймворки - PyTorch, TensorFlow, Hugging Face, DeepSpeed
+3.⁠ ⁠Обучение - MLflow и иные инструменты
+4.⁠ ⁠Понимание облачных сервисов ☁️
+5.⁠ ⁠Понимание работы с GPU: NVIDIA CUDA, Tensor Cores, TPUs ⌨️
+
+Требование под нашу задачу:
+1.⁠ ⁠Опыт работы с моделями преобразования звука в текст (STT models) ️
+2.⁠ ⁠Опыт с моделями GPT - DeepSeek, написание промтов, дообучение
+3.⁠ ⁠Написание API и разворачивание в продакшн
+4.⁠ ⁠Понимание работы обработки Real-Time обработки звука (WebSocket \ WebRTC)
+5.⁠ ⁠Умение оптимизировать и балансировать нагрузку ‍♀️
+6.⁠ ⁠Умение дообучать готовые модели (Fine-Tuning)
+
+MacDent - CRM система для стоматологий и клиник, успешно помогает компаниям автоматизировать и систематизировать бизнес-процессы. На текущий момент 1000+ клиник активно пользуются нашей CRM-системой по всему Казахстану.
+
+Мы активно развиваемся и хотим найти в команду профессионала в маркетинге, который любит маркетинг и IT, обожает сам зарабатывать и помогать в этом деле своим клиентам и команде.
+
+Условия:
+
+Оклад определим после собеседование
+Зарплата поступает до 5 числа каждого месяца
+Возможность получить опционы компании с перспективой продажи в будущем
+Оплачиваются курсы
+Предоставляются доступ к обучающим материалам
+Личное обучение от команды и генерального директора по смежным темам
+Здоровая атмосфера в команде
+Уважение личных границ и адекватное отношение
+Отсутствие переработок
+Бесплатный теннис
+Массаж для позвоночника
+Библиотека с художественной и профессиональной литературой
+Соседство с крупными IT-компаниями, такими как Astana Hub, TikTok, Yandex Cloud, reKassa и другие
+Работа в офисе 5/2, с 09:30 до 18:30
+
+Если вы любите IT, то обретите свой икигаи работая в компании MacDent, и в окружении лидеров IT-индустрии и здоровой команды стремящейся к развитию!
+
+
+Внимание! В сопроводительном письме укажите ваши кейсы и результаты работ.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,https://almaty.hh.kz/vacancy/118840894?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,27 марта 2025,Не указано
+Data Engineer (Golang),ТОО Wisebits,Лимассол,Не указано,"Wisebits — международный IT-холдинг с сильной технической командой!
+Наш ключевой продукт — высоконагруженный видеохостинг, которым ежедневно пользуются миллионы людей по всему миру. Более чем за 15 лет на рынке мы сформировали профессиональную команду, где ценятся вовлечённость и инициативность.
+Если хочешь работать с high-load продуктом и иметь возможность влиять на его развитие — присоединяйся к нам!
+
+В нашу Data Science команду нужен Go-разработчик с интересом к Machine Learning. Новому члену команды предстоит работать над высоконагруженными сервисами.
+
+Основные задачи:
+
+ETL, разработка сервисов сбора, хранения и доступа к статистике и данным;
+Оптимизация/создание pipeline для запуска ML решений в production;
+Выполнять эпизодические задачи на анализ данных;
+Обработка и агрегация данных для отчетов.
+
+Стек: Golang, Kubernetes, ClickHouse, MySQL, MongoDB, Kafka, Redis.
+
+Требования:
+
+Опыт разработки на Go от 3 лет: Глубокое понимание языка и опыт написания эффективного кода с акцентом на обработку данных.
+Знание баз данных: Опыт работы с ClickHouse, MySQL и MongoDB.
+Контейнеризация и оркестрация: Понимание принципов работы с Kubernetes.
+Протоколы и API: Опыт разработки HTTP/gRPC API.
+Системы обмена сообщениями и кэширования: Опыт работы с Kafka и Redis.
+Алгоритмы и структуры данных: Хорошее понимание и умение применять на практике.
+Коммуникационные навыки: Способность эффективно взаимодействовать с командами Data Science и другими отделами.
+
+Дополнительные плюсы:
+
+Опыт создания дашбордов в Grafana.
+Знание принципов работы высоконагруженных систем.
+Интерес к машинному обучению и опыт поддержки A/B-экспериментов.
+
+Эта позиция для вас, если:
+
+Вы любите данные и еще больше любите технологии их обработки;
+Вам нравится принимать решения и непосредственно участвовать в развитии продуктов;
+Стремитесь к приобретению знаний в управлении и работе с данными, машинном обучении.
+
+Что мы предлагаем:
+
+Отсутствие бюрократии — гибкие условия работы;
+Расширенный пакет бенефитов: медицинская страховка, покрытие налогов, курсы иностранных языков, профессиональное обучение, а также необходимая для работы техника;
+Ежегодный пересмотр заработной платы и профессиональный рост;
+Поддержку при релокации: мы берем на себя расходы по переезду для тебя и твоей семьи, включая покупку билетов, визовую поддержку и оплату первого месяца жилья.
+Дружную и интернациональную команду, которая ценит профессионализм и сотрудничество.",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/117536107?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,22 марта 2025,"Golang,Clickhouse,Kubernetes,MySQL,MongoDB,Apache Kafka,Redis"
+"Data Scientist (Middle, Senior)","HALYK FINANCE, дочерняя организация АО Народный банк","Алматы, Алатау, проспект Абая, 109В",Не указано,"Просим не откликаться на вакансию граждан других стран, удаленной работы нет!
+
+Обязанности:
+
+Анализ данных и их интерпретация: сбор, обработка и систематизация данных из различных источников;
+проведение статистического анализа для выявления закономерностей, тенденций в данных;
+исследования, тестирование гипотез, реализация и развитие Big DATA, перевод на модель по принятию решений на основе данных;
+построение прогнозных моделей для оценки экономической динамики и принятия управленческих решений;
+создание эконометрических и статистических моделей для анализа данных, применение методов машинного обучения и других алгоритмов анализа больших данных (Big Data) для решения экономических задач;
+моделирование сценариев развития экономики, включая оценку влияния макроэкономических и микроэкономических факторов;
+разработка визуализаций данных (графиков, диаграмм, интерактивных дашбордов)для представления результатов аналитики;
+подготовка аналитических отчетов, презентаций с рекомендациями для заинтересованных сторон (руководство, государственные органы, инвесторы);
+управление получением, хранением, передачей, обработкой больших данных
+Требования:
+высшее экономическое/финансовое/математическое/техническое образование;
+опыт работы в сфере информационных технологий/банковской/финансовой сфере не менее 2,5 лет (Middle), более 4 лет (Senior)
+обладать фундаментальными знаниями в области математики, статистики, Computer Science, знать принципы моделирования данных;
+иметь навыки разработки методологических, методических и аналитических материалов
+умение построения бизнес-моделей;
+иметь навыки работы с хранилищами данных DWH, Hadoop;
+владение английским на уровне не ниже Intermediate
+знание программ: Python (pandas/polars), SQL на продвинутом уровне
+Личные качества : аналитический склад ума, критическое мышление, внимательность, организованность, ответственность, инициативность, грамотная письменная речь, умение работать в команде
+Условия:
+офисная работа: график 5/2, с 09-18ч
+отпуск: 26 дней
+дополнительное мед.страхование
+повышение квалификации за счет Работодателя
+годовая премия
+бонусы по итогам года",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,https://almaty.hh.kz/vacancy/118882857?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,18 апреля 2025,"SQL,Python,MySQL,Qlik Sense,Математический анализ,Английский язык,Алгоритмы и структуры данных,Исследовательский анализ данных,Визуализация данных,Hadoop,DWH,Моделирование бизнес процессов,data science,Data Mining: Statistica,Big Data,Data Analysis,Математическая статистика,MS SQL Server,pandas,Дата аналитика,Английский — B2 — Средне-продвинутый"
+Data Scientist Middle+/Senior,Новео,Не указано,Не указано,"НОВЕО - международная компания, с 2002 года предоставляющая услуги по заказной разработке ПО для западноевропейского рынка.
+
+Где и как можно работать: удаленно из любой страны по договору ИП/самозанятости (с оплатой в евро).
+
+Рабочие языки на проектах: английский, русский.
+
+Наш партнер - инновационная компания на рынке доставки и логистики. Клиент представлен в 150+ городах в 5 странах ЕС и Великобритании.
+
+Твоя задача заключается в разработке и оптимизации алгоритмических решений, которые улучшают работу сети доставки. Роль сосредоточена на решении классических задач машинного обучения (ML), а также задач операционных исследований для улучшения диспетчеризации, стратегий стимулирования и общей эффективности логистики.
+
+Что мы готовы предложить?
+
+трудоустройство по трудовому договору страны или через договор с ИП без привязки к определенному местонахождению;
+
+оплачиваемый отпуск и больничные;
+
+работа в профессиональной распределенной команде над интересными проектами;
+
+возможность изучения новых технологий и их применение на практике, внутреннее обучение;
+
+участие во внутренних митапах, постоянный обмен опытом с коллегами;
+
+четко выстроенные процессы и методологии разработки;
+
+бесплатное изучение иностранных языков в рабочее время с преподавателями компании (английский, французский);
+
+компенсацию медицинских услуг, массажа или спорта (внутренний аналог ДМС).
+
+Стек:
+
+Python or Scala;
+Advanced ML models, Optimization algorithms;
+
+SQL, Airflow, Kafka, Spark Streaming, Flink, Hadoop;
+
+Docker, Distributed Computing.
+
+
+Твои предстоящие задачи:
+
+оптимизация сетей доставки в режиме реального времени;
+баланс между скоростью, эффективностью и стоимостью в моделях диспетчеризации и стимулирования;
+обеспечение эффективной работы моделей ML и оптимизации в масштабе;
+работа с архитектурой, управляемой событиями, в больших объемах.
+
+Мы ждём от тебя:
+
+уверенное владение разговорным английским языком (от В2 и выше);
+
+4+ года опыта работы в области Data Science;
+
+опыт работы с SQL;
+
+владение Python;
+
+сильные навыки ML и оптимизации;
+
+знание статистических выводов;
+
+Желательно иметь опыт с: управлением рабочими процессами (Airflow); с распределенными вычислениями; архитектурой, управляемыми событиями; Docker; Apache Spark; имеются знания в области логистики.
+
+
+О компании Новео:
+
+20 лет на рынке;
+производственные отделы в странах Восточной Европы;
+
+Присоединяйся к команде разработчиков НОВЕО для решения интересных задач!",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/118868440?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,27 марта 2025,Не указано
+ML Engineer,"GuardinAI, Inc",Не указано,Не указано,"We are seeking a highly motivated and skilled Machine Learning Engineer to join our team
+
+focused on training and deploying machine learning models and fine-tuning large language
+
+models (LLMs). This role will be central to developing efficient, scalable, and domain-specific
+
+ML/LLM solutions that power our AI products.
+
+Responsibilities:
+
+• Design, implement, and optimize training pipelines for small-scale machine learning models
+
+(e.g., decision trees, gradient boosting, small neural nets, CNN).
+
+• Fine-tune large pre-trained language models (e.g., LLaMA, Mistral, Qwen, GPT) for specific
+
+tasks using supervised learning, reinforcement learning (RLHF), or parameter-efficient
+
+techniques (LoRA, QLoRA, PEFT).
+
+• Conduct dataset preparation, preprocessing, and augmentation for both small and large
+
+models.
+
+• Perform hyperparameter tuning and model evaluation using appropriate metrics.
+
+• Monitor and optimize model performance, inference speed, and memory footprint.
+
+• Contribute to internal tools and libraries that streamline ML experimentation and deployment.
+
+Requirements:
+
+• Strong programming skills in Python and experience with ML frameworks like PyTorch,
+
+HuggingFace Transformers, or scikit-learn.
+
+• Experience in training and fine-tuning large language models using modern toolkits (e.g.,
+
+PEFT, DeepSpeed, FSDP).
+
+• Familiarity with distributed training, mixed-precision training, and checkpoint management.
+
+• Solid understanding of ML fundamentals, including model selection, training/validation
+
+workflows, and performance evaluation.
+
+• Hands-on experience with data handling, feature engineering, and synthetic data generation.
+
+• Working knowledge of experiment tracking tools (Weights & Biases).
+
+• Familiarity with cloud environments (AWS, GCP, Azure) or on-premise GPU clusters.
+
+• Strong problem-solving skills and ability to work independently in a fast-paced environment.
+
+Nice to Have:
+
+• Experience with retrieval-augmented generation (RAG), prompt tuning, or instruction tuning.
+
+• Exposure to quantization and model compression techniques.• Experience with deploying ML models using APIs or serving frameworks (e.g., FastAPI, Triton
+
+Inference Server).",1–3 года,"Полная занятость
+Возможно временное оформление",График: 5/2,Рабочие часы: 7,Формат работы: гибрид,https://almaty.hh.kz/vacancy/119304454?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,9 апреля 2025,Не указано
+MLOps AWS/Data Scientist,ООО Шарп Девелоперс,Не указано,Не указано,"Удаленно, рабочий часовой пояс GMT+4. Нужен хороший устный английский не ниже B2!!!!
+
+О нас:
+
+SHARP DEVELOPERS – разработчик программного обеспечения для мобильных устройств и веб-сайтов для заказчиков из США, Европы и России.
+
+Наши клиенты — компании-разработчики продуктов в различных сферах: финтех, путешествия, спорт, медицина, развлечения, медиа, промышленность. Мы работаем над более чем 30 проектами — выберите для себя интересный!
+
+- Мы распределённая команда и у нас обширная география: кто-то работает в Турции, кто-то в Армении, Грузии, Казахстане, Таджикистане, Беларуси, странах ЕС, с Маврикия, кто-то разбросан по России - все мы встречаемся в общих Slack-чатах, где на русском языке обсуждаем и празднуем вместе важные события онлайн и делимся экспертизой, не вставая с дивана. Офиса нет - он прямо у вас дома, это 100% удалёнка в самом чистом ее виде.
+
+На самих проектах общение (дейли и тд.) полностью на английском - поэтому мы ищем того, кто владеет английским языком на уровне не ниже B2.
+
+В роли Data Scientist вы будете работать над извлечением значимой информации из больших наборов данных, разработкой моделей машинного обучения и созданием векторных баз знаний для улучшения бизнес-процессов и продуктов для наших зарубежных заказчиков (проекта под NDA).
+
+Responsibilities:
+To identify three ML models
+To prepare data for three ML models
+To test the models with the provided data (three iterations)
+To prepare a report with ML model results (accuracy, recall, confidence)
+To prepare instructions for the models' deployment in the form of PoC
+
+Требования:
+
+Hard:
+Machine Learning & AI – Model selection, training, and optimization
+Data Preparation & Preprocessing – Cleaning, feature engineering, handling missing values
+Model Evaluation & Performance Metrics – Accuracy, recall, confidence, precision, F1-score
+Statistical Analysis & Mathematics – Probability, linear algebra, hypothesis testing
+ML Model Deployment – Writing PoC documentation, using AWS
+
+Soft:
+Problem-Solving – Ability to analyze complex datasets and derive insights
+Analytical Thinking – Strong logical and critical thinking skills
+Attention to Detail – Ensuring data quality and model accuracy
+Communication Skills – Ability to present ML results to both technical and non-technical stakeholders
+Collaboration & Teamwork – Working effectively with Architect, Engineers, Analysts, and Business teams
+Time Management – Balancing multiple ML iterations and deadlines efficiently
+Documentation & Reporting – Writing clear model evaluation reports and PoC deployment guides
+Creativity & Innovation – Thinking outside the box for model improvements
+
+Что мы предлагаем:
+
+работа удаленного формата с понедельника по пятницу с гибким началом дня
+предоставляется отпуск, оплачиваются больничные
+
+постоянную рабочую практику английского языка в российско-американской команде
+
+телемедицина для Вас и семьи
+
+обучение по технологиям в оплачиваемое рабочее время
+
+погружение в культуру западных компаний, стандарты работы за рубежом.
+
+P.S. При отклике в сопроводительном письме укажите, пожалуйста, информацию:
+
+Ваш username telegram
+Локацию пребывания
+Ваши зарплатные ожидания
+
+Спасибо!
+
+​​",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/119483897?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,14 апреля 2025,"Английский язык,MLflow,Statistical Analysis System,Mathematical Modeling,Amazon Web Services,Английский — B2 — Средне-продвинутый,Русский — B2 — Средне-продвинутый"
+Production Engineer,ТОО Coca-Cola İçecek Kazakhstan  ( ТОО СП «Кока-Кола Алматы Боттлерс» ),посёлок Боралдай,Не указано,"Job Identification
+We are looking for a Production Engineer to be a part of our Supply Chain team located in Almaty.
+Main Responsibilities
+Plan, develop and realize protective and preventive maintenance programs in order to ensure compliance of machines
+Ensure realization of planned production program
+Carry out production according to the defined standards of process and taking actions to improve the process
+Ensure that material yields are within company standards
+Develop work safety procedures, make sure the team under supervision follows rules
+Set up machine maintenances according to plans
+Carry out criteria assessments and prepare the report for continuous improvement and performance follow up, present it to management, plan and implement necessary corrective-preventive actions
+Determine training needs of foremen, operator and technician
+Make sure the team under supervision follows safety procedures and rules
+Manage the line OPEX budget and equipment investment projects
+Improve the production methods for developing the quality of the packages & products
+Manage the spare parts stock level
+Ensure that the GMP and 6S rules are followed
+Minimize the production costs and losses
+Requirements
+University Graduate (Mechanical, Electrical / Electronics Engineering)
+Minimum 1-2 years experience in production field
+Upper-Intermediate level of English
+Good command of Microsoft Office programs
+Strong communication and leadership skills
+‘’We're an equal opportunity employer. All applicants will be considered for employment without attention to race, sex, color, national or social origin, ethnicity, religion, age, pregnancy, disability, sexual orientation, gender expression or political opinion.’’
+What We Embrace:
+“People Centered” Focus
+Equal Salary Advocate
+A Globally Diverse/An International Workplace
+Inclusive Team-Building Activities
+Digital Learning Opportunities
+Leadership Exposure With Organizational Events
+Inclusive Language And Culture
+Social Clubs/Networks
+Inclusive/Family-Friendly Policies
+Who We Are
+CCI is a multinational beverage company operating in Azerbaijan, Iraq, Jordan, Kazakhstan, Kyrgyzstan, Pakistan, Syria, Tajikistan, Turkey, Turkmenistan, and Uzbekistan. CCI produces, distributes, and sells The Coca-Cola Company's sparkling and still beverages. With 30 bottling plants, 3 fruit processing plants, and more than 10,000 employees in 11 countries, CCI offers a wide range of beverages to a consumer base of 430 million.
+Our purpose at CCI is to create value for our employees, customers, consumers, and community. In line with our vision to become the best FMCG company, we put people at the core of everything we do. We achieve successful results with our people who come together as One Team, committing to live by our shared values of passion, integrity, accountability, and teamwork. Our ambition is to become a great place to work, which is inclusive, diverse, and inspiring, with its key organizational and leadership capabilities.
+Encouraging a diverse and inclusive organization is core to our commitment at CCI, that's why we nurture it in everything we do. We are proud to become the fourth company to obtain the EQUAL-SALARY global certification and proud to be an Equal Opportunity and Affirmative Action employer, covering in all our countries.
+We take responsibility for the future with our Sustainability Commitments for 2030.
+Focusing our roadmap on six main areas, including packaging, water, and climate on environmental issues; human rights, diversity & inclusion, and community investments on social issues, we pledged 9 commitments to continuously improve our efforts. To ensure that by the year 2030, 35% of newly hired individuals, 40% of managerial positions, and 50% of executive committee members are comprised of women.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/119207566?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,7 апреля 2025,Английский — B2 — Средне-продвинутый
+Data Engineer (middle),ТОО inDrive,Не указано,Не указано,"inDrive is an international technological platform for transport and personal services. We are one of the top 2 mobile travel booking services in the world with over 150 million installs, over 2 billion trips, 800+ cities in 40+ countries.
+
+inDrive is a product used by tens of millions of people every month. They make urban or intercity trips, order cargo transportation or courier delivery, look for work and call handymen to provide household services.
+
+inDrive employs more than 3,000 employees, of which 550+ are developers, divided into 50+ cross-functional teams.
+
+We are looking for a Data engineer who will help build a Data Warehouse as part of a team that develops various Data solutions for such business areas as Fintech, Safety, ESG, Government Relation and etc. We expect you to participate in architecture construction, data modeling, share knowledge and receive this knowledge. We are actively building our Data Warehouse and we know for sure that this part of the project is one of the most important parts of the product.
+
+We create data solutions for Geo, Fintech, Safety, ESG, Government Relations, GDPR, and other areas. We are currently actively building a Data Warehouse — a key part of the product. We work with cutting-edge technologies (GCP, AWS, Airflow, Kafka, K8s) and make infrastructure and architectural decisions based on data.
+One of the key areas is the development of a personalization system for our users. We are building a large-scale data infrastructure for analytics, machine learning, and real-time recommendations.
+
+Our tech stack:
+
+Languages: Python, SQL, Scala, Go
+Frameworks: Spark, Apache Beam Storage and
+Analytics: BigQuery, GCS, S3, Trino, other GCP and
+AWS stack components Integration: Apache Kafka,
+Google Pub/Sub, Debezium, Zero ETL, Firehose ETL: Airflow2
+Infrastructure: Kubernetes, Terraform Development: GitHub, GitHub Actions, Jira
+
+What tasks remain to be solved:
+
+Develop the data driven culture within the company
+Develop processes for data processing, storage, cleaning, and enrichment
+Design and maintain data pipelines from collection to consumption
+Develop APIs (REST, gRPC) for high load services
+Create infrastructure for storing and processing large datasets on K8S, Terraform
+Automate testing, validation, and monitoring of data
+Participate in system design and architectural decision making
+
+We expect from the candidate:
+
+Who we are looking for Expert in Python 3.7+, experience with PySpark Deep knowledge of SQL
+Extensive experience building ETLs with Airflow2 Industrial experience with Kubernetes
+Understanding of data processing principles and algorithms
+Excellent knowledge of OOP, design patterns, clean architecture
+Proactivity, responsibility, and the ability to take ownership
+Would be a plus: Experience with high load services DevOps skills and CI/CD automation experience
+
+We offer:
+
+Stable salary, official employment
+Health insurance
+Hybrid work mode and flexible schedule
+Relocation package offered for candidates from other regions (only for Kazakhstan and Cyprus)
+Access to professional counseling services including psychological, financial, and legal support
+Discount club membership
+Diverse internal training programs
+Partially or fully paid additional training courses
+All necessary work equipment",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,https://almaty.hh.kz/vacancy/118877569?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,18 апреля 2025,"SQL,Spark,Big Data,Scala,Python,Google Cloud Platform,AWS,PySpark,ETL,Airflow,BigQuery,Алгоритмы и структуры данных,MDM,Data Quality,DataLake,Английский — B1 — Средний"
+Data Scientist,ТОО IBA Astana Dev (АйБиЭй Астана Дев),Не указано,Не указано,"We are looking to hire a results-driven Data Scientist with production-level ML experience and strong cloud skills to join our team.
+
+Responsibilities:
+
+Deliver full-cycle machine learning solutions, including exploratory data analysis (EDA), model training and tuning, feature engineering, model validation and interpretation;
+
+Work with large-scale datasets in Databricks / Spark environments;
+
+Deploy models to production using MLflow / MLOps pipelines;
+
+Build dashboards and data visualizations (Power BI, Tableau);
+
+Operate in cloud-based environments (Azure, AWS, or GCP) using storage, pipelines, orchestration tools;
+
+Participate in client meetings, translate business problems into ML tasks, present and defend models;
+
+Maintain and retrain models as needed.
+
+Requirements:
+
+5+ years of experience in Data Science / ML roles;
+
+Deployed ML models into production, not just POCs or academic projects;
+
+Can explain architecture and model logic to non-technical stakeholders;
+
+Understanding of the full ML lifecycle — from raw data to dashboard;
+
+English B2 level and higher;
+
+Tech Stack:
+
+Languages: Python (pandas, numpy, scikit-learn, matplotlib), SQL
+
+Platforms: Azure, AWS, GCP, Databricks
+
+Tools: MLflow, Spark, Synapse Analytics, Power BI, Tableau
+
+Methods: classification, regression, clustering, time series
+
+Processes: CI/CD, MLOps, Git, Jira, Agile/Scrum
+
+Nice to also have:
+
+Experience with Generative AI, NLP, LLMs
+
+Familiarity with Spark SQL / Delta Lake
+
+Background in consulting or multi-domain project work
+
+Conditions:
+
+Official employment under the Labor Code of Kazakhstan
+
+Remote format with an option to work from the office
+
+International projects and team",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/119694168?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,18 апреля 2025,Не указано
+ML Engineer,ТОО КазСканСервис,Не указано,Не указано,"Обязанности:
+
+Разработка и внедрение ML-моделей для платформы цифровых двойников (предиктивная аналитика, мониторинг оборудования, оптимизация производственных процессов)
+
+Работа с временными рядами, данными датчиков (IoT, SCADA), облаками точек и пространственными данными (LiDAR)
+
+Анализ больших объемов данных для выявления паттернов и аномалий
+
+Интеграция моделей с существующей инфраструктурой платформы
+
+Оценка качества моделей и оптимизация их производительности
+
+Участие в разработке и поддержке архитектуры данных
+
+Парсинг и структурирование данных из открытых и закрытых источников (сайты, API, документация оборудования)
+
+Требования:
+
+Опыт работы от 2 лет в области Data Science / Machine Learning
+
+Глубокое понимание алгоритмов машинного обучения и анализа данных
+
+Опыт работы с временными рядами, предиктивной аналитикой и обнаружением аномалий.
+
+Практический опыт разработки моделей с использованием Python и основных библиотек (pandas, numpy, sklearn, tensorflow/pytorch, XGBoost)
+
+Опыт работы с инструментами для визуализации данных (Plotly, matplotlib, Power BI)
+
+Знание SQL и баз данных (PostgreSQL, MongoDB)
+
+Опыт работы с большими объемами данных и облачными платформами (AWS, Azure) будет преимуществом
+
+Понимание процессов CI/CD, опыт работы с Git
+
+Дополнительные навыки (не обязательно):
+
+Опыт работы с пространственными данными и облаками точек (Potree, Three.js, PDAL)
+
+Опыт интеграции с системами SCADA, MES, ERP
+
+Опыт работы с графовыми базами данных (Neo4j)
+
+Опыт работы в промышленности, строительстве или инфраструктурных проектах
+
+Умение работать с ИИ сервисами (ChatGPT, Claude, Gemini, Perplexity)
+
+Условия:
+
+Работа на передовой технологий: цифровые двойники, AI, 3D-визуализация и крутые промышленные кейсы
+Полная свобода действий: твои идеи не будут пылиться в столе, а сразу пойдут в прод!
+Офис в инновационном хабе Astana Hub",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя или гибрид,https://almaty.hh.kz/vacancy/119473837?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,14 апреля 2025,"Python,SQL,REST API,Git,Docker,SCADA,API,Deep Learning,TensorFlow,pandas,Английский язык,Английский — B2 — Средне-продвинутый"
+Стажер/Ассистент Менеджера продукта,ТОО Вериграм,Не указано,Не указано,"Job Opening: Product Manager Assistant (Intern / Junior Role)
+
+Company: Verigram (verigram.ai)
+Location: Hybrid / Office (Almaty, Kazakhstan)
+Type: Full-time or part-time
+Experience: students or recent graduates (up to 1 year of experience)
+Compensation: Based on interview results
+
+About Verigram
+
+Verigram is a product IT company building solutions powered by computer vision and artificial intelligence. We help banks, fintech companies, and telecom verify customer identities using biometrics, document recognition, and digital signatures.
+
+We’re currently launching a new wave of AI-powered products, including LLM-based assistants, and document automation tools. We're looking for a Product Manager Assistant who’s passionate about technology and wants to grow in a fast-moving, innovative environment.
+
+What You’ll Do
+
+- Support the CPO in developing AI-driven products such as LLM-powered chatbots, and digital assistants
+- Conduct user research, market and competitor analysis, and gather feedback
+- Assist in writing product requirements and user stories for the development team
+- Work with analytics: track metrics and identify areas for improvement
+- Prepare internal presentations, and planning materials
+- Learn and grow every day by working closely with experienced product managers, engineers, and designers
+
+What We’re Looking For
+
+- Students or recent graduates (preferably in business, finance, math, IT or other fields)
+- Interest in product management and modern technologies, especially artificial intelligence and LLMs (e.g., GPT)
+- Quick learner with structured thinking and a proactive attitude
+- Familiarity with tools like Google Sheets, Excel, Notion and Figma (a plus)
+- Good writing and organizational skills
+
+
+What We Offer
+
+- Mentorship from experienced product managers and tech leads
+- Opportunity to contribute to real AI product development (GPT-based tools)
+- Flexible schedule that can accommodate your university classes
+- A friendly, fast-paced, and supportive environment
+- Office in Almaty with a good coffee machine ☕ and a strong engineering culture
+- Opportunity to transition to a full-time position after the internship
+
+
+
+
+Deadline to Apply:
+
+April 30, 2025
+
+If you're curious about how real AI products are built, want to work with technologies that shape the future, and learn from a team of professionals, we’d love to meet you.",не требуется,"Полная занятость
+Стажировка",График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя или гибрид,https://almaty.hh.kz/vacancy/119645539?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,17 апреля 2025,Не указано
+Creatio Certified Developer / Implementation Specialist,Velvetech LLC,Не указано,Не указано,"Creatio Certified Developer and Implementation Specialist
+
+3-6 years of experience
+
+About us
+
+Velvetech, is an American global software development company headquartered in Miami, FL, and with an office in Chicago, IL. Velvetech has its developers strategically distributed in 10+ global technical job markets to deliver the best in class software engineering and exceptional client services. We have 20+ years of experience in software and hardware development for clients all around the world, especially for US clients. As an official Microsoft Gold Partner, our company is listed in the top 5 software development companies in Illinois, USA.
+
+Areas of expertise are consulting, development, implementation, and support of software solutions. We implement modern backend solutions that support microservices architecture with the following technologies: NET Core, Node.js, Java, SQL Server, PostgreSQL, MongoDB, Redis, RabbitMQ. For the web UI front-end development, we opt for React, or Angular, and for mobile development — Swift, Kotlin, Java. Most of the systems are designed for cloud infrastructures like AWS, Azure, GCP, and heavily rely on Docker, Kubernetes while modern CI/CD is made using GitLab CI or TeamCity. In September 2021, Velvetech LLC received the status of the official Training Provider of the International Institute of Business Analysis. This status gives us the right to conduct regular quality trainings for Business Analysts and anyone performing BA activities regardless their job title.
+
+Principles are based on Agile Methodology, Scrum and Kanban. Various projects coded in GitLab or GitHub are built with multiple coordinated teams, collaborating via Jira, Confluence, MS Teams, and Slack. Velvetech constantly follows the Tech trends and actively cooperates with startups in such breakthrough areas as Machine Learning, the Internet of Things, Blockchain, FPGA, and AI.
+
+Responsibilities
+Work with clients to gather and analyze their business requirements
+Design and configure Creatio solutions using low-code tools
+Develop and customize workflows, user interfaces, and business logic within Creatio
+Conduct thorough testing to ensure the quality and functionality of implemented solutions
+Provide training and support to clients during and after the developing and implementation process
+Create comprehensive documentation for implemented solutions and processes
+Collaborate with business analysts, developers, and other stakeholders to ensure successful project delivery
+Requirements
+Creatio certification is required
+At least 3+ years of experience in developing and implementing IT solutions, preferably with CRM or BPM platforms
+Strong understanding of business process modeling and data integration methods
+Proficiency in using no-code development tools for system customization
+Deep knowledge of Creatio architecture, C#, JS, Angular
+Excellent problem-solving skills and attention to detail
+Strong communication and interpersonal skills
+Ability to work independently and manage multiple projects simultaneously
+English knowledge at Intermediate level or higher
+Benefits
+Velvetech is in the TOP 5 development companies in the USA
+You have FLEXIBLE working conditions and a COOPERATIVE environment
+A COMPETITIVE and performance-based salary, fair compensation and benefits
+Many CHALLENGING and exciting projects with new opportunities and learning
+GROWTH opportunities, skills and competencies improvement, and professional certification
+In-company TRAINING (English, Software / DevOps / Project management / Design / Business)
+Our team
+
+We are a friendly team of 170+ professionals where everyone is able to achieve high results and grows professionally not only due to their own knowledge and skills but also with the support of colleagues. Values that we highly appreciate are high performance, responsibility, respect, and loyalty. In order to have a highly motivated team, Velvetech invests in their people, additional education, certification, and others. You choose your career path and we are here to support you!
+
+People work together in harmony, encouraging each other to continuously learn, progress, and pursue perfection. Our employees enjoy working as we turn challenges into advantages to share success with each other.
+
+You have a chance to become a part of a friendly and professional team that creates robust software solutions to deliver maximum value to our international clients.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/119399049?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,10 апреля 2025,"Creatio,C#,JavaScript,Angular"
+Warehouse Supervisor (Executive) / Руководитель складского хозяйства,ТОО Coca-Cola İçecek Kazakhstan  ( ТОО СП «Кока-Кола Алматы Боттлерс» ),посёлок Боралдай,Не указано,"Join us to take your career journey to the next level!
+# ProudlyCCI
+Job Identification
+
+We are looking for a Warehouse Supervisor to be a part of our Supply Chain team located in Kazakhstan.
+What We Expect
+
+Define the needs in mechanized loading means, capacities and workforce to accept and move raw materials;
+Ensure the standards of storage, hand over and transportation of raw materials;
+Hold responsibility for the property in the warehouse, warehouse premises, engineering networks and communications, firefighting inventory, as well as for condition of the entrusted machines;
+Hold responsibility for observance of HSE requirements by the warehouse personnel;
+Manage the acceptance, storage and hand over of raw materials using the warehouse areas most rationally and placing materials by loading zones;
+Rationally place raw materials by storage terms and ensure access to any material;
+Timely check in the received materials and assign lot numbers on the packages;
+Keep the storekeeping rules and regimes regarding raw materials;
+
+Qualifications:
+
+University/special secondary degree
+At least 3 years in warehouse management area; experience on managerial positions is preferable
+Upper-intermediate level English
+Good command of Microsoft Office programs
+Strong communication and leadership skills
+Material movement terms in accordance with FEFO, FIFO system
+
+We're an equal opportunity employer. All applicants will be considered for employment without attention to race, sex, color, national or social origin, ethnicity, religion, age, pregnancy, disability, sexual orientation, gender expression or political opinion.
+
+What We Embrace:
+
+“People Centered” Focus
+Equal Salary Advocate
+A Globally Diverse/An International Workplace
+Inclusive Team-Building Activities
+Digital Learning Opportunities
+Leadership Exposure With Organizational Events
+Inclusive Language And Culture
+Social Clubs/Networks
+Inclusive/Family-Friendly Policies
+
+Who We Are
+
+CCI is a multinational beverage company operating in Azerbaijan, Iraq, Jordan, Kazakhstan, Kyrgyzstan, Pakistan, Syria, Tajikistan, Turkey, Turkmenistan, and Uzbekistan. CCI produces, distributes, and sells The Coca-Cola Company's sparkling and still beverages. With 30 bottling plants, 3 fruit processing plants, and more than 10,000 employees in 11 countries, CCI offers a wide range of beverages to a consumer base of 430 million.
+
+Our purpose at CCI is to create value for our employees, customers, consumers, and community. In line with our vision to become the best FMCG company, we put people at the core of everything we do. We achieve successful results with our people who come together as One Team, committing to live by our shared values of passion, integrity, accountability, and teamwork. Our ambition is to become a great place to work, which is inclusive, diverse, and inspiring, with its key organizational and leadership capabilities.
+
+Encouraging a diverse and inclusive organization is core to our commitment at CCI, that's why we nurture it in everything we do. We are proud to become the fourth company to obtain the EQUAL-SALARY global certification and proud to be an Equal Opportunity and Affirmative Action employer, covering in all our countries.
+
+We take responsibility for the future with our Sustainability Commitments for 2030.
+
+Focusing our roadmap on six main areas, including packaging, water, and climate on environmental issues; human rights, diversity & inclusion, and community investments on social issues, we pledged 9 commitments to continuously improve our efforts. To ensure that by the year 2030, 35% of newly hired individuals, 40% of managerial positions, and 50% of executive committee members are comprised of women.",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/105119816?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,10 апреля 2025,"Организация складского хозяйства,Организация и контроль работы персонала,Складская логистика,Английский — C1 — Продвинутый"
+Senior Data Science Engineer,ТОО DIGITAL TEAM (ДИДЖИТЛ ТИМ),Не указано,Не указано,"DigitalTeam is hiring. We are a worldwide software service provider and currently looking for a Senior Data Science Engineer who can build a simulator.
+
+Requirements:
+
+- Bachelor’s degree in Computer Science, Engineering, or related field;
+
+- Emphasis on Databricks and Jupyter Notebooks;
+
+- Experience with Python, Pyspark and machine learning applications;
+
+- Expertise in predictive modeling especially Deep Learning Models such as LSTM or Ensembles;
+
+- Knowledge of XGBoost (Extreme Gradient Boosting);
+
+- Ability to assess the correlation vs. causality in the predictions to ensure they make sense;
+
+- A strong understanding of ML Ops;
+
+- Strong problem-solving skills and attention to detail.
+
+Responsibilities:
+
+- Evaluate data to discover trends and patterns to improve and automate analysis;
+
+- Migrate and import data from a variety of sources into a central database;
+
+- Independently mine data and optimize processes;
+
+- Apply advanced scientific knowledge to projects;
+
+- Determine priorities for experiments;
+
+- Utilize numerous analytical instruments.
+
+Benefits:
+
+- Official employment;
+
+- Flexible work schedule;
+
+- Professional growth and development with friendly team;
+
+- Remote work;
+
+- Detailed onboarding.",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/119587854?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,16 апреля 2025,"Python,SQL,Английский язык,Azure,Databases"
+Senior Data Scientist,АО Home Credit Bank,Не указано,Не указано,"Задачи, которые ты будешь выполнять:
+
+Подбирать и применять методы машинного обучения, для решения и оптимизации производственных задач, включая обучение, transfer learning и fine-tuning
+Решать сложные задачи в сфере NLP, включая тонкую настройку LLM моделей
+Разрабатывать и оптимизировать CV-модели, для работы на устройствах различной производительности
+Строить сложные пайплайны и ETL-процессы для обработки и подготовки данных
+Тестировать и выводить разрабатываемые решения в продакшин
+
+
+Требования и навыки:
+
+Отличное знание языка Python
+Опыт работы с библиотеками numpy и pandas
+Отличное знание фреймворков глубокого обучения: опыт разработки нейронных сетей с использованием PyTorch и/или TensorFlow, понимание тонкостей обучения и отладки сложных моделей
+Опыт работы с большими языковыми моделями (LLM)
+Опыт работы в области компьютерного зрения (CV)
+Знания в области линейной алгебры и мат. анализа
+Аналитические навыки: способность формализовать задачи, строить математические модели, проводить их анализ и интерпретацию результатов
+Опыт работы с большими данными (BigData)
+Продвинутые навыки работы с системой контроля версий: Git
+Продвинутые навыки работы с инструментом контейнеризации Docker, (опыт работы с Kubernetes будет плюсом)
+Знание английского языка на уровне не менее Intermediate
+
+
+Мы предлагаем тебе:
+
+Работу в международном банке
+Возможность работать с коллегами из разных стран
+Крутых наставников и коллег
+Ежемесячные лимиты на спорт, здоровье, саморазвитие или на заботу о семье
+Возможность совмещать работу в офисе и home-office
+Кредиты для сотрудников по выгодной ставке
+Отсутствие дресс-кода
+Внутренние и внешние программы обучения
+Курсы английского языка",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,https://almaty.hh.kz/vacancy/119549429?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,15 апреля 2025,Английский — B1 — Средний
+AI Data Group Lead,АО Home Credit Bank,"Алматы, улица Зеина Шашкина, 1/1",Не указано,"Roles and Responsibilities:
+Lead, mentor, and manage a team of data scientists and analysts focused on AI-related data initiatives;
+Provide guidance on best practices for model development, data analysis, and performance optimization;
+Conduct regular performance reviews and provide feedback to enhance team productivity and professional growth;
+Define and drive the strategic direction of AI data initiatives, ensuring alignment with business goals and priorities;
+Serve as the primary point of contact for business leaders, AI development teams, and other stakeholders regarding AI data initiatives;
+Drive the creation of actionable insights from AI model performance, customer behavior, and contact center data to guide business decision-making;
+Provide data-driven recommendations to improve AI assistant capabilities, operational workflows, and overall customer experience;
+Report on key performance indicators (KPIs), such as CSAT, customer complaints, and AI model effectiveness, to senior management.
+Qualifications/Experience:
+Proven experience leading a data science or AI-focused team, with a track record of mentoring, developing talent, and driving results;
+Strong people management skills with the ability to motivate and inspire a team to achieve high performance;
+Deep understanding of machine learning, AI model development, and advanced data analytics techniques;
+Strong strategic thinking with the ability to align data science initiatives with business goals;
+Excellent communication and interpersonal skills to collaborate with cross-functional teams, senior management, and stakeholders;
+Expertise in machine learning frameworks and data science tools such as TensorFlow, PyTorch, Scikit-learn, and others;
+Experience with large-scale data platforms such as Oracle DWH, Hadoop, and SQL;
+Familiarity with data visualization and analysis tools (e.g., Python, Jupyter, Pandas, Matplotlib);
+English – Fluent.
+
+Tools:
+
+Machine Learning & Data Science: Python, TensorFlow, PyTorch, Scikit-learn, Keras
+Data Platforms: Oracle DWH, Hadoop, SQL
+Data Analysis & Visualization: Jupyter, Pandas, Matplotlib, Excel
+Collaboration & Version Control: Git, JIRA, Confluence
+We offer to you:
+Work in an international bank
+Loans for employees at a favorable rate
+No dress-code
+Professional mentors and colleagues
+New modern and cosy office for comfortable work
+Conditions: fixed salary + an attractive and transparent bonus system.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/119103321?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,3 апреля 2025,"AI,Artificial intelligence,Oracle DWH,SQL,MS Excel,MS PowerPoint,Python,Jupyter Notebook,pandas,Matplotlib,Hadoop"
+Production Engineer,ТОО Coca-Cola İçecek Kazakhstan  ( ТОО СП «Кока-Кола Алматы Боттлерс» ),посёлок Боралдай,Не указано,"Production Engineer, Almaty
+
+Join us to take your career journey to the next level!
+#ProudlyCCI
+Job Identification
+
+We are looking for a Production Engineer to be a part of our Supply Chain team located in Almaty.
+
+Main Responsibilities
+
+Plan, develop and realize protective and preventive maintenance programs in order to ensure compliance of machines
+Ensure realization of planned production program
+Carry out production according to the defined standards of process and taking actions to improve the process
+Ensure that material yields are within company standards
+Develop work safety procedures, make sure the team under supervision follows rules
+Set up machine maintenances according to plans
+Carry out criteria assessments and prepare the report for continuous improvement and performance follow up, present it to management, plan and implement necessary corrective-preventive actions
+Determine training needs of foremen, operator and technician
+Make sure the team under supervision follows safety procedures and rules
+Manage the line OPEX budget and equipment investment projects
+Improve the production methods for developing the quality of the packages & products
+Manage the spare parts stock level
+Ensure that the GMP and 6S rules are followed
+Minimize the production costs and losses
+
+Requirements
+
+University Graduate (Mechanical, Electrical / Electronics Engineering)
+Minimum 1-2 years experience in production field
+Upper-Intermediate level of English
+Good command of Microsoft Office programs
+Strong communication and leadership skills
+
+‘’We're an equal opportunity employer. All applicants will be considered for employment without attention to race, sex, color, national or social origin, ethnicity, religion, age, pregnancy, disability, sexual orientation, gender expression or political opinion.’’
+
+What We Embrace:
+
+“People Centered” Focus
+Equal Salary Advocate
+A Globally Diverse/An International Workplace
+Inclusive Team-Building Activities
+Digital Learning Opportunities
+Leadership Exposure With Organizational Events
+Inclusive Language And Culture
+Social Clubs/Networks
+Inclusive/Family-Friendly Policies
+
+Who We Are
+
+CCI is a multinational beverage company operating in Azerbaijan, Iraq, Jordan, Kazakhstan, Kyrgyzstan, Pakistan, Syria, Tajikistan, Turkey, Turkmenistan, and Uzbekistan. CCI produces, distributes, and sells The Coca-Cola Company's sparkling and still beverages. With 30 bottling plants, 3 fruit processing plants, and more than 10,000 employees in 11 countries, CCI offers a wide range of beverages to a consumer base of 430 million.
+
+Our purpose at CCI is to create value for our employees, customers, consumers, and community. In line with our vision to become the best FMCG company, we put people at the core of everything we do. We achieve successful results with our people who come together as One Team, committing to live by our shared values of passion, integrity, accountability, and teamwork. Our ambition is to become a great place to work, which is inclusive, diverse, and inspiring, with its key organizational and leadership capabilities.
+
+Encouraging a diverse and inclusive organization is core to our commitment at CCI, that's why we nurture it in everything we do. We are proud to become the fourth company to obtain the EQUAL-SALARY global certification and proud to be an Equal Opportunity and Affirmative Action employer, covering in all our countries.
+
+We take responsibility for the future with our Sustainability Commitments for 2030.
+
+Focusing our roadmap on six main areas, including packaging, water, and climate on environmental issues; human rights, diversity & inclusion, and community investments on social issues, we pledged 9 commitments to continuously improve our efforts. To ensure that by the year 2030, 35% of newly hired individuals, 40% of managerial positions, and 50% of executive committee members are comprised of women.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/117411812?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,14 апреля 2025,Английский — B2 — Средне-продвинутый
+Warehouse Supervisor (Заведующий складом),ТОО Coca-Cola İçecek Kazakhstan  ( ТОО СП «Кока-Кола Алматы Боттлерс» ),"Шымкент, Абайский район",Не указано,"Join us to take your career journey to the next level!
+
+# ProudlyCCI
+
+We are looking for a Warehouse Supervisor to be a part of our Supply Chain team located in Shymkent, Kazakhstan.
+
+What We Expect:
+Define the needs in mechanized loading means, capacities and workforce to accept and move raw materials;
+Ensure the standards of storage, hand over and transportation of raw materials;
+Hold responsibility for the property in the warehouse, warehouse premises, engineering networks and communications, firefighting inventory, as well as for condition of the entrusted machines;
+Hold responsibility for observance of HSE requirements by the warehouse personnel;
+Manage the acceptance, storage and hand over of raw materials using the warehouse areas most rationally and placing materials by loading zones;
+Rationally place raw materials by storage terms and ensure access to any material;
+Timely check in the received materials and assign lot numbers on the packages;
+Keep the storekeeping rules and regimes regarding raw materials.
+Qualifications:
+University/special secondary degree;
+At least 3 years in warehouse management area; experience on managerial positions is preferable;
+Upper-intermediate level English;
+Good command of Microsoft Office programs;
+Strong communication and leadership skills;
+Material movement terms in accordance with FEFO, FIFO system.
+
+We're an equal opportunity employer. All applicants will be considered for employment without attention to race, sex, color, national or social origin, ethnicity, religion, age, pregnancy, disability, sexual orientation, gender expression, or political opinion.
+
+What We Embrace:
+“People Centered” Focus
+Equal Salary Advocate
+A Globally Diverse/An International Workplace
+Inclusive Team-Building Activities
+Digital Learning Opportunities
+Leadership Exposure With Organizational Events
+Inclusive Language And Culture
+Social Clubs/Networks
+Inclusive/Family-Friendly Policies
+
+Who We Are
+
+CCI is a multinational beverage company operating in Azerbaijan, Iraq, Jordan, Kazakhstan, Kyrgyzstan, Pakistan, Syria, Tajikistan, Turkey, Turkmenistan, and Uzbekistan. CCI produces, distributes, and sells The Coca-Cola Company's sparkling and still beverages. With 30 bottling plants, 3 fruit processing plants, and more than 10,000 employees in 11 countries, CCI offers a wide range of beverages to a consumer base of 430 million.
+
+Our purpose at CCI is to create value for our employees, customers, consumers, and community. In line with our vision to become the best FMCG company, we put people at the core of everything we do. We achieve successful results with our people who come together as One Team, committing to live by our shared values of passion, integrity, accountability, and teamwork. Our ambition is to become a great place to work, which is inclusive, diverse, and inspiring, with its key organizational and leadership capabilities.
+
+Encouraging a diverse and inclusive organization is core to our commitment at CCI, that's why we nurture it in everything we do. We are proud to become the fourth company to obtain the EQUAL-SALARY global certification and proud to be an Equal Opportunity and Affirmative Action employer, covering in all our countries.
+
+We take responsibility for the future with our Sustainability Commitments for 2030.
+
+Focusing our roadmap on six main areas, including packaging, water, and climate on environmental issues; human rights, diversity & inclusion, and community investments on social issues, we pledged 9 commitments to continuously improve our efforts. To ensure that by the year 2030, 35% of newly hired individuals, 40% of managerial positions, and 50% of executive committee members are comprised of women.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/108967765?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,15 апреля 2025,"Работа с ТМЦ,Складской Учет,Инвентаризация,Управление персоналом,Лидерские качества,Английский язык,Английский — B2 — Средне-продвинутый"
+Middle ML Engineer (NLP),ТОО Documentolog,"Нур-Султан (Астана), проспект Мангилик Ел, 52А",Не указано,"Наша компания ищет специалиста в области NLP для работы на долгосрочной основе.
+
+Обязанности:
+- Создание сервисов на базе генеративных AI и классических ML/DL моделей;
+- Сбор, обработка и загрузка данных из различных источников (SQL, NoSQL), работа с Дата пайплайнами;
+- Разработка и поддержка API микросервисов, в т.ч. для деплоя моделей;
+- Следовать современным трендам в области AI/DS;
+- Сотрудничать с продуктовыми командами для успешного, своевременного внедрения и обслуживания сервисов;
+- Проводить исследования и эксперименты с различными наборами данных;
+- Управлять сложными рабочими процессами с данными и развивать экспертизу в предметной области.
+
+Требования:
+- Опыт работы не менее 2-х лет, из них:
+в сфере Data Science / ML Engineering / Data Engineering не менее 2-х лет;
+в сфере Deep Leanring и AI не менее 1 года;
+- Практический опыт работы в NLP: обучение, оценка и использование моделей;
+- Опыт работы с LLM: prompt engineering, evaluation, fine-tuning и т.д.;
+- Опыт построения ETL процессов и интеграции данных из различных источников (БД, API, файловые системы);
+- Опыт подготовки, аннотирования и предобработки данных для NLP задач;
+- Понимание принципов работы классических ML/DL алгоритмов и моделей;
+- Знание Python: умение писать чистый, тестируемый код;
+- Знание SQL, Git, Docker, CI/CD.
+- Плюс: опыт работы в построении Дата пайплайнов с помощью оркестраторов (Airflow, Dagster и т.д.) и/или распределённых систем (Spark, Hadoop и т.д.)
+
+Условия:
+
+- Оформление по ТК РК;
+- Режим работы 5/2, с 09:00 до 18:30, обед с 13:00 до 14:30;
+- Дружный коллектив и удобный офис.
+​​​​​​​
+Система мотивации:
+- Беспроцентные займы: Финансовая поддержка сотрудников, проработавших в компании более 1 года;
+- Фантомные акции компании: Сотрудники с опытом работы более 1 года получают возможность получать процент от чистой прибыли компании. Количество фантомных акций увеличивается с каждым годом работы в знак признательности за преданность и лояльность сотрудника.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/117789224?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,19 апреля 2025,"Data Science,Machine Learning,Python,SQL,NLP,Английский — B1 — Средний"
+AI Solutions & Workflow Designer,АО Home Credit Bank,Не указано,Не указано,"Key Responsibilities:
+
+Automation Solution Design and Implementation:
+
+Design and implement AI-driven automation solutions that streamline workflows and improve efficiency.
+Work with business teams to identify opportunities for automation, including processes that can be enhanced with AI and machine learning.
+Leverage tools like Power Automate, RPA, and AI platforms to create seamless automation systems.
+
+Collaboration with Junior Project Manager:
+
+Collaborate closely with the Junior Project Manager to understand business goals and help implement automation strategies.
+Translate project requirements into practical automation solutions that enhance overall performance and productivity.
+Support in providing technical insights and advice to business teams to help them achieve their automation objectives.
+
+System Integration with IT Teams:
+
+Work with IT teams to ensure smooth integration of automation solutions with existing systems and infrastructure.
+Ensure that all automation solutions are scalable, secure, and compatible with internal systems.
+Coordinate with IT when necessary to address system limitations or to implement complex integrations.
+
+Process Analysis and Improvement:
+
+Analyze business processes to identify inefficiencies, bottlenecks, and areas that can benefit from AI automation.
+Collaborate with stakeholders to define process improvements and develop automation solutions that align with business goals.
+Continuously monitor the effectiveness of implemented automation solutions and suggest adjustments for improvement.
+
+Automation Maintenance and Support:
+
+Provide ongoing support for deployed automation systems, ensuring they operate smoothly and efficiently.
+Troubleshoot and resolve any issues that arise with automation workflows, liaising with IT when needed for technical resolution.
+Update and refine automation workflows based on feedback from end-users and changes in business requirements.
+
+AI and Automation Tool Expertise:
+
+Stay up-to-date with the latest advancements in AI, automation technologies, and best practices.
+Share knowledge of new tools, features, and techniques with business stakeholders to continuously enhance automation initiatives.
+Maintain expertise in tools like Power Automate, RPA platforms, and other automation-related technologies.
+
+User Training and Support:
+
+Help train and onboard business teams on the use of automation tools and solutions.
+Provide end-user support to ensure they are fully equipped to utilize automation systems effectively.
+Offer training on AI-driven solutions and how they can be used to enhance team productivity.
+
+Required Skills and Qualifications:
+
+Automation Tools and AI Expertise:
+
+Experience working with automation platforms such as Power Automate, RPA tools (e.g., UiPath, Blue Prism), or other automation tools.
+Familiarity with AI technologies and platforms used for process automation and data-driven decision-making.
+Strong understanding of how AI and automation can drive business efficiency.
+
+Process Improvement and Problem Solving:
+
+Ability to analyze existing workflows and identify opportunities for automation and optimization.
+Strong problem-solving skills with the ability to apply AI solutions to improve business processes.
+
+Collaboration and Communication:
+
+Excellent communication skills, with the ability to work closely with business stakeholders to understand their needs and deliver appropriate automation solutions.
+Comfortable working with IT teams for system integration and technical troubleshooting.
+Ability to explain technical concepts in a simple and understandable manner for non-technical stakeholders.
+
+Project Support and Execution:
+
+Ability to manage tasks effectively and work within project timelines.
+Experience supporting project delivery, working with cross-functional teams to ensure timely and successful implementation.
+
+Technical Proficiency:
+
+Familiarity with database management, integration technologies, and system architecture as they relate to automation.
+Basic understanding of programming/scripting for automation tasks is a plus (e.g., PowerShell, Python, etc.).
+
+Attention to Detail:
+
+Strong attention to detail in testing, implementing, and maintaining automation solutions.
+Ability to ensure that automation workflows are designed and executed correctly, with minimal errors and maximum impact.
+
+Education and Experience:
+
+Bachelor’s degree in Computer Science, Engineering, Business, or a related field.
+1-3 years of experience in process automation, AI, or related roles.
+Familiarity with AI automation tools, RPA platforms, and process optimization technologies.
+Prior experience working with cross-functional teams, especially in a collaborative setting with IT.
+
+Tools and Technologies:
+
+Automation Tools: Power Automate, UiPath, Blue Prism, Automation Anywhere, etc.
+AI Platforms: Familiarity with AI platforms (e.g., TensorFlow, OpenAI) for automation use cases.
+Programming and Scripting: PowerShell, Python, or other relevant scripting languages for automation.
+System Integration: Understanding of API integration and connecting automation solutions with internal systems.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,https://almaty.hh.kz/vacancy/119115628?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,3 апреля 2025,Английский — C1 — Продвинутый
+Middle Data Scientist,ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/Altel) | IT,Не указано,Не указано,"Мы ищем опытного специалиста по анализу данных, готового принять вызов и присоединиться к нашей команде в качестве Senior Data Scientist.
+
+Наш идеальный кандидат - это инициативный и талантливый профессионал, обладающий глубокими знаниями в области машинного обучения, статистического анализа и предиктивного моделирования.
+
+ЧТО НУЖНО ДЕЛАТЬ:
+
+Разработка и реализация сложных алгоритмов машинного обучения для улучшения наших продуктов и услуг.
+Анализ больших объемов данных и создание прогнозных моделей для помощи в принятии бизнес-решений.
+Сотрудничество с другими отделами для определения важных вопросов и разработки подходящих стратегий анализа данных.
+Представление сложных технических концепций широкой аудитории.
+
+КАКИЕ НАВЫКИ ВАЖНЫ:
+
+Бакалавр или магистр в области компьютерных наук, статистики, математики или смежной области.
+Минимум 2 лет опыта работы в области Data Science.
+Знание Python и основных библиотек для обработки данных (numpy, pandas) и машинного обучения (scikit-learn, TensorFlow).
+Опыт работы с большими наборами данных и базами данных SQL.
+Знание статистических методов анализа и предиктивного моделирования.
+Сильные навыки визуализации данных, опыт работы с библиотеками, такими как Matplotlib или Seaborn.
+Способность работать в команде, отличные навыки общения.
+
+БОНУСНЫЕ НАВЫКИ:
+
+Опыт работы в секторе телекоммуникаций.
+Опыт работы со Spark/Hadoop
+Знание систем BI
+
+ЗАРПЛАТА - ЭТО ЕЩЕ НЕ ВСЁ
+
+Гибридный формат работы и гибкое начало рабочего дня;
+Профессиональное развитие: участие в митапах, тренингах, конференциях, демо-днях и хакатонах;
+Дополнительные 4 дня отпуска — итого 28 календарных дней за год;
+Годовой бонус по результатам достижения KPI;
+Корпоративная сотовая связь;
+Добровольная медицинская страховка со стоматологией и лекарствами с возможностью бесплатно добавить двух близких родственников;
+Фитнес-абонементы со скидкой и в рассрочку;
+Денежная компенсация за использование личного ноутбука;
+Онлайн-платформа бесплатной психологической помощи.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/119586627?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,16 апреля 2025,Не указано
+Senior DevOps Engineer,Не указано,Не указано,Не указано,"We are developing three high-performance projects that handle over 40 million monthly calls. In addition to telephony, our platforms offer a full range of features and capabilities, including omnichannel, intelligent routing, analytics, machine learning, and more.
+
+Our infrastructure is located in Europe, Singapore, and the USA, and our global team has 100+ employees and offices on three continents.
+
+
+Responsibilities:
+
+Proactively contribute to the design of new features, suggesting innovative technical solutions and accurately estimating development timelines.
+Integration of DevOps approaches into a team of data engineers.
+Creation of efficient CI/CD and other automated solutions.
+Provision and improvement of existing infrastructure.
+Monitor and troubleshoot internal infrastructure parts.
+Write infrastructure code and automation.
+Document and share knowledge and best practices.
+Collaborate with cross-functional teams.
+
+Requirements:
+
+3+ years of Deployment or Application engineering experience.
+
+Deep knowledge of DevOps methodologies such as CI/CD, IaC, etc.
+
+Strong coding, design, troubleshooting and problem-solving ability in Python.
+
+Deep knowledge of ansible.
+
+Writing well-designed, testable and efficient code.
+
+Proven experience with Containerization and Virtualization.
+
+Experience in developing fault tolerance mechanisms - clustering, replication, scaling
+approaches, etc.
+
+Excellent research and troubleshooting skills.
+
+Setting up monitoring solutions.
+
+Nice to have:
+
+Experience working with contact centers, VoIP solutions
+Familiar with functional programming
+Ability to read and troubleshoot Ruby code
+
+Tech Stack:
+
+Infrastructure as Code: Gitlab, Terraform, Ansible
+
+Environments: Dedicated and Bare-metal
+
+Languages: Ruby, Python, Golang, Rust, Node.js
+
+Databases: PostgreSQL, MySQL, Redis, AMQP, Elasticsearch, ClickHouse
+
+Monitoring: Zabbix, Grafana
+
+We offer:
+
+Competitive compensation: Receive a competitive salary with the potential for annual bonuses based on your contributions.
+Collaborate with a diverse and talented team: Work alongside colleagues from around the world, bringing unique perspectives and cultural insights to your projects.
+Prioritize your well-being: Stay healthy with comprehensive health insurance, including dental coverage.
+Find your work style: Choose between a modern office environment or the flexibility of remote work.
+Work-life balance: Set a schedule that works for you with our flexible work arrangements.
+Grow your network, earn rewards: Recommend talented friends and get rewarded for successful hires.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,https://almaty.hh.kz/vacancy/119545734?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list,15 апреля 2025,"Gitlab,Terraform,Ansible,Zabbix,Grafana,ELK,Python,MySQL,PostgreSQL,Clickhouse"
+Senior Data Software Engineer (Big Data),"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"We are looking for an experienced Senior Data Software Engineer with a deep understanding of Apache Spark, Python/Java/Scala and proficiency with any cloud providers. In this role, you will develop and maintain data pipelines, working closely with cross-functional teams.
+
+If you are passionate about using your data engineering skills to make a significant impact and excel in a collaborative, growth-oriented environment, we encourage you to apply and join us.
+
+The remote option applies only to the Candidates who will be working from any location in Kazakhstan.
+
+What You’ll Do
+
+Develop and maintain data pipelines for efficient data processing and analysis
+Collaborate with cross-functional teams to identify business requirements and translate them into technical solutions
+Create and maintain technical documentation for all data engineering projects
+Work with data scientists to ensure models are production-ready
+Ensure all data engineering solutions are high-quality, reliable and scalable
+Troubleshoot and resolve data-related issues promptly and efficiently
+Stay up-to-date with emerging data engineering technologies and trends
+Participate in code reviews to ensure code quality and adherence to standards
+
+What You Have
+
+3+ years of experience in Data Software Engineering
+Expertise in Apache Spark, Python/Java/Scala
+Background in developing and maintaining data pipelines
+Proficiency in SQL and relational tables
+Understanding of SDLC, quality gates and Agile methodologies
+B2+ English level, both verbal and written
+Hands-on experience with any major cloud provider: Azure, AWS or GCP
+
+Nice to Have
+
+Competency in statistical models and their practical applications
+Familiarity with Databricks and MLOps for efficient model deployment and management
+Hands-on experience with streaming processing technologies like Kafka, Spark Streaming and Flume
+Practical or theoretical knowledge of NoSQL databases
+
+We Offer
+
+We connect like-minded people:
+Delivering innovative solutions to industry leaders, making a global impact  
+Enjoyable working environment, whether it is the vibrant office or the comfort of your home 
+Opportunity to work abroad for up to two months per year 
+Relocation opportunities within our offices in 50+ countries
+Corporate and social events 
+We invest in your growth:
+Leadership development, career advising, soft skills and well-being programs 
+Certifications, including GCP, Azure and AWS
+Unlimited access to LinkedIn Learning, Get Abstract, O'Reilly, Cloud Guru 
+Free English classes with certified teachers    
+Discounts in local language schools, including online courses for the Kazakh language
+We cover it all:
+Participation in the Employee Stock Purchase Plan 
+Monetary bonuses for engaging in the referral program 
+Comprehensive medical & family care package   
+Six trust days per year (sick leave without a medical certificate)   
+Coverage of psychology sessions of your choice
+Discounts for fitness clubs and sports programs
+Benefits package (hotels, tech stores, food delivery)
+
+About EPAM
+
+EPAM Kazakhstan is a team of technologists and innovators united by a passion for technology. Today, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM Kazakhstan received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/119339733?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,9 апреля 2025,Английский — B2 — Средне-продвинутый
+Senior Data Software Engineer (Big Data),"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"We are looking for an experienced Senior Data Software Engineer with a deep understanding of Apache Spark, Python/Java/Scala and proficiency with any cloud providers. In this role, you will develop and maintain data pipelines, working closely with cross-functional teams.
+
+If you are passionate about using your data engineering skills to make a significant impact and excel in a collaborative, growth-oriented environment, we encourage you to apply and join us.
+
+The remote option applies only to the Candidates who will be working from any location in Kazakhstan.
+
+What You’ll Do
+
+Develop and maintain data pipelines for efficient data processing and analysis
+Collaborate with cross-functional teams to identify business requirements and translate them into technical solutions
+Create and maintain technical documentation for all data engineering projects
+Work with data scientists to ensure models are production-ready
+Ensure all data engineering solutions are high-quality, reliable and scalable
+Troubleshoot and resolve data-related issues promptly and efficiently
+Stay up-to-date with emerging data engineering technologies and trends
+Participate in code reviews to ensure code quality and adherence to standards
+
+What You Have
+
+3+ years of experience in Data Software Engineering
+Expertise in Apache Spark, Python/Java/Scala
+Background in developing and maintaining data pipelines
+Proficiency in SQL and relational tables
+Understanding of SDLC, quality gates and Agile methodologies
+B2+ English level, both verbal and written
+Hands-on experience with any major cloud provider: Azure, AWS or GCP
+
+Nice to Have
+
+Competency in statistical models and their practical applications
+Familiarity with Databricks and MLOps for efficient model deployment and management
+Hands-on experience with streaming processing technologies like Kafka, Spark Streaming and Flume
+Practical or theoretical knowledge of NoSQL databases
+
+We Offer
+
+We connect like-minded people:
+Delivering innovative solutions to industry leaders, making a global impact  
+Enjoyable working environment, whether it is the vibrant office or the comfort of your home 
+Opportunity to work abroad for up to two months per year 
+Relocation opportunities within our offices in 50+ countries
+Corporate and social events 
+We invest in your growth:
+Leadership development, career advising, soft skills and well-being programs 
+Certifications, including GCP, Azure and AWS
+Unlimited access to LinkedIn Learning, Get Abstract, O'Reilly, Cloud Guru 
+Free English classes with certified teachers    
+Discounts in local language schools, including online courses for the Kazakh language
+We cover it all:
+Participation in the Employee Stock Purchase Plan 
+Monetary bonuses for engaging in the referral program 
+Comprehensive medical & family care package   
+Six trust days per year (sick leave without a medical certificate)   
+Coverage of psychology sessions of your choice
+Discounts for fitness clubs and sports programs
+Benefits package (hotels, tech stores, food delivery)
+
+About EPAM
+
+EPAM Kazakhstan is a team of technologists and innovators united by a passion for technology. Today, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM Kazakhstan received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,https://almaty.hh.kz/vacancy/119339766?query=Senior+Data+Scientist&hhtmFrom=vacancy_search_list,9 апреля 2025,Английский — B2 — Средне-продвинутый

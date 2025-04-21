@@ -1,35 +1,29 @@
 import argparse
 import asyncio
-from src.db import Base, engine
-from src.models import Vacancy
-from src.run import run_scraper  # async
-from src.cleaning_runner import run_cleaning  # sync
-from src.publisher_test import run_publisher  # async
-
-def init_db():
-    Base.metadata.create_all(bind=engine)
+import pandas as pd
+from src.run import run_scraper
+from src.cleaning import run_cleaning_pipeline
+from src.publisher_test import run_publisher
+from src.crud import insert_if_not_exists
+from src.db import SessionLocal
 
 if __name__ == "__main__":
-    # [INIT DB]
-    print("[INIT] Creating DB tables if not exist...")
-    init_db()
-
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--mode",
-        choices=["full", "daily"],
-        default="daily",
-        help="Scraper mode: full or daily"
-    )
+    parser.add_argument("--mode", choices=["full", "daily"], default="daily")
     args = parser.parse_args()
 
     print("[STEP 1] Scraping raw data...")
-    asyncio.run(run_scraper(mode=args.mode))
+    raw = asyncio.run(run_scraper(mode=args.mode))
 
     print("\n[STEP 2] Cleaning data...")
-    run_cleaning()
+    cleaned = run_cleaning_pipeline(raw)  # cleaned — это DataFrame
 
-    print("\n[STEP 3] Publishing to Telegram...")
+    print("\n[STEP 3] Saving to DB...")
+    session = SessionLocal()
+    for row in cleaned.to_dict(orient="records"):
+        insert_if_not_exists(session, row)
+
+    print("\n[STEP 4] Publishing to Telegram...")
     asyncio.run(run_publisher())
 
     print("\n✅ Pipeline completed successfully!")

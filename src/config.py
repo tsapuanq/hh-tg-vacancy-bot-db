@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 import os
 # === Поисковые ключи ===
 SEARCH_KEYWORDS = [
-    "Data Scientist", "Senior Data Scientist", "Machine Learning Engineer"
+    "Data Scientist", "Senior Data Scientist", "Machine Learning Engineer",
+    "ML Engineer"
 ]
 
 # , "Junior Data Scientist",
