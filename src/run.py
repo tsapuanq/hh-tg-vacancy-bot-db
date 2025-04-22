@@ -7,40 +7,22 @@ from playwright.async_api import async_playwright
 from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
-from src.utils import (
-    setup_logger,
-    save_to_csv,
-    load_existing_links,
-    save_raw_data
-)
+from src.utils import setup_logger, save_to_csv, load_existing_links, save_raw_data
+
 import argparse
-from src.db import SessionLocal
-from src.crud import insert_if_not_exists
-
-
-# ================== CLI parser ==================
-parser = argparse.ArgumentParser()
-parser.add_argument("--mode", choices=["full", "daily"], default="daily")
-args = parser.parse_args()
-SCRAPE_MODE = args.mode
 
 MAX_CONCURRENT_TASKS = 30
-db = SessionLocal()
 
-# ================== Scrape single vacancy ==================
 async def scrape_single(link, semaphore, context, results, idx, total):
     async with semaphore:
         try:
             page = await context.new_page()
             logging.info(f"[{idx}/{total}] Обрабатываем: {link}")
             data = await get_vacancy_details(link, page)
-            insert_if_not_exists(db, data)
             results.append(data)
             await page.close()
         except Exception as e:
             logging.warning(f"Ошибка при обработке {link}: {e}")
-
-# ================== Main pipeline ==================
 
 async def run_scraper(mode: str = "daily"):
     setup_logger()
@@ -77,16 +59,11 @@ async def run_scraper(mode: str = "daily"):
         df = pd.DataFrame(results)
         save_to_csv(results, CSV_MAIN)
         save_raw_data(df, CSV_RAW_DAILY)
-        logging.info(f"Сохранено {len(results)} новых вакансий")
+        logging.info(f"✅ Сохранено {len(results)} новых вакансий")
     else:
-        logging.info("Нет новых данных для сохранения")
-
-    db.close()
+        logging.info("❌ Нет новых данных для сохранения")
 
 if __name__ == "__main__":
-    import argparse
-    from dotenv import load_dotenv
-
     load_dotenv()
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["full", "daily"], default="daily")

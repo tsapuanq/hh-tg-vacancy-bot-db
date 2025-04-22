@@ -31,18 +31,10 @@ def save_raw_data(df: pd.DataFrame, file_path: str):
     df.to_csv(file_path, index=False, encoding="utf-8-sig")
     logging.info(f"[INFO] Raw data saved to: {file_path}")
 
-    
-import unicodedata
 
-def clean_text_safe(val) -> str:
-    if not isinstance(val, str):
-        try:
-            val = str(val)
-        except Exception:
-            return "Не указано"
-    try:
-        val = val.encode("utf-8", "replace").decode("utf-8", "replace")
-        val = unicodedata.normalize("NFKC", val)
-        return val.replace("\xa0", " ").replace("\u200b", "").strip()
-    except Exception:
-        return "Не указано"
+def clean_text_safe(text):
+    if not isinstance(text, str):
+        return ""
+    return text.replace("\xa0", " ").strip()
+
+

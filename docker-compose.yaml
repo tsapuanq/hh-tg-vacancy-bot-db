@@ -1,24 +1,10 @@
-services:
-  db:
-    image: postgres:15
-    container_name: hh_postgres
-    restart: always
-    environment:
-      POSTGRES_DB: vacancies
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-    ports:
-      - "5432:5432"
-    volumes:
-      - pg_data:/var/lib/postgresql/data
+version: '3.9'
 
+services:
   app:
-    image: gggpt4o/hh-scraper:latest
+    image: hh-scraper:latest
     env_file:
       - .env
     command: ["python", "run_all.py", "--mode=${SCRAPER_MODE}"]
-
-
-
-volumes:
-  pg_data:
+    volumes:
+      - ./data:/app/data  # для сохранения CSV на хосте
