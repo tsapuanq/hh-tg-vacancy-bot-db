@@ -27,7 +27,7 @@ def main():
     print(f"[INFO] Found latest raw file: {latest_raw_path}")
 
     try:
-        df = pd.read_csv(latest_raw_path, encoding="utf-8", errors="ignore")
+        df = pd.read_csv(latest_raw_path)
     except Exception as e:
         print(f"[ERROR] Failed to read raw CSV: {e}")
         return

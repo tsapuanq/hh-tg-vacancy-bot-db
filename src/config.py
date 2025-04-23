@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 # === Поисковые ключи ===
 SEARCH_KEYWORDS = [
-    "Data Scientist"
+    "Data Scientist", "Senior Data Scientist"
 ]
 # , "Senior Data Scientist", "Machine Learning Engineer",
 #     "ML Engineer"
@@ -47,4 +47,7 @@ CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
 
 def get_today_processed_csv():
     today = datetime.now().strftime("%Y-%m-%d")
-    return f"data/raw/vacancies_{today}.csv"
+    return f"data/processed/vacancies_clean_{today}.csv"
+
+
+CSV_MAIN = "data/main.csv"

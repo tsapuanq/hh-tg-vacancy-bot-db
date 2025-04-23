@@ -1,12 +1,20 @@
-import argparse
+import os
 import asyncio
 import pandas as pd
-from src.run import run_scraper  # async
-from src.cleaning import run_cleaning_pipeline  # sync
-from src.publisher_test import run_publisher  # returns coroutine
-from src.config import PROCESSED_DIR
 from datetime import datetime
-import os
+from src.run import run_scraper
+from src.cleaning import run_cleaning_pipeline
+from src.publisher_test import run_publisher
+from src.config import CSV_MAIN, PROCESSED_DIR
+
+def determine_mode() -> str:
+    if not os.path.exists(CSV_MAIN):
+        return "full"
+    try:
+        df = pd.read_csv(CSV_MAIN)
+        return "full" if df.empty else "daily"
+    except Exception:
+        return "full"
 
 def save_to_csv(df: pd.DataFrame):
     os.makedirs(PROCESSED_DIR, exist_ok=True)
@@ -16,12 +24,11 @@ def save_to_csv(df: pd.DataFrame):
     print(f"[INFO] Saved cleaned data to: {full_path}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["full", "daily"], default="daily")
-    args = parser.parse_args()
+    mode = determine_mode()
+    print(f"[MODE] Выбран режим: {mode.upper()}")
 
     print("[STEP 1] Scraping raw data...")
-    raw = asyncio.run(run_scraper(mode=args.mode))
+    raw = asyncio.run(run_scraper(mode=mode))
 
     print("\n[STEP 2] Cleaning data...")
     cleaned = run_cleaning_pipeline(raw)
@@ -30,6 +37,6 @@ if __name__ == "__main__":
     save_to_csv(cleaned)
 
     print("\n[STEP 4] Publishing to Telegram...")
-    asyncio.run(run_publisher())  # ✅ теперь всё корректно
+    asyncio.run(run_publisher())
 
     print("\n✅ Pipeline completed successfully!")
