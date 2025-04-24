@@ -1,18 +1,12 @@
-# Python
 __pycache__/
 *.pyc
 
-# Env & IDE
 .env
 .vscode/
 
-# Data outputs (будет монтироваться или кэшироваться)
-data/
 *.csv
 
-# Jupyter
 notebooks/
 .ipynb_checkpoints/
 
-# Игнорируем все .txt (например sent_links.txt)
 *.txt

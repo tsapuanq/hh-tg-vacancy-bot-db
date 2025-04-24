@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime
 from src.run import run_scraper
 from src.cleaning import run_cleaning_pipeline
-from src.publisher_test import run_publisher
+from src.publisher import run_publisher
 from src.config import CSV_MAIN, PROCESSED_DIR
 
 def determine_mode() -> str:
