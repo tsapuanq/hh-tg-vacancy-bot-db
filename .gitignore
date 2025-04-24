@@ -9,4 +9,4 @@ __pycache__/
 notebooks/
 .ipynb_checkpoints/
 
-*.txt
+data/sent_links.txt
