@@ -7,7 +7,7 @@ import logging
 
 # === Конфигурация ===
 GEMINI_API_KEY = os.getenv("GEM_API_TOKEN")
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+GEMINI_API_URL = os.getenv("GEM_URL")
 HEADERS = {"Content-Type": "application/json"}
 
 # === Вызов Gemini API с повторными попытками ===
@@ -79,3 +79,52 @@ def summarize_description_llm(description: str) -> dict:
     raw = gemini_api_call(prompt).strip()
     logging.info("[Gemini‑summary] Сырый ответ:\n" + raw)
     return clean_gemini_response(raw)
+
+FILTER_PROMPT = """
+Ты ассистент, который определяет релевантность вакансии по названию и описанию.
+
+Профессия считается релевантной, если она относится к одной из следующих:
+
+- Data Scientist
+- Senior Data Scientist
+- Junior Data Scientist
+- Machine Learning Engineer
+- ML Engineer
+- Data Analyst
+- Senior Data Analyst
+- Data Engineer
+- Big Data Engineer
+- Data Architect
+- Business Intelligence Analyst
+- BI Analyst
+- Business Intelligence Developer
+- Statistician
+- Quantitative Analyst
+- NLP Engineer
+- Computer Vision Engineer
+- Deep Learning Engineer
+- Artificial Intelligence Engineer
+- AI Researcher
+- Data Researcher
+- Predictive Analytics Specialist
+- Data Science Manager
+- Analytics Consultant
+- Data Miner
+- Data Specialist
+- Data Modeler
+
+❗️Игнорируй вакансии из других сфер, даже если в тексте встречаются слова типа “data”, “AI”, “model” и т.п., но они не относятся к профессиям из списка.
+
+Профессия: "{title}"
+Описание: "{description}"
+
+Ответь строго одним словом: yes или no.
+"""
+
+
+
+def filter_vacancy_llm(title: str, description: str) -> bool:
+    prompt = FILTER_PROMPT.format(title=title, description=description)
+    raw = gemini_api_call(prompt).strip()
+    logging.info("[Gemini‑filter] Сырый ответ:\n" + raw)
+    return raw.lower() == "yes"
