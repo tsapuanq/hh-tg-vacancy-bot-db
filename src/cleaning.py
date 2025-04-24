@@ -49,6 +49,19 @@ def parse_russian_date(date_str: str) -> pd.Timestamp:
     except:
         return pd.NaT
 
+
+def clean_location(loc: str) -> str:
+    """
+    Оставляем только первую часть до запятой (обычно это город или населённый пункт).
+    Если вход не строка, возвращаем его без изменений.
+    """
+    if not isinstance(loc, str):
+        return loc
+    # разбиваем по запятым и берём первый кусок
+    city = loc.split(",")[0].strip()
+    return city or "Не указано"
+
+
 # ======= Основной pipeline =======
 def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     if df is None or not isinstance(df, pd.DataFrame):
@@ -67,6 +80,7 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     print(f"[DEBUG] После фильтра по description: {df.shape}")
 
     # Очистка классических полей
+    df['location'] = df['location'].apply(clean_location)
     df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)

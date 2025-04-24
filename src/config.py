@@ -7,23 +7,17 @@ load_dotenv()
 
 # === Поисковые ключи ===
 SEARCH_KEYWORDS = [
-    "Data Scientist", "Machine Learning Engineer",
-    "Data Analyst"
+    "Data Scientist", "Data Analyst", "NLP Engineer",
+    "Senior Data Scientist", "Machine Learning Engineer",
+    "ML Engineer","Junior Data Scientist", "Senior Data Analyst",
+    "Data Engineer", "Big Data Engineer",
+    "Data Architect", "Business Intelligence Analyst", "BI Analyst",
+    "Business Intelligence Developer", "Statistician", "Quantitative Analyst",
+    "Computer Vision Engineer", "Deep Learning Engineer",
+    "Artificial Intelligence Engineer", "AI Researcher", "Data Researcher",
+    "Predictive Analytics Specialist", "Data Science Manager",
+    "Analytics Consultant", "Data Miner", "Data Specialist", "Data Modeler"
 ]
-    # "Senior Data Scientist",
-    # "Machine Learning Engineer",
-# , "Senior Data Scientist", "Machine Learning Engineer",
-#     "ML Engineer"
-# , "Junior Data Scientist",
-#     "Machine Learning Engineer", "ML Engineer",
-#     "Data Analyst", "Senior Data Analyst",
-#     "Data Engineer", "Big Data Engineer",
-#     "Data Architect", "Business Intelligence Analyst", "BI Analyst",
-#     "Business Intelligence Developer", "Statistician", "Quantitative Analyst",
-#     "NLP Engineer", "Computer Vision Engineer", "Deep Learning Engineer",
-#     "Artificial Intelligence Engineer", "AI Researcher", "Data Researcher",
-#     "Predictive Analytics Specialist", "Data Science Manager",
-#     "Analytics Consultant", "Data Miner", "Data Specialist", "Data Modeler"
 
 # === HH settings ===
 BASE_URL = "https://hh.kz/search/vacancy"

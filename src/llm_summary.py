@@ -7,7 +7,7 @@ import logging
 
 # === Конфигурация ===
 GEMINI_API_KEY = os.getenv("GEM_API_TOKEN")
-GEMINI_API_URL = os.getenv("GEM_URL")
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 HEADERS = {"Content-Type": "application/json"}
 
 # === Вызов Gemini API с повторными попытками ===
