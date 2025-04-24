@@ -1,7 +1,6 @@
 import pandas as pd
 import ast
 import logging
-from datetime import datetime
 
 # ======= salary =======
 def extract_salary_range_with_currency(salary_str):
@@ -71,11 +70,6 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
-
-    # Статические поля (для совместимости)
-    # df["about_company"] = "Не указано"
-    # df["responsibilities"] = "Не указано"
-    # df["requirements"] = "Не указано"
 
     print(f"[DEBUG] Финальный DataFrame: {df.shape}")
     return df

@@ -1,9 +1,8 @@
 from dotenv import load_dotenv
-load_dotenv()
-
 import os
 import pandas as pd
 from datetime import datetime
+load_dotenv()
 from src.cleaning import run_cleaning_pipeline
 from src.config import RAW_DIR, PROCESSED_DIR
 

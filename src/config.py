@@ -3,10 +3,15 @@
 from datetime import datetime
 from dotenv import load_dotenv
 import os
+load_dotenv()
+
 # === Поисковые ключи ===
 SEARCH_KEYWORDS = [
-    "Data Scientist", "Senior Data Scientist"
+    "Data Scientist", "Machine Learning Engineer",
+    "Data Analyst"
 ]
+    # "Senior Data Scientist",
+    # "Machine Learning Engineer",
 # , "Senior Data Scientist", "Machine Learning Engineer",
 #     "ML Engineer"
 # , "Junior Data Scientist",
@@ -38,12 +43,9 @@ CSV_RAW_DAILY = f"{RAW_DIR}/vacancies_{TODAY_STR}.csv"
 # Результат после очистки
 CSV_CLEANED_DAILY = f"{PROCESSED_DIR}/vacancies_clean_{TODAY_STR}.csv"
 
-
-
-load_dotenv()
-
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
+
 
 def get_today_processed_csv():
     today = datetime.now().strftime("%Y-%m-%d")
