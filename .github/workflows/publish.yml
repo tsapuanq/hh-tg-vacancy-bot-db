@@ -1,14 +1,13 @@
 name: HH Scraper & Publisher
 
 permissions:
-  contents: write      # чтобы GitHub Actions мог пушить обновления CSV/​txt
+  contents: write
 
 on:
   schedule:
-    # Запуск по расписанию (обед и вечер по Asia/Almaty)
-    - cron:  '0  6 * * *'  # 12:00 Asia/Almaty (UTC+6)
-    - cron:  '0 12 * * *'  # 18:00 Asia/Almaty (UTC+6)
-  workflow_dispatch:     # ручной запуск из UI
+    - cron: '0 6 * * *'
+    - cron: '0 12 * * *'
+  workflow_dispatch:
 
 jobs:
   hh_pipeline:
@@ -18,20 +17,16 @@ jobs:
         working-directory: ./
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+      - uses: actions/setup-python@v4
+        with: { python-version: '3.10' }
 
       - name: Cache data folder (CSV + sent_links)
         uses: actions/cache@v3
         with:
           path: data
-          key: ${{ runner.os }}-hh-data-${{ hashFiles('**/*.py') }} 
-          # фиксируем по хэшу кода, чтобы кеш не инвалидировался при каждом сохранении data/
+          key: ${{ runner.os }}-hh-data-${{ hashFiles('src/**/*.py') }}
 
       - name: Install dependencies
         run: |
@@ -39,16 +34,14 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        run: |
-          python -m playwright install --with-deps
+        run: python -m playwright install --with-deps
 
       - name: Run scraper & publisher
         env:
-          GEM_API_TOKEN:       ${{ secrets.GEM_API_TOKEN }}
-          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          CHANNEL_USERNAME:    ${{ secrets.CHANNEL_USERNAME }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          GEM_API_TOKEN:      ${{ secrets.GEM_API_TOKEN }}
+          CHANNEL_USERNAME:   ${{ secrets.CHANNEL_USERNAME }}
         run: python run_all.py --mode=${{ github.event_name == 'workflow_dispatch' && 'full' || 'daily' }}
-        # если запускается вручную, по умолчанию будете full; иначе — daily (можете убрать логику или оставить фикс)
 
       - name: Commit data changes
         run: |

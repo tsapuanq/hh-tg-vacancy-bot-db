@@ -10,7 +10,7 @@ logging.basicConfig(
 async def get_vacancy_details(link: str, page) -> dict | None:
     try:
         await page.goto(link, timeout=20000, wait_until="domcontentloaded")
-        await page.wait_for_selector('h1[data-qa="vacancy-title"]', timeout=5000)
+        await page.wait_for_selector('h1[data-qa="vacancy-title"]', timeout=15000)
     except Exception as e:
         logging.warning(f"[Vacancy Load] ❌ Не удалось загрузить {link}: {e}")
         return None

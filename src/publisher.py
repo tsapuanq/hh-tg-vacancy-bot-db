@@ -5,7 +5,7 @@ import random
 import ast
 from datetime import datetime
 from telegram import Bot
-from src.config import BOT_TOKEN, CHANNEL_USERNAME, get_today_processed_csv
+from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME, get_today_processed_csv
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 
 # ——— Путь до файла отправленных ссылок ———
@@ -116,7 +116,7 @@ async def main():
         return
 
     df_filtered = pd.DataFrame(filtered)
-    bot = Bot(token=BOT_TOKEN)
+    bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
     for i, (_, row) in enumerate(df_filtered.iterrows(), 1):
         summary = summarize_description_llm(row["description"])
