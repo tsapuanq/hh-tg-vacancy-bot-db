@@ -37,7 +37,7 @@ CSV_RAW_DAILY = f"{RAW_DIR}/vacancies_{TODAY_STR}.csv"
 # Результат после очистки
 CSV_CLEANED_DAILY = f"{PROCESSED_DIR}/vacancies_clean_{TODAY_STR}.csv"
 
-TELEGRAM_BOT_TOKEN = os.getenv("BOT_TOKEN")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
 
 
