@@ -7,16 +7,16 @@ load_dotenv()
 
 # === Поисковые ключи ===
 SEARCH_KEYWORDS = [
-    "Data Scientist", "Data Analyst", "NLP Engineer",
-    "Senior Data Scientist", "Machine Learning Engineer",
-    "ML Engineer","Junior Data Scientist", "Senior Data Analyst",
-    "Data Engineer", "Big Data Engineer",
-    "Data Architect", "Business Intelligence Analyst", "BI Analyst",
-    "Business Intelligence Developer", "Statistician", "Quantitative Analyst",
-    "Computer Vision Engineer", "Deep Learning Engineer",
-    "Artificial Intelligence Engineer", "AI Researcher", "Data Researcher",
-    "Predictive Analytics Specialist", "Data Science Manager",
-    "Analytics Consultant", "Data Miner", "Data Specialist", "Data Modeler"
+    "Data Scientist"# "Data Analyst", "NLP Engineer",
+    # "Senior Data Scientist", "Machine Learning Engineer",
+    # "ML Engineer","Junior Data Scientist", "Senior Data Analyst",
+    # "Data Engineer", "Big Data Engineer",
+    # "Data Architect", "Business Intelligence Analyst", "BI Analyst",
+    # "Business Intelligence Developer", "Statistician", "Quantitative Analyst",
+    # "Computer Vision Engineer", "Deep Learning Engineer",
+    # "Artificial Intelligence Engineer", "AI Researcher", "Data Researcher",
+    # "Predictive Analytics Specialist", "Data Science Manager",
+    # "Analytics Consultant", "Data Miner", "Data Specialist", "Data Modeler"
 ]
 
 # === HH settings ===
