@@ -1,11 +1,14 @@
 name: HH Scraper & Publisher
 
+permissions:
+  contents: write      # чтобы GitHub Actions мог пушить обновления CSV/​txt
+
 on:
   schedule:
-    # 12:00 и 18:00 по часовому поясу Asia/Almaty
-    - cron: '0 6 * * *'
-    - cron: '0 12 * * *'
-  workflow_dispatch:
+    # Запуск по расписанию (обед и вечер по Asia/Almaty)
+    - cron:  '0  6 * * *'  # 12:00 Asia/Almaty (UTC+6)
+    - cron:  '0 12 * * *'  # 18:00 Asia/Almaty (UTC+6)
+  workflow_dispatch:     # ручной запуск из UI
 
 jobs:
   hh_pipeline:
@@ -27,7 +30,8 @@ jobs:
         uses: actions/cache@v3
         with:
           path: data
-          key: ${{ runner.os }}-hh-data-${{ hashFiles('data/**') }}
+          key: ${{ runner.os }}-hh-data-${{ hashFiles('**/*.py') }} 
+          # фиксируем по хэшу кода, чтобы кеш не инвалидировался при каждом сохранении data/
 
       - name: Install dependencies
         run: |
@@ -39,12 +43,17 @@ jobs:
           python -m playwright install --with-deps
 
       - name: Run scraper & publisher
-        run: python run_all.py
+        env:
+          GEM_API_TOKEN:       ${{ secrets.GEM_API_TOKEN }}
+          TELEGRAM_BOT_TOKEN:  ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHANNEL_USERNAME:    ${{ secrets.CHANNEL_USERNAME }}
+        run: python run_all.py --mode=${{ github.event_name == 'workflow_dispatch' && 'full' || 'daily' }}
+        # если запускается вручную, по умолчанию будете full; иначе — daily (можете убрать логику или оставить фикс)
 
       - name: Commit data changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data
-          git commit -m "chore: update scraped data and sent_links" || echo "No changes to commit"
+          git commit -m "chore: update data and sent_links" || echo "No changes to commit"
           git push
