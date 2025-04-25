@@ -4,9 +4,6 @@ __pycache__/
 .env
 .vscode/
 
-*.csv
 
 notebooks/
 .ipynb_checkpoints/
-
-data/sent_links.txt
