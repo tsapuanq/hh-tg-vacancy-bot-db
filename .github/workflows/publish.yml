@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: data
-          key: ${{ runner.os }}-hh-data-${{ hashFiles('src/**/*.py') }}
+          key: ${{ runner.os }}-hh-data-v2-${{ hashFiles('src/**/*.py') }}
 
       - name: Install dependencies
         run: |
