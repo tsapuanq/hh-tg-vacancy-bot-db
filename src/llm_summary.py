@@ -48,18 +48,18 @@ SUMMARY_PROMPT_TEMPLATE = """
 2. 🧾 *Обязанности* — только ключевые пункты, кратко, по делу (до 3–5 пунктов).
 3. 🎯 *Требования* — самые важные навыки и условия, кратко (до 3–5 пунктов).
 
-📢 Не пиши вводных фраз, не добавляй лишние слова. Используй маркированный список (•), если возможно.  
-🚫 Если для какого-либо блока нет информации — укажи **"Не указано"**.  
-🔍 Не придумывай ничего нового — работай только с тем, что есть в описании.  
+📢 Не пиши вводных фраз, не добавляй лишние слова. Используй маркированный список (•), если возможно.
+🚫 Если для какого-либо блока нет информации — укажи **"Не указано"**.
+🔍 Не придумывай ничего нового — работай только с тем, что есть в описании.
 
 Верни **ЧИСТЫЙ JSON**, строго в таком формате:
 
 ```json
-{
+{{
   "about_company": "…",
   "responsibilities": "…",
   "requirements": "…"
-}
+}}
 Описание вакансии:
 {description}
 """
@@ -67,28 +67,55 @@ SUMMARY_PROMPT_TEMPLATE = """
 # === Чистка и парсинг JSON Gemini ответа ===
 def clean_gemini_response(raw: str) -> dict:
     try:
-        cleaned = re.sub(r"^```json\n?|```$", "", raw.strip(), flags=re.IGNORECASE).strip()
+        cleaned = re.sub(r"^```json\\n?|```$", "", raw.strip(), flags=re.IGNORECASE).strip()
         parsed = json.loads(cleaned)
+
+        about_company = parsed.get("about_company", "").strip()
+        responsibilities = parsed.get("responsibilities", "").strip()
+        requirements = parsed.get("requirements", "").strip()
+
         return {
-            "about_company": parsed.get("about_company", "Не указано"),
-            "responsibilities": parsed.get("responsibilities", "Не указано"),
-            "requirements": parsed.get("requirements", "Не указано"),
+            "about_company": about_company if about_company else "Не указано",
+            "responsibilities": responsibilities if responsibilities else "Не указано",
+            "requirements": requirements if requirements else "Не указано",
         }
+
     except Exception as e:
-        logging.warning(f"[Gemini‑summary] ❌ Ошибка парсинга JSON: {e}")
+        logging.warning(f"[Gemini-summary] ❌ Ошибка парсинга JSON: {e}")
         return {
             "about_company": "Не указано",
             "responsibilities": "Не указано",
             "requirements": "Не указано",
         }
 
-# === Финальный summary вызов ===
+# === Финальный summary вызов с защитой ===
 def summarize_description_llm(description: str) -> dict:
-    prompt = SUMMARY_PROMPT_TEMPLATE.format(description=description)
-    raw = gemini_api_call(prompt).strip()
-    logging.info("[Gemini‑summary] Сырый ответ:\n" + raw)
+    try:
+        prompt = SUMMARY_PROMPT_TEMPLATE.format(description=description)
+    except Exception as e:
+        logging.warning(f"[Gemini-summary] ❌ Ошибка форматирования промпта: {e}")
+        return {
+            "about_company": "Не указано",
+            "responsibilities": "Не указано",
+            "requirements": "Не указано",
+        }
+
+    raw = gemini_api_call(prompt)
+
+    if not raw:
+        logging.warning("[Gemini-summary] ❌ Пустой ответ от Gemini")
+        return {
+            "about_company": "Не указано",
+            "responsibilities": "Не указано",
+            "requirements": "Не указано",
+        }
+
+    raw = raw.strip()
+    logging.info("[Gemini-summary] Сырый ответ:\n" + raw)
+
     return clean_gemini_response(raw)
 
+# === Промпт для фильтрации релевантных вакансий ===
 FILTER_PROMPT = """
 Ты ассистент, который определяет релевантность вакансии по названию и описанию.
 
@@ -130,10 +157,21 @@ FILTER_PROMPT = """
 Ответь строго одним словом: yes или no.
 """
 
-
-
+# === Фильтрация вакансии ===
 def filter_vacancy_llm(title: str, description: str) -> bool:
-    prompt = FILTER_PROMPT.format(title=title, description=description)
-    raw = gemini_api_call(prompt).strip()
-    logging.info("[Gemini‑filter] Сырый ответ:\n" + raw)
+    try:
+        prompt = FILTER_PROMPT.format(title=title, description=description)
+    except Exception as e:
+        logging.warning(f"[Gemini-filter] ❌ Ошибка форматирования промпта: {e}")
+        return False
+
+    raw = gemini_api_call(prompt)
+
+    if not raw:
+        logging.warning("[Gemini-filter] ❌ Пустой ответ от Gemini")
+        return False
+
+    raw = raw.strip()
+    logging.info("[Gemini-filter] Сырый ответ:\n" + raw)
+
     return raw.lower() == "yes"
