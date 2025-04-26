@@ -84,7 +84,7 @@ def load_today_rows() -> pd.DataFrame:
     try:
         df = pd.read_csv(csv_path)
         today_str = datetime.now().strftime("%Y-%m-%d")
-        return df[df["published_date_dt"] == today_str] #change uf neceessary
+        return df[df["published_date_dt"] == today_str] #change if neceessary
     except Exception as e:
         print(f"❌ Ошибка чтения CSV: {e}")
         return pd.DataFrame()
