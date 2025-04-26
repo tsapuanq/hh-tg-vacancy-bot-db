@@ -1,26 +1,48 @@
 import pandas as pd
 import ast
 import logging
+import re  # <- для clean_working_hours
+
+
+# ======= working_hours =======
+def clean_working_hours(hours_str: str) -> str:
+    """
+    Оставляем всё, что идёт после 'Рабочие часы' (с любым разделителем ':' или '：').
+    Если значение пустое/NaN — возвращаем 'Не указано'.
+    """
+    if pd.isna(hours_str):
+        return "Не указано"
+    s = str(hours_str).strip()
+    # удаляем всё до и включая 'Рабочие часы' + возможный ':' или '：'
+    result = re.sub(r"(?i)^.*?рабочие часы[:：]?\s*", "", s)
+    return result if result else "Не указано"
+
 
 # ======= salary =======
 def extract_salary_range_with_currency(salary_str):
-    if pd.isna(salary_str) or "Не указано" in str(salary_str).lower():
+    if pd.isna(salary_str) or "не указано" in str(salary_str).lower():
         return "Не указано"
 
-    text = str(salary_str).lower().replace('\xa0', ' ')
+    text = str(salary_str).lower().replace("\xa0", " ")
     import re
-    currency = '₸' if '₸' in text else ('$' if '$' in text else ('€' if '€' in text or 'eur' in text else ''))
 
-    match = re.search(r'от\s+([\d\s]+)\s+до\s+([\d\s]+)', text)
+    currency = (
+        "₸"
+        if "₸" in text
+        else ("$" if "$" in text else ("€" if "€" in text or "eur" in text else ""))
+    )
+
+    match = re.search(r"от\s+([\d\s]+)\s+до\s+([\d\s]+)", text)
     if match:
         return f"{match.group(1).replace(' ', '')}–{match.group(2).replace(' ', '')} {currency}"
-    match = re.search(r'от\s+([\d\s]+)', text)
+    match = re.search(r"от\s+([\d\s]+)", text)
     if match:
         return f"от {match.group(1).replace(' ', '')} {currency}"
-    match = re.search(r'до\s+([\d\s]+)', text)
+    match = re.search(r"до\s+([\d\s]+)", text)
     if match:
         return f"до {match.group(1).replace(' ', '')} {currency}"
     return "Не указано"
+
 
 # ======= skills =======
 def clean_skills(skills_str):
@@ -31,12 +53,23 @@ def clean_skills(skills_str):
     except:
         return "Не указано"
 
+
 # ======= date =======
 month_map = {
-    "января": "01", "февраля": "02", "марта": "03", "апреля": "04",
-    "мая": "05", "июня": "06", "июля": "07", "августа": "08",
-    "сентября": "09", "октября": "10", "ноября": "11", "декабря": "12"
+    "января": "01",
+    "февраля": "02",
+    "марта": "03",
+    "апреля": "04",
+    "мая": "05",
+    "июня": "06",
+    "июля": "07",
+    "августа": "08",
+    "сентября": "09",
+    "октября": "10",
+    "ноября": "11",
+    "декабря": "12",
 }
+
 
 def parse_russian_date(date_str: str) -> pd.Timestamp:
     try:
@@ -45,19 +78,20 @@ def parse_russian_date(date_str: str) -> pd.Timestamp:
             return pd.NaT
         day, month_rus, year = parts
         month = month_map.get(month_rus.lower())
-        return pd.to_datetime(f"{day.zfill(2)}.{month}.{year}", format="%d.%m.%Y", errors='coerce') if month else pd.NaT
+        return (
+            pd.to_datetime(
+                f"{day.zfill(2)}.{month}.{year}", format="%d.%m.%Y", errors="coerce"
+            )
+            if month
+            else pd.NaT
+        )
     except:
         return pd.NaT
 
 
 def clean_location(loc: str) -> str:
-    """
-    Оставляем только первую часть до запятой (обычно это город или населённый пункт).
-    Если вход не строка, возвращаем его без изменений.
-    """
     if not isinstance(loc, str):
         return loc
-    # разбиваем по запятым и берём первый кусок
     city = loc.split(",")[0].strip()
     return city or "Не указано"
 
@@ -80,10 +114,13 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     print(f"[DEBUG] После фильтра по description: {df.shape}")
 
     # Очистка классических полей
-    df['location'] = df['location'].apply(clean_location)
+    df["location"] = df["location"].apply(clean_location)
     df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
 
+    # === обработка working_hours ===
+    # создаём новый столбец, где останется всё после 'Рабочие часы'
+    df["working_hours"] = df["working_hours"].apply(clean_working_hours)
     print(f"[DEBUG] Финальный DataFrame: {df.shape}")
     return df
