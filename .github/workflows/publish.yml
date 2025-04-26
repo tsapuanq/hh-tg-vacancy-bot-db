@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '0 6 * * *' 
+    - cron: '0 6 * * *'
     - cron: '0 12 * * *'
   workflow_dispatch:
 
@@ -20,7 +20,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-python@v4
-        with: { python-version: '3.10' }
+        with:
+          python-version: '3.10'
 
       - name: Cache data folder (CSV + sent_links)
         uses: actions/cache@v3
@@ -43,10 +44,20 @@ jobs:
           CHANNEL_USERNAME:   ${{ secrets.CHANNEL_USERNAME }}
         run: python run_all.py --mode=${{ github.event_name == 'workflow_dispatch' && 'full' || 'daily' }}
 
-      - name: Commit data changes
+      - name: Set up Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Pull latest changes (rebase)
+        run: |
+          git pull origin main --rebase
+
+      - name: Commit data changes
+        run: |
           git add data
           git commit -m "chore: update data and sent_links" || echo "No changes to commit"
-          git push
+
+      - name: Push changes
+        run: |
+          git push origin main
