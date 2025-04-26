@@ -16,7 +16,7 @@ SEARCH_KEYWORDS = [
     "Computer Vision Engineer", "Deep Learning Engineer",
     "Artificial Intelligence Engineer", "AI Researcher", "Data Researcher",
     "Predictive Analytics Specialist", "Data Science Manager",
-    "Analytics Consultant", "Data Miner", "Data Specialist", "Data Modeler"
+    "Analytics Consultant", "Data Miner", "Data Specialist"
 ]
 
 # === HH settings ===
