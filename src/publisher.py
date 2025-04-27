@@ -76,15 +76,29 @@ def format_message(row: pd.Series, summary: dict) -> str:
 """.strip()
 
 # ——— Загрузка CSV и фильтрация по сегодняшней дате ———
-def load_today_rows() -> pd.DataFrame:
+from datetime import datetime
+
+def load_today_rows():
+    start_date = "2025-04-10"
+    end_date = "2025-04-26"
     csv_path = get_today_processed_csv()
     if not os.path.exists(csv_path):
         print(f"❌ CSV не найден: {csv_path}")
         return pd.DataFrame()
     try:
         df = pd.read_csv(csv_path)
-        today_str = datetime.now().strftime("%Y-%m-%d")
-        return df[df["published_date_dt"] == today_str] #change if neceessary
+
+        # Гарантируем правильный тип даты
+        df["published_date_dt"] = pd.to_datetime(df["published_date_dt"], errors='coerce')
+
+        if start_date and end_date:
+            # Фильтрация по периоду
+            return df[(df["published_date_dt"] >= start_date) & (df["published_date_dt"] <= end_date)]
+        else:
+            # Фильтрация только по сегодняшней дате
+            today_str = datetime.now().strftime("%Y-%m-%d")
+            return df[df["published_date_dt"] == today_str]
+
     except Exception as e:
         print(f"❌ Ошибка чтения CSV: {e}")
         return pd.DataFrame()

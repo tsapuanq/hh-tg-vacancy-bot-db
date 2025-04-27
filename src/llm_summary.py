@@ -43,13 +43,28 @@ def gemini_api_call(prompt: str, timeout: int = 30, retries: int = 3, delay: flo
 # === Чистка и безопасный парсинг JSON Gemini ответа ===
 def clean_gemini_response(raw: str) -> dict:
     try:
-        cleaned = re.sub(r"^```(?:json)?|```$", "", raw.strip(), flags=re.IGNORECASE | re.MULTILINE).strip()
+        cleaned = re.sub(r"^```(?:json)?\n?|```$", "", raw.strip(), flags=re.IGNORECASE | re.MULTILINE).strip()
         cleaned = cleaned.replace('\u200b', '').replace('\ufeff', '')
+        cleaned = cleaned.replace('\\n', ' ').replace('\\', '')
+
+        if not (cleaned.startswith('{') and cleaned.endswith('}')):
+            logging.warning(f"[Gemini-summary] ❌ Невалидный JSON: {cleaned}")
+            return {"about_company": "Не указано", "responsibilities": "Не указано", "requirements": "Не указано"}
+
         parsed = json.loads(cleaned)
 
-        about_company = parsed.get("about_company", "").strip()
-        responsibilities = parsed.get("responsibilities", "").strip()
-        requirements = parsed.get("requirements", "").strip()
+        if not isinstance(parsed, dict):
+            logging.warning(f"[Gemini-summary] ❌ Ожидался dict, но пришло {type(parsed)}: {parsed}")
+            return {"about_company": "Не указано", "responsibilities": "Не указано", "requirements": "Не указано"}
+
+        def process_field(value):
+            if isinstance(value, list):
+                return " ".join(item.strip() for item in value if isinstance(item, str))
+            return str(value).strip()
+
+        about_company = process_field(parsed.get("about_company", "Не указано"))
+        responsibilities = process_field(parsed.get("responsibilities", "Не указано"))
+        requirements = process_field(parsed.get("requirements", "Не указано"))
 
         return {
             "about_company": about_company if about_company else "Не указано",
@@ -59,11 +74,7 @@ def clean_gemini_response(raw: str) -> dict:
 
     except Exception as e:
         logging.warning(f"[Gemini-summary] ❌ Ошибка парсинга JSON: {e}")
-        return {
-            "about_company": "Не указано",
-            "responsibilities": "Не указано",
-            "requirements": "Не указано",
-        }
+        return {"about_company": "Не указано", "responsibilities": "Не указано", "requirements": "Не указано"}
 
 # === Промпт для генерации краткого summary ===
 SUMMARY_PROMPT_TEMPLATE = """
@@ -92,6 +103,10 @@ SUMMARY_PROMPT_TEMPLATE = """
 
 # === Финальный summary вызов ===
 def summarize_description_llm(description: str) -> dict:
+    if not description or len(description.strip()) < 50:
+        logging.warning("[Gemini-summary] ❗ Пропущено из-за короткого описания")
+        return {"about_company": "Не указано", "responsibilities": "Не указано", "requirements": "Не указано"}
+
     try:
         prompt = SUMMARY_PROMPT_TEMPLATE.format(description=description)
     except Exception as e:
@@ -155,10 +170,13 @@ def filter_vacancy_llm(title: str, description: str) -> bool:
         logging.warning(f"[Gemini-filter] ❌ Ошибка форматирования промпта: {e}")
         return False
 
-    raw = gemini_api_call(prompt)
-    if not raw:
-        logging.warning("[Gemini-filter] ❌ Пустой ответ от Gemini")
-        return False
+    for attempt in range(2):
+        raw = gemini_api_call(prompt)
+        if raw:
+            logging.info("[Gemini-filter] Сырый ответ:\n" + raw.strip())
+            return raw.strip().lower() == "yes"
+        else:
+            logging.warning(f"[Gemini-filter] ❌ Пустой ответ от Gemini. Попытка {attempt+1}")
+            time.sleep(2)
 
-    logging.info("[Gemini-filter] Сырый ответ:\n" + raw.strip())
-    return raw.strip().lower() == "yes"
+    return False
