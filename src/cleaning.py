@@ -95,6 +95,11 @@ def clean_location(loc: str) -> str:
     city = loc.split(",")[0].strip()
     return city or "Не указано"
 
+# ======= work_format =======
+def clean_work_format(text: str) -> str:
+    if not isinstance(text, str):
+        return "Не указано"
+    return text.replace("Формат работы:", "").strip().capitalize() or "Не указано"
 
 # ======= Основной pipeline =======
 def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
@@ -118,6 +123,7 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
+    df["work_format"] = df["work_format"].apply(clean_work_format)
 
     # === обработка working_hours ===
     # создаём новый столбец, где останется всё после 'Рабочие часы'
