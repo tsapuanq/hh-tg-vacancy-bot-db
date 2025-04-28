@@ -23,7 +23,7 @@ async def scrape_single(link, semaphore, context, results, idx, total):
             if data:
                 results.append(data)
 
-            delay = random.uniform(1.5, 3.5)
+            delay = random.uniform(1, 2)
             logging.info(f"⏱️ Задержка перед следующим запросом: {delay:.2f} сек.")
             await asyncio.sleep(delay)
 
