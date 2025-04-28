@@ -1,710 +1,240 @@
 title,company,location,salary,description,experience,employment_type,schedule,working_hours,work_format,published_date,link,skills,salary_range,published_date_dt
-"Back-end Developer - Java, Kubernetes (Middle/Senior)",Частная компания Global DTC Kazakhstan,Алматы,"от 800 000 ₸ за месяц, на руки","Global DTC Pte Ltd helps organizations harness the power of the cloud with automated software solutions focused on making logistics more transparent, convenient, and fast. Our cloud architects are experts in building new cloud applications and migrating legacy systems to the cloud. We focus on Java and JavaScript, Kubernetes technologies to build custom software solutions based on Continuous Delivery - a set of processes and tools based on a combination of Lean and the heavy use of automation
+Финансовый аналитик,ТОО Корпорация управления бизнесом (КУБ),Алматы,"до 800 000 ₸ за месяц, на руки","Обязанности:
 
-Is automation more than just a VUCA word? Are you comfortable explaining technology to others? Are you passionate about software development at work and at home? If your answer is “yes”, we would like to talk you!
+Подготовка управленческой отчётности;
 
-Why you should join Global DTC Pte Ltd:
+Контроль исполнения и план-факторного анализа доходов и расходов предприятия;
 
-Keep your skills fresh by working with some of the newest technologies and tools out there
-You will get extremely good experience in transportation industry
-We are growing! Lots of opportunities for advancement
-Join a small, highly collaborative team
+Составление и контроль движения денежных средств Cash flow;
 
-What makes Global DTC Pte Ltd unique:
+Анализ и контроль дебиторской/кредиторской задолженности;
 
-We don't just build software; we approach development as a well-honed craft.
-We are experts who believe in being innovative while having fun, and working continuously to refine our skills.
-We are committed to excellence in everything we do, from the technology we choose to the people who make up our team. With excellence as a guiding principle, we deliver quality results that ensure client satisfaction.
-We approach work with integrity. We do what we say we'll do, and we operate with transparency and honesty.
-We work cohesively and see each person at Global DTC Pte Ltd as a critical contributor. We prize teamwork, and support each other in providing the best results for our clients. No one on our team is superior to another - we help each other out, in the spirit of personal growth.
+Контроль выполнения плановых показателей;
 
-Essential functions and responsibilities:
+Разработка норм расхода материальных ресурсов, расчёт калькуляции себестоимости;
 
-Provide custom software and Cloud based solutions to our clients
-Development of API integration
-Developing the world-class software focused on Data centricity
-Provide an indexed and searchable interface for users to be able to find media resources like images, videos, etc which contain some specific content
+Составление бюджета проекта и контроль за фактическими затратами / исполнением бюджета проекта;
 
-Qualifications Required:
+Контроль закупа основных материалов на производство;
 
-Bachelor of Science in Computer Science (or equivalent)
-Proven leadership experience – on teams and out in the technical community
-7+ years of Java web services/web applications experience
-Cloud experience (AWS, Google Cloud, Azure, private cloud)
-Experience with containers (e.g. Docker)
-Experience with ZooKeeper
-Experience with Kubernetes (highly preferred)
-Postgres, NoSQL experience (e.g. MongoDB) or Graph databases (e.g. Neo4J)
-Experience with ORM (e.g. Hibernate)
-Modern Build experience with Maven and familiar with continuous integration (e.g. Jenkins, TeamCity) systems
-Very comfortable with modern web frameworks (e.g. Spring Boot)
-Opinionated on TDD/BDD
+Подготавливать исходные данные (с программы 1С) для составления финансовой отчетности, заполнение форм ОПИУ, ДДС, Баланс;
 
-Qualifications preferred:
+Выполнять расчеты по материальным, трудовым и финансовым затратам, необходимым для производства, реализации выпускаемой продукции и строительства;
 
-DevOps experience (e.g. Ansible, Kubernetes/Mesos) and infrastructure automation
-Comfortable with modern JavaScript technologies and tools
-Understanding of secure software development practices
+Участие в составлении бюджета расходов всей компании;
 
-Please visit: Global DTC to learn more about us.
-
-Must be authorized to work in Kazakhstan & No telecommuting
-
-Salary level to be discussed during the interview. Position for full time engagement!",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: на месте работодателя или гибрид,28 апреля 2025,https://hh.kz/vacancy/120027321?query=Data+Architect&hhtmFrom=vacancy_search_list,Не указано,от 800000 ₸,2025-04-28
-Senior Data analyst (Assortment),ТОО Autodoc Group (Автодок Казахстан),Алматы,Не указано,"AUTODOC is the largest and fastest growing auto parts ecommerce platform in Europe.
-Present across 27 countries with around 5,000 employees, AUTODOC generated revenue of over €1.3 billion in 2023, supplying more than 7.4 million active customers with its 5.8 million vehicle parts and accessories for car, truck, and motorcycle brands.
-
-Curious minds, adventurous experts and tech-savvy professionals - one team, one billion euros revenue. Catch the ride!
-
-Responsibilities:
-1.Analyze, and research sales and user behavior data to provide recommendations and insights.
-2.Build solutions to analyze and predict key business metrics.
-3. Identify and interpret trends or patterns in large data sets
-4. Develop automated and interactive dashboards/reports that support business stakeholders'
-needs and allow them to make decisions quickly.
-5. Partner with the Data Engineering team to define and build reliable data sources
-
-Qualifications:
-
-3+ years of experience in data or product analytics.
-Education in Math, Statistics, Computer Science, Finance, or any related field.
-Strong analytical skills with the ability to analyze data and translate it into insights and recommendations.
-Comprehensive knowledge of e-commerce area, funnels, and customer journey.
-Proficiency in SQL, Python, Excel/Google Sheets.
-Proven experience designing and enhancing dashboards and reports using BI tools
-Experience with DataBase Clickhouse, certification, e-commerce or automotive domain (desired)
-
-We Offer:
-
-Competitive salaries based on your professional experience
-Fast growing international company with stable employment
-Annual vacation of 24 days and 1 additional day off on your birthday
-Monthly Allowance for cover the costs of medical insurance expenses
-Mental Wellbeing Program – the opportunity for free psychological counseling for you and your family members 24/7 hotline and online sessions
-Opportunities for advancement, further trainings (over 650 courses on soft and hard skills on our e-learning platform) and coaching
-Free English and German language classes
-Referral Program with attractive incentives
-Flexible working hours and hybrid work",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: гибрид,28 апреля 2025,https://hh.kz/vacancy/120025585?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior Data analyst (Assortment),ТОО Autodoc Group (Автодок Казахстан),Алматы,Не указано,"AUTODOC is the largest and fastest growing auto parts ecommerce platform in Europe.
-Present across 27 countries with around 5,000 employees, AUTODOC generated revenue of over €1.3 billion in 2023, supplying more than 7.4 million active customers with its 5.8 million vehicle parts and accessories for car, truck, and motorcycle brands.
-
-Curious minds, adventurous experts and tech-savvy professionals - one team, one billion euros revenue. Catch the ride!
-
-Responsibilities:
-1.Analyze, and research sales and user behavior data to provide recommendations and insights.
-2.Build solutions to analyze and predict key business metrics.
-3. Identify and interpret trends or patterns in large data sets
-4. Develop automated and interactive dashboards/reports that support business stakeholders'
-needs and allow them to make decisions quickly.
-5. Partner with the Data Engineering team to define and build reliable data sources
-
-Qualifications:
-
-3+ years of experience in data or product analytics.
-Education in Math, Statistics, Computer Science, Finance, or any related field.
-Strong analytical skills with the ability to analyze data and translate it into insights and recommendations.
-Comprehensive knowledge of e-commerce area, funnels, and customer journey.
-Proficiency in SQL, Python, Excel/Google Sheets.
-Proven experience designing and enhancing dashboards and reports using BI tools
-Experience with DataBase Clickhouse, certification, e-commerce or automotive domain (desired)
-
-We Offer:
-
-Competitive salaries based on your professional experience
-Fast growing international company with stable employment
-Annual vacation of 24 days and 1 additional day off on your birthday
-Monthly Allowance for cover the costs of medical insurance expenses
-Mental Wellbeing Program – the opportunity for free psychological counseling for you and your family members 24/7 hotline and online sessions
-Opportunities for advancement, further trainings (over 650 courses on soft and hard skills on our e-learning platform) and coaching
-Free English and German language classes
-Referral Program with attractive incentives
-Flexible working hours and hybrid work",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: гибрид,28 апреля 2025,https://hh.kz/vacancy/120025585?query=Data+Researcher&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior Data analyst (Assortment),ТОО Autodoc Group (Автодок Казахстан),Алматы,Не указано,"AUTODOC is the largest and fastest growing auto parts ecommerce platform in Europe.
-Present across 27 countries with around 5,000 employees, AUTODOC generated revenue of over €1.3 billion in 2023, supplying more than 7.4 million active customers with its 5.8 million vehicle parts and accessories for car, truck, and motorcycle brands.
-
-Curious minds, adventurous experts and tech-savvy professionals - one team, one billion euros revenue. Catch the ride!
-
-Responsibilities:
-1.Analyze, and research sales and user behavior data to provide recommendations and insights.
-2.Build solutions to analyze and predict key business metrics.
-3. Identify and interpret trends or patterns in large data sets
-4. Develop automated and interactive dashboards/reports that support business stakeholders'
-needs and allow them to make decisions quickly.
-5. Partner with the Data Engineering team to define and build reliable data sources
-
-Qualifications:
-
-3+ years of experience in data or product analytics.
-Education in Math, Statistics, Computer Science, Finance, or any related field.
-Strong analytical skills with the ability to analyze data and translate it into insights and recommendations.
-Comprehensive knowledge of e-commerce area, funnels, and customer journey.
-Proficiency in SQL, Python, Excel/Google Sheets.
-Proven experience designing and enhancing dashboards and reports using BI tools
-Experience with DataBase Clickhouse, certification, e-commerce or automotive domain (desired)
-
-We Offer:
-
-Competitive salaries based on your professional experience
-Fast growing international company with stable employment
-Annual vacation of 24 days and 1 additional day off on your birthday
-Monthly Allowance for cover the costs of medical insurance expenses
-Mental Wellbeing Program – the opportunity for free psychological counseling for you and your family members 24/7 hotline and online sessions
-Opportunities for advancement, further trainings (over 650 courses on soft and hard skills on our e-learning platform) and coaching
-Free English and German language classes
-Referral Program with attractive incentives
-Flexible working hours and hybrid work",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: гибрид,28 апреля 2025,https://hh.kz/vacancy/120025585?query=Senior+Data+Analyst&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior SAP Reporting Consultant (BI/BO/BW/SAC/Datasphere),ТОО iQ-SOLUTIONS,Не указано,Не указано,"Key Responsibilities:
-
-System Support & Maintenance:
-Provide ongoing support for the existing SAP BI and BO environments, including incident resolution, user assistance, and performance tuning of reports and dashboards.
-SAC Development & Management:
-Maintain and further develop reports and dashboards in SAP Analytics Cloud (SAC).
-Qualtrics Integration & Insights:
-Support the use of SAP Qualtrics for customer and employee experience analytics. Help business teams extract, interpret, and apply insights from Qualtrics data effectively.
-Collaboration with Stakeholders:
-Work closely with business users and functional teams to understand reporting requirements, propose solutions, and support self-service reporting initiatives.
-Data Integration:
-Support and improve existing data integration flows between SAP and non-SAP systems used in reporting.
-Issue Resolution & Troubleshooting:
-Identify and resolve issues related to data accuracy, report logic, and system performance.
-Training & Enablement:
-Conduct training sessions and provide guidance to business users and junior team members on using BI/BO tools effectively.
-
-Required Qualifications:
-
-Experience:
-7+ years of experience in SAP BI/BO environments
-Technical Expertise:
-Advanced skills in SAP BusinessObjects (Web Intelligence, Crystal Reports, BO Dashboards).
-Strong experience with SAP Analytics Cloud (reporting, dashboard design, data modeling).
-Solid background in SAP BW, SAP HANA, and BEx Queries.
-Proficiency in SQL and data analysis across SAP and non-SAP sources.
-Qualtrics Experience:
-Hands-on experience working with SAP Qualtrics, understanding its data model and integration with BI tools is a plus.
-Analytical & Problem-Solving Skills:
-Ability to translate business questions into technical solutions and meaningful dashboards or reports.
-Communication Skills:
-Strong verbal and written communication skills. Able to explain complex reporting concepts to non-technical stakeholders.
-Education:
-Bachelor's or Master's degree in Computer Science, Information Systems, Business Analytics, or a related field. SAP certifications are a strong advantage.
-
-Preferred Qualifications:
-
-SAP certifications in BI, BO, SAC, or BW/4HANA.
-Knowledge of SAP Datasphere, Embedded Analytics
-
-Personal Attributes:
-
-Detail-oriented with a passion for data quality and visualization.
-Proactive and self-motivated with a continuous improvement mindset.
-Strong interpersonal skills and a collaborative working style.",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: удалённо,28 апреля 2025,https://hh.kz/vacancy/120033105?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior SAP Reporting Consultant (BI/BO/BW/SAC/Datasphere),ТОО iQ-SOLUTIONS,Не указано,Не указано,"Key Responsibilities:
-
-System Support & Maintenance:
-Provide ongoing support for the existing SAP BI and BO environments, including incident resolution, user assistance, and performance tuning of reports and dashboards.
-SAC Development & Management:
-Maintain and further develop reports and dashboards in SAP Analytics Cloud (SAC).
-Qualtrics Integration & Insights:
-Support the use of SAP Qualtrics for customer and employee experience analytics. Help business teams extract, interpret, and apply insights from Qualtrics data effectively.
-Collaboration with Stakeholders:
-Work closely with business users and functional teams to understand reporting requirements, propose solutions, and support self-service reporting initiatives.
-Data Integration:
-Support and improve existing data integration flows between SAP and non-SAP systems used in reporting.
-Issue Resolution & Troubleshooting:
-Identify and resolve issues related to data accuracy, report logic, and system performance.
-Training & Enablement:
-Conduct training sessions and provide guidance to business users and junior team members on using BI/BO tools effectively.
-
-Required Qualifications:
-
-Experience:
-7+ years of experience in SAP BI/BO environments
-Technical Expertise:
-Advanced skills in SAP BusinessObjects (Web Intelligence, Crystal Reports, BO Dashboards).
-Strong experience with SAP Analytics Cloud (reporting, dashboard design, data modeling).
-Solid background in SAP BW, SAP HANA, and BEx Queries.
-Proficiency in SQL and data analysis across SAP and non-SAP sources.
-Qualtrics Experience:
-Hands-on experience working with SAP Qualtrics, understanding its data model and integration with BI tools is a plus.
-Analytical & Problem-Solving Skills:
-Ability to translate business questions into technical solutions and meaningful dashboards or reports.
-Communication Skills:
-Strong verbal and written communication skills. Able to explain complex reporting concepts to non-technical stakeholders.
-Education:
-Bachelor's or Master's degree in Computer Science, Information Systems, Business Analytics, or a related field. SAP certifications are a strong advantage.
-
-Preferred Qualifications:
-
-SAP certifications in BI, BO, SAC, or BW/4HANA.
-Knowledge of SAP Datasphere, Embedded Analytics
-
-Personal Attributes:
-
-Detail-oriented with a passion for data quality and visualization.
-Proactive and self-motivated with a continuous improvement mindset.
-Strong interpersonal skills and a collaborative working style.",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: удалённо,28 апреля 2025,https://hh.kz/vacancy/120033105?query=Business+Intelligence+Developer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-SAP FI Consultant,ТОО iQ-SOLUTIONS,Не указано,Не указано,"Responsibilities:
-
-Provide ongoing support and maintenance for SAP FI modules (General Ledger, Accounts Payable, Asset Accounting) to ensure smooth and accurate financial operations within the organization.
-Support integration between SAP FI and SAP Controlling (CO), ensuring seamless data flow for cost management for upstream oil operations.
-Assist in the configuration and maintenance of Joint Venture Accounting (JVA) within SAP FI, ensuring proper handling of joint venture transactions, cost allocations, and settlements in line with industry standards.
-Collaborate with cross-functional teams to ensure integration of SAP FI with Materials Management (MM) and Project Systems (PS), facilitating accurate inventory valuation, project accounting, and financial reporting.
-Work closely with SAP SuccessFactors and SAP Human Capital Management to ensure proper integration of employee-related financial data (e.g., payroll, benefits) into SAP FI for correct financial processing.
-Support the creation and delivery of financial reports using SAP BW, SAC and BI/BO, ensuring that all stakeholders have timely access to accurate financial data for decision-making.
-Provide assistance in the implementation of new business requirements for finance, ensuring that the SAP FI modules are configured to meet evolving business needs and industry requirements.
-Troubleshoot and resolve issues related to SAP FI functionality, ensuring quick resolution of any discrepancies in financial transactions, reporting, or integrations with other SAP modules.
-Support month-end, quarter-end, and year-end closing activities, ensuring timely and accurate financial reporting, reconciliation, and compliance with accounting standards.
-Offer training and guidance to end-users on SAP FI functionality, helping teams understand and utilize SAP features to improve financial processes and reporting.
-
-Skills:
-
-In-depth knowledge of SAP FI (Financial Accounting), with expertise in General Ledger (GL), Accounts Payable (AP), and Asset Accounting (AA), ensuring efficient and accurate financial operations.
-Proficiency in Joint Venture Accounting (JVA) within SAP, including managing settlements and cutbacks, and handling joint venture cost-sharing arrangements specific to the oil and gas industry.
-Strong understanding of IFRS and GAAP financial standards, ensuring compliance with international and local accounting requirements for financial reporting and management.
-Experience with SAP Controlling (CO), including cost center accounting, internal orders, and profitability analysis, ensuring effective integration with SAP FI for accurate cost management and reporting.
-Expertise in SAP Materials Management (MM) and integration with SAP FI for seamless procurement, inventory valuation, and financial accounting processes in upstream oil operations.
-Knowledge of SAP Project Systems (PS), including project costing, budgeting, and integration with SAP FI and CO for managing financials related to capital projects in the oil and gas sector.
-Experience with SAP SuccessFactors and SAP HCM integration with SAP FI for the accurate transfer of employee-related financial data, including payroll and benefits, into the SAP financial ecosystem.
-Proficiency in SAP BW and BI/BO reporting for delivering real-time, accurate financial reporting solutions to stakeholders, ensuring transparency and insightful decision-making.
-Strong problem-solving and troubleshooting skills for resolving discrepancies in financial transactions, integration issues, and system functionality across SAP modules.
-Ability to collaborate with business stakeholders to define and deliver new business requirements for finance, ensuring that SAP FI modules are configured to meet evolving business needs, particularly in the context of joint venture operations.
-Familiarity with SAP S/4HANA implementation processes, understanding the transition from SAP ECC to S/4HANA and ensuring that SAP FI modules are prepared for future upgrades and enhancements.
-
-Experience:
-
-Experience in supporting and configuring SAP FI modules, specifically General Ledger (GL), Accounts Payable (AP), and Asset Accounting (AA), to ensure smooth financial operations within the company.
-Hands-on experience with Joint Venture Accounting (JVA) in SAP, including the ability to handle settlements, cutbacks, and joint venture cost-sharing agreements in the upstream oil industry.
-Experience working with IFRS and GAAP accounting standards, ensuring the financial transactions and reports comply with international and local regulatory requirements.
-Proven ability to integrate SAP FI with SAP Controlling (CO), including managing cost centers, internal orders, and profitability analysis, to ensure accurate financial data across departments.
-Experience with SAP Materials Management (MM) and its integration with SAP FI, ensuring accurate inventory valuation, procurement, and financial accounting processes.
-Experience implementing and supporting SAP Project Systems (PS), including project costing, budgeting, and integration with SAP FI for financial management of oil and gas capital projects.
-Experience integrating SAP SuccessFactors and SAP HCM with SAP FI, ensuring seamless data flow of employee-related financial data (e.g., payroll, benefits, compensation) into the financial accounting system.
-Hands-on experience with SAP BW and BI/BO reporting, providing timely and accurate financial reports for internal stakeholders and ensuring data transparency for decision-making.
-Experience with troubleshooting and resolving financial system issues, including discrepancies in financial data, SAP FI integration errors, and ensuring smooth operations across all relevant SAP modules.
-Proven ability to deliver new business requirements for finance, working closely with business stakeholders to ensure SAP FI configurations meet evolving business needs and ensure compliance with financial regulations in the oil and gas sector.
-Experience with SAP S/4HANA implementation or migration projects, preparing SAP FI configurations for the transition from ECC to S/4HANA, ensuring smooth upgrade processes and future system enhancements.
-
-Qualifications:
-
-Bachelor's degree in Accounting, Finance, Information Systems, or a related field; advanced certifications or professional qualifications (e.g., CPA, ACCA) are a plus.
-SAP Certified in Financial Accounting (FI), with strong expertise in General Ledger (GL), Accounts Payable (AP), and Asset Accounting (AA).
-Experience and knowledge of IFRS and GAAP accounting standards, with the ability to ensure compliance in financial reporting and transactions within the oil and gas sector.
-Proven experience in Joint Venture Accounting (JVA) within SAP, particularly in handling settlements and cutbacks, and integrating JVA with other SAP modules.
-Experience in integrating SAP FI with SAP Controlling (CO), Materials Management (MM), Project Systems (PS), and SAP BW/BI/BO, with a deep understanding of financial reporting and data analytics.
-Experience with SAP S/4HANA and ECC6 migration projects, with a focus on preparing SAP FI modules for S/4HANA transition, ensuring system readiness and compatibility.",1–3 года,Полная занятость,График: 5/2,8,Формат работы: удалённо,28 апреля 2025,https://hh.kz/vacancy/120029991?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-SAP BPC/BW consultant,ТОО IBA Astana Dev (АйБиЭй Астана Дев),Не указано,Не указано,"Мы в поисках опытного SAP BPC консультанта для действующего проекта в АО ""НАК Казатомпром"". Полная загрузка 100%, без командировок. Рабочий язык - русский.
-
-Обязанности:
-
-Поддержка существующего решения на SAP BPC (SAP BPC 10.1/11 Embedded/Standard)
-
-Решение инцидентов и проблем пользователей (L3 поддержка)
-
-Анализ и исправление ошибок в отчетности и процессах консолидации
-
-Разработка новых отчетов в SAP BPC и SAP BW (при необходимости)
-
-Работа с запросами изменений (Change Requests)
-
-Взаимодействие с ключевыми пользователями и командой поддержки
-
-Документирование изменений и исправлений
+Разработка финансово-экономической модели проекта для оценки инвестиционного потенциала проекта и выработки стратегии развития.
 
 Требования:
 
-4+ лет опыта в поддержке или внедрении решений SAP BPC (Embedded или Standard)
+Высшее образование (экономическое или финансовое);
 
-Уверенные навыки работы с SAP BW (создание/поддержка инфообъектов, DSO, кубов, трансформаций)
+Отличное знание финансового учета (управленческого и бухгалтерского);
 
-Навыки проведения анализа инцидентов, локализации и исправления ошибок
+Продвинутый пользователь Excel (формулы, сводные таблицы), программы 1С Бухгалтерия;
 
-Понимание интеграции SAP BPC с другими модулями SAP (FI, CO)
+Опыт работы с Power BI (SQL, Phyton);
 
-Способность писать техническую документацию на русском языке
+Опыт разработки бизнес-планов, ФЭМ, ТЭО;
 
-Плюсом будет:
+Умение быстро переключаться между задачами;
 
-Опыт работы в проектах крупных промышленных холдингов
+Способность решать комплексные проблемы;
 
-Опыт настройки Business Process Flows (BPF) в SAP BPC
+Критическое мышление;
 
-Базовое знание SAP Analytics Cloud (SAC)
+Способность делать выводы и принимать решения;
+
+Способность легко и быстро обучаться новому.
 
 Условия:
-самостоятельная работа в проектной среде (без обучения с нуля)
-обсуждаемый формат работы (удаленно или офис)",3–6 лет,"Проект или разовое задание
-Возможно временное оформление",График: 5/2,8,Формат работы: удалённо,28 апреля 2025,https://hh.kz/vacancy/120034992?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Computer Vision Engineer,ТОО Smart Parking Technologies,Не указано,Не указано,"Parqour - казахстанский быстроразвивающийся IT стартап, занимаемся автоматизацией парковочных систем в Казахстане и в странах дальнего зарубежья, быстро масштабируемся на глобальный рынок. Есть офисы и представительства в США, ОАЭ, Азербайджан, Узбекистан, Кыргызстан. Начинали путь с нескольких ребят, сейчас более 100 сотрудников и мы только растем.
-
-Наша цель - безопасность и оперативность технологических решений. Сокращаем время обработки, даем экологичное решение и удобство для наших клиентов.
-
-У нас своя команда разработки, внедрения и сопровождения. Мы всегда в поиске талантливых профессионалов.
-
-Требования:
-
-- Опыт разработки в области компьютерного зрения и машинного обучения 3+ лет;
-- Отличное знание языков программирования C++/C и Python;
-- Глубокий опыт работы с библиотеками и фреймворками компьютерного зрения: OpenCV, GStreamer (на уровне оптимизации пайплайнов и глубокого понимания архитектуры);
-- Хорошее владение одним или несколькими ML/DL фреймворками: PyTorch, TensorFlow (включая разработку и адаптацию кастомных моделей);
-- Умение проектировать и внедрять алгоритмы компьютерного зрения и архитектуры нейронных сетей под задачи бизнеса;
-- Уверенный опыт оптимизации и деплоймента моделей с использованием ONNX, TensorRT, NCNN;
-- Опыт разработки в средах Linux, работы с SQL, управления проектами через git и контейнеризацию через Docker;
-- Глубокое понимание производственных требований к системам ML (robustness, latency, scalability, maintainability).
-
-Будет преимуществом:
-- Опыт подготовки моделей для продакшн: quantization, pruning, knowledge distillation, clustering;
-- Опыт оптимизации вычислений на GPU, работа с CUDA, cuDNN.
-
-Обязанности:
-- Проектирование, обучение и подготовка CV/ML моделей для различных задач (детекция, классификация, сегментация и пр.) с фокусом на продакшн;
-- Разработка, оптимизация и внедрение алгоритмов обработки изображений и видеопотоков;
-- Построение полноценных пайплайнов от обработки данных до деплоймента моделей;
-- Разработка и поддержка API/SDK для работы с обученными моделями, интеграция их в конечные продукты;
-- Оптимизация производительности моделей для встраиваемых и серверных решений (Jetson, ARM, x86).
+У нас постоянно появляются новые и интересные проекты, которые позволят вам развиваться и реализовывать свои идеи;
+Мы поощряем сотрудничество и взаимодействие между командами, что помогает создать сильные деловые связи и улучшить результаты;
+Мы поощряем внутренних кандидатов при продвижении на новые должности;
+Мы предлагаем конкурентоспособную зарплату с возможностью ее увеличения при росте и отличном выполнении обязанностей;
+Мы ценим мнение каждого сотрудника и активно вовлекаем их в процесс принятия решений;
+Наша компания стремится создавать поддерживающую и дружелюбную среду, где каждый чувствует себя ценным;
+В пятницу обеденный перерыв у нас 2 часа;
+Каждую пятницу в нашей компании проходит день угощений для сотрудников;
+В нашей компании предоставляется бесплатная телефонная связь;
+Работа в современном уютном офисе в центре города с удобной парковкой;
+В нашей компании своевременная оплата труда является частью корпоративной культуры и заботы о сотрудниках.",3–6 лет,Полная занятость,График: 5/2,8,На месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120038602?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано,до 800000 ₸,2025-04-28
+Search Systems Lead/Лид поисковых систем,Teez,Алматы,"до 3 000 000 ₸ за месяц, на руки","Teez — новый международный e-com проект. Мы создаем первый маркетплейс с доставкой товаров за один день в Казахстане.
 
-Условия:
+Над запуском работает команда с большим бэкграундом. Мы построили и раскрутили e-com площадку KazanExpress до компании федерального масштаба в России. Использовали похожую модель в Узбекистане и быстро взлетели: приложение Uzum — самое скачиваемое в категории «Покупки» в узбекском App Store.
 
-Молодой и дружный коллектив, который всегда в развитии и Self-driven;
-Обучение за счёт компании. Для профессионального развития, при необходимости за счет компании пройти курсы повышения квалификации или участвовать на конференцию, связанную с вашей работой.",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: на месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120037751?query=ML+Engineer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior SAP Reporting Consultant (BI/BO/BW/SAC/Datasphere),ТОО iQ-SOLUTIONS,Не указано,Не указано,"Key Responsibilities:
+Ищем профессионалов, которые готовы строить компанию с нуля — вместе с сильными, смелыми и креативными спецами.
 
-System Support & Maintenance:
-Provide ongoing support for the existing SAP BI and BO environments, including incident resolution, user assistance, and performance tuning of reports and dashboards.
-SAC Development & Management:
-Maintain and further develop reports and dashboards in SAP Analytics Cloud (SAC).
-Qualtrics Integration & Insights:
-Support the use of SAP Qualtrics for customer and employee experience analytics. Help business teams extract, interpret, and apply insights from Qualtrics data effectively.
-Collaboration with Stakeholders:
-Work closely with business users and functional teams to understand reporting requirements, propose solutions, and support self-service reporting initiatives.
-Data Integration:
-Support and improve existing data integration flows between SAP and non-SAP systems used in reporting.
-Issue Resolution & Troubleshooting:
-Identify and resolve issues related to data accuracy, report logic, and system performance.
-Training & Enablement:
-Conduct training sessions and provide guidance to business users and junior team members on using BI/BO tools effectively.
+Что и как мы делаем:
 
-Required Qualifications:
+Мы создаем беспрецедентно новый продукт в Казахстане и хотим, чтобы каждый член команды мог повлиять на него.
 
-Experience:
-7+ years of experience in SAP BI/BO environments
-Technical Expertise:
-Advanced skills in SAP BusinessObjects (Web Intelligence, Crystal Reports, BO Dashboards).
-Strong experience with SAP Analytics Cloud (reporting, dashboard design, data modeling).
-Solid background in SAP BW, SAP HANA, and BEx Queries.
-Proficiency in SQL and data analysis across SAP and non-SAP sources.
-Qualtrics Experience:
-Hands-on experience working with SAP Qualtrics, understanding its data model and integration with BI tools is a plus.
-Analytical & Problem-Solving Skills:
-Ability to translate business questions into technical solutions and meaningful dashboards or reports.
-Communication Skills:
-Strong verbal and written communication skills. Able to explain complex reporting concepts to non-technical stakeholders.
-Education:
-Bachelor's or Master's degree in Computer Science, Information Systems, Business Analytics, or a related field. SAP certifications are a strong advantage.
+Мы принимаем смелые решения и стремимся к тому, чтобы история компании попала в учебники по бизнесу. Поэтому делаем то, что никто не делал, и так, как никто делал.
 
-Preferred Qualifications:
+Мы строим команду, в которой каждый может высказаться — конструктивно и с уважением к коллегам. Умеем слушать других и относиться к критике как инструменту развития.
 
-SAP certifications in BI, BO, SAC, or BW/4HANA.
-Knowledge of SAP Datasphere, Embedded Analytics
+Мы быстрые во всем. Потому что в e-com все решает скорость: доставки, решений, мышления. Минимум бюрократии, минимум инстанций, минимум откладываний на потом, минимум бессмысленных созвонов и совещаний. Быстро решили, быстро сделали, быстро поехали дальше.
 
-Personal Attributes:
+Что мы предлагаем:
 
-Detail-oriented with a passion for data quality and visualization.
-Proactive and self-motivated with a continuous improvement mindset.
-Strong interpersonal skills and a collaborative working style.",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: удалённо,28 апреля 2025,https://hh.kz/vacancy/120033105?query=Data+Science+Manager&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Бизнес-аналитик (управление данными),ТОО АСУ Кибернетика,Не указано,Не указано,"Обязанности:
+Уникальная возможность построить все процессы с нуля в инновационном маркетплейсе;
 
-​​​​​​- Участие в проектах по внедрению Master Data Management (MDM) и Data Governance (DG) систем.
-- Проведение предпроектного обследования: сбор, анализ и структурирование требований заказчика.
-- Анализ существующих процессов управления данными и разработка предложений по их оптимизации.
-- Подготовка функциональных и технических требований (ТЗ) для реализации решений в области MDM/DG.
-- Построение моделей данных и описание бизнес-процессов.
-- Взаимодействие с бизнес-подразделениями и техническими командами (архитекторы, разработчики).
-- Поддержка команды разработки на этапе реализации и сопровождения решений.
-- Участие в тестировании решений на соответствие требованиям.
+Высокую зарплату: мы готовы достойно платить классным специалистам за их время;
 
-Требования:
+Творческую реализацию: вы сможете предлагать идеи и внедрять их в проект так, как видите. Мы открыты для нестандартных решений и приветствуем креативный подход;
 
-​​​​​​- Опыт работы на проектах внедрения MDM и/или Data Governance — обязателен.
-- Практический опыт проведения предпроектных обследований: интервьюирование, анализ текущих процессов, выявление требований.
-- Опыт написания технических заданий и другой проектной документации.
-- Понимание архитектуры MDM-систем и принципов интеграции с корпоративными системами.
-- Знание основных концепций управления данными.
+Удобный формат работы, никакой бюрократии и трека времени. Можете работать удаленно, можете — в нашем современном комфортном офисе в Алматы.
 
-Мы предлагаем:
+Крутую команду профессионалов с масштабным и успешным бэкграундом
 
-- Хорошая зарплата
+Наш стек: Kubernetes, Cloud-agnostic решения, C#, Postgre;
 
-- Выплата премии
+Работа с интересными инженерными задачами.
 
--​​​​​​​ Работа над интересными проектами
+Что нужно будет делать:
 
--Обучение и развитие
+Развивать самостоятельно систему поисковой выдачи для маркетплейса на базе ML-технологий (ранжирование, персонализация, векторный поиск и др);
+Создавать решения, упрощающие работу пользователей с поиском (подсказки, фильтрация, каталог и др);
+Коммуникация в паре с продакт менеджером с бизнес стейкхолдерами, учет потребностей бизнеса в ключевых решениях поиска и рекомендательных систем;
+Разработать и внедрить процесс постоянного улучшения KPI поиска.
 
-- Комфортные условия труда
+Что мы ждем от вас:
 
-- Работа в команде единомышленников",1–3 года,Полная занятость,График: 5/2,8,Формат работы: на месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120037991?query=Data+Architect&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-"Специалист по информационной безопасности (Fintech, English) / Informational Security Officer",ЧАСТНАЯ КОМПАНИЯ COLLECT&PAY LTD.,Астана,Не указано,"Collect Group Holdings is a progressive group of fintech companies founded in 2017. Our mission is to revolutionize the way businesses manage customer relationships. We strive for innovation and excellence, specializing in the development of cutting-edge fintech and blockchain platforms.
+Опыт работы в Data Science от 3х лет
+Умение работать с SQL и NoSQL, большими данными, DWH;
+Опыт разработки в e-commerce или смежных областях;
+Опыт построения сервисов поиска или рекомендаций (опыт работы с Elasticsearch - большой плюс);
+Конференции/хакатоны/соревнования - большой плюс
+Опыт управления командой (желательно).
 
-Our companies:
+Откликайтесь и приходите обсудить детали по направлению.
 
-Collect & Pay
+До встречи в Teez.",3–6 лет,Полная занятость,График: 5/2,8,Удалённо или гибрид,28 апреля 2025,https://hh.kz/vacancy/120045362?query=Data+Science+Manager&hhtmFrom=vacancy_search_list,Не указано,до 3000000 ₸,2025-04-28
+Search Systems Lead/Лид поисковых систем,Teez,Алматы,"до 3 000 000 ₸ за месяц, на руки","Teez — новый международный e-com проект. Мы создаем первый маркетплейс с доставкой товаров за один день в Казахстане.
 
-Collect & Exchange
+Над запуском работает команда с большим бэкграундом. Мы построили и раскрутили e-com площадку KazanExpress до компании федерального масштаба в России. Использовали похожую модель в Узбекистане и быстро взлетели: приложение Uzum — самое скачиваемое в категории «Покупки» в узбекском App Store.
 
-Capital Pay
+Ищем профессионалов, которые готовы строить компанию с нуля — вместе с сильными, смелыми и креативными спецами.
 
-Vacancy: Information Security Specialist
-Location: Republic of Kazakhstan, Astana
-Work format: Office
+Что и как мы делаем:
 
-The Information Security Officer (ISO) is responsible for establishing and maintaining the company’s information security program, ensuring that information assets and associated technologies, applications, systems, infrastructure, and processes are protected in accordance with regulatory, legal, and business requirements of the Republic of Kazakhstan and international standards. This role will play a crucial part in compliance with AIFC regulations, enhancing organizational cybersecurity readiness and resilience.
+Мы создаем беспрецедентно новый продукт в Казахстане и хотим, чтобы каждый член команды мог повлиять на него.
 
-Key Responsibilities
+Мы принимаем смелые решения и стремимся к тому, чтобы история компании попала в учебники по бизнесу. Поэтому делаем то, что никто не делал, и так, как никто делал.
 
-Ensure compliance with Kazakhstani laws, including: Law on Informatization, Law on Personal Data and Their Protection, Law on Payments and Payment Systems, Rules for Organizing the Activities of Payment Organizations (NBK Resolution).
+Мы строим команду, в которой каждый может высказаться — конструктивно и с уважением к коллегам. Умеем слушать других и относиться к критике как инструменту развития.
 
+Мы быстрые во всем. Потому что в e-com все решает скорость: доставки, решений, мышления. Минимум бюрократии, минимум инстанций, минимум откладываний на потом, минимум бессмысленных созвонов и совещаний. Быстро решили, быстро сделали, быстро поехали дальше.
 
-Lead internal information security awareness training and phishing simulation campaigns.
+Что мы предлагаем:
 
+Уникальная возможность построить все процессы с нуля в инновационном маркетплейсе;
 
-Coordinate and execute response protocols for malware infections, unauthorized access attempts, and suspicious financial transactions.
+Высокую зарплату: мы готовы достойно платить классным специалистам за их время;
 
+Творческую реализацию: вы сможете предлагать идеи и внедрять их в проект так, как видите. Мы открыты для нестандартных решений и приветствуем креативный подход;
 
-Manage vulnerability identification and remediation; establish preventive security controls.
+Удобный формат работы, никакой бюрократии и трека времени. Можете работать удаленно, можете — в нашем современном комфортном офисе в Алматы.
 
+Крутую команду профессионалов с масштабным и успешным бэкграундом
 
-Maintain comprehensive logs and records of security incidents and events; generate internal and regulatory reports as required.
+Наш стек: Kubernetes, Cloud-agnostic решения, C#, Postgre;
 
+Работа с интересными инженерными задачами.
 
-Assist in external and internal audits, ensuring continued compliance with standards such as ISO/IEC 27001 and PCI DSS.
+Что нужно будет делать:
 
+Развивать самостоятельно систему поисковой выдачи для маркетплейса на базе ML-технологий (ранжирование, персонализация, векторный поиск и др);
+Создавать решения, упрощающие работу пользователей с поиском (подсказки, фильтрация, каталог и др);
+Коммуникация в паре с продакт менеджером с бизнес стейкхолдерами, учет потребностей бизнеса в ключевых решениях поиска и рекомендательных систем;
+Разработать и внедрить процесс постоянного улучшения KPI поиска.
 
-Support IT infrastructure teams to ensure secure and resilient technology operations aligned with legal and business expectations.
+Что мы ждем от вас:
 
+Опыт работы в Data Science от 3х лет
+Умение работать с SQL и NoSQL, большими данными, DWH;
+Опыт разработки в e-commerce или смежных областях;
+Опыт построения сервисов поиска или рекомендаций (опыт работы с Elasticsearch - большой плюс);
+Конференции/хакатоны/соревнования - большой плюс
+Опыт управления командой (желательно).
 
-Perform security risk assessments and contribute to ongoing risk management planning.
+Откликайтесь и приходите обсудить детали по направлению.
 
-Qualifications
+До встречи в Teez.",3–6 лет,Полная занятость,График: 5/2,8,Удалённо или гибрид,28 апреля 2025,https://hh.kz/vacancy/120045362?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,до 3000000 ₸,2025-04-28
+Финансовый аналитик,ТОО BEST MILL,Караганда,Не указано,"Хотите развиваться в аналитике и финансах? ТОО Best Mill, один из лидеров рынка зерновых культур, в связи с расширением штата приглашает в команду финансового аналитика! Даже если у вас нет глубокого опыта, но вы готовы учиться и развиваться – мы будем рады видеть вас в нашей команде.
 
-Bachelor's degree in Information Security, Computer Science, Cybersecurity, or related field.
+Чем вы будете заниматься?
 
+Анализировать финансовые данные компании.
+Подготавливать отчеты и рекомендации для руководства.
+Работать с цифрами, трендами и прогнозами.
+Помогать выявлять ключевые показатели и отклонения.
+Визуализировать данные в удобном формате.
 
-Minimum 3–5 years of experience in an information security role, preferably within fintech, banking, or payment institutions.
+Кого мы ищем?
 
+✔ Уверенного пользователя MS Excel (если не знаете макросы – научим!).
+✔ Человека с логическим и аналитическим мышлением.
+✔ Готового работать с цифрами и большим объемом данных.
+✔ С базовыми знаниями финансового анализа (понимание доходов, расходов, прибыли).
+✔ Будет плюсом, если вы знакомы с Power BI, 1С – но это не критично!
 
-Strong knowledge of Kazakhstani information security laws and regulations.
+Что мы предлагаем?
 
+Стабильную работу в крупной компании.
+Обучение и поддержку – если есть желание развиваться, мы поможем.
+Официальное оформление и соцпакет.
+Развозка для сотрудников.
+Возможность профессионального роста в сфере аналитики и финансов.
 
-Experience working with or within regulatory bodies (e.g., AIFC) is an asset.
+Не бойтесь, если у вас нет всех навыков – главное, желание учиться и разбираться в данных!
+Откликайтесь – и давайте обсудим, как мы можем работать вместе!",1–3 года,Полная занятость,График: 5/2,8,На месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120038536?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
+Data Analyst,"Beeline, ТМ",Не указано,Не указано,"Отдел аналитики данных КХД и BIIS — это команда профессионалов, которые работают с корпоративным хранилищем данных (DWH) и бизнес-аналитикой. Мы обеспечиваем бесперебойную работу систем, разрабатываем и оптимизируем процессы обработки данных, создаем аналитические отчеты и витрины, а также следим за качеством и соответствием данных строгим требованиям аудита.
 
+Наша работа включает в себя поддержку хранилища данных на платформе Oracle, разработку и доработку ETL-процессов с использованием Informatica и AirFlow, создание надежных и удобных отчетов на базе SAP BO. Мы настраиваем контрольные механизмы и следим за качеством загружаемых данных, чтобы они соответствовали стандартам, включая SOX. Важной частью наших задач является взаимодействие с аудиторами, прохождение внутренних и внешних проверок, а также консультационная поддержка пользователей, работающих с данными DWH.
 
-Industry certifications preferred (e.g., CISSP, CISM, ISO 27001 Lead Implementer, CEH).
+Кроме того, мы участвуем в процессах закрытия отчетных периодов, обеспечивая корректные данные для расчета ключевых финансовых и маркетинговых показателей. Мы стремимся сделать работу с данными точной, удобной и эффективной, чтобы поддерживать стратегические решения бизнеса на высоком уровне.
 
+Наши инструменты : PL/SQL Developer, DBeaver, Informatica PwC, JupyterHub, Jira, Confluence, ITSM, SAP BO
 
-Knowledge of international standards (ISO/IEC 27001, PCI DSS) and risk frameworks (e.g., NIST, COBIT).
 
+Ключевые задачи:
 
-Fluency in Kazakh and/or Russian; English proficiency desirable for regulatory communication.
+Сопровождение и мониторинг качества ежедневных загрузок
+Сопровождение процессов закрытия месячной отчетности в вопросах анализа данных
+Разработка/доработка объектов DWH, слоев данных, правил проверки, внедрение нового функционала в части аналитики.
+Разработка/доработка ETL процессов для DWH в части аналитики
+Участие в процессах инцидент-менеджмента по отчетам и показателям
+Формирование технических заданий, запросов на изменение в рамках процесса поддержки и развития систем отчетности
+Консультация бизнес-пользователей
 
-What do we offer?
+Чего мы ждем:
 
-You will have the status of an employee at a tech company with great growth potential, a very long runway, and large, growing markets
+Опыт работы 1-2 года в области корпоративной отчетности или систем поддержки принятия решений
+Работа и управление кросс–функциональными процедурами
+Умение анализировать отчеты и базы данных
+Навыки эффективной коммуникации
+Знание теории построения реляционных СУБД
+Знание методов и средств эффективного построения:
 
-Competitive salary and stable working conditions
+•  хранилищ данных и приложений на их базе (в т.ч. операционная и MIS отчетность);
+•  методы сбора и проверки корректности исходных данных.
+•  анализ больших данных
+•  hadoop
 
-Career and professional development opportunities
+Опыт разработки SQL, Python
+Знание методов и средств организации подтверждения корректности данных в отчетах
 
-Paid lunches
+Пожалуйста, в сопроводительном письме укажите:
 
-Engaging tasks that will help you grow
+Свои зарплатные ожидания
+Уровень владения SQL
+Уровень владения Python
 
-A friendly team with no unnecessary formalities and hierarchy
+Большое спасибо! Где же ты наш будущий коллега?
 
-Opportunity for additional company-sponsored training",3–6 лет,Полная занятость,График: 5/2,8 или 9,Формат работы: на месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120025049?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-"Специалист по информационной безопасности (Fintech, English) / Informational Security Officer",ЧАСТНАЯ КОМПАНИЯ COLLECT&PAY LTD.,Астана,Не указано,"Collect Group Holdings is a progressive group of fintech companies founded in 2017. Our mission is to revolutionize the way businesses manage customer relationships. We strive for innovation and excellence, specializing in the development of cutting-edge fintech and blockchain platforms.
-
-Our companies:
-
-Collect & Pay
-
-Collect & Exchange
-
-Capital Pay
-
-Vacancy: Information Security Specialist
-Location: Republic of Kazakhstan, Astana
-Work format: Office
-
-The Information Security Officer (ISO) is responsible for establishing and maintaining the company’s information security program, ensuring that information assets and associated technologies, applications, systems, infrastructure, and processes are protected in accordance with regulatory, legal, and business requirements of the Republic of Kazakhstan and international standards. This role will play a crucial part in compliance with AIFC regulations, enhancing organizational cybersecurity readiness and resilience.
-
-Key Responsibilities
-
-Ensure compliance with Kazakhstani laws, including: Law on Informatization, Law on Personal Data and Their Protection, Law on Payments and Payment Systems, Rules for Organizing the Activities of Payment Organizations (NBK Resolution).
-
-
-Lead internal information security awareness training and phishing simulation campaigns.
-
-
-Coordinate and execute response protocols for malware infections, unauthorized access attempts, and suspicious financial transactions.
-
-
-Manage vulnerability identification and remediation; establish preventive security controls.
-
-
-Maintain comprehensive logs and records of security incidents and events; generate internal and regulatory reports as required.
-
-
-Assist in external and internal audits, ensuring continued compliance with standards such as ISO/IEC 27001 and PCI DSS.
-
-
-Support IT infrastructure teams to ensure secure and resilient technology operations aligned with legal and business expectations.
-
-
-Perform security risk assessments and contribute to ongoing risk management planning.
-
-Qualifications
-
-Bachelor's degree in Information Security, Computer Science, Cybersecurity, or related field.
-
-
-Minimum 3–5 years of experience in an information security role, preferably within fintech, banking, or payment institutions.
-
-
-Strong knowledge of Kazakhstani information security laws and regulations.
-
-
-Experience working with or within regulatory bodies (e.g., AIFC) is an asset.
-
-
-Industry certifications preferred (e.g., CISSP, CISM, ISO 27001 Lead Implementer, CEH).
-
-
-Knowledge of international standards (ISO/IEC 27001, PCI DSS) and risk frameworks (e.g., NIST, COBIT).
-
-
-Fluency in Kazakh and/or Russian; English proficiency desirable for regulatory communication.
-
-What do we offer?
-
-You will have the status of an employee at a tech company with great growth potential, a very long runway, and large, growing markets
-
-Competitive salary and stable working conditions
-
-Career and professional development opportunities
-
-Paid lunches
-
-Engaging tasks that will help you grow
-
-A friendly team with no unnecessary formalities and hierarchy
-
-Opportunity for additional company-sponsored training",3–6 лет,Полная занятость,График: 5/2,8 или 9,Формат работы: на месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120025049?query=Data+Science+Manager&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Exploration Geologist,Частная компания IG Copper and Gold,Не указано,"от 1 000 000 до 1 500 000 ₸ за месяц, на руки","JOB DUTIES/RESPONSIBILITIES:
-
-Manages geological (geophysical, hydrogeological) activities of the geological Company;
-Management of all types of exploration and production works;
-Compliance with safety rules during Exploration;
-Conducting regular site inspections and preparing risk/safety assessments;
-Work proficiently in a team environment with minimal supervision;
-Reviewing, examining, compiling, and digitizing historical data
-GIS support;
-Field man with experience on solid minerals in the fields:
-Geological mapping
-
-Sampling (chip, grab, channel, core, cutting samples);
-
-Geological and geotechnical logging;
-Coordinating and supervising drilling operations;
-Mentoring of junior staff to enhance their technical skills and capabilities;
-Targeting of exploration work;
-Exploration plan design and budgeting;
-Coordination and supervision of field, laboratory, geological, and geophysical operations;
-Collection, analysis and interpretation of infrared spectroscopy data
-
-quality control;
-
-Logistics and maintenance of vehicles;
-Willingness to perform other duties as necessary to ensure the success of the IGCG;
-Daily, weekly, monthly, and annual reporting
-
-REQUIRED EDUCATION, WORK EXPERIENCE & TRAINING:
-
-Bachelor’s degree, Master’s degree in Geology or Geological Engineering.
-Work experience > 3 years
-
-TECHNICAL SKILLS:
-
-Familiarity with Microsoft Office programs, QGIS, LeapFrog, Clino Field Move, ArcGIS;
-Can work safely;
-Can work responsibly and independently;
-Strong work ethic;
-Positive attitude and aptitude to accept a challenging and dynamic work environment;
-Excellent written and communication skills;
-Team oriented.
-English language: B2
-Kazakh language: B1
-
-Full-Time 5/2
-Frequent field trips",3–6 лет,Полная занятость,График: 6/1 и другие варианты,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120018893?query=Data+Miner&hhtmFrom=vacancy_search_list,Не указано,1000000–1500000 ₸,2025-04-28
-Senior Planning Specialist,ТОО ILF Kazakhstan,Не указано,Не указано,"Обязанности:
-Provide planning & reporting services to project teams to ensure proper project planning, reporting and resource management.
-Develops and ensures effective and successful Management Level (Levels 1 and 2) and Performance Level (Levels 3 and 4) project plans/schedules for all phases of project, including the FEED, Engineering, Procurement and Construction phases.
-Performs logic network planning using the Critical Path Method (CPM) for the development of all plans and schedules with Basis of Schedule documents.
-Develops appropriate plans/schedules and monitors and updates plans/schedules for the project from the start through Close-Out
-Ensures appropriate physical progress measurement set up and regular updates for the project.
-Prepare resource and progress reports to reflect the agreed budget for the work and in line with the developed Work Breakdown Structure.
-Coordinates preparation of projects Progress Reporting and Management information packs.
-Implementation and development when required of Planning and Reporting related Processes and Procedures,
-To develop project schedules from summary to detailed level which optimize expenditure of time, resource utilization and cost.
-Prepare and update on a weekly basis a Progress Calculation Report. Undertake calculation of progress, Schedule Performance Index and productivity statistics.
-Analysis, forecasting and manage the Company Projects schedules, resource budgets, productivity and other KPI’s as one entity. Compilation and analysis of historical planning, productivity and resource data.
-To identify and addresses areas of concern and project schedule risk and subsequent recovery action to minimize adverse trends.
-Update the Planned, Committed, Expended and Estimated to Complete values.
-Undertake regular reviews of the schedules and progress reports to identify any trends, variations or concerns.
-Support all Project Service teams of planning, cost control, cost estimate and document controls when required.
-Trains junior staff on their responsibilities, advises on best practices and ensures proper norms and methods are followed.
-Demonstrate a commitment to achieving of Company standards and procedures and development planning and scheduling check lists and procedures.
-To provide information to Senior Management to enable a project to be managed effectively.
-Undertake ad hoc reviews and analysis as directed by Project Service Management, Planning and Cost Control team leads.
-Требования:
-
-Solid knowledge of all phases of project, including the FEED, Engineering, Procurement and Construction phases.
-Must have knowledge and experience of Project Control, Planning and Reporting disciplines.
-Knowledge of computer based systems including, good knowledge of PRIMAVERA P6 and MS Project, ERP systems, Database Management systems, Excel, Power BI, Word, Microsoft Office or equivalent software packages.
-Education: Bachelor degree in engineering is minimum requirement. Master degree preferred
-Language skills: English and Russian are mandatory. Kazakh is advantageous
-Professional experience: Min 10 years – technical experience in planning
-
-Условия:
-Atyrau, 5/2",более 6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120036073?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Systems Engineer,"ТОО Wabtec Corporation, ТМ (Филиал компании «Транспортейшн Глоубэл Эл-Эл-Си»в Республике Казахстан)",Не указано,Не указано,"Role summary:
-
-The purpose of this role is to lead all the Engine & Fuel system integration activities related to the customer requirements, and delivery of new engines to the international customers with a primary focus on customers in Kazakhstan and CIS region.
-
-This role includes customer interface, requirement management, monitoring subsystem development, Engine integration, build support, in country validation, commissioning and launch support.
-
-This role has the responsibility to work collaboratively and strategically with globally diverse stakeholders to deliver best in class product configuration meeting business objectives and customer requirement. This role is also responsible for shaping the product considering reuse, leveraging standardization, modularization in consultation with product management and other cross functions.
-
-Responsibilities:
-
-Engine & Fuel system integration with locomotive
-Responsibility to execute & deliver locomotive product for international customers meeting cost, quality, and schedule
-Lead engine emissions and fuel consumption in country testing
-Lead certification efforts with certification team and collaborate with 3rd party certification agency’s
-Understand product requirements, operating environment, and regulations
-Interface with Program Management Office, Supply Chain and develop integrated schedule
-Communicate project status, schedules, upcoming deliverables, risks, issues, and technical solutions between various stakeholders. Method of communications to include, but not limiting to, design reviews, operational reviews, and team meetings.
-Identify detailed validation requirements, drill down for subsystems, planning and execution
-Support Prototype locomotive build and manage product changes till customer acceptance
-Identify risk and provide mitigation plan by working cross functionally
-Identify and Lead productivity efforts and support margin improvement team
-Support localization efforts
-Subsystem Engineering validation at loco level, customer demonstration test at build locations, conduct trials on customer track, commissioning & customer documentation
-Document technical data generated by the assigned project per engineering policies and procedures
-Embrace culture of Collaboration, Innovation, Customer Centricity, Safety, Compliance, Cost & Schedule
-Partner with cross functional team in driving customer discovery session to incorporate learning from past projects, field & operational experience in country.
-Partner with cross functional team in driving post project evaluation to document project learning to be used in future programs
-Support sourcing, manufacturing, and other cross-functional teams throughout the product life cycle",3–6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120018494?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
+Наши условия ниже:",3–6 лет,"Проект или разовое задание
+Возможно временное оформление",График: 5/2,8,Удалённо,28 апреля 2025,https://hh.kz/vacancy/120043212?query=Data+Analyst&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
 Data Scientist (CV),"Beeline, ТМ",Не указано,Не указано,"Мы ищем специалиста в области Computer Vision, который поможет нам в быстром генерировании и тестировании гипотез для разработки и поддержки инновационных продуктов. Откликайся ❤️
 
 Обязанности:
@@ -742,259 +272,4 @@ R&D по разработке новых CV-продуктов
 
 Наши условия ниже:)
 
-​​​",более 6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120020169?query=Data+Scientist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Senior Planning Specialist,ТОО ILF Kazakhstan,Не указано,Не указано,"Обязанности:
-Provide planning & reporting services to project teams to ensure proper project planning, reporting and resource management.
-Develops and ensures effective and successful Management Level (Levels 1 and 2) and Performance Level (Levels 3 and 4) project plans/schedules for all phases of project, including the FEED, Engineering, Procurement and Construction phases.
-Performs logic network planning using the Critical Path Method (CPM) for the development of all plans and schedules with Basis of Schedule documents.
-Develops appropriate plans/schedules and monitors and updates plans/schedules for the project from the start through Close-Out
-Ensures appropriate physical progress measurement set up and regular updates for the project.
-Prepare resource and progress reports to reflect the agreed budget for the work and in line with the developed Work Breakdown Structure.
-Coordinates preparation of projects Progress Reporting and Management information packs.
-Implementation and development when required of Planning and Reporting related Processes and Procedures,
-To develop project schedules from summary to detailed level which optimize expenditure of time, resource utilization and cost.
-Prepare and update on a weekly basis a Progress Calculation Report. Undertake calculation of progress, Schedule Performance Index and productivity statistics.
-Analysis, forecasting and manage the Company Projects schedules, resource budgets, productivity and other KPI’s as one entity. Compilation and analysis of historical planning, productivity and resource data.
-To identify and addresses areas of concern and project schedule risk and subsequent recovery action to minimize adverse trends.
-Update the Planned, Committed, Expended and Estimated to Complete values.
-Undertake regular reviews of the schedules and progress reports to identify any trends, variations or concerns.
-Support all Project Service teams of planning, cost control, cost estimate and document controls when required.
-Trains junior staff on their responsibilities, advises on best practices and ensures proper norms and methods are followed.
-Demonstrate a commitment to achieving of Company standards and procedures and development planning and scheduling check lists and procedures.
-To provide information to Senior Management to enable a project to be managed effectively.
-Undertake ad hoc reviews and analysis as directed by Project Service Management, Planning and Cost Control team leads.
-Требования:
-
-Solid knowledge of all phases of project, including the FEED, Engineering, Procurement and Construction phases.
-Must have knowledge and experience of Project Control, Planning and Reporting disciplines.
-Knowledge of computer based systems including, good knowledge of PRIMAVERA P6 and MS Project, ERP systems, Database Management systems, Excel, Power BI, Word, Microsoft Office or equivalent software packages.
-Education: Bachelor degree in engineering is minimum requirement. Master degree preferred
-Language skills: English and Russian are mandatory. Kazakh is advantageous
-Professional experience: Min 10 years – technical experience in planning
-
-Условия:
-Atyrau, 5/2",более 6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120036073?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Business Development specialist,ТОО EY (Ernst & Young),Алматы,Не указано,"Key Responsibilities:
-
-Tender support: track relevant tenders through the tender platforms and other external sources, participate in submission process and ensure compliance with requirements and deadlines.
-Internal communications: Act as a key point of contact for the team on business development activities.
-Webinar support: Organize and facilitate webinars, including external communications, the registration process, and webcast management.
-External event support: Close work with marketing team in planning and executing external events for clients.
-Clients database management: Update and maintain the client database regularly and ensure data accuracy and consistency.
-Internal website administration: Maintain and update the internal website to ensure relevance and accessibility.
-Administrative support: Assistance in the establishment of the prequalification process, manage subscriptions on external sources, ensure timely renewal of access to electronic tender platforms.
-Marketing collateral: Assist in developing and preparing brochures, ensuring alignment with branding standards.
-Requirements:
-Higher education in marketing, finance, administration and other specialties
-Up to 3 years experience in business administration, business development, marketing, sales
-Attention to details, proactivity
-English - upper-intermediate",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: гибрид,28 апреля 2025,https://hh.kz/vacancy/120025487?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-BI-аналитик (Tableau),ООО Топассистент,Не указано,"от 4 000 € за месяц, на руки","В крупную международную компанию, предоставляющую услуги и бизнес-решения в сфере финансовых технологий и находящуюся в процессе расширения на международных рынках, требуется BI-аналитик. Вакансия предполагает релокацию на Кипр.
-
-Что от вас требуется:
-- опыт работы в роли аналитика / BI-аналитика от 3 лет;
-- опыт работы с Tableau от 2 лет;
-- продвинутый SQL (вложенные запросы, оконные функции);
-- понимание логики работы реляционных и не реляционных баз данных;
-- знание математической статистики и теории вероятностей;
-- знание Python (pandas, NumPy, matplotlib, Sklearn) и других BI-систем будет плюсом;
-- высшее образование.
-
-Что будет входить в круг ваших обязанностей:
-- развитие и поддержка существующей отчетности, разработка отчетов «с нуля»;
-- сбор требований от заказчиков отчетов;
-- сбор и интеграция данных из различных источников в витрины данных;
-- разработка и поддержка отчетов в Tableau;
-- автоматизация отчетности;
-- поиск инсайтов, формулирование и проверка гипотез;
-- отработка Ad Hoc-запросов.
-
-Что вас ждёт:
-- комфортный офис в Лимасоле, возможность первые месяцы начать с удаленной работы;
-- конкурентная заработная плата, обсуждается индивидуально;
-- график работы 5/2 с 9.00 до 18.00, 1 день в неделю - home office;
-- компенсация питания (завтраки, обеды в офисе);
-- корпоративные программы изучения английского и греческого;
-- компенсация абонемента в спортзал;
-- медицинская страховка;
-- тимбилдинги, корпоративы.",1–3 года,Полная занятость,График: 5/2,8,Формат работы: на месте работодателя или гибрид,28 апреля 2025,https://hh.kz/vacancy/120013542?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано,от 4000 €,2025-04-28
-Computer Vision Engineer,ТОО Smart Parking Technologies,Не указано,Не указано,"Parqour - казахстанский быстроразвивающийся IT стартап, занимаемся автоматизацией парковочных систем в Казахстане и в странах дальнего зарубежья, быстро масштабируемся на глобальный рынок. Есть офисы и представительства в США, ОАЭ, Азербайджан, Узбекистан, Кыргызстан. Начинали путь с нескольких ребят, сейчас более 100 сотрудников и мы только растем.
-
-Наша цель - безопасность и оперативность технологических решений. Сокращаем время обработки, даем экологичное решение и удобство для наших клиентов.
-
-У нас своя команда разработки, внедрения и сопровождения. Мы всегда в поиске талантливых профессионалов.
-
-Требования:
-
-- Опыт разработки в области компьютерного зрения и машинного обучения 3+ лет;
-- Отличное знание языков программирования C++/C и Python;
-- Глубокий опыт работы с библиотеками и фреймворками компьютерного зрения: OpenCV, GStreamer (на уровне оптимизации пайплайнов и глубокого понимания архитектуры);
-- Хорошее владение одним или несколькими ML/DL фреймворками: PyTorch, TensorFlow (включая разработку и адаптацию кастомных моделей);
-- Умение проектировать и внедрять алгоритмы компьютерного зрения и архитектуры нейронных сетей под задачи бизнеса;
-- Уверенный опыт оптимизации и деплоймента моделей с использованием ONNX, TensorRT, NCNN;
-- Опыт разработки в средах Linux, работы с SQL, управления проектами через git и контейнеризацию через Docker;
-- Глубокое понимание производственных требований к системам ML (robustness, latency, scalability, maintainability).
-
-Будет преимуществом:
-- Опыт подготовки моделей для продакшн: quantization, pruning, knowledge distillation, clustering;
-- Опыт оптимизации вычислений на GPU, работа с CUDA, cuDNN.
-
-Обязанности:
-- Проектирование, обучение и подготовка CV/ML моделей для различных задач (детекция, классификация, сегментация и пр.) с фокусом на продакшн;
-- Разработка, оптимизация и внедрение алгоритмов обработки изображений и видеопотоков;
-- Построение полноценных пайплайнов от обработки данных до деплоймента моделей;
-- Разработка и поддержка API/SDK для работы с обученными моделями, интеграция их в конечные продукты;
-- Оптимизация производительности моделей для встраиваемых и серверных решений (Jetson, ARM, x86).
-
-Условия:
-
-Молодой и дружный коллектив, который всегда в развитии и Self-driven;
-Обучение за счёт компании. Для профессионального развития, при необходимости за счет компании пройти курсы повышения квалификации или участвовать на конференцию, связанную с вашей работой.",3–6 лет,Полная занятость,График: 5/2,8,Формат работы: на месте работодателя,28 апреля 2025,https://hh.kz/vacancy/120037751?query=Computer+Vision+Engineer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Exploration Geologist,Частная компания IG Copper and Gold,Не указано,"от 1 000 000 до 1 500 000 ₸ за месяц, на руки","JOB DUTIES/RESPONSIBILITIES:
-
-Manages geological (geophysical, hydrogeological) activities of the geological Company;
-Management of all types of exploration and production works;
-Compliance with safety rules during Exploration;
-Conducting regular site inspections and preparing risk/safety assessments;
-Work proficiently in a team environment with minimal supervision;
-Reviewing, examining, compiling, and digitizing historical data
-GIS support;
-Field man with experience on solid minerals in the fields:
-Geological mapping
-
-Sampling (chip, grab, channel, core, cutting samples);
-
-Geological and geotechnical logging;
-Coordinating and supervising drilling operations;
-Mentoring of junior staff to enhance their technical skills and capabilities;
-Targeting of exploration work;
-Exploration plan design and budgeting;
-Coordination and supervision of field, laboratory, geological, and geophysical operations;
-Collection, analysis and interpretation of infrared spectroscopy data
-
-quality control;
-
-Logistics and maintenance of vehicles;
-Willingness to perform other duties as necessary to ensure the success of the IGCG;
-Daily, weekly, monthly, and annual reporting
-
-REQUIRED EDUCATION, WORK EXPERIENCE & TRAINING:
-
-Bachelor’s degree, Master’s degree in Geology or Geological Engineering.
-Work experience > 3 years
-
-TECHNICAL SKILLS:
-
-Familiarity with Microsoft Office programs, QGIS, LeapFrog, Clino Field Move, ArcGIS;
-Can work safely;
-Can work responsibly and independently;
-Strong work ethic;
-Positive attitude and aptitude to accept a challenging and dynamic work environment;
-Excellent written and communication skills;
-Team oriented.
-English language: B2
-Kazakh language: B1
-
-Full-Time 5/2
-Frequent field trips",3–6 лет,Полная занятость,График: 6/1 и другие варианты,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120018893?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано,1000000–1500000 ₸,2025-04-28
-Специалист поддержки DCS,ТОО KAZ MINERALS.MANAGMENT,Не указано,Не указано,"Обязанности:
-Развивать и поддерживать отказоустойчивость промышленных систем DCS, IED.
-Оперативно реагировать на аварийные ситуации в работе систем DCS, IED.
-Принимать оперативные меры по восстановлению систем DSC, IED при их сбоях или выходе строя.
-Выявлять неисправности и решать вопросы, связанные с обеспечением соответствующего уровня производительности промышленных систем.
-Проводить тестирование и ремонт неисправного оборудования.
-Выполнять работы в подключении, тестировании и модификации ПЛК/Scada перед внедрением.
-Анализировать причины неполадок и неисправностей системы, вносить предложения по их устранению и профилактики, улучшать качество и надежность промышленных систем управления и электроснабжения (DCS, IED).
-Поддержка, устранении неполадок ПЛК, систем DCS 800хА, MicroSCADA, сетей Profibus и Modbus, а также сети ЕС61850 и соответствующем оборудовании.
-Содействовать ежедневному, еженедельному и ежемесячному планированию работ и мероприятий по электрическим и промышленным системам.
-Расследовать аварий и повреждения систем.
-Создавать, внедрять и тестировать планы аварийного восстановления систем DCS, IED.
-Производить установку и техническое обслуживание программного обеспечения систем управления DCS, IED.
-Проводить контрольные проверки работоспособности и эффективности действующих систем и технических средств мониторинга и реагирования, разрабатывать предложения по совершенствованию и повышению эффективности принимаемых мер.
-Участвовать в процессе принятия решений о внедрении или модернизации компонентов DCS, IED систем.
-Взаимодействовать со сторонними компаниями по вопросам, связанным с обеспечением доступа, работоспособности промышленных систем управления и электроснабжения (DCS, IED).
-Подготовка и введение организационно-распорядительной документации:
-Разработка политик, процедур, регламентов компании по эксплуатации, развитию/расширению систем промышленной связи.
-Требования:
-Опыт работы в проектировании, внедрении и/или обслуживании систем управления систем автоматизации, SCADA.
-Знание принципов построения, особенностей проектирования, внедрения, эксплуатации систем DCS (distributed control system), IED (Intelligent Electronic Device).
-Знание стандартов и протоколов систем DCS, IED.
-Опыт ведения проектов в области DCS, практический опыт в реализации крупных проектов.
-Умение составлять технические задания, технические и эксплуатационные документации.
-Работа со сторонними организациями (вендорами, поставщики и др.).
-Желание и возможность проявить себя в условиях поддержки существующего бизнеса и развития новых технологий.
-Продвинутые знания в области АСУТП: Понимание ключевых аспектов автоматизации технологических процессов горнорудный предприятий. металлургии и специфики работы меднообогатительных комбинатов.
-Экспертиза в системах ABB: Глубокие теоретические и практические знания систем ABB 800xA и MicroSCADA Pro, включая продвинутые функции, настройку, масштабирование и интеграцию с другими системами.
-Опыт работы с промышленными коммуникационными протоколами, используемыми в АСУТП, такими как IEC 61850, IEC 60870-5-101/104, Modbus TCP/RTU, PROFIBUS и PROFINET.
-Умение программировать и конфигурировать системы управления ABB с использованием инструментов программирования (например, Control Builder M) и знание языков программирования, таких как IEC 61131-3.
-Управление электрическими сетями: Понимание принципов управления и мониторинга электрическими сетями, включая распределенные системы автоматизации подстанций (SAS) и системы управления дистрибутивной энергетикой (DMS).
-Знание сетевых технологий Cisco: Глубокое понимание и практический опыт работы с линейкой промышленного оборудования Cisco, включая маршрутизаторы, коммутаторы и МСЭ, на уровне сертификации CCNP или выше. Это включает в себя, но не ограничивает, знание архитектуры промышленной сети, протоколов PTP, CIP, MODBUS TCP, IGMP, PIM, MLD, VLAN, QoS и т.д. и принципов построения высокозащищенных промышленных сетей.
-Разработка и внедрение сетевых решений: Способность разрабатывать и реализовывать сетевые решения, соответствующие требованиям промышленной безопасности и надежности. Это включает создание и поддержку сетевой документации, планирование масштабируемости сети, а также анализ и устранение узких мест производительности.
-Опыт формирования и оформления технических спецификаций.
-Навыки по устранению неполадок в работе промышленных сетей.
-Знание нормативно-правовой базы РК и международных стандартов в области АСУТП в горнорудной отрасли.
-Условия:
-График 5/2;
-Медицинское страхование.",более 6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120027302?query=Business+Intelligence+Developer&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Payroll Specialist,ТОО Филип Моррис Казахстан,Не указано,Не указано,"Be a part of a revolutionary change
-
-At PMI, we’ve chosen to do something incredible. We’re totally transforming our business and building our future on one clear purpose – to deliver a smoke-free future.
-
-With huge change, comes huge opportunity. So, wherever you join us, you’ll enjoy the freedom to dream up and deliver better, brighter solutions and the space to move your career forward in endlessly different directions.
-
-Your ‘day to day’:
-• Ensure the payroll process;
-• Create monthly and corrective timesheets for their further verification and approval by heads of departments;
-• Monthly reconciliation of balances on the accounts of the General Ledger with payroll data;
-• Take part in the preparation of salary documents for storage in the archive according to the deadlines established by the legislation of the Republic of Kazakhstan and the provisions of the PMK;
-• Provide income certificates at the request of employees;
-• Monitor and study any changes in the labor, pension and tax legislation of the Republic of Kazakhstan relevant to payroll;
-• Preparation and provision of statistical reports in accordance with the established deadlines;
-• Take an active part in new projects related to the activities of the finance department.
-
-Who we’re looking for:
-• Higher financial/economic education;
-• Knowledge of the basics of accounting and finance;
-• English language proficiency at least at Upper Intermediate level;
-• Experience in finance/accounting will be preferred;
-• Skills of working in MS Office (Excel, Word) at the level of an experienced user.
-
-What we offer:
-- An opportunity to pursue your ambitions and develop your skills with a global business – our staggering size and scale provides endless opportunities to progress;
-- An opportunity to build an international career and for cross-functional moves;
-- Extended social package: life insurance, insurance from critical illnesses, additional payment for preschool development of children, participation in the Employee Assistance Program (financial, psychological and legal consultations) for employees and family members, and much more.
-
-*Relocation support is not available for this job",1–3 года,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120021212?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
-Risk and Internal Controls Specialist in Audit Department (Astana),ТОО KPMG,Не указано,Не указано,"KPMG is searching for Risk and Internal Controls Specialist in Audit Department
-
-As a Risk and Internal Controls Specialist, you will:
-
-Create and set up controls in the QTracker system.
-
-Monitor the timely submission of controls according to the approved plan.
-
-Fill in controls in the system as needed.
-
-Communicate internally, primarily with employees of the Audit department.
-
-Assist with analyzing risks, preparing reports, and ensuring compliance with internal control standards.
-
-Support risk management efforts and help with internal audits.
-
-Contribute to the development and improvement of internal audit processes.
-
-You’re the perfect match for this role if you:
-
-Have at least 1 year of experience in risk management, internal audit, or related areas, preferably within a consulting or audit firm.
-
-Have a good understanding of internal controls and risk management practices.
-
-Are proficient in spoken and written English (B2 or higher).
-
-Possess strong communication, analytical, and problem-solving skills.
-
-Are able to work effectively in a team environment and maintain attention to detail in all tasks.
-
-Diversity & Inclusion Statement
-
-We are committed to creating a diverse and inclusive workplace. All qualified applicants will receive consideration for employment regardless of their unique abilities, background, or identity.",1–3 года,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120008840?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28
+​​​",более 6 лет,Полная занятость,График: 5/2,8,Не указано,28 апреля 2025,https://hh.kz/vacancy/120020169?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано,Не указано,2025-04-28

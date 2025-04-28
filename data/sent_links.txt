@@ -20,3 +20,6 @@ https://hh.kz/vacancy/120037991?query=Data+Architect&hhtmFrom=vacancy_search_lis
 https://hh.kz/vacancy/120020169?query=Data+Scientist&hhtmFrom=vacancy_search_list
 https://hh.kz/vacancy/120013542?query=BI+Analyst&hhtmFrom=vacancy_search_list
 https://hh.kz/vacancy/120037751?query=Computer+Vision+Engineer&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120045362?query=Data+Science+Manager&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120045362?query=Data+Specialist&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120043212?query=Data+Analyst&hhtmFrom=vacancy_search_list
