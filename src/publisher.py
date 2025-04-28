@@ -10,6 +10,29 @@ from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 
 # ——— Путь до файла отправленных ссылок ———
 SENT_LINKS_PATH = "data/sent_links.txt"
+SENT_IDS_PATH = "data/sent_ids.txt"
+
+
+# ——— Работа с отправленными vacancy_id ———
+
+def load_sent_ids(path: str = SENT_IDS_PATH) -> set:
+    if not os.path.exists(path):
+        return set()
+    with open(path, "r", encoding="utf-8") as f:
+        return set(line.strip() for line in f)
+
+def append_sent_ids(ids: list, path: str = SENT_IDS_PATH):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        for vacancy_id in ids:
+            f.write(vacancy_id + "\n")
+
+def extract_vacancy_id(link: str) -> str:
+    try:
+        return link.split('/vacancy/')[1].split('?')[0]
+    except (IndexError, AttributeError):
+        return None
+
 
 # ——— Загрузка ранее отправленных ссылок ———
 def load_sent_links(path: str = SENT_LINKS_PATH) -> set:
@@ -93,7 +116,7 @@ def load_today_rows() -> pd.DataFrame:
         today_str = datetime.now().strftime("%Y-%m-%d")
 
         # Фильтруем только по сегодняшнему дню
-        filtered_df = df[df["published_date_dt"] == '2025-04-27']
+        filtered_df = df[df["published_date_dt"] == today_str]
 
         print(f"🔎 Найдено {len(filtered_df)} вакансий за {today_str}")
         return filtered_df
@@ -110,7 +133,15 @@ async def main():
         return
 
     sent_links = load_sent_links()
+    sent_ids = load_sent_ids()
+
+    # Фильтруем по ссылкам
     df = df[~df["link"].isin(sent_links)]
+
+    # Фильтруем дополнительно по vacancy_id
+    df["vacancy_id"] = df["link"].apply(lambda x: extract_vacancy_id(x))
+    df = df[~df["vacancy_id"].isin(sent_ids)]
+
     if df.empty:
         print("ℹ️ Все вакансии уже были отправлены ранее.")
         return
@@ -142,6 +173,8 @@ async def main():
             await asyncio.sleep(delay)
 
     append_sent_links(df_filtered["link"].tolist())
+    append_sent_ids(df_filtered["vacancy_id"].tolist())
+
     print(f"\n📬 Всего отправлено: {len(df_filtered)} вакансий.")
 
 def run_publisher():

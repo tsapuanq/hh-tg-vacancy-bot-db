@@ -11,7 +11,7 @@ from src.utils import setup_logger, save_to_csv, load_existing_links, save_raw_d
 
 import argparse
 
-MAX_CONCURRENT_TASKS = 10
+MAX_CONCURRENT_TASKS = 15
 
 async def scrape_single(link, semaphore, context, results, idx, total):
     async with semaphore:
