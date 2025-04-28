@@ -37,7 +37,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        if: steps.cache.outputs.cache-hit != 'true'
         run: python -m playwright install --with-deps
 
       - name: Cache data folder (CSV + sent_links + sent_ids)
@@ -60,13 +59,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Commit data before pull
+        run: |
+          git add data || true
+          git commit -m "chore: auto-save before pull" || true
+
       - name: Pull latest changes (rebase)
         run: |
           git pull origin main --rebase
 
-      - name: Commit data changes
+      - name: Commit new data changes
         run: |
-          git add data
+          git add data || true
           git commit -m "chore: update data and sent_links" || echo "No changes to commit"
 
       - name: Push changes

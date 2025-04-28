@@ -163,14 +163,29 @@ async def main():
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
     for i, (_, row) in enumerate(df_filtered.iterrows(), 1):
+        vacancy_id = row["vacancy_id"]
+
+        if vacancy_id in sent_ids:
+            print(f"⏭️ Вакансия {vacancy_id} уже отправлена. Пропускаем.")
+            continue
+
         summary = summarize_description_llm(row["description"])
         text = format_message(row, summary)
         await bot.send_message(chat_id=CHANNEL_USERNAME, text=text, parse_mode="Markdown")
         print(f"✅ [{i}/{len(df_filtered)}] Вакансия отправлена.")
+
+        sent_ids.add(vacancy_id)  # Добавляем ID в множество сразу после отправки
+
         if i < len(df_filtered):
             delay = random.uniform(3, 10)
             print(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
             await asyncio.sleep(delay)
+
+            print(f"✅ [{i}/{len(df_filtered)}] Вакансия отправлена.")
+            if i < len(df_filtered):
+                delay = random.uniform(3, 10)
+                print(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
+                await asyncio.sleep(delay)
 
     append_sent_links(df_filtered["link"].tolist())
     append_sent_ids(df_filtered["vacancy_id"].tolist())
