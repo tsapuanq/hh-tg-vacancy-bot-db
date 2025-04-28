@@ -18,13 +18,15 @@ jobs:
         working-directory: ./
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Cache Python dependencies
+      - name: Cache pip dependencies
         uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -32,7 +34,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
-      - name: Install dependencies
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-browsers
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
@@ -55,25 +65,23 @@ jobs:
           CHANNEL_USERNAME:   ${{ secrets.CHANNEL_USERNAME }}
         run: python run_all.py --mode=${{ github.event_name == 'workflow_dispatch' && 'full' || 'daily' }}
 
-      - name: Set up Git
+      - name: Set up Git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit data before pull
+      - name: Commit data changes before pull
         run: |
           git add data || true
           git commit -m "chore: auto-save before pull" || true
 
-      - name: Pull latest changes (rebase)
-        run: |
-          git pull origin main --rebase
+      - name: Pull latest changes with rebase
+        run: git pull origin main --rebase
 
-      - name: Commit new data changes
+      - name: Commit new data if any
         run: |
           git add data || true
           git commit -m "chore: update data and sent_links" || echo "No changes to commit"
 
       - name: Push changes
-        run: |
-          git push origin main
+        run: git push origin main
