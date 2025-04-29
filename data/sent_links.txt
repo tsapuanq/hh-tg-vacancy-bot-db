@@ -23,6 +23,12 @@ https://hh.kz/vacancy/120037751?query=Computer+Vision+Engineer&hhtmFrom=vacancy_
 https://hh.kz/vacancy/120045362?query=Data+Science+Manager&hhtmFrom=vacancy_search_list
 https://hh.kz/vacancy/120045362?query=Data+Specialist&hhtmFrom=vacancy_search_list
 https://hh.kz/vacancy/120043212?query=Data+Analyst&hhtmFrom=vacancy_search_list
-https://hh.kz/vacancy/120073925?query=Data+Analyst&hhtmFrom=vacancy_search_list
-https://hh.kz/vacancy/120050347?query=BI+Analyst&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120076425?query=ML+Engineer&hhtmFrom=vacancy_search_list
 https://hh.kz/vacancy/120054373?query=BI+Analyst&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120050347?query=BI+Analyst&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120076425?query=NLP+Engineer&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120076425?query=Machine+Learning+Engineer&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120076425?query=Deep+Learning+Engineer&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120076425?query=Data+Specialist&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120073925?query=Data+Analyst&hhtmFrom=vacancy_search_list
+https://hh.kz/vacancy/120073925?query=BI+Analyst&hhtmFrom=vacancy_search_list
