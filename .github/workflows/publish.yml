@@ -21,6 +21,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Pull latest changes first
+        run: git pull origin main --rebase
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -70,18 +73,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit data changes before pull
+      - name: Commit data if changed
         run: |
           git add data || true
-          git commit -m "chore: auto-save before pull" || true
-
-      - name: Pull latest changes with rebase
-        run: git pull origin main --rebase
-
-      - name: Commit new data if any
-        run: |
-          git add data || true
-          git commit -m "chore: update data and sent_links" || echo "No changes to commit"
+          git diff --cached --quiet || git commit -m "chore: update data and sent_links"
 
       - name: Push changes
         run: git push origin main
+  
