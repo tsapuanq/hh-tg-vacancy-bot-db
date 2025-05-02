@@ -1,4 +1,4 @@
-import asyncio 
+import asyncio
 import logging
 import pandas as pd
 import random
@@ -13,13 +13,12 @@ import argparse
 
 MAX_CONCURRENT_TASKS = 10
 
-# ——— Обработка одной вакансии ———
-async def scrape_single(link_data, semaphore, context, results, idx, total):
+async def scrape_single(link, semaphore, context, results, idx, total):
     async with semaphore:
         try:
             page = await context.new_page()
-            logging.info(f"[{idx}/{total}] Обрабатываем: {link_data['link']}")
-            data = await get_vacancy_details(link_data, page)
+            logging.info(f"[{idx}/{total}] Обрабатываем: {link}")
+            data = await get_vacancy_details(link, page)
             await page.close()
             if data:
                 results.append(data)
@@ -29,12 +28,11 @@ async def scrape_single(link_data, semaphore, context, results, idx, total):
             await asyncio.sleep(delay)
 
         except Exception as e:
-            logging.warning(f"[Scrape Error] {link_data['link']}: {e}")
+            logging.warning(f"[Scrape Error] {link}: {e}")
 
-# ——— Главная функция скрапинга ———
 async def run_scraper(mode: str = "daily") -> pd.DataFrame:
     setup_logger()
-    all_links = []
+    all_links = set()
     existing_links = load_existing_links(CSV_MAIN)
 
     logging.info(f"🔍 Режим запуска: {mode.upper()}")
@@ -43,12 +41,9 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
     for keyword in SEARCH_KEYWORDS:
         max_pages = 100 if mode == "full" else 1
         links = await get_vacancy_links(keyword, max_pages=max_pages)
-        all_links.extend(links)
+        all_links.update(links)
 
-    # Оставляем только те, которых нет в базе
-    existing_urls = set(existing_links)
-    new_links = [item for item in all_links if item["link"] not in existing_urls]
-
+    new_links = list(set(all_links) - existing_links)
     logging.info(f"🔗 Новых ссылок для обработки: {len(new_links)}")
 
     results = []
@@ -62,8 +57,8 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
         )
 
         tasks = [
-            scrape_single(link_data, semaphore, context, results, idx, len(new_links))
-            for idx, link_data in enumerate(new_links, 1)
+            scrape_single(link, semaphore, context, results, idx, len(new_links))
+            for idx, link in enumerate(new_links, 1)
         ]
 
         await asyncio.gather(*tasks)
@@ -81,7 +76,6 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
         logging.info("❌ Нет новых данных для сохранения")
         return pd.DataFrame()
 
-# ——— CLI запуск ———
 if __name__ == "__main__":
     load_dotenv()
     parser = argparse.ArgumentParser()

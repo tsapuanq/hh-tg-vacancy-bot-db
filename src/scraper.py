@@ -1,4 +1,3 @@
-# src/scraper.py
 import logging
 from src.utils import clean_text_safe
 
@@ -8,10 +7,7 @@ logging.basicConfig(
     level=logging.INFO,
 )
 
-async def get_vacancy_details(link_data: dict, page) -> dict | None:
-    link = link_data["link"]
-    backup_city = link_data.get("city", "Не указано")
-
+async def get_vacancy_details(link: str, page) -> dict | None:
     try:
         await page.goto(link, timeout=20000, wait_until="domcontentloaded")
         await page.wait_for_selector('h1[data-qa="vacancy-title"]', timeout=15000)
@@ -30,7 +26,7 @@ async def get_vacancy_details(link_data: dict, page) -> dict | None:
         data = {
             "title": await clean('h1[data-qa="vacancy-title"]'),
             "company": await clean('a[data-qa="vacancy-company-name"]'),
-            "location": await clean('span[data-qa="vacancy-view-raw-address"]', default=backup_city),
+            "location": await clean('span[data-qa="vacancy-view-raw-address"]'),
             "salary": await clean('span[data-qa="vacancy-salary-compensation-type-net"]'),
             "description": await clean('div[data-qa="vacancy-description"]'),
             "experience": await clean('span[data-qa="vacancy-experience"]'),
@@ -42,6 +38,7 @@ async def get_vacancy_details(link_data: dict, page) -> dict | None:
             "link": clean_text_safe(link),
         }
 
+        # Чтение скиллов
         skills_selector = '[data-qa="skills-element"]'
         skills_elements = page.locator(skills_selector)
         raw_skills = (
