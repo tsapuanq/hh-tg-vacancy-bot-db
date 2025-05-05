@@ -1,4 +1,121 @@
 ﻿title,company,location,salary,description,experience,employment_type,schedule,working_hours,work_format,published_date,link,skills
+Data Engineer,АО Страховая компания Казахмыс,"Алматы, улица Зенкова, 71","до 700 000 ₸ за месяц, на руки","Обязанности:
+
+Проектирование, разработка и сопровождение data pipeline'ов (ETL/ELT)
+
+Интеграция данных из внутренних и внешних источников
+
+Оптимизация хранения и обработки больших объёмов данных (Big Data)
+
+Настройка и поддержка дата-архитектуры: DWH, Data Lake, Data Mesh
+
+Взаимодействие с аналитиками, ML-инженерами, бизнес-командами
+
+Документирование архитектуры и пайплайнов
+
+Требования:
+
+Опыт работы с Python, SQL, Apache Airflow, Spark, DBT, Kafka или аналогами
+
+Понимание архитектур DWH и ETL-процессов
+
+Опыт работы с СУБД: PostgreSQL, BigQuery, ClickHouse, Snowflake и др.
+
+Знания принципов CI/CD, Docker, Git
+
+Будет плюсом: опыт в построении OLAP-структур, Kubernetes, опыт с BI-инструментами (Power BI, Tableau)
+
+Условия:
+
+Участие в создании data-инфраструктуры с нуля
+
+Команда сильных инженеров и data-аналитиков
+
+Работа в среде с высоким уровнем доверия и автономии
+
+Гибкий график / удалённая работа
+
+Компенсация обучения, конференций, сертификаций
+
+Официальное трудоустройство",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120225611?query=Data+Engineer&hhtmFrom=vacancy_search_list,"SQL,Python,REST API,QlikView,NoSQL,MS SQL,Linux,MS SQL Server,Математическая статистика,UML"
+Data Engineer,АО Страховая компания Казахмыс,"Алматы, улица Зенкова, 71","до 700 000 ₸ за месяц, на руки","Обязанности:
+
+Проектирование, разработка и сопровождение data pipeline'ов (ETL/ELT)
+
+Интеграция данных из внутренних и внешних источников
+
+Оптимизация хранения и обработки больших объёмов данных (Big Data)
+
+Настройка и поддержка дата-архитектуры: DWH, Data Lake, Data Mesh
+
+Взаимодействие с аналитиками, ML-инженерами, бизнес-командами
+
+Документирование архитектуры и пайплайнов
+
+Требования:
+
+Опыт работы с Python, SQL, Apache Airflow, Spark, DBT, Kafka или аналогами
+
+Понимание архитектур DWH и ETL-процессов
+
+Опыт работы с СУБД: PostgreSQL, BigQuery, ClickHouse, Snowflake и др.
+
+Знания принципов CI/CD, Docker, Git
+
+Будет плюсом: опыт в построении OLAP-структур, Kubernetes, опыт с BI-инструментами (Power BI, Tableau)
+
+Условия:
+
+Участие в создании data-инфраструктуры с нуля
+
+Команда сильных инженеров и data-аналитиков
+
+Работа в среде с высоким уровнем доверия и автономии
+
+Гибкий график / удалённая работа
+
+Компенсация обучения, конференций, сертификаций
+
+Официальное трудоустройство",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120225611?query=ML+Engineer&hhtmFrom=vacancy_search_list,"SQL,Python,REST API,QlikView,NoSQL,MS SQL,Linux,MS SQL Server,Математическая статистика,UML"
+Data Engineer,АО Страховая компания Казахмыс,"Алматы, улица Зенкова, 71","до 700 000 ₸ за месяц, на руки","Обязанности:
+
+Проектирование, разработка и сопровождение data pipeline'ов (ETL/ELT)
+
+Интеграция данных из внутренних и внешних источников
+
+Оптимизация хранения и обработки больших объёмов данных (Big Data)
+
+Настройка и поддержка дата-архитектуры: DWH, Data Lake, Data Mesh
+
+Взаимодействие с аналитиками, ML-инженерами, бизнес-командами
+
+Документирование архитектуры и пайплайнов
+
+Требования:
+
+Опыт работы с Python, SQL, Apache Airflow, Spark, DBT, Kafka или аналогами
+
+Понимание архитектур DWH и ETL-процессов
+
+Опыт работы с СУБД: PostgreSQL, BigQuery, ClickHouse, Snowflake и др.
+
+Знания принципов CI/CD, Docker, Git
+
+Будет плюсом: опыт в построении OLAP-структур, Kubernetes, опыт с BI-инструментами (Power BI, Tableau)
+
+Условия:
+
+Участие в создании data-инфраструктуры с нуля
+
+Команда сильных инженеров и data-аналитиков
+
+Работа в среде с высоким уровнем доверия и автономии
+
+Гибкий график / удалённая работа
+
+Компенсация обучения, конференций, сертификаций
+
+Официальное трудоустройство",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120225611?query=BI+Analyst&hhtmFrom=vacancy_search_list,"SQL,Python,REST API,QlikView,NoSQL,MS SQL,Linux,MS SQL Server,Математическая статистика,UML"
 Junior Data Engineer,АО ForteBank,Не указано,"от 150 000 ₸ за месяц, на руки","ВАКАНСИЯ ТАКЖЕ ДЛЯ УЧЕНИКОВ ПОСЛЕДНЕГО КУРСА, ЛИБО НАЧИНАЮЩИМ СПЕЦИАЛИСТАМ!
 
 Что такое ForteBank?
@@ -37,120 +154,116 @@ Junior Data Engineer,АО ForteBank,Не указано,"от 150 000 ₸ за �
 
 SQL;
 Python.",не требуется,"Частичная занятость
-Возможно временное оформление",График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120202348?query=Data+Engineer&hhtmFrom=vacancy_search_list,"SQL,Python"
-Data & Infrastructure Engineer,Шлюмберже Лоджелко Инк. в РК,Не указано,Не указано,"Responsibilities:
+Возможно временное оформление",График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120202348?query=Data+Specialist&hhtmFrom=vacancy_search_list,"SQL,Python"
+Senior QA Automation Engineer (Java),Иностр. п. ОбъектСтиль/ Object Style,Не указано,Не указано,"ObjectStyle is a provider of open source solutions and commercial software development services with offices in the US and Poland. We are a major driving force behind such projects as Apache Cayenne – a powerful ORM framework, Bootique.io – a container-less Java app launcher, LinkRest – a model-driven REST engine, and a number of others. Our clients are located in the US, Australia, and EU. We work with the National Hockey League, Wikipedia, and other great companies.
 
-Managing cloud environments in accordance with company security guidelines.
+Summary:
 
-Act as focal point for gathering system requirements from application architects and owners to ensure seamless transformation and loading of data across different cloud vendors such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform.
+We’re looking for a skilled Mobile AQA engineer to join our team. Healthy workplace, supportive environment, long-term projects in such fields as sport and education. The project has a well-defined process, with continuous integration, weekly release cycles, and decent test documentation.
 
-Responsible for Data loading, data migration, and data retrieval.
+Responsibilities:
 
-Be customer advisor on data governance, policies, roles, and dataflow.
+Document, track and escalate issues as appropriate, using JIRA;
+Develop the automation strategy/effort and generate scripts to perform automated testing cycles;
+Design and create test conditions, test data and test scripts to address business and technical use cases;
+Use existing tools and techniques to execute test cases and build/script new tools for performing testing/validation function;
+Design, Execute and analyze automation test scripts & test results for Web applications, iOS, Android & Windows Phone apps.
 
-Responsible for maintaining existing company databases using experience; which includes a working knowledge of SQL and NoSQL, and related data stores such as Postgres.
+Qualifications:
 
-Responsible for debugging technical issues inside a complex stack involving virtualization, containers, microservices, etc.
+Proficiency in English at B2+ level.
+Experience with JIRA tool for issue and project management.
+Strong development and scripting skills in Java.
+Knowledge of JavaScript or Python, with a desire to deepen expertise in either language.
+Flexible working hours, independent, self-motivated, and proactive approach.
+Relevant work experience in development and/or testing roles.
+Solid understanding of test automation frameworks and methodologies.
+Technical background with a good understanding of mobile applications and their ecosystems.
+Practical expertise in automated testing tools such as Selenium and Appium.
+Proven ability to manage and prioritize multiple, diverse projects effectively.
+Excellent verbal and written communication skills for efficient coordination with clients.
+Good experience working across various mobile operating systems, including iOS, Android, and Windows Phone.
 
-Handle incoming incidents change requests and problems as a first line of support.
+Why would you want to join?
 
-Responsible for operating, designing development, testing and implementing of infrastructure systems and hardware with automation in mind.
+Scale. You will become part of a thrilling and collaborative environment where you will be able to share your ideas and gain insightful feedback.
+Team level. You will be surrounded by other highly performing team members and will have the chance to grow and scale with us.
+Comfort. We believe that only in a comfortable and safe environment you will be able to perform at your best. That’s why we have a flexible schedule and avoid overtime work.",более 6 лет,"Полная занятость
+Возможно временное оформление",График: 5/2,Рабочие часы: 8,Формат работы: удалённо,5 мая 2025,https://hh.kz/vacancy/120231161?query=Data+Engineer&hhtmFrom=vacancy_search_list,"Java,Английский язык,QA,Mobile Operating Systems,Английский — B2 — Средне-продвинутый"
+RRP Product Manager,ТОО JTI Kazakhstan,Не указано,Не указано,"RRP Product Manager
 
-Responsible for estimating project value/development plans, evaluating from an infrastructure point-of-view and maintain close liaison with the customer.
+The Product Manager (RRP) is entrusted with responsibility to oversee the development and execution of initiatives for RRP. This role requires strong analytical skills, cross-functional collaboration, and a results-driven mindset to ensure the success of RRP strategies, market performance, and trade support programs. The ideal candidate will have experience in volume planning, budget management, competitor analysis, and product promotion strategies.
 
-Responsible for maintaining accurate and up-to-date documentation on all activities.
+Responsibilities:
 
-Participates in out-of-office on-call rotation as required.
+Contribute to demand planning and volume calculations, aligning with stakeholders, ensuring readiness and efficiency
+Manage and reconcile total RRP budgets, ensuring alignment with strategic goals.
+Develop and optimize RRP support mechanisms and promotional programs.
+Track in-market performance, monitor KPIs, and analyze sales, market share, and pricing trends.
+Support trade programs, POSM development, and RTM strategy implementation.
+Lead the preparation of BAP and Memos, working closely with stakeholders to initiate projects effectively
+Prepare competitors' price and activations reporting, providing insights to support strategic decision-making
+Establish and maintain effective working relationships with global functions, agencies, and internal stakeholders, fostering collaboration and alignment
+Proactively engage with other functions within the market to drive the brand agenda forward, ensuring strategic alignment and collective success.
 
-​​Astana 5/2
+Requirements:
 
-​​​​​​​",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120192223?query=Data+Engineer&hhtmFrom=vacancy_search_list,"Английский язык,Бизнес-анализ,Делегирование,SQL,Анализ требований,Казахский — B2 — Средне-продвинутый,Русский — B2 — Средне-продвинутый,Английский — B2 — Средне-продвинутый"
-Data & Infrastructure Engineer,Шлюмберже Лоджелко Инк. в РК,Не указано,Не указано,"Responsibilities:
+You have a University Degree (preferably in Business Administration, Engineering, Marketing, or a related field)
+A minimum of 3 years of experience in marketing/trade marketing
+Advanced English level
+Kazakh language is a big plus
+Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint) is required
+Excellent written and verbal communication skills, with the ability to articulate complex ideas clearly and concisely
+Meticulous attention to detail, with the ability to track project timelines, monitor progress, and identify and address issues proactively. Proficiency in analyzing data and making data-driven decisions
+A collaborative mindset, with the ability to work effectively in a team environment and build strong working relationships with internal and external stakeholders
+Ability to thrive in a fast-paced, dynamic environment, and adapt to changing priorities and requirements with resilience and composure
+Strategic mindset with the ability to think critically, anticipate challenges, and develop innovative solutions to drive business growth and competitive advantage.
 
-Managing cloud environments in accordance with company security guidelines.
+Benefits:
 
-Act as focal point for gathering system requirements from application architects and owners to ensure seamless transformation and loading of data across different cloud vendors such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform.
+Flexible working hours
+Transportation
+Competitive salary
+Access to company’s trainings and seminars
+Comprehensive health insurance
+Life & Disability insurance
+Well-being programs for employees.",не требуется,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120214879?query=Big+Data+Engineer&hhtmFrom=vacancy_search_list,Английский — C1 — Продвинутый
+Strategic Product Analyst,ТОО G5EN KAZ,Не указано,Не указано,"G5 Gamesis a Swedish developer and publisher of mobile games played by over 250 million people worldwide. We create large-scale projects, such as Sherlock, Hidden City®, Jewels of Rome®, and continuously improve their technical aspects.
 
-Responsible for Data loading, data migration, and data retrieval.
+We are strengthening our team and looking for a Strategic Product Analyst to drive research, analyze key metrics, and uncover growth opportunities.. If you are interested in working as an analyst with exciting challenges — we’d love to have you on our team!
 
-Be customer advisor on data governance, policies, roles, and dataflow.
+What You Will Work On:
 
-Responsible for maintaining existing company databases using experience; which includes a working knowledge of SQL and NoSQL, and related data stores such as Postgres.
+Interact directly with VP of Product, Product and Design Directors and company’s lead analyst.
+Conduct independent analytical researches and look for potential growth opportunities.
+Analyze financial and game indicators of different game projects.
+Find ways to increase the basic project indicators.
+Generate and validate product hypotheses.
+Participate in strategic planning for company’s games.
 
-Responsible for debugging technical issues inside a complex stack involving virtualization, containers, microservices, etc.
+What We Expect:
 
-Handle incoming incidents change requests and problems as a first line of support.
+At least 2 years of working experience as an analyst in the gaming or IT industry.
+Knowledge of KPIs for IT projects (ARPU, ARPPU, average check etc.).
+Basic knowledge in F2P game design and monetization.
+Basic understanding of game performance marketing process and KPIs.
+Knowledge of the Foundations of Probability Theory and Statistics.
+Knowledge of R/Python and experience of using these languages for data handling.
+Knowledge of SQL basics.
 
-Responsible for operating, designing development, testing and implementing of infrastructure systems and hardware with automation in mind.
+Would Be a Plus:
 
-Responsible for estimating project value/development plans, evaluating from an infrastructure point-of-view and maintain close liaison with the customer.
+Experience in hands-on application of statistical analysis methods.
+Experience in hands-on plotting of predictive mathematical models.
 
-Responsible for maintaining accurate and up-to-date documentation on all activities.
+What We Offer:
 
-Participates in out-of-office on-call rotation as required.
-
-​​Astana 5/2
-
-​​​​​​​",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120192223?query=Data+Architect&hhtmFrom=vacancy_search_list,"Английский язык,Бизнес-анализ,Делегирование,SQL,Анализ требований,Казахский — B2 — Средне-продвинутый,Русский — B2 — Средне-продвинутый,Английский — B2 — Средне-продвинутый"
-Digital Solutions CC Senior Specialist,ТОО Филип Моррис Казахстан,Не указано,Не указано,"Be a part of a revolutionary change
-
-At PMI, we’ve chosen to do something incredible. We’re totally transforming our business and building our future on one clear purpose – to deliver a smoke-free future.
-
-With huge change, comes huge opportunity. So, wherever you join us, you’ll enjoy the freedom to dream up and deliver better, brighter solutions and the space to move your career forward in endlessly different directions.
-
-Your day-to-day:
-
-- Product Strategy:
-Define and maintain the product's vision, goals, and roadmap for website capabilities, web application, and Telegram Bot and leadgen tool functions;
-Prioritize functions and functionality based on business impact, customer feedback, and technical feasibility.
-
-
-- Interaction with the backend development team:
-Work closely with IT specialists and the development team to determine the technical requirements and ensure that the desired functions are supported by backend systems;
-Control API integration, database management, and system architecture according to business needs.
-
-- Stakeholder management:
-Act as the main point of contact between business stakeholders, IT and the development team;
-Communicate effectively about progress, problems, and possible solutions to all stakeholders.
-
-- Performance monitoring and improvement:
-Monitor platform performance, user experience, and key business indicators, and conduct research to find and implement improvements;
-Identify and proactively fix problems or identify opportunities for improvement;
-Build analytics and use reporting to set and monitor business goals. Using analytics to identify growth points of the lead process.
-
-
-- Develop custom mechanics using current tools to support and fulfill business goals:
-Active support of the brand team in creating creative and communication strategies.
-
-- Project management:
-Understanding business goals and the impact of projects on their achievement, working in a cross-functional team, calculating the effectiveness of investments in a project, communicating with a global team.
-
-
-
-
-Who we're looking for:
-
-
-- Proven work experience as a Product Owner, Product Manager, or in a similar role;
-- Deep understanding of the principles of backend development, API and system integrations;
-- Knowledge of Agile/Scrum methodologies;
-- Excellent communication and stakeholder management skills;
-- Analytical thinking and the ability to interpret data to make informed decisions;
-- Experience working with tools such as Jira, Confluence, and analytics platforms;
-- Knowledge of the consumer path and experience working with consumer programs;
-- Independence and quick learning, attention to detail and flexibility in approaches.
-
-What we offer:
-
-- An opportunity to pursue your ambitions and develop your skills with a global business – our staggering size and scale provides endless opportunities to progress;
-
-- An opportunity to build an international career and for cross-functional moves;
-
-- Extended social package: life insurance, insurance from critical illnesses, additional payment for preschool development of children, participation in the Employee Assistance Program (financial, psychological and legal consultations) for employees and family members, and much more;
-
-Philip Morris Kazakhstan is the holder of Top Employer Kazakhstan & Global award for 9 consecutive years as well as the only Equal Pay certificate holder in Kazakhstan, which proves our commitment to highest working standards.
-
-*Relocation support is not available for this job.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120198515?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Английский — B2 — Средне-продвинутый
+Flexible Work Conditions – Fully remote format with no office restrictions. Convenient flexible schedule and transparent processes.
+Development & Learning – Internal education system that includes workshops, webinars, and hackathons. Compensation for English and other language courses.
+Relocation Support – Financial assistance and guidance at every step, from choosing a country (where G5 has offices) to legalizing your entire family.
+Health & Well-being – Medical insurance and reimbursement for gym memberships. Team sports initiatives to promote a healthy lifestyle.
+Bonus Program – Performance-based bonuses upon meeting sales targets. For key employees—profit-sharing from stock value growth.
+Expert Community – Work alongside top industry professionals. Grow in a dynamic and innovative environment.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,5 мая 2025,https://hh.kz/vacancy/120221567?query=Data+Researcher&hhtmFrom=vacancy_search_list,"SQL,R,Python,Теория вероятностей,Статистика,Монетизация игр"
 Digital Solutions CC Senior Specialist,ТОО Филип Моррис Казахстан,Не указано,Не указано,"Be a part of a revolutionary change
 
 At PMI, we’ve chosen to do something incredible. We’re totally transforming our business and building our future on one clear purpose – to deliver a smoke-free future.
@@ -210,6 +323,639 @@ What we offer:
 Philip Morris Kazakhstan is the holder of Top Employer Kazakhstan & Global award for 9 consecutive years as well as the only Equal Pay certificate holder in Kazakhstan, which proves our commitment to highest working standards.
 
 *Relocation support is not available for this job.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120198515?query=Data+Researcher&hhtmFrom=vacancy_search_list,Английский — B2 — Средне-продвинутый
+Бизнес-аналитик,АО КСЖ Standard Life,"Алматы, улица Кабанбай Батыра, 186",Не указано,"Обязанности:
+
+Сбор и анализ требований:
+
+• Взаимодействие с заказчиками и заинтересованными сторонами для выявления их потребностей.
+
+• Формализация и документирование требований (BRD, SRS и другие документы).
+
+Моделирование бизнес-процессов:
+
+• Анализ текущих бизнес-процессов компании.
+
+• Разработка и описание будущих процессов (AS-IS, TO-BE).
+
+• Оптимизация и улучшение бизнес-процессов.
+
+Коммуникация с разработчиками и тестировщиками:
+
+• Передача технических требований команде разработки.
+
+• Поддержка команды разработки в процессе реализации.
+
+• Участие в создании тестовых сценариев и валидация результатов тестирования.
+
+Оценка и управление проектами:
+
+• Участие в планировании и оценке проектов.
+
+• Подготовка отчетности по выполнению задач.
+
+• Подготовка аналитических отчетов и презентаций для руководства.
+
+Разработка документации:
+
+• Создание пользовательских инструкций, регламентов и методических материалов.
+
+• Ведение проектной документации.
+
+Требования:
+Инструменты и методологии:
+• UML, BPMN для моделирования бизнес-процессов.
+
+• Инструменты анализа и прототипирования: Visio, Draw.io, Figma, Axure.
+
+• Системы управления требованиями: Jira, Confluence, Trello.
+
+2. Работа с данными:
+
+• Уверенное владение Excel (сводные таблицы, функции, макросы).
+
+• Знание основ SQL для анализа данных.
+
+3. Базовые технические навыки:
+
+• Понимание SDLC (жизненного цикла разработки программного обеспечения).
+
+• Опыт работы с REST API (проверка и интеграции).
+
+• Основы программирования (желательно Python, VBA, или другой язык).
+
+4. Инструменты отчетности и визуализации:
+
+• Power BI, Tableau для анализа и визуализации данных.
+Условия:
+
+Условия по вышеуказанным вакансиям:
+
+рабочий график: 5/2 с 09.00 до 18.00 (40 часов в неделю);
+офис в центре города;
+трудоустройство согласно ТК РК;
+стабильная и своевременная з/п;
+трудовой отпуск в количестве 30 календарных дней;
+развитие и обучение;
+корпоративные мероприятия.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120228009?query=BI+Analyst&hhtmFrom=vacancy_search_list,"Бизнес-анализ,Разработка пользовательской документации,Анализ бизнес-процессов,Аналитическое мышление,Моделирование бизнес-процессов,Автоматизация бизнес-процессов,Описание бизнес-процессов,Оптимизация бизнес-процессов,Разработка бизнес-требований,Управление бизнес процессами,Разработка технических заданий,MS Excel,умение работать в команде"
+Data & Infrastructure Engineer,Шлюмберже Лоджелко Инк. в РК,Не указано,Не указано,"Responsibilities:
+
+Managing cloud environments in accordance with company security guidelines.
+
+Act as focal point for gathering system requirements from application architects and owners to ensure seamless transformation and loading of data across different cloud vendors such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform.
+
+Responsible for Data loading, data migration, and data retrieval.
+
+Be customer advisor on data governance, policies, roles, and dataflow.
+
+Responsible for maintaining existing company databases using experience; which includes a working knowledge of SQL and NoSQL, and related data stores such as Postgres.
+
+Responsible for debugging technical issues inside a complex stack involving virtualization, containers, microservices, etc.
+
+Handle incoming incidents change requests and problems as a first line of support.
+
+Responsible for operating, designing development, testing and implementing of infrastructure systems and hardware with automation in mind.
+
+Responsible for estimating project value/development plans, evaluating from an infrastructure point-of-view and maintain close liaison with the customer.
+
+Responsible for maintaining accurate and up-to-date documentation on all activities.
+
+Participates in out-of-office on-call rotation as required.
+
+​​Astana 5/2
+
+​​​​​​​",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120192223?query=Data+Architect&hhtmFrom=vacancy_search_list,"Английский язык,Бизнес-анализ,Делегирование,SQL,Анализ требований,Английский — B2 — Средне-продвинутый,Казахский — B2 — Средне-продвинутый,Русский — B2 — Средне-продвинутый"
+Data Engineer,АО Страховая компания Казахмыс,"Алматы, улица Зенкова, 71","до 700 000 ₸ за месяц, на руки","Обязанности:
+
+Проектирование, разработка и сопровождение data pipeline'ов (ETL/ELT)
+
+Интеграция данных из внутренних и внешних источников
+
+Оптимизация хранения и обработки больших объёмов данных (Big Data)
+
+Настройка и поддержка дата-архитектуры: DWH, Data Lake, Data Mesh
+
+Взаимодействие с аналитиками, ML-инженерами, бизнес-командами
+
+Документирование архитектуры и пайплайнов
+
+Требования:
+
+Опыт работы с Python, SQL, Apache Airflow, Spark, DBT, Kafka или аналогами
+
+Понимание архитектур DWH и ETL-процессов
+
+Опыт работы с СУБД: PostgreSQL, BigQuery, ClickHouse, Snowflake и др.
+
+Знания принципов CI/CD, Docker, Git
+
+Будет плюсом: опыт в построении OLAP-структур, Kubernetes, опыт с BI-инструментами (Power BI, Tableau)
+
+Условия:
+
+Участие в создании data-инфраструктуры с нуля
+
+Команда сильных инженеров и data-аналитиков
+
+Работа в среде с высоким уровнем доверия и автономии
+
+Гибкий график / удалённая работа
+
+Компенсация обучения, конференций, сертификаций
+
+Официальное трудоустройство",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120225611?query=Big+Data+Engineer&hhtmFrom=vacancy_search_list,"SQL,Python,REST API,QlikView,NoSQL,MS SQL,Linux,MS SQL Server,Математическая статистика,UML"
+Senior BI Analyst,"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"Are you ready to apply your distinct analytical abilities to fresh challenges? Utilize your expert BI and Business analysis comprehension to contribute to international projects across a variety of business domains: finance, retail and distribution, e-commerce, life sciences & healthcare, and more.
+
+We're in search of a proficient BI Analyst to enhance our team of professionals who steer data-driven digital transformation. If you're interested in tackling BI analysis, working with data and utilizing best business analysis practices, then this role is for you.
+
+In this role, you will lead the planning and execution of elicitation activities, collaborating closely with business and IT stakeholders.
+
+This position offers remote setup with the flexibility to work from any location in Kazakhstan, whether it's your home or well-equipped offices in Astana, Almaty or Karaganda.
+
+Responsibilities
+
+Lead stakeholder workshops to define and prioritize business needs
+Translate requirements into actionable insights, fostering seamless collaboration with the delivery team throughout the project lifecycle
+Perform data discovery, data assessment and data profiling using SQL queries
+Prepare source to target mappings, data models and data flows
+Validate prototype for business alignment using mock-ups
+Conduct Sprint review sessions or User Acceptance Testing with customer stakeholders
+Collaborate with customer stakeholders in designing data products
+Prepare post-development and post-production materials
+
+Requirements
+5 years of experience in data-related projects (e.g. data migration, data transformation, data governance, etc.)
+3 years of expertise in handling BI, DWH, Data and Analytical project requirements (gathering, documenting, presenting, estimating, prioritizing, etc.)
+Experience in Data Governance
+Proficiency in end-to-end data and analytics project delivery using Agile and waterfall methodologies
+Expertise in defining and organizing backlogs, including epics, features, and stories
+Deep understanding of the Data Modeling and Data Quality
+Proficiency in performing data profiling using SQL queries and conducting data quality analysis
+Experience in preparing source-to-target mappings for data ingestion, curation, and related processes
+
+Nice to have
+Experience with data on cloud platforms like Azure, AWS and GCP
+Skills in creating data prototypes
+Industry knowledge in finance, insurance, oil and gas, supply chain or marketing
+Ability to act as a Product Owner or Data Product Owner in analytical projects
+
+We offer
+We connect like-minded people: :
+Delivering innovative solutions to industry leaders, making a global impact
+Enjoyable working environment, whether it is the vibrant office or the comfort of your own home
+Opportunity to work abroad for up to two months per year
+Relocation opportunities within our offices in 55+ countries
+Corporate and social events
+We invest in your growth:  :
+Leadership development, career advising, soft skills and well-being programs
+Certifications, including GCP, Azure and AWS
+Unlimited access to LinkedIn Learning and Get Abstract
+Free English classes with certified teachers
+Discounts in local language schools, including online courses for the Kazakh language
+We cover it all: :
+Participation in the Employee Stock Purchase Plan
+Monetary bonuses for engaging in the referral program
+Medical & family care package
+Six trust days per year (sick leave without a medical certificate)
+Coverage of psychology sessions of your choice
+Benefits package (sports activities, a variety of stores and services)
+
+EPAM is a team of technologists and innovators united by a passion for technology. In Kazakhstan, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120206114?query=Data+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Senior BI Analyst,"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"Are you ready to apply your distinct analytical abilities to fresh challenges? Utilize your expert BI and Business analysis comprehension to contribute to international projects across a variety of business domains: finance, retail and distribution, e-commerce, life sciences & healthcare, and more.
+
+We're in search of a proficient BI Analyst to enhance our team of professionals who steer data-driven digital transformation. If you're interested in tackling BI analysis, working with data and utilizing best business analysis practices, then this role is for you.
+
+In this role, you will lead the planning and execution of elicitation activities, collaborating closely with business and IT stakeholders.
+
+This position offers remote setup with the flexibility to work from any location in Kazakhstan, whether it's your home or well-equipped offices in Astana, Almaty or Karaganda.
+
+Responsibilities
+
+Lead stakeholder workshops to define and prioritize business needs
+Translate requirements into actionable insights, fostering seamless collaboration with the delivery team throughout the project lifecycle
+Perform data discovery, data assessment and data profiling using SQL queries
+Prepare source to target mappings, data models and data flows
+Validate prototype for business alignment using mock-ups
+Conduct Sprint review sessions or User Acceptance Testing with customer stakeholders
+Collaborate with customer stakeholders in designing data products
+Prepare post-development and post-production materials
+
+Requirements
+5 years of experience in data-related projects (e.g. data migration, data transformation, data governance, etc.)
+3 years of expertise in handling BI, DWH, Data and Analytical project requirements (gathering, documenting, presenting, estimating, prioritizing, etc.)
+Experience in Data Governance
+Proficiency in end-to-end data and analytics project delivery using Agile and waterfall methodologies
+Expertise in defining and organizing backlogs, including epics, features, and stories
+Deep understanding of the Data Modeling and Data Quality
+Proficiency in performing data profiling using SQL queries and conducting data quality analysis
+Experience in preparing source-to-target mappings for data ingestion, curation, and related processes
+
+Nice to have
+Experience with data on cloud platforms like Azure, AWS and GCP
+Skills in creating data prototypes
+Industry knowledge in finance, insurance, oil and gas, supply chain or marketing
+Ability to act as a Product Owner or Data Product Owner in analytical projects
+
+We offer
+We connect like-minded people: :
+Delivering innovative solutions to industry leaders, making a global impact
+Enjoyable working environment, whether it is the vibrant office or the comfort of your own home
+Opportunity to work abroad for up to two months per year
+Relocation opportunities within our offices in 55+ countries
+Corporate and social events
+We invest in your growth:  :
+Leadership development, career advising, soft skills and well-being programs
+Certifications, including GCP, Azure and AWS
+Unlimited access to LinkedIn Learning and Get Abstract
+Free English classes with certified teachers
+Discounts in local language schools, including online courses for the Kazakh language
+We cover it all: :
+Participation in the Employee Stock Purchase Plan
+Monetary bonuses for engaging in the referral program
+Medical & family care package
+Six trust days per year (sick leave without a medical certificate)
+Coverage of psychology sessions of your choice
+Benefits package (sports activities, a variety of stores and services)
+
+EPAM is a team of technologists and innovators united by a passion for technology. In Kazakhstan, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120206114?query=Senior+Data+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Java developer (Middle/ Senior),ТОО Частная компания Solva Technology Ltd.,"Алматы, Алмалы, Жибек Жолы, Райымбек батыра, проспект Жибек Жолы, 135",Не указано,"Solva Technology — динамично развивающаяся IT-компания, которая успешно объединяет кредитный скоринг, Data Science и цифровые финансовые технологии. Мы являемся R&D-центром и дочерней компанией Solva Group Ltd., зарегистрированной в крупнейшем технопарке Центральной Азии - Astana Hub.
+
+С сентября 2024 года мы запустили уникальный проект по подготовке и
+трудоустройству молодых IT-специалистов, помогая начинающим профессионалам сделать первые шаги в карьере.
+
+Сегодня Solva Technology — это команда из более 100 экспертов, которые работают в ключевых направлениях: Backend, Frontend и Mobile-разработка, QA и Automation QA, Project Management, Business Analysis, HR и Finance, System Administration, DevOps, Cyber Security, Data Engineering и Service Desk.
+
+Задачи:
+
+Разработка нового функционала;
+Переписывать монолит на микросервисную архитектуру;
+Проводить аудит текущих решений на предмет идей улучшений;
+Профайлинг, оптимизация и рефакторинг существующих решений.
+
+Требования:
+
+Java;
+Spring Framework;
+Hibernate ORM;
+Gradle;
+JPA;
+MySQL.
+
+Для нас важно:
+
+Глубокое понимание ООП и шаблонов проектирования;
+Понимание концепции микросервисов и умение писать масштабируемые системы;
+Коммерческий опыт на Java от 3-х лет.
+
+Стек проекта:
+
+JAVA 17; Kotlin;
+Spring Framework;
+Infrastructure - Docker, ELK, Netflix stack (Swarm, Consul, Vault, Hystrix, Kibana, Grafana, Prometheus, Haproxy);
+Mongo, GridFS, Redis, ElasticSearch, RabbitMQ, Kafka, MySql, JavaEE (JPA, JAX-RS), Glassfish;
+ORM - Hibernate, Jooq;
+Testing - on Spock, JUnit, Mockito, RestAssured;
+Build - Gradle, Maven.
+
+
+Работа в Solva Technology — это:
+
+Участие в интересных и инновационных финтех-проектах;
+Возможность профессионального и технического развития;
+Финансовая стабильность и годовой бонус;
+Корпоративные курсы английского/ испанского языка;
+Поддержка спортивных активностей и дополнительные days off;
+Оформление в соответствии с ТК РК;
+График работы: 5/2 9:00-18:00/10:00-19:00;
+Яркая корпоративная культура и дружный коллектив.
+
+Если ты ищешь стабильную работу с возможностью роста и развития в успешной компании, добро пожаловать в Solva Technology!",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120210810?query=Data+Science+Manager&hhtmFrom=vacancy_search_list,Не указано
+"IT специалист (Data-Analyst,Security Engineer,Database Administrator)",ТОО RAUZET Сауда,"Костанай, улица Гоголя, 62","от 500 000 ₸ за месяц, на руки","Привет!
+
+О компании:
+
+Rauzet — это современная сеть супермаркетов, которая активно развивается и внедряет цифровые технологии для обеспечения высокого уровня сервиса и безопасности. Мы стремимся быть на шаг впереди, создавая безопасную и эффективную среду работы с данными. Сейчас мы ищем талантливого Инженера по анализу и безопасности данных, который поможет нам обеспечить надежность и защиту наших систем.
+
+Что вы будете делать:
+
+Управление и анализ баз данных (реляционные и NoSQL).
+Проектирование и оптимизация структуры баз данных.
+Разработка и внедрение мер по обеспечению безопасности данных, включая шифрование и контроль доступа.
+Мониторинг активности баз данных и выявление угроз безопасности.
+Настройка резервного копирования и восстановление данных.
+Проведение аудитов и устранение уязвимостей в системах хранения данных.
+Анализ данных для выявления аномалий и предотвращения инцидентов, связанных с утечкой или компрометацией данных.
+Мы ищем именно вас, если вы:
+Имеете опыт работы с базами данных (MySQL, PostgreSQL, MongoDB или аналогами) от 3 лет.
+Знаете стандарты и принципы информационной безопасности (GDPR, ISO 27001).
+Умеете работать с инструментами анализа и мониторинга безопасности (Splunk, SIEM и др.).
+Владите SQL и языками программирования для работы с данными (Python, R).
+Имеете навыки проектирования схем баз данных и оптимизации запросов.
+Работали с шифрованием данных и системами управления доступом.
+Приветствуется опыт работы с большими данными (Big Data).
+Условия:
+
+Мы предлагаем:
+
+Официальное трудоустройство и социальные гарантии.
+ДМС и корпоративные бонусы.
+Гибкий график работы с возможностью удаленного формата.
+Работу в динамичной команде профессионалов.
+Возможности для профессионального роста и сертификации.
+
+Если вы хотите стать частью нашей команды и развивать безопасную работу с данными вместе с Rauzet, оставляйте свое резюме и сопроводительное письмо, где расскажите, почему именно вы подходите на эту позицию. Мы внимательно изучаем каждую заявку!
+
+Присоединяйтесь к нашей команде! Давайте вместе делать лучшее!",1–3 года,Полная занятость,График: 5/2,Рабочие часы: по договорённости,Не указано,5 мая 2025,https://hh.kz/vacancy/120209553?query=Data+Engineer&hhtmFrom=vacancy_search_list,"SQL Server Profiler,Python,Исследовательский анализ данных,Визуализация данных,Математическая статистика,Основы баз данных,Английский язык,Информационные технологии,Пользователь ПК,Big Data,Интерпретация данных,SQL,MS SQL,Настройка сетевых подключений,Работа с большим объемом информации,Техническая поддержка,Ответственность"
+Senior BI Analyst,"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"Are you ready to apply your distinct analytical abilities to fresh challenges? Utilize your expert BI and Business analysis comprehension to contribute to international projects across a variety of business domains: finance, retail and distribution, e-commerce, life sciences & healthcare, and more.
+
+We're in search of a proficient BI Analyst to enhance our team of professionals who steer data-driven digital transformation. If you're interested in tackling BI analysis, working with data and utilizing best business analysis practices, then this role is for you.
+
+In this role, you will lead the planning and execution of elicitation activities, collaborating closely with business and IT stakeholders.
+
+This position offers remote setup with the flexibility to work from any location in Kazakhstan, whether it's your home or well-equipped offices in Astana, Almaty or Karaganda.
+
+Responsibilities
+
+Lead stakeholder workshops to define and prioritize business needs
+Translate requirements into actionable insights, fostering seamless collaboration with the delivery team throughout the project lifecycle
+Perform data discovery, data assessment and data profiling using SQL queries
+Prepare source to target mappings, data models and data flows
+Validate prototype for business alignment using mock-ups
+Conduct Sprint review sessions or User Acceptance Testing with customer stakeholders
+Collaborate with customer stakeholders in designing data products
+Prepare post-development and post-production materials
+
+Requirements
+5 years of experience in data-related projects (e.g. data migration, data transformation, data governance, etc.)
+3 years of expertise in handling BI, DWH, Data and Analytical project requirements (gathering, documenting, presenting, estimating, prioritizing, etc.)
+Experience in Data Governance
+Proficiency in end-to-end data and analytics project delivery using Agile and waterfall methodologies
+Expertise in defining and organizing backlogs, including epics, features, and stories
+Deep understanding of the Data Modeling and Data Quality
+Proficiency in performing data profiling using SQL queries and conducting data quality analysis
+Experience in preparing source-to-target mappings for data ingestion, curation, and related processes
+
+Nice to have
+Experience with data on cloud platforms like Azure, AWS and GCP
+Skills in creating data prototypes
+Industry knowledge in finance, insurance, oil and gas, supply chain or marketing
+Ability to act as a Product Owner or Data Product Owner in analytical projects
+
+We offer
+We connect like-minded people: :
+Delivering innovative solutions to industry leaders, making a global impact
+Enjoyable working environment, whether it is the vibrant office or the comfort of your own home
+Opportunity to work abroad for up to two months per year
+Relocation opportunities within our offices in 55+ countries
+Corporate and social events
+We invest in your growth:  :
+Leadership development, career advising, soft skills and well-being programs
+Certifications, including GCP, Azure and AWS
+Unlimited access to LinkedIn Learning and Get Abstract
+Free English classes with certified teachers
+Discounts in local language schools, including online courses for the Kazakh language
+We cover it all: :
+Participation in the Employee Stock Purchase Plan
+Monetary bonuses for engaging in the referral program
+Medical & family care package
+Six trust days per year (sick leave without a medical certificate)
+Coverage of psychology sessions of your choice
+Benefits package (sports activities, a variety of stores and services)
+
+EPAM is a team of technologists and innovators united by a passion for technology. In Kazakhstan, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120206114?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Финансовый Менеджер,BI Group,Не указано,Не указано,"Обязанности:
+Бюджетирование
+Управленческий учет и контроллинг
+Управление денежными потоками
+Управление инвестиционной деятельностью
+Управление финансовой деятельностью
+Управление рисками
+Оценка бизнеса и активов компании
+Проведение мероприятий, направленных на обеспечение платежеспособности предприятия, предупреждение образования и ликвидацию неиспользуемых материально- технических ресурсов, повышение рентабельности производства, увеличение прибыли, снижение издержек на производство и реализацию продукции (услуг). Укрепление финансовой дисциплины.
+Разработка проектов финансовых планов по перспективным объектам, прогнозных балансов, бюджетов денежных средств, бюджетов доходов и расходов.
+Разработка методов регулирования финансовых результатов производственной деятельности предприятия.
+Маневрирование временно свободными средствами.
+Нетворкинг, деловые связи с коммерческими банками и другими кредитными учреждениями, лизинговыми компаниями, другими организациями.
+Целевое использование собственных и заемных средств. Содействовать открытию кредитного финансирования.
+Подготовка графика платежей, расчетов с учетом установленных сроков и договорных обязательств.
+Анализ исполнения бюджета, управленческой и финансовой отчетности . Проведение еженедельного мониторинга статей БДР и БДДС с данными бухгалтерского учета, в том числе на предмет корректности аналитики.
+Еженедельный контроль дебиторской задолженности, мероприятия в случае выявления недобросовестного партнерства.
+Защита KPI и других показателей проекта перед КЦ и СВА Компании, внешнему аудиту.
+Подготовка прочей информации по запросу руководства.
+Работа по формированию, ведению и хранению базы данных о хозяйственных операциях и финансовых результатах деятельности ТОО, актуализация реестров заключенных договоров и учет оборотов по ним в разрезе контрагентов, статей затрат, конструктивов.
+Выполнение поручений непосредственных административного и функционального руководителей.
+Соблюдение Кодекса этики, Приказов, Рабочих инструкций и другим регламентирующих документов Компании.
+Выполнение обязанностей в соответствии с действующими законодательными и нормативными актами, регулирующими производственно-хозяйственную деятельность предприятия.
+Требования:
+Высшее образование в области экономики и финансов, приветствуется сертификация CIMA, ACCA
+Стаж работы на должностях соответствующих профилю отрасли не менее 5 лет.
+Законодательные и нормативные правовые акты, регламентирующие производственно-хозяйственную и финансово-экономическую деятельность;
+Понимание бухгалтерского и налогового учета, принципов управления финансами, знание управленческого учета, методов составления управленческой отчетности.
+Навыки и опыт анализа рисков, управлением ими.
+Умение работать с кредитными организациями (БВУ и МФО) и ценными бумагами с целью привлечения заёмного капитала.
+Уверенный пользователь ПК, программ MS Office, продвинутый пользователь Excel, Power Point (слайды, графики, таблицы), Google-таблицы, GPT, 1С Бухгалтерия/SAP, а также других программ необходимых для выполнения задач;
+Умение делать презентации аналитических работ и отчетов, вести грамотную деловую переписку и документооборот.
+Условия:
+Пятидневная рабочая неделя
+Питание
+Обучение, развитие
+Командообразующие корпоративные мероприятия,
+Бонусы по завершении проекта
+Социальный пакет ""кафетерий""",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,4 мая 2025,https://hh.kz/vacancy/120189605?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Java developer (Middle/ Senior),ТОО Частная компания Solva Technology Ltd.,"Алматы, Алмалы, Жибек Жолы, Райымбек батыра, проспект Жибек Жолы, 135",Не указано,"Solva Technology — динамично развивающаяся IT-компания, которая успешно объединяет кредитный скоринг, Data Science и цифровые финансовые технологии. Мы являемся R&D-центром и дочерней компанией Solva Group Ltd., зарегистрированной в крупнейшем технопарке Центральной Азии - Astana Hub.
+
+С сентября 2024 года мы запустили уникальный проект по подготовке и
+трудоустройству молодых IT-специалистов, помогая начинающим профессионалам сделать первые шаги в карьере.
+
+Сегодня Solva Technology — это команда из более 100 экспертов, которые работают в ключевых направлениях: Backend, Frontend и Mobile-разработка, QA и Automation QA, Project Management, Business Analysis, HR и Finance, System Administration, DevOps, Cyber Security, Data Engineering и Service Desk.
+
+Задачи:
+
+Разработка нового функционала;
+Переписывать монолит на микросервисную архитектуру;
+Проводить аудит текущих решений на предмет идей улучшений;
+Профайлинг, оптимизация и рефакторинг существующих решений.
+
+Требования:
+
+Java;
+Spring Framework;
+Hibernate ORM;
+Gradle;
+JPA;
+MySQL.
+
+Для нас важно:
+
+Глубокое понимание ООП и шаблонов проектирования;
+Понимание концепции микросервисов и умение писать масштабируемые системы;
+Коммерческий опыт на Java от 3-х лет.
+
+Стек проекта:
+
+JAVA 17; Kotlin;
+Spring Framework;
+Infrastructure - Docker, ELK, Netflix stack (Swarm, Consul, Vault, Hystrix, Kibana, Grafana, Prometheus, Haproxy);
+Mongo, GridFS, Redis, ElasticSearch, RabbitMQ, Kafka, MySql, JavaEE (JPA, JAX-RS), Glassfish;
+ORM - Hibernate, Jooq;
+Testing - on Spock, JUnit, Mockito, RestAssured;
+Build - Gradle, Maven.
+
+
+Работа в Solva Technology — это:
+
+Участие в интересных и инновационных финтех-проектах;
+Возможность профессионального и технического развития;
+Финансовая стабильность и годовой бонус;
+Корпоративные курсы английского/ испанского языка;
+Поддержка спортивных активностей и дополнительные days off;
+Оформление в соответствии с ТК РК;
+График работы: 5/2 9:00-18:00/10:00-19:00;
+Яркая корпоративная культура и дружный коллектив.
+
+Если ты ищешь стабильную работу с возможностью роста и развития в успешной компании, добро пожаловать в Solva Technology!",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120210810?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано
+Lead/Principal Civil and Structural Engineer,ТОО Стамгазстрой,Не указано,Не указано,"Обязанности:
+Mentoring of Civil/Structural Engineering staff.
+Implementation of best practice in Civil/Structural Engineering.
+Liaising with Senior Civil/Structural Engineer to plan workload and resources as required.
+To ensure the implementation and compliance of all Group policies, procedures and guidelines.
+Technical, procedural, and behavioral leadership, and mentoring of more junior staff, to ensure minimum standards of health and safety, quality, and ethics are maintained in undertaking all project and other activities.
+Collection and analysis of the Project technical specifications issued by the Client and according to international standards bodies and applicable legal requirements.
+Reviews and comment on client’ Civil technical documentation and requirements.
+Seeks as far as possible solutions, which can bring overall savings to the Project.
+Executes assigned activities such as input to the design, verification and studies relevant to any discipline engineering topic.
+Contributes to design and engineering optimization in term of costs, fabrication and HSSE.
+Develops studies for foundations and concrete structures.
+Reviews and /or vetting of design specifications for reinforced concrete, buildings, earthworks, roads and underground networks, piling works and soil improvement including related civil calculations.
+Reviews and /or vetting of layout of buildings.
+Reviews and /or vetting of technical documentation for civil material requisition and assists the procurement department in the technical evaluations.
+Reviews and /or vetting of material spec.’s and architectural design for buildings.
+Reviews and /or vetting of the technical specifications including relevant data sheets for purchasing and contracting activities;
+Assists the Engineering Manager for solving technical problems arising during Project development and for interfacing/supporting the internal/external contracting and procurement department;
+Perform/verify all discipline analyses and calculation notes required designing of the civil works, including the engineering activities of third parties and/or sub-Contractors.
+Site survey and supervision when applicable.le;
+Able to review and development of construction drawings: General Layout, Steel structural, Concrete structural, Roads, Foundations in accordance with international and local standards;
+Verification and control of actual condition of building, equipment support foundations on site when applicable.
+Understanding, reading and assisting in geological/geotechnical soils survey where applicable.
+Требования:
+Must have sound knowledge and understanding of technical terms and conditions.
+Ability to identify changes and improvements to the technical documentation and procedures to reflect Client’s changing requirements.
+Knowledge of computer-based systems including CAD, Excel, Word, Microsoft Office or equivalent software packages.
+Education: Bachelor degree in engineering is minimum requirement; Master degree preferred.
+Language skills: English is mandatory, Russian is an advantage.
+Professional experience: Min 10 years – technical experience.
+Условия:
+Atyrau, 5/2",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120229177?query=Data+Engineer&hhtmFrom=vacancy_search_list,Не указано
+Strategic Product Analyst,ТОО G5EN KAZ,Не указано,Не указано,"G5 Gamesis a Swedish developer and publisher of mobile games played by over 250 million people worldwide. We create large-scale projects, such as Sherlock, Hidden City®, Jewels of Rome®, and continuously improve their technical aspects.
+
+We are strengthening our team and looking for a Strategic Product Analyst to drive research, analyze key metrics, and uncover growth opportunities.. If you are interested in working as an analyst with exciting challenges — we’d love to have you on our team!
+
+What You Will Work On:
+
+Interact directly with VP of Product, Product and Design Directors and company’s lead analyst.
+Conduct independent analytical researches and look for potential growth opportunities.
+Analyze financial and game indicators of different game projects.
+Find ways to increase the basic project indicators.
+Generate and validate product hypotheses.
+Participate in strategic planning for company’s games.
+
+What We Expect:
+
+At least 2 years of working experience as an analyst in the gaming or IT industry.
+Knowledge of KPIs for IT projects (ARPU, ARPPU, average check etc.).
+Basic knowledge in F2P game design and monetization.
+Basic understanding of game performance marketing process and KPIs.
+Knowledge of the Foundations of Probability Theory and Statistics.
+Knowledge of R/Python and experience of using these languages for data handling.
+Knowledge of SQL basics.
+
+Would Be a Plus:
+
+Experience in hands-on application of statistical analysis methods.
+Experience in hands-on plotting of predictive mathematical models.
+
+What We Offer:
+
+Flexible Work Conditions – Fully remote format with no office restrictions. Convenient flexible schedule and transparent processes.
+Development & Learning – Internal education system that includes workshops, webinars, and hackathons. Compensation for English and other language courses.
+Relocation Support – Financial assistance and guidance at every step, from choosing a country (where G5 has offices) to legalizing your entire family.
+Health & Well-being – Medical insurance and reimbursement for gym memberships. Team sports initiatives to promote a healthy lifestyle.
+Bonus Program – Performance-based bonuses upon meeting sales targets. For key employees—profit-sharing from stock value growth.
+Expert Community – Work alongside top industry professionals. Grow in a dynamic and innovative environment.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: удалённо,5 мая 2025,https://hh.kz/vacancy/120221567?query=Senior+Data+Analyst&hhtmFrom=vacancy_search_list,"SQL,R,Python,Теория вероятностей,Статистика,Монетизация игр"
+"IT специалист (Data-Analyst,Security Engineer,Database Administrator)",ТОО RAUZET Сауда,"Костанай, улица Гоголя, 62","от 500 000 ₸ за месяц, на руки","Привет!
+
+О компании:
+
+Rauzet — это современная сеть супермаркетов, которая активно развивается и внедряет цифровые технологии для обеспечения высокого уровня сервиса и безопасности. Мы стремимся быть на шаг впереди, создавая безопасную и эффективную среду работы с данными. Сейчас мы ищем талантливого Инженера по анализу и безопасности данных, который поможет нам обеспечить надежность и защиту наших систем.
+
+Что вы будете делать:
+
+Управление и анализ баз данных (реляционные и NoSQL).
+Проектирование и оптимизация структуры баз данных.
+Разработка и внедрение мер по обеспечению безопасности данных, включая шифрование и контроль доступа.
+Мониторинг активности баз данных и выявление угроз безопасности.
+Настройка резервного копирования и восстановление данных.
+Проведение аудитов и устранение уязвимостей в системах хранения данных.
+Анализ данных для выявления аномалий и предотвращения инцидентов, связанных с утечкой или компрометацией данных.
+Мы ищем именно вас, если вы:
+Имеете опыт работы с базами данных (MySQL, PostgreSQL, MongoDB или аналогами) от 3 лет.
+Знаете стандарты и принципы информационной безопасности (GDPR, ISO 27001).
+Умеете работать с инструментами анализа и мониторинга безопасности (Splunk, SIEM и др.).
+Владите SQL и языками программирования для работы с данными (Python, R).
+Имеете навыки проектирования схем баз данных и оптимизации запросов.
+Работали с шифрованием данных и системами управления доступом.
+Приветствуется опыт работы с большими данными (Big Data).
+Условия:
+
+Мы предлагаем:
+
+Официальное трудоустройство и социальные гарантии.
+ДМС и корпоративные бонусы.
+Гибкий график работы с возможностью удаленного формата.
+Работу в динамичной команде профессионалов.
+Возможности для профессионального роста и сертификации.
+
+Если вы хотите стать частью нашей команды и развивать безопасную работу с данными вместе с Rauzet, оставляйте свое резюме и сопроводительное письмо, где расскажите, почему именно вы подходите на эту позицию. Мы внимательно изучаем каждую заявку!
+
+Присоединяйтесь к нашей команде! Давайте вместе делать лучшее!",1–3 года,Полная занятость,График: 5/2,Рабочие часы: по договорённости,Не указано,5 мая 2025,https://hh.kz/vacancy/120209553?query=Data+Analyst&hhtmFrom=vacancy_search_list,"SQL Server Profiler,Python,Исследовательский анализ данных,Визуализация данных,Математическая статистика,Основы баз данных,Английский язык,Информационные технологии,Пользователь ПК,Big Data,Интерпретация данных,SQL,MS SQL,Настройка сетевых подключений,Работа с большим объемом информации,Техническая поддержка,Ответственность"
+Data Engineer,АО Страховая компания Казахмыс,"Алматы, улица Зенкова, 71","до 700 000 ₸ за месяц, на руки","Обязанности:
+
+Проектирование, разработка и сопровождение data pipeline'ов (ETL/ELT)
+
+Интеграция данных из внутренних и внешних источников
+
+Оптимизация хранения и обработки больших объёмов данных (Big Data)
+
+Настройка и поддержка дата-архитектуры: DWH, Data Lake, Data Mesh
+
+Взаимодействие с аналитиками, ML-инженерами, бизнес-командами
+
+Документирование архитектуры и пайплайнов
+
+Требования:
+
+Опыт работы с Python, SQL, Apache Airflow, Spark, DBT, Kafka или аналогами
+
+Понимание архитектур DWH и ETL-процессов
+
+Опыт работы с СУБД: PostgreSQL, BigQuery, ClickHouse, Snowflake и др.
+
+Знания принципов CI/CD, Docker, Git
+
+Будет плюсом: опыт в построении OLAP-структур, Kubernetes, опыт с BI-инструментами (Power BI, Tableau)
+
+Условия:
+
+Участие в создании data-инфраструктуры с нуля
+
+Команда сильных инженеров и data-аналитиков
+
+Работа в среде с высоким уровнем доверия и автономии
+
+Гибкий график / удалённая работа
+
+Компенсация обучения, конференций, сертификаций
+
+Официальное трудоустройство",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120225611?query=Data+Analyst&hhtmFrom=vacancy_search_list,"SQL,Python,REST API,QlikView,NoSQL,MS SQL,Linux,MS SQL Server,Математическая статистика,UML"
 Digital Solutions CC Senior Specialist,ТОО Филип Моррис Казахстан,Не указано,Не указано,"Be a part of a revolutionary change
 
 At PMI, we’ve chosen to do something incredible. We’re totally transforming our business and building our future on one clear purpose – to deliver a smoke-free future.
@@ -307,64 +1053,271 @@ Junior Data Engineer,АО ForteBank,Не указано,"от 150 000 ₸ за �
 
 SQL;
 Python.",не требуется,"Частичная занятость
-Возможно временное оформление",График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120202348?query=Data+Specialist&hhtmFrom=vacancy_search_list,"SQL,Python"
-Senior BI Analyst,"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"Are you ready to apply your distinct analytical abilities to fresh challenges? Utilize your expert BI and Business analysis comprehension to contribute to international projects across a variety of business domains: finance, retail and distribution, e-commerce, life sciences & healthcare, and more.
+Возможно временное оформление",График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120202348?query=Data+Engineer&hhtmFrom=vacancy_search_list,"SQL,Python"
+Младший финансовый аналитик,ТОО Буран Бойлер,"город Алматы, микрорайон Курылысшы, улица Кокорай, 22","от 300 000 ₸ за месяц, на руки","Обязанности:
+Ежедневные финансовые сверки (банковские операции, расчеты с контрагентами), сбор, обработка и анализ финансовых данных компании;
+Разноска расходной части по статьям бюджета;
+Расчет рентабельности проектов;
+Подготовка отчетов и презентаций;
+Участие в разработке финансовых прогнозов;
+Анализ затрат, доходов и других финансовых показателей;
+Участие в оптимизации финансовых процессов;
+Поддержка аналитиков в выполнении текущих задач.
+Требования:
+опыт работы не менее 2-х лет;
+высшее образование в области финансов, экономики, математики или смежных дисциплин;
+знание основ бухгалтерского учёта будет преимуществом;
+знания и навыки в области методов прогнозирования, планирования, анализа и оценки финансово-экономической деятельности компании;
+аналитическое мышление, внимательность к деталям;
+готовность учиться и быстро адаптироваться к новым задачам.
+Условия:
+Официальное трудоустройство по ТК РК;
+Чай, кофе (кофемашина, фильтр для воды), сладости, праздничные обеды;
+Развозка в верхнюю и нижнюю части города (наш офис находится в районе Рыскулова-Петрова);
+Комплексный обед в офисе за счет компании, сезонные фрукты;
+Соц.пакет (пенсионные отчисления, ОСМС), командировочные расходы;
+Стабильный оклад, без задержек;
+Стандартный график работы: 5/2, с 09:00-18:00 ч.;
+Внутреннее, внешнее обучение;
+Дружный коллектив.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120212680?query=BI+Analyst&hhtmFrom=vacancy_search_list,"Английский язык,MS Excel,Финансовая отчетность,Power BI,Английский — B2 — Средне-продвинутый"
+Project Manager,ТОО Аспэкс Груп,Не указано,Не указано,"Привет! На связи команда Aspex! Мы - проводник в мире данных и технологий.
 
-We're in search of a proficient BI Analyst to enhance our team of professionals who steer data-driven digital transformation. If you're interested in tackling BI analysis, working with data and utilizing best business analysis practices, then this role is for you.
+С 2015 года наша компания помогает бизнесу превращать данные в понятные решения, сопровождая проекты от идеи до реального результата. В нашей команде — BI-аналитики, разработчики, дизайнеры, ML-специалисты с опытом в крупнейших компаниях и топовых AI-проектах.
 
-In this role, you will lead the planning and execution of elicitation activities, collaborating closely with business and IT stakeholders.
+И сейчас мы запускаем стажировку для Project Manager!
 
-This position offers remote setup with the flexibility to work from any location in Kazakhstan, whether it's your home or well-equipped offices in Astana, Almaty or Karaganda.
+А теперь подробнее:
 
-Responsibilities
+Ты умеешь не только планировать своё время, но и координировать работу команды? Легко общаешься с людьми и любишь, когда всё идёт по плану?
 
-Lead stakeholder workshops to define and prioritize business needs
-Translate requirements into actionable insights, fostering seamless collaboration with the delivery team throughout the project lifecycle
-Perform data discovery, data assessment and data profiling using SQL queries
-Prepare source to target mappings, data models and data flows
-Validate prototype for business alignment using mock-ups
-Conduct Sprint review sessions or User Acceptance Testing with customer stakeholders
-Collaborate with customer stakeholders in designing data products
-Prepare post-development and post-production materials
+Тогда тебе — к нам.
 
-Requirements
-5 years of experience in data-related projects (e.g. data migration, data transformation, data governance, etc.)
-3 years of expertise in handling BI, DWH, Data and Analytical project requirements (gathering, documenting, presenting, estimating, prioritizing, etc.)
-Experience in Data Governance
-Proficiency in end-to-end data and analytics project delivery using Agile and waterfall methodologies
-Expertise in defining and organizing backlogs, including epics, features, and stories
-Deep understanding of the Data Modeling and Data Quality
-Proficiency in performing data profiling using SQL queries and conducting data quality analysis
-Experience in preparing source-to-target mappings for data ingestion, curation, and related processes
+Мы ищем менеджера проектов: человека, который умеет контролировать бюджет, сроки и вдохновлять команду на результат.
 
-Nice to have
-Experience with data on cloud platforms like Azure, AWS and GCP
-Skills in creating data prototypes
-Industry knowledge in finance, insurance, oil and gas, supply chain or marketing
-Ability to act as a Product Owner or Data Product Owner in analytical projects
+Что тебя ждет:
 
-We offer
-We connect like-minded people: :
-Delivering innovative solutions to industry leaders, making a global impact
-Enjoyable working environment, whether it is the vibrant office or the comfort of your own home
-Opportunity to work abroad for up to two months per year
-Relocation opportunities within our offices in 55+ countries
-Corporate and social events
-We invest in your growth:  :
-Leadership development, career advising, soft skills and well-being programs
-Certifications, including GCP, Azure and AWS
-Unlimited access to LinkedIn Learning and Get Abstract
-Free English classes with certified teachers
-Discounts in local language schools, including online courses for the Kazakh language
-We cover it all: :
-Participation in the Employee Stock Purchase Plan
-Monetary bonuses for engaging in the referral program
-Medical & family care package
-Six trust days per year (sick leave without a medical certificate)
-Coverage of psychology sessions of your choice
-Benefits package (sports activities, a variety of stores and services)
+Погружение в специфику работы IT-интегратора и реальных бизнес-проектов.
+Ведение проектов: от первых обсуждений с заказчиком до внедрения решений.
+Координация команды, контроль сроков и оформление всей необходимой проектной документации.
+Проведение деловой переписки, рабочих встреч и презентаций для заказчиков.
 
-EPAM is a team of technologists and innovators united by a passion for technology. In Kazakhstan, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120206114?query=Data+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Эта стажировка для тех, кто:
+
+Любит порядок и чёткие процессы.
+Умеет общаться и договариваться с людьми.
+Видит проект не как список задач, а как целостную систему.
+
+Что мы можем дать:
+
+Старт карьеры. Наша стажировка – это не временная работа, а первый этап постоянной работы в компании. Для тебя – это возможность проявить свои деловые качества, заинтересованность в нашей тематике и обучаемость;
+
+Комфортный onboarding, непрерывная поддержка коллег.
+
+Гибкий рабочий график, полностью удалённый формат работы, возможность работать из любой точки мира.
+
+Интересные и разнообразные задачи. Возможность влиять на их постановку и способы решения. Неограниченные возможности самореализации.
+
+Стабильная и регулярная заработная плата с возможностью повышения по результатам работы каждое полугодие.
+
+Расширенный социальный пакет: оплата фитнеса и программ обучения.
+
+Формат работы:
+
+Частичная занятость во время стажировки (неоплачиваемой); при последующем трудоустройстве – полный рабочий день.
+
+Срок стажировки – 9 недель.
+
+Если видишь себя в этой роли, оставляй заявку, и мы с тобой свяжемся!",не требуется,"Полная занятость
+Стажировка",График: 5/2,Рабочие часы: 3,Формат работы: удалённо,5 мая 2025,https://hh.kz/vacancy/120211554?query=BI+Analyst&hhtmFrom=vacancy_search_list,"Project management,Управление рисками,Управление ресурсами,PMBOK,Планирование бюджета,Управление бэклогом"
+"IT специалист (Data-Analyst,Security Engineer,Database Administrator)",ТОО RAUZET Сауда,"Костанай, улица Гоголя, 62","от 500 000 ₸ за месяц, на руки","Привет!
+
+О компании:
+
+Rauzet — это современная сеть супермаркетов, которая активно развивается и внедряет цифровые технологии для обеспечения высокого уровня сервиса и безопасности. Мы стремимся быть на шаг впереди, создавая безопасную и эффективную среду работы с данными. Сейчас мы ищем талантливого Инженера по анализу и безопасности данных, который поможет нам обеспечить надежность и защиту наших систем.
+
+Что вы будете делать:
+
+Управление и анализ баз данных (реляционные и NoSQL).
+Проектирование и оптимизация структуры баз данных.
+Разработка и внедрение мер по обеспечению безопасности данных, включая шифрование и контроль доступа.
+Мониторинг активности баз данных и выявление угроз безопасности.
+Настройка резервного копирования и восстановление данных.
+Проведение аудитов и устранение уязвимостей в системах хранения данных.
+Анализ данных для выявления аномалий и предотвращения инцидентов, связанных с утечкой или компрометацией данных.
+Мы ищем именно вас, если вы:
+Имеете опыт работы с базами данных (MySQL, PostgreSQL, MongoDB или аналогами) от 3 лет.
+Знаете стандарты и принципы информационной безопасности (GDPR, ISO 27001).
+Умеете работать с инструментами анализа и мониторинга безопасности (Splunk, SIEM и др.).
+Владите SQL и языками программирования для работы с данными (Python, R).
+Имеете навыки проектирования схем баз данных и оптимизации запросов.
+Работали с шифрованием данных и системами управления доступом.
+Приветствуется опыт работы с большими данными (Big Data).
+Условия:
+
+Мы предлагаем:
+
+Официальное трудоустройство и социальные гарантии.
+ДМС и корпоративные бонусы.
+Гибкий график работы с возможностью удаленного формата.
+Работу в динамичной команде профессионалов.
+Возможности для профессионального роста и сертификации.
+
+Если вы хотите стать частью нашей команды и развивать безопасную работу с данными вместе с Rauzet, оставляйте свое резюме и сопроводительное письмо, где расскажите, почему именно вы подходите на эту позицию. Мы внимательно изучаем каждую заявку!
+
+Присоединяйтесь к нашей команде! Давайте вместе делать лучшее!",1–3 года,Полная занятость,График: 5/2,Рабочие часы: по договорённости,Не указано,5 мая 2025,https://hh.kz/vacancy/120209553?query=Big+Data+Engineer&hhtmFrom=vacancy_search_list,"SQL Server Profiler,Python,Исследовательский анализ данных,Визуализация данных,Математическая статистика,Основы баз данных,Английский язык,Информационные технологии,Пользователь ПК,Big Data,Интерпретация данных,SQL,MS SQL,Настройка сетевых подключений,Работа с большим объемом информации,Техническая поддержка,Ответственность"
+Аналитик,ТОО Freedom Telecom Operations,Не указано,Не указано,"Freedom Telecom - современная телекоммуникационная компания, развивающая на рынке Республики Казахстан широкополосный доступ к сети интернет в каждый дом и открытый доступ Wi-Fi в крупных городах.
+Мы работаем в тесном сотрудничестве с мировыми производителями оборудования - программного обеспечения.
+
+Чем предстоит заниматься:
+
+Участие в проектных активностях, ведение документации, тестирование решений IT-решений;
+Поддержка процессов, мониторинг интеграций, сопровождение инцидентов, работа с подрядчиками;
+Взаимодействие с ИТ, бизнесом, пользователями, участие в согласованиях;
+
+Знания, навыки, важные для этой позиции:
+
+Опыт в аналитике и/или управлении проектами от 1–2 лет;
+Знание Excel, Power-bi будет преимуществом;
+Понимание ИТ-процессов и принципов системной интеграции;
+Навыки деловой переписки, структурного мышления;
+
+Что мы предлагаем:
+
+График 5/2, с 9:00 до 18:00;
+Комфортный офис с кухней и парковкой;
+Свободный дресс-код;
+Привилегии от экосистемы Freedom Holding;
+Экстра days off, помимо отпускных и больничных;
+Материальная помощь по памятным событиям;
+Самые инновационные, амбициозные проекты и задачи;
+Карьерный рост в команде дружных профессионалов;
+Насыщенная корпоративная жизнь с выездами на природу, праздничными мероприятиями в офисе, играми и розыгрышами подарков.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120217040?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано
+"IT специалист (Data-Analyst,Security Engineer,Database Administrator)",ТОО RAUZET Сауда,"Костанай, улица Гоголя, 62","от 500 000 ₸ за месяц, на руки","Привет!
+
+О компании:
+
+Rauzet — это современная сеть супермаркетов, которая активно развивается и внедряет цифровые технологии для обеспечения высокого уровня сервиса и безопасности. Мы стремимся быть на шаг впереди, создавая безопасную и эффективную среду работы с данными. Сейчас мы ищем талантливого Инженера по анализу и безопасности данных, который поможет нам обеспечить надежность и защиту наших систем.
+
+Что вы будете делать:
+
+Управление и анализ баз данных (реляционные и NoSQL).
+Проектирование и оптимизация структуры баз данных.
+Разработка и внедрение мер по обеспечению безопасности данных, включая шифрование и контроль доступа.
+Мониторинг активности баз данных и выявление угроз безопасности.
+Настройка резервного копирования и восстановление данных.
+Проведение аудитов и устранение уязвимостей в системах хранения данных.
+Анализ данных для выявления аномалий и предотвращения инцидентов, связанных с утечкой или компрометацией данных.
+Мы ищем именно вас, если вы:
+Имеете опыт работы с базами данных (MySQL, PostgreSQL, MongoDB или аналогами) от 3 лет.
+Знаете стандарты и принципы информационной безопасности (GDPR, ISO 27001).
+Умеете работать с инструментами анализа и мониторинга безопасности (Splunk, SIEM и др.).
+Владите SQL и языками программирования для работы с данными (Python, R).
+Имеете навыки проектирования схем баз данных и оптимизации запросов.
+Работали с шифрованием данных и системами управления доступом.
+Приветствуется опыт работы с большими данными (Big Data).
+Условия:
+
+Мы предлагаем:
+
+Официальное трудоустройство и социальные гарантии.
+ДМС и корпоративные бонусы.
+Гибкий график работы с возможностью удаленного формата.
+Работу в динамичной команде профессионалов.
+Возможности для профессионального роста и сертификации.
+
+Если вы хотите стать частью нашей команды и развивать безопасную работу с данными вместе с Rauzet, оставляйте свое резюме и сопроводительное письмо, где расскажите, почему именно вы подходите на эту позицию. Мы внимательно изучаем каждую заявку!
+
+Присоединяйтесь к нашей команде! Давайте вместе делать лучшее!",1–3 года,Полная занятость,График: 5/2,Рабочие часы: по договорённости,Не указано,5 мая 2025,https://hh.kz/vacancy/120209553?query=Data+Specialist&hhtmFrom=vacancy_search_list,"SQL Server Profiler,Python,Исследовательский анализ данных,Визуализация данных,Математическая статистика,Основы баз данных,Английский язык,Информационные технологии,Пользователь ПК,Big Data,Интерпретация данных,SQL,MS SQL,Настройка сетевых подключений,Работа с большим объемом информации,Техническая поддержка,Ответственность"
+Java developer (Middle/ Senior),ТОО Частная компания Solva Technology Ltd.,"Алматы, Алмалы, Жибек Жолы, Райымбек батыра, проспект Жибек Жолы, 135",Не указано,"Solva Technology — динамично развивающаяся IT-компания, которая успешно объединяет кредитный скоринг, Data Science и цифровые финансовые технологии. Мы являемся R&D-центром и дочерней компанией Solva Group Ltd., зарегистрированной в крупнейшем технопарке Центральной Азии - Astana Hub.
+
+С сентября 2024 года мы запустили уникальный проект по подготовке и
+трудоустройству молодых IT-специалистов, помогая начинающим профессионалам сделать первые шаги в карьере.
+
+Сегодня Solva Technology — это команда из более 100 экспертов, которые работают в ключевых направлениях: Backend, Frontend и Mobile-разработка, QA и Automation QA, Project Management, Business Analysis, HR и Finance, System Administration, DevOps, Cyber Security, Data Engineering и Service Desk.
+
+Задачи:
+
+Разработка нового функционала;
+Переписывать монолит на микросервисную архитектуру;
+Проводить аудит текущих решений на предмет идей улучшений;
+Профайлинг, оптимизация и рефакторинг существующих решений.
+
+Требования:
+
+Java;
+Spring Framework;
+Hibernate ORM;
+Gradle;
+JPA;
+MySQL.
+
+Для нас важно:
+
+Глубокое понимание ООП и шаблонов проектирования;
+Понимание концепции микросервисов и умение писать масштабируемые системы;
+Коммерческий опыт на Java от 3-х лет.
+
+Стек проекта:
+
+JAVA 17; Kotlin;
+Spring Framework;
+Infrastructure - Docker, ELK, Netflix stack (Swarm, Consul, Vault, Hystrix, Kibana, Grafana, Prometheus, Haproxy);
+Mongo, GridFS, Redis, ElasticSearch, RabbitMQ, Kafka, MySql, JavaEE (JPA, JAX-RS), Glassfish;
+ORM - Hibernate, Jooq;
+Testing - on Spock, JUnit, Mockito, RestAssured;
+Build - Gradle, Maven.
+
+
+Работа в Solva Technology — это:
+
+Участие в интересных и инновационных финтех-проектах;
+Возможность профессионального и технического развития;
+Финансовая стабильность и годовой бонус;
+Корпоративные курсы английского/ испанского языка;
+Поддержка спортивных активностей и дополнительные days off;
+Оформление в соответствии с ТК РК;
+График работы: 5/2 9:00-18:00/10:00-19:00;
+Яркая корпоративная культура и дружный коллектив.
+
+Если ты ищешь стабильную работу с возможностью роста и развития в успешной компании, добро пожаловать в Solva Technology!",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120210810?query=Data+Specialist&hhtmFrom=vacancy_search_list,Не указано
+RRP Product Manager,ТОО JTI Kazakhstan,Не указано,Не указано,"RRP Product Manager
+
+The Product Manager (RRP) is entrusted with responsibility to oversee the development and execution of initiatives for RRP. This role requires strong analytical skills, cross-functional collaboration, and a results-driven mindset to ensure the success of RRP strategies, market performance, and trade support programs. The ideal candidate will have experience in volume planning, budget management, competitor analysis, and product promotion strategies.
+
+Responsibilities:
+
+Contribute to demand planning and volume calculations, aligning with stakeholders, ensuring readiness and efficiency
+Manage and reconcile total RRP budgets, ensuring alignment with strategic goals.
+Develop and optimize RRP support mechanisms and promotional programs.
+Track in-market performance, monitor KPIs, and analyze sales, market share, and pricing trends.
+Support trade programs, POSM development, and RTM strategy implementation.
+Lead the preparation of BAP and Memos, working closely with stakeholders to initiate projects effectively
+Prepare competitors' price and activations reporting, providing insights to support strategic decision-making
+Establish and maintain effective working relationships with global functions, agencies, and internal stakeholders, fostering collaboration and alignment
+Proactively engage with other functions within the market to drive the brand agenda forward, ensuring strategic alignment and collective success.
+
+Requirements:
+
+You have a University Degree (preferably in Business Administration, Engineering, Marketing, or a related field)
+A minimum of 3 years of experience in marketing/trade marketing
+Advanced English level
+Kazakh language is a big plus
+Proficiency in Microsoft Office Suite (Word, Excel, PowerPoint) is required
+Excellent written and verbal communication skills, with the ability to articulate complex ideas clearly and concisely
+Meticulous attention to detail, with the ability to track project timelines, monitor progress, and identify and address issues proactively. Proficiency in analyzing data and making data-driven decisions
+A collaborative mindset, with the ability to work effectively in a team environment and build strong working relationships with internal and external stakeholders
+Ability to thrive in a fast-paced, dynamic environment, and adapt to changing priorities and requirements with resilience and composure
+Strategic mindset with the ability to think critically, anticipate challenges, and develop innovative solutions to drive business growth and competitive advantage.
+
+Benefits:
+
+Flexible working hours
+Transportation
+Competitive salary
+Access to company’s trainings and seminars
+Comprehensive health insurance
+Life & Disability insurance
+Well-being programs for employees.",не требуется,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120214879?query=Data+Engineer&hhtmFrom=vacancy_search_list,Английский — C1 — Продвинутый
 Lead Cost Estimator,ТОО ILF Kazakhstan,Не указано,Не указано,"Responsibilities:
 
 Preparation of detailed Class 1- 4 estimating plans, overall cost estimate (up to +/- 10% estimates) and summaries, project cash-flow projections, risk assessment support & incorporation, detailed estimate reports and basis of estimate write-ups for the oil and gas, and mining industry projects at different project phases: such as concept, FEED and detail design as per AACE and other international and local standards.
@@ -396,100 +1349,90 @@ Requirements:
 Experienced in technical consulting, planning and commissioning and familiar with all phases of EPC Contracts.
 Education: Bachelor's degree in engineering or economy or comparable education is minimum requirement; Master’s degree preferred.
 Language skills: Russian and English are mandatory, Kazakh is advantageous.
-Atyrau, 5/2",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120200593?query=Data+Engineer&hhtmFrom=vacancy_search_list,"Английский язык,Cost Management,Деловая переписка,Leadership Skills,Английский — C1 — Продвинутый,Русский — C1 — Продвинутый"
-Senior BI Analyst,"ТОО Epam Kazakhstan (Эпам Казахстан),ТОО",Не указано,Не указано,"Are you ready to apply your distinct analytical abilities to fresh challenges? Utilize your expert BI and Business analysis comprehension to contribute to international projects across a variety of business domains: finance, retail and distribution, e-commerce, life sciences & healthcare, and more.
+Atyrau, 5/2",более 6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120200593?query=Data+Engineer&hhtmFrom=vacancy_search_list,"Английский язык,Cost Management,Деловая переписка,Leadership Skills,Русский — C1 — Продвинутый,Английский — C1 — Продвинутый"
+Data & Infrastructure Engineer,Шлюмберже Лоджелко Инк. в РК,Не указано,Не указано,"Responsibilities:
 
-We're in search of a proficient BI Analyst to enhance our team of professionals who steer data-driven digital transformation. If you're interested in tackling BI analysis, working with data and utilizing best business analysis practices, then this role is for you.
+Managing cloud environments in accordance with company security guidelines.
 
-In this role, you will lead the planning and execution of elicitation activities, collaborating closely with business and IT stakeholders.
+Act as focal point for gathering system requirements from application architects and owners to ensure seamless transformation and loading of data across different cloud vendors such as Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform.
 
-This position offers remote setup with the flexibility to work from any location in Kazakhstan, whether it's your home or well-equipped offices in Astana, Almaty or Karaganda.
+Responsible for Data loading, data migration, and data retrieval.
 
-Responsibilities
+Be customer advisor on data governance, policies, roles, and dataflow.
 
-Lead stakeholder workshops to define and prioritize business needs
-Translate requirements into actionable insights, fostering seamless collaboration with the delivery team throughout the project lifecycle
-Perform data discovery, data assessment and data profiling using SQL queries
-Prepare source to target mappings, data models and data flows
-Validate prototype for business alignment using mock-ups
-Conduct Sprint review sessions or User Acceptance Testing with customer stakeholders
-Collaborate with customer stakeholders in designing data products
-Prepare post-development and post-production materials
+Responsible for maintaining existing company databases using experience; which includes a working knowledge of SQL and NoSQL, and related data stores such as Postgres.
 
-Requirements
-5 years of experience in data-related projects (e.g. data migration, data transformation, data governance, etc.)
-3 years of expertise in handling BI, DWH, Data and Analytical project requirements (gathering, documenting, presenting, estimating, prioritizing, etc.)
-Experience in Data Governance
-Proficiency in end-to-end data and analytics project delivery using Agile and waterfall methodologies
-Expertise in defining and organizing backlogs, including epics, features, and stories
-Deep understanding of the Data Modeling and Data Quality
-Proficiency in performing data profiling using SQL queries and conducting data quality analysis
-Experience in preparing source-to-target mappings for data ingestion, curation, and related processes
+Responsible for debugging technical issues inside a complex stack involving virtualization, containers, microservices, etc.
 
-Nice to have
-Experience with data on cloud platforms like Azure, AWS and GCP
-Skills in creating data prototypes
-Industry knowledge in finance, insurance, oil and gas, supply chain or marketing
-Ability to act as a Product Owner or Data Product Owner in analytical projects
+Handle incoming incidents change requests and problems as a first line of support.
 
-We offer
-We connect like-minded people: :
-Delivering innovative solutions to industry leaders, making a global impact
-Enjoyable working environment, whether it is the vibrant office or the comfort of your own home
-Opportunity to work abroad for up to two months per year
-Relocation opportunities within our offices in 55+ countries
-Corporate and social events
-We invest in your growth:  :
-Leadership development, career advising, soft skills and well-being programs
-Certifications, including GCP, Azure and AWS
-Unlimited access to LinkedIn Learning and Get Abstract
-Free English classes with certified teachers
-Discounts in local language schools, including online courses for the Kazakh language
-We cover it all: :
-Participation in the Employee Stock Purchase Plan
-Monetary bonuses for engaging in the referral program
-Medical & family care package
-Six trust days per year (sick leave without a medical certificate)
-Coverage of psychology sessions of your choice
-Benefits package (sports activities, a variety of stores and services)
+Responsible for operating, designing development, testing and implementing of infrastructure systems and hardware with automation in mind.
 
-EPAM is a team of technologists and innovators united by a passion for technology. In Kazakhstan, we operate across all cities with offices in Astana, Almaty, and Karaganda and work with the world's leading companies from different industries. In 2023, EPAM received the Export Excellence Award at the esteemed Digital Bridge Awards, showcasing our commitment to excellence and innovation.",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,5 мая 2025,https://hh.kz/vacancy/120206114?query=Senior+Data+Analyst&hhtmFrom=vacancy_search_list,Не указано
-Финансовый Менеджер,BI Group,Не указано,Не указано,"Обязанности:
-Бюджетирование
-Управленческий учет и контроллинг
-Управление денежными потоками
-Управление инвестиционной деятельностью
-Управление финансовой деятельностью
-Управление рисками
-Оценка бизнеса и активов компании
-Проведение мероприятий, направленных на обеспечение платежеспособности предприятия, предупреждение образования и ликвидацию неиспользуемых материально- технических ресурсов, повышение рентабельности производства, увеличение прибыли, снижение издержек на производство и реализацию продукции (услуг). Укрепление финансовой дисциплины.
-Разработка проектов финансовых планов по перспективным объектам, прогнозных балансов, бюджетов денежных средств, бюджетов доходов и расходов.
-Разработка методов регулирования финансовых результатов производственной деятельности предприятия.
-Маневрирование временно свободными средствами.
-Нетворкинг, деловые связи с коммерческими банками и другими кредитными учреждениями, лизинговыми компаниями, другими организациями.
-Целевое использование собственных и заемных средств. Содействовать открытию кредитного финансирования.
-Подготовка графика платежей, расчетов с учетом установленных сроков и договорных обязательств.
-Анализ исполнения бюджета, управленческой и финансовой отчетности . Проведение еженедельного мониторинга статей БДР и БДДС с данными бухгалтерского учета, в том числе на предмет корректности аналитики.
-Еженедельный контроль дебиторской задолженности, мероприятия в случае выявления недобросовестного партнерства.
-Защита KPI и других показателей проекта перед КЦ и СВА Компании, внешнему аудиту.
-Подготовка прочей информации по запросу руководства.
-Работа по формированию, ведению и хранению базы данных о хозяйственных операциях и финансовых результатах деятельности ТОО, актуализация реестров заключенных договоров и учет оборотов по ним в разрезе контрагентов, статей затрат, конструктивов.
-Выполнение поручений непосредственных административного и функционального руководителей.
-Соблюдение Кодекса этики, Приказов, Рабочих инструкций и другим регламентирующих документов Компании.
-Выполнение обязанностей в соответствии с действующими законодательными и нормативными актами, регулирующими производственно-хозяйственную деятельность предприятия.
-Требования:
-Высшее образование в области экономики и финансов, приветствуется сертификация CIMA, ACCA
-Стаж работы на должностях соответствующих профилю отрасли не менее 5 лет.
-Законодательные и нормативные правовые акты, регламентирующие производственно-хозяйственную и финансово-экономическую деятельность;
-Понимание бухгалтерского и налогового учета, принципов управления финансами, знание управленческого учета, методов составления управленческой отчетности.
-Навыки и опыт анализа рисков, управлением ими.
-Умение работать с кредитными организациями (БВУ и МФО) и ценными бумагами с целью привлечения заёмного капитала.
-Уверенный пользователь ПК, программ MS Office, продвинутый пользователь Excel, Power Point (слайды, графики, таблицы), Google-таблицы, GPT, 1С Бухгалтерия/SAP, а также других программ необходимых для выполнения задач;
-Умение делать презентации аналитических работ и отчетов, вести грамотную деловую переписку и документооборот.
-Условия:
-Пятидневная рабочая неделя
-Питание
-Обучение, развитие
-Командообразующие корпоративные мероприятия,
-Бонусы по завершении проекта
-Социальный пакет ""кафетерий""",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Не указано,4 мая 2025,https://hh.kz/vacancy/120189605?query=BI+Analyst&hhtmFrom=vacancy_search_list,Не указано
+Responsible for estimating project value/development plans, evaluating from an infrastructure point-of-view and maintain close liaison with the customer.
+
+Responsible for maintaining accurate and up-to-date documentation on all activities.
+
+Participates in out-of-office on-call rotation as required.
+
+​​Astana 5/2
+
+​​​​​​​",3–6 лет,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: на месте работодателя,5 мая 2025,https://hh.kz/vacancy/120192223?query=Data+Engineer&hhtmFrom=vacancy_search_list,"Английский язык,Бизнес-анализ,Делегирование,SQL,Анализ требований,Английский — B2 — Средне-продвинутый,Казахский — B2 — Средне-продвинутый,Русский — B2 — Средне-продвинутый"
+Digital Solutions CC Senior Specialist,ТОО Филип Моррис Казахстан,Не указано,Не указано,"Be a part of a revolutionary change
+
+At PMI, we’ve chosen to do something incredible. We’re totally transforming our business and building our future on one clear purpose – to deliver a smoke-free future.
+
+With huge change, comes huge opportunity. So, wherever you join us, you’ll enjoy the freedom to dream up and deliver better, brighter solutions and the space to move your career forward in endlessly different directions.
+
+Your day-to-day:
+
+- Product Strategy:
+Define and maintain the product's vision, goals, and roadmap for website capabilities, web application, and Telegram Bot and leadgen tool functions;
+Prioritize functions and functionality based on business impact, customer feedback, and technical feasibility.
+
+
+- Interaction with the backend development team:
+Work closely with IT specialists and the development team to determine the technical requirements and ensure that the desired functions are supported by backend systems;
+Control API integration, database management, and system architecture according to business needs.
+
+- Stakeholder management:
+Act as the main point of contact between business stakeholders, IT and the development team;
+Communicate effectively about progress, problems, and possible solutions to all stakeholders.
+
+- Performance monitoring and improvement:
+Monitor platform performance, user experience, and key business indicators, and conduct research to find and implement improvements;
+Identify and proactively fix problems or identify opportunities for improvement;
+Build analytics and use reporting to set and monitor business goals. Using analytics to identify growth points of the lead process.
+
+
+- Develop custom mechanics using current tools to support and fulfill business goals:
+Active support of the brand team in creating creative and communication strategies.
+
+- Project management:
+Understanding business goals and the impact of projects on their achievement, working in a cross-functional team, calculating the effectiveness of investments in a project, communicating with a global team.
+
+
+
+
+Who we're looking for:
+
+
+- Proven work experience as a Product Owner, Product Manager, or in a similar role;
+- Deep understanding of the principles of backend development, API and system integrations;
+- Knowledge of Agile/Scrum methodologies;
+- Excellent communication and stakeholder management skills;
+- Analytical thinking and the ability to interpret data to make informed decisions;
+- Experience working with tools such as Jira, Confluence, and analytics platforms;
+- Knowledge of the consumer path and experience working with consumer programs;
+- Independence and quick learning, attention to detail and flexibility in approaches.
+
+What we offer:
+
+- An opportunity to pursue your ambitions and develop your skills with a global business – our staggering size and scale provides endless opportunities to progress;
+
+- An opportunity to build an international career and for cross-functional moves;
+
+- Extended social package: life insurance, insurance from critical illnesses, additional payment for preschool development of children, participation in the Employee Assistance Program (financial, psychological and legal consultations) for employees and family members, and much more;
+
+Philip Morris Kazakhstan is the holder of Top Employer Kazakhstan & Global award for 9 consecutive years as well as the only Equal Pay certificate holder in Kazakhstan, which proves our commitment to highest working standards.
+
+*Relocation support is not available for this job.",1–3 года,Полная занятость,График: 5/2,Рабочие часы: 8,Формат работы: гибрид,5 мая 2025,https://hh.kz/vacancy/120198515?query=Analytics+Consultant&hhtmFrom=vacancy_search_list,Английский — B2 — Средне-продвинутый
