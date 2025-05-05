@@ -1,12 +1,6 @@
 import logging
 from src.utils import clean_text_safe
 
-logging.basicConfig(
-    format="%(levelname)s: %(asctime)s - %(message)s",
-    datefmt="%d-%b-%y %H:%M:%S",
-    level=logging.INFO,
-)
-
 async def get_vacancy_details(link: str, page) -> dict | None:
     try:
         await page.goto(link, timeout=20000, wait_until="domcontentloaded")
