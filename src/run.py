@@ -75,11 +75,3 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
     else:
         logging.info("❌ Нет новых данных для сохранения")
         return pd.DataFrame()
-
-if __name__ == "__main__":
-    load_dotenv()
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["full", "daily"], default="daily")
-    args = parser.parse_args()
-
-    asyncio.run(run_scraper(mode=args.mode))
