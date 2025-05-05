@@ -27,8 +27,7 @@ REGION_ID = 40  # Казахстан
 RAW_DIR = "data/raw"
 PROCESSED_DIR = "data/processed"
 
-# Основной CSV файл, где хранятся все уникальные вакансии
-CSV_MAIN = f"{RAW_DIR}/vacancies.csv"
+
 
 # Автоматически создаваемый файл при каждом скрапе
 TODAY_STR = datetime.now().strftime("%Y-%m-%d")
