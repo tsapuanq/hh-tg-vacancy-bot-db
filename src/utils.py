@@ -11,6 +11,10 @@ def setup_logger():
         format="%(asctime)s - %(levelname)s - %(message)s",
         level=logging.INFO
     )
+    
+def get_today_processed_csv():
+    today = datetime.now().strftime("%Y-%m-%d")
+    return f"data/processed/vacancies_clean_{today}.csv"
 
 def load_existing_links(csv_path: str) -> set:
     if Path(csv_path).exists():

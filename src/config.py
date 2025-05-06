@@ -36,12 +36,6 @@ CSV_CLEANED_DAILY = f"{PROCESSED_DIR}/vacancies_clean_{TODAY_STR}.csv"
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
 
-
-def get_today_processed_csv():
-    today = datetime.now().strftime("%Y-%m-%d")
-    return f"data/processed/vacancies_clean_{today}.csv"
-
-
 CSV_MAIN = "data/main.csv"
 
 

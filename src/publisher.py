@@ -5,10 +5,10 @@ import random
 import ast
 from datetime import datetime
 from telegram import Bot
-from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME, get_today_processed_csv
+from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 from src.config import SENT_IDS_PATH, SENT_LINKS_PATH
-
+from src.utils import get_today_processed_csv
 # ——— Работа с отправленными vacancy_id ———
 
 def load_sent_ids(path: str = SENT_IDS_PATH) -> set:
