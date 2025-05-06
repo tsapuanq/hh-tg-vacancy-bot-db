@@ -109,3 +109,12 @@ def save_daily_clean_csv(df: pd.DataFrame):
     full_path = os.path.join(PROCESSED_DIR, filename)
     df.to_csv(full_path, index=False)
     print(f"[INFO] Saved cleaned data to: {full_path}")
+
+
+
+
+def canonical_link(link: str) -> str:
+    """
+    Обрезаем всё после знака '?', оставляем базовый URL до идентификатора вакансии.
+    """
+    return link.split("?", 1)[0]
