@@ -5,6 +5,7 @@ import os
 from src.config import CSV_MAIN, PROCESSED_DIR
 from pathlib import Path
 from datetime import datetime
+from src.config import SENT_LINKS_PATH, SENT_IDS_PATH
 
 def setup_logger():
     logging.basicConfig(

@@ -1,9 +1,7 @@
 import pandas as pd
 import asyncio
-import os
 import random
 import ast
-from datetime import datetime
 from telegram import Bot
 from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
@@ -65,26 +63,6 @@ def format_message(row: pd.Series, summary: dict) -> str:
 
 🔎 [Подробнее на hh]({row['link']})
 """.strip()
-
-# ——— Загрузка CSV и фильтрация по сегодняшней дате ———
-from datetime import datetime
-
-def load_today_rows() -> pd.DataFrame:
-    csv_path = get_today_processed_csv()
-    if not os.path.exists(csv_path):
-        print(f"❌ CSV не найден: {csv_path}")
-        return pd.DataFrame()
-    try:
-        df = pd.read_csv(csv_path)
-        today_str = datetime.now().strftime("%Y-%m-%d")
-        filtered_df = df[df["published_date_dt"] == today_str]
-        
-        print(f"🔎 Найдено {len(filtered_df)} вакансий за {today_str}")
-        return filtered_df
-
-    except Exception as e:
-        print(f"❌ Ошибка чтения CSV: {e}")
-        return pd.DataFrame()
 
 # ——— Основной пайплайн публикации вакансий ———
 async def main():
