@@ -7,7 +7,7 @@ from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
 from src.utils import setup_logger, save_to_main_csv, load_existing_links, save_raw_data
-
+from src.utils import canonical_link
 MAX_CONCURRENT_TASKS = 10
 
 async def scrape_single(link, semaphore, context, results, idx, total):
@@ -37,10 +37,13 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
 
     for keyword in SEARCH_KEYWORDS:
         max_pages = 100 if mode == "full" else 1
-        links = await get_vacancy_links(keyword, max_pages=max_pages)
-        all_links.update(links)
+        raw_links = await get_vacancy_links(keyword, max_pages=max_pages)
+        for raw in raw_links:
+            # отбрасываем все параметры после '?'
+            all_links.add(canonical_link(raw))
 
-    new_links = list(set(all_links) - existing_links)
+    # вычисляем, какие канонические ссылки ещё не встречались
+    new_links = list(all_links - existing_links)
     logging.info(f"🔗 Новых ссылок для обработки: {len(new_links)}")
 
     results = []
