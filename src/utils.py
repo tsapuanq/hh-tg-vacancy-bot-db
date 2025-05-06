@@ -18,7 +18,7 @@ def load_existing_links(csv_path: str) -> set:
         return set(df['link'].unique())
     return set()
 
-def save_to_csv(data: list[dict], csv_path: str):
+def save_to_main_csv(data: list[dict], csv_path: str):
     Path(csv_path).parent.mkdir(parents=True, exist_ok=True)
 
     if Path(csv_path).exists():
