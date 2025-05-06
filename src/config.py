@@ -1,5 +1,4 @@
 # src/config.py
-
 from datetime import datetime
 from dotenv import load_dotenv
 import os
@@ -26,8 +25,6 @@ REGION_ID = 40  # Казахстан
 # === Пути к данным ===
 RAW_DIR = "data/raw"
 PROCESSED_DIR = "data/processed"
-
-
 
 # Автоматически создаваемый файл при каждом скрапе
 TODAY_STR = datetime.now().strftime("%Y-%m-%d")
