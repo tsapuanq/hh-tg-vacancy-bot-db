@@ -115,7 +115,13 @@ FILTER_PROMPT = """
 - Data Miner
 - Data Specialist
 - Data Modeler
-
+- DevOps Engineer
+- MLOps Engineer
+- System Analyst
+- Analytics Engineer
+- Data Platform Engineer
+- Data Visualization Engineer
+- Data Modeler
 ❗️Игнорируй вакансии из других сфер, даже если в тексте встречаются слова типа “data”, “AI”, “model” и т.п., но они не относятся к профессиям из списка.
 
 Профессия: "{title}"
