@@ -1,7 +1,10 @@
 # utils.py
 import logging
 import pandas as pd
+import os
+from src.config import CSV_MAIN, PROCESSED_DIR
 from pathlib import Path
+from datetime import datetime
 
 def setup_logger():
     logging.basicConfig(
@@ -37,4 +40,19 @@ def clean_text_safe(text):
         return ""
     return text.replace("\xa0", " ").strip()
 
+def determine_mode() -> str:
+    if not os.path.exists(CSV_MAIN):
+        return "full"
+    try:
+        df = pd.read_csv(CSV_MAIN)
+        return "full" if df.empty else "daily"
+    except Exception:
+        return "full"
 
+
+def save_daily_clean_csv(df: pd.DataFrame):
+    os.makedirs(PROCESSED_DIR, exist_ok=True)
+    filename = f"vacancies_clean_{datetime.now().strftime('%Y-%m-%d')}.csv"
+    full_path = os.path.join(PROCESSED_DIR, filename)
+    df.to_csv(full_path, index=False)
+    print(f"[INFO] Saved cleaned data to: {full_path}")
