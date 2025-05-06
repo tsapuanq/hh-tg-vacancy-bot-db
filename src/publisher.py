@@ -7,11 +7,7 @@ from datetime import datetime
 from telegram import Bot
 from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME, get_today_processed_csv
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
-
-# ——— Путь до файла отправленных ссылок ———
-SENT_LINKS_PATH = "data/sent_links.txt"
-SENT_IDS_PATH = "data/sent_ids.txt"
-
+from src.config import SENT_IDS_PATH, SENT_LINKS_PATH
 
 # ——— Работа с отправленными vacancy_id ———
 

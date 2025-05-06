@@ -43,3 +43,7 @@ def get_today_processed_csv():
 
 
 CSV_MAIN = "data/main.csv"
+
+
+SENT_LINKS_PATH = "data/sent_links.txt"
+SENT_IDS_PATH = "data/sent_ids.txt"
