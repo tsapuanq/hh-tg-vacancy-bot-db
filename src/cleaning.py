@@ -1,7 +1,7 @@
 import pandas as pd
 import ast
 import logging
-import re  # <- для clean_working_hours
+import re 
 
 
 # ======= working_hours =======
