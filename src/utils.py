@@ -66,23 +66,47 @@ def get_today_processed_csv():
     return f"data/processed/vacancies_clean_{today}.csv"
 
 def load_existing_links(csv_path: str) -> set:
+    """
+    Загружает все ссылки из накопительного CSV и возвращает множество канонических URL.
+    """
     if Path(csv_path).exists():
-        df = pd.read_csv(csv_path)
-        return set(df['link'].unique())
+        df = pd.read_csv(csv_path, usecols=["link"], dtype={"link": str})
+        # Канонизируем каждую ссылку и убираем NaN
+        return {
+            canonical_link(link)
+            for link in df["link"].dropna().unique()
+        }
     return set()
 
 def save_to_main_csv(data: list[dict], csv_path: str):
+    """
+    Добавляет новые записи в накопительный CSV, убирая дубликаты по каноническому URL.
+    """
     Path(csv_path).parent.mkdir(parents=True, exist_ok=True)
+    
+    df_new = pd.DataFrame(data)
+    # Канонизируем ссылки в новых данных
+    df_new["link"] = df_new["link"].apply(canonical_link)
 
     if Path(csv_path).exists():
-        df_old = pd.read_csv(csv_path)
-        df_new = pd.DataFrame(data)
-        df_combined = pd.concat([df_old, df_new]).drop_duplicates(subset=["link"])
-        df_combined.to_csv(csv_path, index=False, encoding="utf-8-sig")
+        df_old = pd.read_csv(csv_path, dtype={"link": str})
+        # Канонизируем старые ссылки
+        df_old["link"] = df_old["link"].apply(canonical_link)
+
+        # Объединяем и удаляем дубликаты
+        df_combined = pd.concat([df_old, df_new], ignore_index=True)
+        df_combined = df_combined.drop_duplicates(subset=["link"])
     else:
-        pd.DataFrame(data).to_csv(csv_path, index=False, encoding="utf-8-sig")
+        df_combined = df_new
+
+    df_combined.to_csv(csv_path, index=False, encoding="utf-8-sig")
+
+
 
 def save_raw_data(df: pd.DataFrame, file_path: str):
+    """
+    Сохраняет ежедневный дамп вакансий в отдельный CSV.
+    """
     Path(file_path).parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(file_path, index=False, encoding="utf-8-sig")
     logging.info(f"[INFO] Raw data saved to: {file_path}")
@@ -111,10 +135,12 @@ def save_daily_clean_csv(df: pd.DataFrame):
     print(f"[INFO] Saved cleaned data to: {full_path}")
 
 
-
-
 def canonical_link(link: str) -> str:
     """
-    Обрезаем всё после знака '?', оставляем базовый URL до идентификатора вакансии.
+    Обрезает все параметры после '?' в URL вакансии, оставляя базовый путь.
     """
-    return link.split("?", 1)[0]
+    try:
+        return link.split("?", 1)[0]
+    except Exception:
+        return link
+
