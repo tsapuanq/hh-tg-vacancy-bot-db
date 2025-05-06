@@ -6,7 +6,7 @@ from playwright.async_api import async_playwright
 from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
-from src.utils import setup_logger, save_to_csv, load_existing_links, save_raw_data
+from src.utils import setup_logger, save_to_main_csv, load_existing_links, save_raw_data
 
 MAX_CONCURRENT_TASKS = 10
 
@@ -65,7 +65,7 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
 
     if results:
         df = pd.DataFrame(results)
-        save_to_csv(results, CSV_MAIN)
+        save_to_main_csv(results, CSV_MAIN)
         save_raw_data(df, CSV_RAW_DAILY)
         logging.info(f"✅ Сохранено {len(df)} новых вакансий")
         return df
