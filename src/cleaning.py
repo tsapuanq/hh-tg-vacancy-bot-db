@@ -1,7 +1,7 @@
 import pandas as pd
 import ast
 import logging
-import re  # <- для clean_working_hours
+import re 
 
 
 # ======= working_hours =======
@@ -123,6 +123,8 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
     df["skills"] = df["skills"].apply(clean_skills)
     df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
+    df["published_date_dt"] = df["published_date_dt"].dt.strftime("%Y-%m-%d") #Сразу конвертируем в datetime(2025-04-05)
+
     df["work_format"] = df["work_format"].apply(clean_work_format)
 
     # === обработка working_hours ===
