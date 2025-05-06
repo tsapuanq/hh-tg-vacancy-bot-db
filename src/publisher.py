@@ -9,40 +9,12 @@ from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 from src.config import SENT_IDS_PATH, SENT_LINKS_PATH
 from src.utils import get_today_processed_csv
-# ——— Работа с отправленными vacancy_id ———
-
-def load_sent_ids(path: str = SENT_IDS_PATH) -> set:
-    if not os.path.exists(path):
-        return set()
-    with open(path, "r", encoding="utf-8") as f:
-        return set(line.strip() for line in f)
-
-def append_sent_ids(ids: list, path: str = SENT_IDS_PATH):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "a", encoding="utf-8") as f:
-        for vacancy_id in ids:
-            f.write(vacancy_id + "\n")
-
-def extract_vacancy_id(link: str) -> str:
-    try:
-        return link.split('/vacancy/')[1].split('?')[0]
-    except (IndexError, AttributeError):
-        return None
-
-
-# ——— Загрузка ранее отправленных ссылок ———
-def load_sent_links(path: str = SENT_LINKS_PATH) -> set:
-    if not os.path.exists(path):
-        return set()
-    with open(path, "r", encoding="utf-8") as f:
-        return set(line.strip() for line in f)
-
-# ——— Добавление новых отправленных ссылок ———
-def append_sent_links(links: list, path: str = SENT_LINKS_PATH):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "a", encoding="utf-8") as f:
-        for link in links:
-            f.write(link + "\n")
+from src.utils import load_sent_ids
+from src.utils import append_sent_ids
+from src.utils import extract_vacancy_id
+from src.utils import load_sent_links
+from src.utils import append_sent_links
+from src.utils import load_today_rows
 
 # ——— Вспомогательная конверсия LLM-результатов в Markdown-буллеты ———
 def _to_bullets(x) -> str:

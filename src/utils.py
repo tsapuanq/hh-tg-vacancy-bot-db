@@ -11,7 +11,55 @@ def setup_logger():
         format="%(asctime)s - %(levelname)s - %(message)s",
         level=logging.INFO
     )
+
+def load_today_rows() -> pd.DataFrame:
+    csv_path = get_today_processed_csv()
+    if not os.path.exists(csv_path):
+        print(f"❌ CSV не найден: {csv_path}")
+        return pd.DataFrame()
+    try:
+        df = pd.read_csv(csv_path)
+        today_str = datetime.now().strftime("%Y-%m-%d")
+        filtered_df = df[df["published_date_dt"] == today_str]
+        
+        print(f"🔎 Найдено {len(filtered_df)} вакансий за {today_str}")
+        return filtered_df
+
+    except Exception as e:
+        print(f"❌ Ошибка чтения CSV: {e}")
+        return pd.DataFrame()
     
+
+def append_sent_links(links: list, path: str = SENT_LINKS_PATH):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        for link in links:
+            f.write(link + "\n")
+    
+def load_sent_links(path: str = SENT_LINKS_PATH) -> set:
+    if not os.path.exists(path):
+        return set()
+    with open(path, "r", encoding="utf-8") as f:
+        return set(line.strip() for line in f)
+
+def load_sent_ids(path: str = SENT_IDS_PATH) -> set:
+    if not os.path.exists(path):
+        return set()
+    with open(path, "r", encoding="utf-8") as f:
+        return set(line.strip() for line in f)
+
+def append_sent_ids(ids: list, path: str = SENT_IDS_PATH):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        for vacancy_id in ids:
+            f.write(vacancy_id + "\n")
+
+def extract_vacancy_id(link: str) -> str:
+    try:
+        return link.split('/vacancy/')[1].split('?')[0]
+    except (IndexError, AttributeError):
+        return None
+
 def get_today_processed_csv():
     today = datetime.now().strftime("%Y-%m-%d")
     return f"data/processed/vacancies_clean_{today}.csv"
