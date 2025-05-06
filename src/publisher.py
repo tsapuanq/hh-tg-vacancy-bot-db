@@ -104,16 +104,9 @@ def load_today_rows() -> pd.DataFrame:
         return pd.DataFrame()
     try:
         df = pd.read_csv(csv_path)
-
-        # Приводим published_date_dt к типу datetime
-        df["published_date_dt"] = pd.to_datetime(df["published_date_dt"], errors='coerce')
-
-        # Получаем сегодняшнюю дату
         today_str = datetime.now().strftime("%Y-%m-%d")
-
-        # Фильтруем только по сегодняшнему дню
         filtered_df = df[df["published_date_dt"] == today_str]
-
+        
         print(f"🔎 Найдено {len(filtered_df)} вакансий за {today_str}")
         return filtered_df
 
