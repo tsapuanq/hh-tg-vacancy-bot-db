@@ -2,14 +2,11 @@ import asyncio
 import logging
 import pandas as pd
 import random
-from dotenv import load_dotenv
 from playwright.async_api import async_playwright
 from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
 from src.utils import setup_logger, save_to_csv, load_existing_links, save_raw_data
-
-import argparse
 
 MAX_CONCURRENT_TASKS = 10
 
