@@ -5,8 +5,6 @@ import ast
 from telegram import Bot
 from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
-from src.config import SENT_IDS_PATH, SENT_LINKS_PATH
-from src.utils import get_today_processed_csv
 from src.utils import load_sent_ids
 from src.utils import append_sent_ids
 from src.utils import extract_vacancy_id
