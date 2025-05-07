@@ -1,7 +1,42 @@
-import pandas as pd
+import pandas as pd 
 import ast
 import logging
 import re 
+
+
+def normalize_city_name(city: str) -> str:
+    # пример: если вдруг получаем "Алмата", меняем на "Алматы"
+    corrections = {
+        'Алматы': 'Алматы',
+        "Астане": "Астана",
+        "Атырау": "Атырау",
+        "Шымкенте": "Шымкент",
+        "Костанае": "Костанай",
+        "Актобе": "Актобе",
+        "Караганде": "Караганда",
+        "Таразе": "Тараз",
+        "Щучинске": "Щучинск",
+        "Усть-Каменогорске": "Усть-Каменогорск",
+        "Семее": "Семей",
+        "Павлодаре": "Павлодар",
+        "Кокшетауе": "Кокшетау",
+        "Талдыкоргане": "Талдыкорган",
+        "Уральске": "Уральск"
+    }
+    return corrections.get(city, city)
+
+
+def extract_city(pub_text: str) -> str:
+    """
+    Из строки вида
+      "Вакансия опубликована 2 мая 2025 в Алматы"
+    возвращает "Алматы".
+    """
+    if not pub_text or ' в ' not in pub_text:
+        return None
+    city = pub_text.split(' в ')[-1].strip()
+    city = re.sub(r'[.,\s]+$', '', city)
+    return city.capitalize()
 
 
 # ======= working_hours =======
@@ -13,7 +48,6 @@ def clean_working_hours(hours_str: str) -> str:
     if pd.isna(hours_str):
         return "Не указано"
     s = str(hours_str).strip()
-    # удаляем всё до и включая 'Рабочие часы' + возможный ':' или '：'
     result = re.sub(r"(?i)^.*?рабочие часы[:：]?\s*", "", s)
     return result if result else "Не указано"
 
@@ -22,16 +56,11 @@ def clean_working_hours(hours_str: str) -> str:
 def extract_salary_range_with_currency(salary_str):
     if pd.isna(salary_str) or "не указано" in str(salary_str).lower():
         return "Не указано"
-
     text = str(salary_str).lower().replace("\xa0", " ")
-    import re
-
     currency = (
-        "₸"
-        if "₸" in text
+        "₸" if "₸" in text
         else ("$" if "$" in text else ("€" if "€" in text or "eur" in text else ""))
     )
-
     match = re.search(r"от\s+([\d\s]+)\s+до\s+([\d\s]+)", text)
     if match:
         return f"{match.group(1).replace(' ', '')}–{match.group(2).replace(' ', '')} {currency}"
@@ -56,20 +85,10 @@ def clean_skills(skills_str):
 
 # ======= date =======
 month_map = {
-    "января": "01",
-    "февраля": "02",
-    "марта": "03",
-    "апреля": "04",
-    "мая": "05",
-    "июня": "06",
-    "июля": "07",
-    "августа": "08",
-    "сентября": "09",
-    "октября": "10",
-    "ноября": "11",
-    "декабря": "12",
+    "января": "01", "февраля": "02", "марта": "03", "апреля": "04",
+    "мая": "05", "июня": "06", "июля": "07", "августа": "08",
+    "сентября": "09", "октября": "10", "ноября": "11", "декабря": "12",
 }
-
 
 def parse_russian_date(date_str: str) -> pd.Timestamp:
     try:
@@ -80,20 +99,14 @@ def parse_russian_date(date_str: str) -> pd.Timestamp:
         month = month_map.get(month_rus.lower())
         return (
             pd.to_datetime(
-                f"{day.zfill(2)}.{month}.{year}", format="%d.%m.%Y", errors="coerce"
-            )
-            if month
-            else pd.NaT
+                f"{day.zfill(2)}.{month}.{year}", 
+                format="%d.%m.%Y", 
+                errors="coerce"
+            ) if month else pd.NaT
         )
     except:
         return pd.NaT
 
-
-def clean_location(loc: str) -> str:
-    if not isinstance(loc, str):
-        return loc
-    city = loc.split(",")[0].strip()
-    return city or "Не указано"
 
 # ======= work_format =======
 def clean_work_format(text: str) -> str:
@@ -101,12 +114,12 @@ def clean_work_format(text: str) -> str:
         return "Не указано"
     return text.replace("Формат работы:", "").strip().capitalize() or "Не указано"
 
+
 # ======= Основной pipeline =======
 def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     if df is None or not isinstance(df, pd.DataFrame):
         logging.warning("[Pipeline] Input is not a DataFrame.")
         return pd.DataFrame()
-
     if df.empty:
         logging.warning("[Pipeline] Пустой DataFrame — пропускаем очистку.")
         return df
@@ -118,17 +131,21 @@ def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df = df[df["description"].notna()].copy()
     print(f"[DEBUG] После фильтра по description: {df.shape}")
 
-    # Очистка классических полей
-    df["location"] = df["location"].apply(clean_location)
-    df["salary_range"] = df["salary"].apply(extract_salary_range_with_currency)
-    df["skills"] = df["skills"].apply(clean_skills)
-    df["published_date_dt"] = df["published_date"].apply(parse_russian_date)
-    df["published_date_dt"] = df["published_date_dt"].dt.strftime("%Y-%m-%d") #Сразу конвертируем в datetime(2025-04-05)
+    # === Вырезаем старую очистку location и заменяем на новый код ===
+    # df["location"] = df["location"].apply(clean_location)
+    df["location"] = (
+        df["location"]                      # изменено
+        .apply(lambda x: extract_city(x))       # извлечение города
+        .apply(lambda c: normalize_city_name(c))# нормализация
+    )                                          # изменено
 
-    df["work_format"] = df["work_format"].apply(clean_work_format)
+    # остальная очистка без изменений
+    df["salary_range"]     = df["salary"].apply(extract_salary_range_with_currency)
+    df["skills"]           = df["skills"].apply(clean_skills)
+    df["published_date_dt"]= df["published_date"].apply(parse_russian_date)
+    df["published_date_dt"]= df["published_date_dt"].dt.strftime("%Y-%m-%d")
+    df["work_format"]      = df["work_format"].apply(clean_work_format)
+    df["working_hours"]    = df["working_hours"].apply(clean_working_hours)
 
-    # === обработка working_hours ===
-    # создаём новый столбец, где останется всё после 'Рабочие часы'
-    df["working_hours"] = df["working_hours"].apply(clean_working_hours)
     print(f"[DEBUG] Финальный DataFrame: {df.shape}")
     return df
