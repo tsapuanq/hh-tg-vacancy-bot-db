@@ -160,6 +160,8 @@ SEARCH_KEYWORDS = [
 
     # Data Visualization Engineer
     "Data Visualization Engineer",
+
+    "Финансовый аналитик"
 ]
 
 # === HH settings ===
