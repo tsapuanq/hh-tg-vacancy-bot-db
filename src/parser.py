@@ -12,7 +12,7 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
         page = await browser.new_page()
 
         for page_number in range(max_pages):
-            url = f"{BASE_URL}?text={keyword}&area={REGION_ID}&page={page_number}"
+            url = f"{BASE_URL}?text={keyword}&area={REGION_ID}&page={page_number}&order_by=publication_time&search_period=1"
             logging.info(f"Парсим: {url}")
             await page.goto(url)
             try:
