@@ -54,23 +54,60 @@ def clean_working_hours(hours_str: str) -> str:
 
 # ======= salary =======
 def extract_salary_range_with_currency(salary_str):
+    # 0) пустые и «Не указано»
     if pd.isna(salary_str) or "не указано" in str(salary_str).lower():
         return "Не указано"
-    text = str(salary_str).lower().replace("\xa0", " ")
-    currency = (
-        "₸" if "₸" in text
-        else ("$" if "$" in text else ("€" if "€" in text or "eur" in text else ""))
-    )
-    match = re.search(r"от\s+([\d\s]+)\s+до\s+([\d\s]+)", text)
-    if match:
-        return f"{match.group(1).replace(' ', '')}–{match.group(2).replace(' ', '')} {currency}"
-    match = re.search(r"от\s+([\d\s]+)", text)
-    if match:
-        return f"от {match.group(1).replace(' ', '')} {currency}"
-    match = re.search(r"до\s+([\d\s]+)", text)
-    if match:
-        return f"до {match.group(1).replace(' ', '')} {currency}"
+
+    # 1) нормализуем строку
+    text = str(salary_str).lower().replace("\xa0", " ").strip()
+
+    # 2) определяем валюту
+    if "₸" in text:
+        currency = "₸"
+    elif "₽" in text:
+        currency = "₽"
+    elif "$" in text or "usd" in text:
+        currency = "$"
+    elif "€" in text or "eur" in text:
+        currency = "€"
+    else:
+        currency = ""
+
+    # 3) пытаемся найти диапазон "от X до Y"
+    m = re.search(r"от\s+([\d\s]+)\s*(?:₸|₽|\$|€)?\s*до\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
+    if m:
+        lo = m.group(1).replace(" ", "")
+        hi = m.group(2).replace(" ", "")
+        return f"{lo}-{hi} {currency}"
+
+    # 4) "до Y"
+    m = re.search(r"до\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
+    if m:
+        hi = m.group(1).replace(" ", "")
+        return f"до {hi} {currency}"
+
+    # 5) "от X"
+    m = re.search(r"от\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
+    if m:
+        lo = m.group(1).replace(" ", "")
+        return f"от {lo} {currency}"
+
+    # 6) точная сумма без "от/до", но с валютой (например "400000 ₸")
+    m = re.search(r"([\d\s]+)\s*(₸|₽|\$|€)", text)
+    if m:
+        amount = m.group(1).replace(" ", "")
+        cur = m.group(2)
+        return f"{amount} {cur}"
+
+    # 7) на всякий случай: просто число (берём первое)
+    m = re.search(r"([\d\s]+)", text)
+    if m:
+        amount = m.group(1).replace(" ", "")
+        return f"{amount} {currency}"
+
+    # 8) если ничего не подошло
     return "Не указано"
+
 
 
 # ======= skills =======
