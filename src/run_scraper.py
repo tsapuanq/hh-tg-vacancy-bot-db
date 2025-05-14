@@ -1,13 +1,13 @@
 import asyncio
 import logging
-import pandas as pd
 import random
 from playwright.async_api import async_playwright
-from src.config import SEARCH_KEYWORDS, CSV_MAIN, CSV_RAW_DAILY
+from src.config import SEARCH_KEYWORDS
 from src.parser import get_vacancy_links
 from src.scraper import get_vacancy_details
-from src.utils import setup_logger, save_to_main_csv, load_existing_links, save_raw_data
-from src.utils import canonical_link  # 🟢 импорт утилиты для обрезки query
+from src.utils import setup_logger, canonical_link
+from database import Database
+import os
 
 MAX_CONCURRENT_TASKS = 10
 
@@ -28,14 +28,15 @@ async def scrape_single(link, semaphore, context, results, idx, total):
         except Exception as e:
             logging.warning(f"[Scrape Error] {link}: {e}")
 
-async def run_scraper(mode: str = "daily") -> pd.DataFrame:
+async def run_scraper(db, mode: str = "daily"):
     setup_logger()
 
-    # 📌 Вместо «сырых» ссылок — сразу берём уже канонизированные
-    existing_links = {
-        canonical_link(l)            # 🟢 обрезаем всё после '?'
-        for l in load_existing_links(CSV_MAIN)
-    }
+    # Получаем уже существующие ссылки из БД
+    conn = db.get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT url FROM vacancies")
+    existing_links = {canonical_link(row[0]) for row in cursor.fetchall()}
+    db.return_connection(conn)
 
     logging.info(f"🔍 Режим запуска: {mode.upper()}")
     logging.info("🔎 Загрузка ссылок по ключевым словам...")
@@ -45,10 +46,8 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
         max_pages = 100 if mode == "full" else 1
         raw_links = await get_vacancy_links(keyword, max_pages=max_pages)
         for raw in raw_links:
-            # 🟢 сразу канонизируем и сохраняем без query-параметров
             all_links.add(canonical_link(raw))
 
-    # 📌 Вычисляем разницу уже по каноническим URL
     new_links = list(all_links - existing_links)
     logging.info(f"🔗 Новых ссылок для обработки: {len(new_links)}")
 
@@ -66,7 +65,6 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
             locale="ru-RU"
         )
 
-        # new_links уже чистые URL — можно прямо итерировать
         tasks = [
             scrape_single(link, semaphore, context, results, idx, len(new_links))
             for idx, link in enumerate(new_links, 1)
@@ -78,11 +76,28 @@ async def run_scraper(mode: str = "daily") -> pd.DataFrame:
     results = [r for r in results if r is not None]
 
     if results:
-        df = pd.DataFrame(results)
-        save_to_main_csv(results, CSV_MAIN)  # здесь тоже util-функция должна канонизировать
-        save_raw_data(df, CSV_RAW_DAILY)
-        logging.info(f"✅ Сохранено {len(df)} новых вакансий")
-        return df
+        conn = db.get_connection()
+        cursor = conn.cursor()
+        for data in results:
+            cursor.execute("""
+                INSERT INTO vacancies (
+                    title, description, url, published_at, company, location, salary, experience,
+                    employment_type, schedule, working_hours, work_format, skills
+                ) VALUES (
+                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                ) ON CONFLICT (url) DO NOTHING
+            """, (
+                data['title'], data['description'], data['link'], data['published_at'],
+                data['company'], data['location'], data['salary'], data['experience'],
+                data['employment_type'], data['schedule'], data['working_hours'],
+                data['work_format'], data['skills']
+            ))
+        conn.commit()
+        db.return_connection(conn)
+        logging.info(f"✅ Сохранено {len(results)} новых вакансий в БД")
     else:
         logging.info("❌ Нет новых данных для сохранения")
-        return pd.DataFrame()
+
+if __name__ == "__main__":
+    db = Database(os.getenv("DATABASE_URL"))
+    asyncio.run(run_scraper(db))

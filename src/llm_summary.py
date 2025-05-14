@@ -1,3 +1,4 @@
+#llm_summary.py
 import os
 import time
 import json
@@ -129,8 +130,6 @@ FILTER_PROMPT = """
 
 Ответь строго одним словом: yes или no.
 """
-
-
 
 def filter_vacancy_llm(title: str, description: str) -> bool:
     prompt = FILTER_PROMPT.format(title=title, description=description)

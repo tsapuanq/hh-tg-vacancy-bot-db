@@ -1,67 +1,37 @@
-import pandas as pd 
-import ast
 import logging
-import re 
-
+import re
+from database import Database
+import os
 
 def normalize_city_name(city: str) -> str:
-    # пример: если вдруг получаем "Алмата", меняем на "Алматы"
     corrections = {
-        'Алматы': 'Алматы',
-        "Астане": "Астана",
-        "Атырау": "Атырау",
-        "Шымкенте": "Шымкент",
-        "Костанае": "Костанай",
-        "Актобе": "Актобе",
-        "Караганде": "Караганда",
-        "Таразе": "Тараз",
-        "Щучинске": "Щучинск",
-        "Усть-Каменогорске": "Усть-Каменогорск",
-        "Семее": "Семей",
-        "Павлодаре": "Павлодар",
-        "Кокшетауе": "Кокшетау",
-        "Талдыкоргане": "Талдыкорган",
+        'Алматы': 'Алматы', "Астане": "Астана", "Атырау": "Атырау", "Шымкенте": "Шымкент",
+        "Костанае": "Костанай", "Актобе": "Актобе", "Караганде": "Караганда", "Таразе": "Тараз",
+        "Щучинске": "Щучинск", "Усть-Каменогорске": "Усть-Каменогорск", "Семее": "Семей",
+        "Павлодаре": "Павлодар", "Кокшетауе": "Кокшетау", "Талдыкоргане": "Талдыкорган",
         "Уральске": "Уральск"
     }
     return corrections.get(city, city)
 
-
 def extract_city(pub_text: str) -> str:
-    """
-    Из строки вида
-      "Вакансия опубликована 2 мая 2025 в Алматы"
-    возвращает "Алматы".
-    """
     if not pub_text or ' в ' not in pub_text:
-        return None
+        return "Не указано"
     city = pub_text.split(' в ')[-1].strip()
     city = re.sub(r'[.,\s]+$', '', city)
     return city.capitalize()
 
-
-# ======= working_hours =======
 def clean_working_hours(hours_str: str) -> str:
-    """
-    Оставляем всё, что идёт после 'Рабочие часы' (с любым разделителем ':' или '：').
-    Если значение пустое/NaN — возвращаем 'Не указано'.
-    """
-    if pd.isna(hours_str):
+    if not hours_str:
         return "Не указано"
     s = str(hours_str).strip()
     result = re.sub(r"(?i)^.*?рабочие часы[:：]?\s*", "", s)
     return result if result else "Не указано"
 
-
-# ======= salary =======
 def extract_salary_range_with_currency(salary_str):
-    # 0) пустые и «Не указано»
-    if pd.isna(salary_str) or "не указано" in str(salary_str).lower():
+    if not salary_str or "не указано" in str(salary_str).lower():
         return "Не указано"
 
-    # 1) нормализуем строку
     text = str(salary_str).lower().replace("\xa0", " ").strip()
-
-    # 2) определяем валюту
     if "₸" in text:
         currency = "₸"
     elif "₽" in text:
@@ -73,116 +43,99 @@ def extract_salary_range_with_currency(salary_str):
     else:
         currency = ""
 
-    # 3) пытаемся найти диапазон "от X до Y"
     m = re.search(r"от\s+([\d\s]+)\s*(?:₸|₽|\$|€)?\s*до\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
     if m:
         lo = m.group(1).replace(" ", "")
         hi = m.group(2).replace(" ", "")
         return f"{lo}-{hi} {currency}"
 
-    # 4) "до Y"
     m = re.search(r"до\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
     if m:
         hi = m.group(1).replace(" ", "")
         return f"до {hi} {currency}"
 
-    # 5) "от X"
     m = re.search(r"от\s+([\d\s]+)\s*(?:₸|₽|\$|€)?", text)
     if m:
         lo = m.group(1).replace(" ", "")
         return f"от {lo} {currency}"
 
-    # 6) точная сумма без "от/до", но с валютой (например "400000 ₸")
     m = re.search(r"([\d\s]+)\s*(₸|₽|\$|€)", text)
     if m:
         amount = m.group(1).replace(" ", "")
         cur = m.group(2)
         return f"{amount} {cur}"
 
-    # 7) на всякий случай: просто число (берём первое)
     m = re.search(r"([\d\s]+)", text)
     if m:
         amount = m.group(1).replace(" ", "")
         return f"{amount} {currency}"
 
-    # 8) если ничего не подошло
     return "Не указано"
 
-
-
-# ======= skills =======
 def clean_skills(skills_str):
+    if not skills_str or skills_str == "Не указано":
+        return "Не указано"
     try:
-        skills = ast.literal_eval(skills_str)
-        skills = [s.strip() for s in skills if isinstance(s, str) and s.strip()]
-        return skills if skills else "Не указано"
+        skills = skills_str.split(",")
+        skills = [s.strip() for s in skills if s.strip()]
+        return ", ".join(skills) if skills else "Не указано"
     except:
         return "Не указано"
 
-
-# ======= date =======
 month_map = {
     "января": "01", "февраля": "02", "марта": "03", "апреля": "04",
     "мая": "05", "июня": "06", "июля": "07", "августа": "08",
     "сентября": "09", "октября": "10", "ноября": "11", "декабря": "12",
 }
 
-def parse_russian_date(date_str: str) -> pd.Timestamp:
+def parse_russian_date(date_str: str) -> str:
     try:
         parts = date_str.strip().split()
         if len(parts) != 3:
-            return pd.NaT
+            return "Не указано"
         day, month_rus, year = parts
         month = month_map.get(month_rus.lower())
-        return (
-            pd.to_datetime(
-                f"{day.zfill(2)}.{month}.{year}", 
-                format="%d.%m.%Y", 
-                errors="coerce"
-            ) if month else pd.NaT
-        )
+        return f"{year}-{month}-{day.zfill(2)}" if month else "Не указано"
     except:
-        return pd.NaT
+        return "Не указано"
 
-
-# ======= work_format =======
 def clean_work_format(text: str) -> str:
     if not isinstance(text, str):
         return "Не указано"
     return text.replace("Формат работы:", "").strip().capitalize() or "Не указано"
 
+def run_cleaning_pipeline(db):
+    conn = db.get_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT id, location, salary, skills, work_format, working_hours
+        FROM vacancies
+        WHERE summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL
+    """)
+    rows = cursor.fetchall()
+    for row in rows:
+        vacancy_id, location, salary, skills, work_format, working_hours = row
+        cleaned = {
+            "location": normalize_city_name(extract_city(location)) if location else "Не указано",
+            "salary_range": extract_salary_range_with_currency(salary) if salary else "Не указано",
+            "skills": clean_skills(skills) if skills else "Не указано",
+            "work_format": clean_work_format(work_format) if work_format else "Не указано",
+            "working_hours": clean_working_hours(working_hours) if working_hours else "Не указано"
+        }
+        cursor.execute("""
+            UPDATE vacancies
+            SET location = %s, salary_range = %s, skills = %s,
+                work_format = %s, working_hours = %s
+            WHERE id = %s
+        """, (
+            cleaned['location'], cleaned['salary_range'], cleaned['skills'],
+            cleaned['work_format'], cleaned['working_hours'],
+            vacancy_id
+        ))
+    conn.commit()
+    db.return_connection(conn)
+    logging.info(f"✅ Очищено {len(rows)} записей")
 
-# ======= Основной pipeline =======
-def run_cleaning_pipeline(df: pd.DataFrame) -> pd.DataFrame:
-    if df is None or not isinstance(df, pd.DataFrame):
-        logging.warning("[Pipeline] Input is not a DataFrame.")
-        return pd.DataFrame()
-    if df.empty:
-        logging.warning("[Pipeline] Пустой DataFrame — пропускаем очистку.")
-        return df
-
-    print(f"[DEBUG] Исходная форма: {df.shape}")
-    print(f"[DEBUG] Колонки: {list(df.columns)}")
-
-    # Удаляем пустые description
-    df = df[df["description"].notna()].copy()
-    print(f"[DEBUG] После фильтра по description: {df.shape}")
-
-    # === Вырезаем старую очистку location и заменяем на новый код ===
-    # df["location"] = df["location"].apply(clean_location)
-    df["location"] = (
-        df["location"]                      # изменено
-        .apply(lambda x: extract_city(x))       # извлечение города
-        .apply(lambda c: normalize_city_name(c))# нормализация
-    )                                          # изменено
-
-    # остальная очистка без изменений
-    df["salary_range"]     = df["salary"].apply(extract_salary_range_with_currency)
-    df["skills"]           = df["skills"].apply(clean_skills)
-    df["published_date_dt"]= df["published_date"].apply(parse_russian_date)
-    df["published_date_dt"]= df["published_date_dt"].dt.strftime("%Y-%m-%d")
-    df["work_format"]      = df["work_format"].apply(clean_work_format)
-    df["working_hours"]    = df["working_hours"].apply(clean_working_hours)
-
-    print(f"[DEBUG] Финальный DataFrame: {df.shape}")
-    return df
+if __name__ == "__main__":
+    db = Database(os.getenv("DATABASE_URL"))
+    run_cleaning_pipeline(db)

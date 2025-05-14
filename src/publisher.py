@@ -1,53 +1,49 @@
-import pandas as pd
 import asyncio
 import random
-import ast
+import logging
 from telegram import Bot
 from src.config import TELEGRAM_BOT_TOKEN, CHANNEL_USERNAME
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
-from src.utils import load_sent_ids
-from src.utils import append_sent_ids
-from src.utils import extract_vacancy_id
-from src.utils import load_sent_links
-from src.utils import append_sent_links
-from src.utils import load_today_rows
+from database import Database
+import os
+
+# Настройка логирования
+logging.basicConfig(level=logging.INFO)
+
 
 # ——— Вспомогательная конверсия LLM-результатов в Markdown-буллеты ———
 def _to_bullets(x) -> str:
     if isinstance(x, list):
         lines = x
     else:
-        try:
-            parsed = ast.literal_eval(x)
-            lines = parsed if isinstance(parsed, list) else [x]
-        except Exception:
-            lines = [x]
+        lines = x.split("\n") if isinstance(x, str) else [x]
     bullets = []
     for item in lines:
         s = str(item).strip().strip("'\"")
-        if s:
+        if s and s != "Не указано":
             bullets.append(f"• {s}")
     return "\n".join(bullets) or "Не указано"
 
+
 # ——— Форматирование вакансии для Telegram ———
-def format_message(row: pd.Series, summary: dict) -> str:
-    title = f"**{row.get('title','---')}**"
-    pub_date = f"**{row.get('published_date','---')}**"
-    resp = _to_bullets(summary.get('responsibilities', 'Не указано'))
-    reqs = _to_bullets(summary.get('requirements', 'Не указано'))
-    about = str(summary.get('about_company', 'Не указано')).strip().strip("'\"")
+def format_message(data: dict, summary: dict) -> str:
+    title = f"**{data.get('title','---')}**"
+    pub_date = f"**{data.get('published_date_dt','---')}**"
+    resp = _to_bullets(summary.get("responsibilities", "Не указано"))
+    reqs = _to_bullets(summary.get("requirements", "Не указано"))
+    about = str(summary.get("about_company", "Не указано")).strip().strip("'\"")
 
     return f"""
-🌐 *Город:* {row.get('location', '---')}
+🌐 *Город:* {data.get('location', '---')}
 📅 *Должность:* {title}
-💼 *Компания:* {row.get('company', '---')}
-💰 *ЗП:* {row.get('salary_range') or row.get('salary') or '---'}
+💼 *Компания:* {data.get('company', '---')}
+💰 *ЗП:* {data.get('salary_range') or data.get('salary') or '---'}
 
-🎓 *Опыт:* {row.get('experience', '---')}
-📂 *Тип занятости:* {row.get('employment_type', '---')}
-📆 *График:* {row.get('schedule', '---')}
-🕒 *Рабочие часы:* {row.get('working_hours', '---')}
-🏠 *Формат работы:* {row.get('work_format', '---')}
+🎓 *Опыт:* {data.get('experience', '---')}
+📂 *Тип занятости:* {data.get('employment_type', '---')}
+📆 *График:* {data.get('schedule', '---')}
+🕒 *Рабочие часы:* {data.get('working_hours', '---')}
+🏠 *Формат работы:* {data.get('work_format', '---')}
 📅 *Дата публикации:* {pub_date}
 
 🧾 *Обязанности:*
@@ -59,75 +55,141 @@ def format_message(row: pd.Series, summary: dict) -> str:
 🏢 *О компании:*
 {about}
 
-🔎 [Подробнее на hh]({row['link']})
+🔎 [Подробнее на hh]({data['url']})
 """.strip()
 
-# ——— Основной пайплайн публикации вакансий ———
-async def main():
-    df = load_today_rows()
-    if df.empty:
-        print("ℹ️ Сегодня нет новых вакансий.")
-        return
 
-    sent_links = load_sent_links()
-    sent_ids = load_sent_ids()
+async def main(db):
+    conn = db.get_connection()
+    cursor = conn.cursor()
 
-    # Фильтруем по ссылкам
-    df = df[~df["link"].isin(sent_links)]
-
-    # Фильтруем дополнительно по vacancy_id
-    df["vacancy_id"] = df["link"].apply(lambda x: extract_vacancy_id(x))
-    df = df[~df["vacancy_id"].isin(sent_ids)]
-
-    if df.empty:
-        print("ℹ️ Все вакансии уже были отправлены ранее.")
-        return
-
-    # Фильтрация через Gemini LLM
-    filtered = []
-    for i, (_, row) in enumerate(df.iterrows(), 1):
-        is_relevant = filter_vacancy_llm(row["title"], row["description"])
-        print(f"[Gemini Filter] {row['title']} → {'✅' if is_relevant else '❌'}")
+    # Шаг 1: Проверка релевантности
+    cursor.execute(
+        """
+        SELECT id, title, description
+        FROM vacancies
+        WHERE is_relevant IS NULL AND processed_at >= CURRENT_DATE
+    """
+    )
+    rows = cursor.fetchall()
+    for row in rows:
+        vacancy_id, title, description = row
+        is_relevant = filter_vacancy_llm(title, description)
+        logging.info(f"[Gemini Filter] {title} → {'✅' if is_relevant else '❌'}")
         if is_relevant:
-            filtered.append(row)
-        await asyncio.sleep(4.5)  # лимит 15 rpm
+            cursor.execute(
+                "UPDATE vacancies SET is_relevant = TRUE WHERE id = %s", (vacancy_id,)
+            )
+        else:
+            cursor.execute("DELETE FROM vacancies WHERE id = %s", (vacancy_id,))
+        await asyncio.sleep(4.5)  # Лимит 15 rpm
+    conn.commit()
 
-    if not filtered:
-        print("❌ Нет релевантных вакансий после фильтрации.")
+    # Шаг 2: Генерация суммари
+    cursor.execute(
+        """
+        SELECT id, description
+        FROM vacancies
+        WHERE is_relevant = TRUE AND (summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL)
+    """
+    )
+    rows = cursor.fetchall()
+    for row in rows:
+        vacancy_id, description = row
+        summary = summarize_description_llm(description)
+        cursor.execute(
+            """
+            UPDATE vacancies
+            SET summary_duties = %s, summary_requirements = %s, summary_company = %s
+            WHERE id = %s
+        """,
+            (
+                summary["responsibilities"],
+                summary["requirements"],
+                summary["about_company"],
+                vacancy_id,
+            ),
+        )
+    conn.commit()
+
+    # Шаг 3: Публикация
+    cursor.execute(
+        """
+        SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule, 
+               working_hours, work_format, published_date_dt, summary_duties, summary_requirements, 
+               summary_company, url
+        FROM vacancies
+        WHERE is_relevant = TRUE AND processed_at >= CURRENT_DATE AND NOT sent_to_telegram
+    """
+    )
+    rows = cursor.fetchall()
+    if not rows:
+        logging.info("ℹ️ Сегодня нет новых вакансий для публикации.")
+        db.return_connection(conn)
         return
 
-    df_filtered = pd.DataFrame(filtered)
     bot = Bot(token=TELEGRAM_BOT_TOKEN)
-
-    for i, (_, row) in enumerate(df_filtered.iterrows(), 1):
-        vacancy_id = row["vacancy_id"]
-
-        if vacancy_id in sent_ids:
-            print(f"⏭️ Вакансия {vacancy_id} уже отправлена. Пропускаем.")
+    for idx, row in enumerate(rows, 1):
+        data = {
+            "id": row[0],
+            "title": row[1],
+            "company": row[2],
+            "location": row[3],
+            "salary": row[4],
+            "salary_range": row[5],
+            "experience": row[6],
+            "employment_type": row[7],
+            "schedule": row[8],
+            "working_hours": row[9],
+            "work_format": row[10],
+            "published_date_dt": row[11],
+            "summary_duties": row[12],
+            "summary_requirements": row[13],
+            "summary_company": row[14],
+            "url": row[15],
+        }
+        summary = {
+            "responsibilities": data["summary_duties"],
+            "requirements": data["summary_requirements"],
+            "about_company": data["summary_company"],
+        }
+        text = format_message(data, summary)
+        try:
+            await bot.send_message(
+                chat_id=CHANNEL_USERNAME, text=text, parse_mode="Markdown"
+            )
+            logging.info(f"✅ [{idx}/{len(rows)}] Вакансия отправлена.")
+            cursor.execute(
+                "UPDATE vacancies SET sent_to_telegram = TRUE WHERE id = %s",
+                (data["id"],),
+            )
+            conn.commit()
+        except Exception as e:
+            logging.error(f"Ошибка отправки в Telegram: {e}")
             continue
 
-        summary = summarize_description_llm(row["description"])
-        text = format_message(row, summary)
-        await bot.send_message(chat_id=CHANNEL_USERNAME, text=text, parse_mode="Markdown")
-        print(f"✅ [{i}/{len(df_filtered)}] Вакансия отправлена.")
-
-        sent_ids.add(vacancy_id)  # Добавляем ID в множество сразу после отправки
-
-        if i < len(df_filtered):
-            delay = random.uniform(3, 10)
-            print(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
+        if idx < len(rows):
+            delay = max(4.0, random.uniform(4, 10))
+            logging.info(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
             await asyncio.sleep(delay)
 
-            print(f"✅ [{i}/{len(df_filtered)}] Вакансия отправлена.")
-            if i < len(df_filtered):
-                delay = random.uniform(3, 10)
-                print(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
-                await asyncio.sleep(delay)
+    # Удаление нерелевантных записей старше 7 дней
+    cursor.execute(
+        "DELETE FROM vacancies WHERE sent_to_telegram = FALSE AND processed_at < CURRENT_DATE - INTERVAL '7 days'"
+    )
+    deleted_count = cursor.rowcount
+    conn.commit()
+    if deleted_count > 0:
+        logging.info(f"🗑️ Удалено {deleted_count} нерелевантных вакансий")
 
-    append_sent_links(df_filtered["link"].tolist())
-    append_sent_ids(df_filtered["vacancy_id"].tolist())
+    db.return_connection(conn)
+    logging.info(f"📬 Всего отправлено: {len(rows)} вакансий.")
 
-    print(f"\n📬 Всего отправлено: {len(df_filtered)} вакансий.")
 
-def run_publisher():
-    return main()
+def run_publisher(db):
+    return asyncio.run(main(db))
+
+
+if __name__ == "__main__":
+    db = Database(os.getenv("DATABASE_URL"))
+    run_publisher(db)

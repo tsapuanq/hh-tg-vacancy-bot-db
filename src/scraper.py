@@ -1,5 +1,7 @@
 import logging
 from src.utils import clean_text_safe
+from src.cleaning import parse_russian_date  
+from datetime import datetime
 
 async def get_vacancy_details(link: str, page) -> dict | None:
     try:
@@ -17,10 +19,21 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             return default
 
     try:
+        # Извлекаем дату публикации и преобразуем в datetime
+        published_date_raw = await clean("p.vacancy-creation-time-redesigned span")
+        published_at = (
+            datetime.strptime(parse_russian_date(published_date_raw), "%Y-%m-%d")
+            if published_date_raw != "Не указано" and parse_russian_date(published_date_raw) != "Не указано"
+            else None
+        )
+
+        # Нормализация URL: оставляем только базовый путь
+        normalized_url = link.split("?")[0]  # Убираем параметры
+
         data = {
             "title": await clean('h1[data-qa="vacancy-title"]'),
             "company": await clean('a[data-qa="vacancy-company-name"]'),
-            "location": await clean('p.vacancy-creation-time-redesigned'), #"location": await clean('span[data-qa="vacancy-view-raw-address"]'),
+            "location": await clean('p.vacancy-creation-time-redesigned'),  # Содержит дату и город
             "salary": await clean('span[data-qa="vacancy-salary-compensation-type-net"]'),
             "description": await clean('div[data-qa="vacancy-description"]'),
             "experience": await clean('span[data-qa="vacancy-experience"]'),
@@ -28,11 +41,10 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             "schedule": await clean('p[data-qa="work-schedule-by-days-text"]'),
             "working_hours": await clean('div[data-qa="working-hours-text"]'),
             "work_format": await clean('p[data-qa="work-formats-text"]'),
-            "published_date": await clean("p.vacancy-creation-time-redesigned span"),
-            "link": clean_text_safe(link),
+            "published_at": published_at,  # Теперь это datetime объект
+            "link": normalized_url,  # Нормализованный URL
         }
 
-        # Чтение скиллов
         skills_selector = '[data-qa="skills-element"]'
         skills_elements = page.locator(skills_selector)
         raw_skills = (

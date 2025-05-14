@@ -1,5 +1,3 @@
-# src/parser.py
-
 from playwright.async_api import async_playwright
 from src.config import BASE_URL, REGION_ID
 import logging
