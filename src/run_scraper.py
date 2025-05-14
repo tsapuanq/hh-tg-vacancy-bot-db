@@ -81,13 +81,13 @@ async def run_scraper(db, mode: str = "daily"):
         for data in results:
             cursor.execute("""
                 INSERT INTO vacancies (
-                    title, description, url, published_at, company, location, salary, experience,
+                    title, description, url, published_date, company, location, salary, experience,
                     employment_type, schedule, working_hours, work_format, skills
                 ) VALUES (
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
                 ) ON CONFLICT (url) DO NOTHING
             """, (
-                data['title'], data['description'], data['link'], data['published_at'],
+                data['title'], data['description'], data['link'], data['published_date'],
                 data['company'], data['location'], data['salary'], data['experience'],
                 data['employment_type'], data['schedule'], data['working_hours'],
                 data['work_format'], data['skills']

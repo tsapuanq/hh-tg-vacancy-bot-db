@@ -20,12 +20,12 @@ async def get_vacancy_details(link: str, page) -> dict | None:
 
     try:
         # Извлекаем дату публикации и преобразуем в datetime
-        published_date_raw = await clean("p.vacancy-creation-time-redesigned span")
-        published_at = (
-            datetime.strptime(parse_russian_date(published_date_raw), "%Y-%m-%d")
-            if published_date_raw != "Не указано" and parse_russian_date(published_date_raw) != "Не указано"
-            else None
-        )
+        # published_date_raw = await clean("p.vacancy-creation-time-redesigned span")
+        # published_at = (
+        #     datetime.strptime(parse_russian_date(published_date_raw), "%Y-%m-%d")
+        #     if published_date_raw != "Не указано" and parse_russian_date(published_date_raw) != "Не указано"
+        #     else None
+        # )
 
         # Нормализация URL: оставляем только базовый путь
         normalized_url = link.split("?")[0]  # Убираем параметры
@@ -41,7 +41,7 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             "schedule": await clean('p[data-qa="work-schedule-by-days-text"]'),
             "working_hours": await clean('div[data-qa="working-hours-text"]'),
             "work_format": await clean('p[data-qa="work-formats-text"]'),
-            "published_at": published_at,  # Теперь это datetime объект
+            "published_date": await clean("p.vacancy-creation-time-redesigned span"),
             "link": normalized_url,  # Нормализованный URL
         }
 
