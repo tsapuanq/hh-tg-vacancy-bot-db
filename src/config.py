@@ -53,10 +53,6 @@ SEARCH_KEYWORDS = [
     # Big Data Engineer
     "Big Data",
     "Big Data Engineer",
-    "Intern Big Data Engineer",
-    "Junior Big Data Engineer",
-    "Middle Big Data Engineer",
-    "Senior Big Data Engineer",
 
     # Data Architect
     "Data Architect",
@@ -68,16 +64,6 @@ SEARCH_KEYWORDS = [
     "Junior Business Intelligence Analyst",
     "Middle Business Intelligence Analyst",
     "Senior Business Intelligence Analyst",
-
-    # Statistician
-    "Statistician",
-    "Intern Statistician",
-    "Junior Statistician",
-    "Middle Statistician",
-    "Senior Statistician",
-
-    # Quantitative Analyst
-    "Quantitative Analyst"
 
     # Computer Vision Engineer
     "Computer Vision Engineer",
@@ -102,20 +88,6 @@ SEARCH_KEYWORDS = [
 
     # AI Researcher
     "AI Researcher",
-    "Intern AI Researcher",
-    "Junior AI Researcher",
-    "Middle AI Researcher",
-    "Senior AI Researcher",
-
-    # Data Researcher
-    "Data Researcher",
-    "Intern Data Researcher",
-    "Junior Data Researcher",
-    "Middle Data Researcher",
-    "Senior Data Researcher",
-
-    # Predictive Analytics Specialist
-    "Predictive Analytics Specialist"
 
     # Data Science Manager
     "Data Science Manager"
@@ -147,13 +119,6 @@ SEARCH_KEYWORDS = [
 
     # System Analyst
     "System Analyst",
-    "Intern System Analyst",
-    "Junior System Analyst",
-    "Middle System Analyst",
-    "Senior System Analyst",
-
-    # Data Platform Engineer
-    "Data Platform Engineer",
 
     # Analytics Engineer
     "Analytics Engineer",
