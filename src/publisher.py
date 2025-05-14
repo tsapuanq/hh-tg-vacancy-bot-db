@@ -175,7 +175,7 @@ async def main(db):
 
     # Удаление нерелевантных записей старше 7 дней
     cursor.execute(
-        "DELETE FROM vacancies WHERE sent_to_telegram = FALSE AND processed_at < CURRENT_DATE - INTERVAL '7 days'"
+        "DELETE FROM vacancies WHERE sent_to_telegram = FALSE"
     )
     deleted_count = cursor.rowcount
     conn.commit()
