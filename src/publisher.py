@@ -28,7 +28,7 @@ def _to_bullets(x) -> str:
 # ——— Форматирование вакансии для Telegram ———
 def format_message(data: dict, summary: dict) -> str:
     title = f"**{data.get('title','---')}**"
-    pub_date = f"**{data.get('published_date_at','---')}**"
+    pub_date = f"**{data.get('published_at','---')}**"
     resp = _to_bullets(summary.get("responsibilities", "Не указано"))
     reqs = _to_bullets(summary.get("requirements", "Не указано"))
     about = str(summary.get("about_company", "Не указано")).strip().strip("'\"")
@@ -116,7 +116,7 @@ async def main(db):
     cursor.execute(
         """
         SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule, 
-               working_hours, work_format, published_date_at, summary_duties, summary_requirements, 
+               working_hours, work_format, published_at, summary_duties, summary_requirements, 
                summary_company, url
         FROM vacancies
         WHERE is_relevant = TRUE AND processed_at >= CURRENT_DATE AND NOT sent_to_telegram
@@ -142,7 +142,7 @@ async def main(db):
             "schedule": row[8],
             "working_hours": row[9],
             "work_format": row[10],
-            "published_date_at": row[11],
+            "published_at": row[11],
             "summary_duties": row[12],
             "summary_requirements": row[13],
             "summary_company": row[14],
