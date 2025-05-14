@@ -173,16 +173,24 @@ async def main(db):
             logging.info(f"⏱️ Задержка перед следующей: {delay:.2f} сек.")
             await asyncio.sleep(delay)
 
-    # Удаление нерелевантных записей старше 7 дней
-    cursor.execute(
-        "DELETE FROM vacancies WHERE sent_to_telegram = FALSE"
-    )
-    deleted_count = cursor.rowcount
-    conn.commit()
-    if deleted_count > 0:
-        logging.info(f"🗑️ Удалено {deleted_count} нерелевантных вакансий")
+    try:
+        logging.info("⏳ Удаление всех вакансий, не отправленных в Telegram...")
+        
+        cursor.execute("DELETE FROM vacancies WHERE sent_to_telegram = FALSE")
+        deleted_count = cursor.rowcount
+        conn.commit()
 
-    db.return_connection(conn)
+        if deleted_count > 0:
+            logging.info(f"🗑️ Удалено {deleted_count} неотправленных вакансий")
+
+    except Exception as e:
+        logging.error(f"❌ Ошибка при удалении вакансий: {e}")
+        conn.rollback()
+
+    finally:
+        db.return_connection(conn)
+
+    # Пример логирования отправленных (если переменная rows существует выше)
     logging.info(f"📬 Всего отправлено: {len(rows)} вакансий.")
 
 
