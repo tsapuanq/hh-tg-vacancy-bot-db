@@ -2,6 +2,7 @@ import logging
 import re
 from database import Database
 import os
+from datetime import datetime
 
 def normalize_city_name(city: str) -> str:
     corrections = {
@@ -108,7 +109,7 @@ def run_cleaning_pipeline(db):
     conn = db.get_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT id, location, salary, skills, work_format, working_hours
+        SELECT id, location, salary, skills, work_format, working_hours, published_date
         FROM vacancies
         WHERE summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL
     """)
