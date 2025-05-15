@@ -175,7 +175,7 @@ async def main(db):
 
     try:
         logging.info("⏳ Удаление всех вакансий, не отправленных в Telegram...")
-        
+
         cursor.execute("DELETE FROM vacancies WHERE sent_to_telegram = FALSE")
         deleted_count = cursor.rowcount
         conn.commit()
@@ -190,7 +190,6 @@ async def main(db):
     finally:
         db.return_connection(conn)
 
-    # Пример логирования отправленных (если переменная rows существует выше)
     logging.info(f"📬 Всего отправлено: {len(rows)} вакансий.")
 
 
