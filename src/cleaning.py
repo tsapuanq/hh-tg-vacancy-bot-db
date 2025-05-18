@@ -5,6 +5,11 @@ from database import Database
 import os
 from datetime import datetime
 
+def clean_text_safe(text):
+    if not isinstance(text, str):
+        return ""
+    return text.replace("\xa0", " ").strip()
+
 def normalize_city_name(city: str) -> str:
     corrections = {
         'Алматы': 'Алматы', "Астане": "Астана", "Атырау": "Атырау", "Шымкенте": "Шымкент",
