@@ -1,47 +1,57 @@
-#llm_summary.py
+# llm_summary.py
 import os
 import time
 import json
 import re
 import requests
 import logging
+from src.config import GEMINI_API_KEY, GEMINI_API_URL, HEADERS, LLM_API_RETRIES, LLM_API_DELAY, LLM_API_TIMEOUT
 
-# === Конфигурация ===
-GEMINI_API_KEY = os.getenv("GEM_API_TOKEN")
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
-HEADERS = {"Content-Type": "application/json"}
-
-# === Вызов Gemini API с повторными попытками ===
-def gemini_api_call(prompt: str, timeout: int = 30, retries: int = 3, delay: float = 2.0) -> str:
+def gemini_api_call(prompt: str) -> str:
+    """
+    Выполняет запрос к Gemini API с повторными попытками.
+    """
     if not GEMINI_API_KEY:
         logging.warning("[Gemini] ❌ Токен не найден в переменной окружения GEM_API_TOKEN")
         return ""
 
-    for attempt in range(1, retries + 1):
+    for attempt in range(1, LLM_API_RETRIES + 1):
         try:
             response = requests.post(
                 f"{GEMINI_API_URL}?key={GEMINI_API_KEY}",
                 headers=HEADERS,
                 json={"contents": [{"parts": [{"text": prompt}]}]},
-                timeout=timeout,
+                timeout=LLM_API_TIMEOUT,
             )
-            response.raise_for_status()
-            return response.json()["candidates"][0]["content"]["parts"][0]["text"]
+            response.raise_for_status() # Проверяем HTTP ошибки (4xx, 5xx)
+            response_json = response.json()
+            if response_json and response_json.get("candidates") and response_json["candidates"][0].get("content") and response_json["candidates"][0]["content"].get("parts"):
+                 return response_json["candidates"][0]["content"]["parts"][0]["text"]
+            else:
+                 logging.warning(f"[Gemini] Ответ API не содержит ожидаемой структуры: {response.text}")
+                 return "" # Возвращаем пустую строку, если структура неверна
+
         except requests.exceptions.HTTPError as e:
             if response.status_code == 429:
-                logging.warning(f"[Gemini] 429 Too Many Requests — попытка {attempt}/{retries}")
-                time.sleep(delay * attempt)
-                continue
+                logging.warning(f"[Gemini] 429 Too Many Requests — попытка {attempt}/{LLM_API_RETRIES}")
+                time.sleep(LLM_API_DELAY * attempt) # Увеличиваем задержку при 429
+                continue 
             else:
-                logging.warning(f"[Gemini] HTTP ошибка: {e}")
-                break
+                logging.warning(f"[Gemini] HTTP ошибка: {e.response.status_code} - {e.response.text}")
+                break 
+        except requests.exceptions.RequestException as e:
+             logging.warning(f"[Gemini] Сетевая ошибка: {e} — попытка {attempt}/{LLM_API_RETRIES}")
+             if attempt < LLM_API_RETRIES:
+                 time.sleep(LLM_API_DELAY * attempt)
+                 continue 
+             else:
+                 break 
         except Exception as e:
-            logging.warning(f"[Gemini] Общая ошибка: {e}")
-            break
+            logging.warning(f"[Gemini] Общая ошибка при запросе: {e}")
+            break # Не повторять при неожиданной ошибке
 
-    return ""
+    return "" # Возвращаем пустую строку после всех неудачных попыток
 
-# === Промпт для генерации краткого summary ===
 SUMMARY_PROMPT_TEMPLATE = """
 Разбей текст описания вакансии на три кратких блока:
 
@@ -59,28 +69,49 @@ SUMMARY_PROMPT_TEMPLATE = """
 {description}
 """
 
-# === Чистка и парсинг JSON Gemini ответа ===
 def clean_gemini_response(raw: str) -> dict:
+    """
+    Чистит сырой ответ LLM (удаляет ```json) и парсит JSON.
+    """
     try:
-        cleaned = re.sub(r"^```json\n?|```$", "", raw.strip(), flags=re.IGNORECASE).strip()
+        # Более надежное удаление маркеров JSON
+        cleaned = re.sub(r"^\s*```json\s*\n|\n\s*```\s*$", "", raw, flags=re.IGNORECASE|re.DOTALL).strip()
         parsed = json.loads(cleaned)
         return {
-            "about_company": parsed.get("about_company", "Не указано"),
-            "responsibilities": parsed.get("responsibilities", "Не указано"),
-            "requirements": parsed.get("requirements", "Не указано"),
+            "about_company": str(parsed.get("about_company", "Не указано")).strip(),
+            "responsibilities": parsed.get("responsibilities", "Не указано"), # Может быть списком или строкой
+            "requirements": parsed.get("requirements", "Не указано"), # Может быть списком или строкой
+        }
+    except json.JSONDecodeError as e:
+        logging.warning(f"[Gemini‑summary] ❌ Ошибка парсинга JSON ответа LLM: {e}")
+        logging.warning("[Gemini‑summary] Сырой ответ, вызвавший ошибку:\n" + raw)
+        return {
+            "about_company": "Не указано",
+            "responsibilities": "Не указано",
+            "requirements": "Не указано",
         }
     except Exception as e:
-        logging.warning(f"[Gemini‑summary] ❌ Ошибка парсинга JSON: {e}")
+        logging.warning(f"[Gemini‑summary] ❌ Неожиданная ошибка при чистке/парсинге LLM ответа: {e}")
+        logging.warning("[Gemini‑summary] Сырой ответ, вызвавший ошибку:\n" + raw)
         return {
             "about_company": "Не указано",
             "responsibilities": "Не указано",
             "requirements": "Не указано",
         }
 
-# === Финальный summary вызов ===
 def summarize_description_llm(description: str) -> dict:
+    """
+    Получает summary описания вакансии с помощью LLM.
+    """
+    if not description or description.strip() == "Не указано":
+        return {
+            "about_company": "Не указано",
+            "responsibilities": "Не указано",
+            "requirements": "Не указано",
+        }
+
     prompt = SUMMARY_PROMPT_TEMPLATE.format(description=description)
-    raw = gemini_api_call(prompt).strip()
+    raw = gemini_api_call(prompt) # Убрал .strip(), т.к. clean_gemini_response делает strip
     logging.info("[Gemini‑summary] Сырый ответ:\n" + raw)
     return clean_gemini_response(raw)
 
@@ -132,7 +163,15 @@ FILTER_PROMPT = """
 """
 
 def filter_vacancy_llm(title: str, description: str) -> bool:
+    """
+    Определяет релевантность вакансии с помощью LLM.
+    """
+    if not title or not description:
+         return False # Не можем определить релевантность без названия или описания
+
     prompt = FILTER_PROMPT.format(title=title, description=description)
     raw = gemini_api_call(prompt).strip()
     logging.info("[Gemini‑filter] Сырый ответ:\n" + raw)
+    # Более строгая проверка ответа
     return raw.lower() == "yes"
+
