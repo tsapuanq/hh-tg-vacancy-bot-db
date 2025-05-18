@@ -4,6 +4,15 @@ import re
 from database import Database
 import os
 from datetime import datetime
+import numpy as np
+
+def clean_schedule(text):
+    if isinstance(text, str):
+        if 'График:' in text:
+            return text.split('График:')[1].strip()
+        elif 'Не указано' in text:
+            return 'Не указано'
+    return np.nan
 
 def clean_text_safe(text):
     if not isinstance(text, str):
