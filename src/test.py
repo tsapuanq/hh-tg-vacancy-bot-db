@@ -1,6 +1,4 @@
-#!/usr/bin/env python3
-# File: scrape_and_clean.py
-
+#test.py
 import asyncio
 import logging
 from playwright.async_api import async_playwright

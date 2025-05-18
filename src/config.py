@@ -1,14 +1,14 @@
+#config.py
 from dotenv import load_dotenv
 import os
+
 load_dotenv()
 
 # === Поисковые ключи ===
-SEARCH_KEYWORDS = [
-    "Data Science"
-]
+SEARCH_KEYWORDS = ["Data Science", "Data Analyst", "ML Engineer"]
 # , "Data Scientist", "Intern Data Scientist", "Junior Data Scientist",
 #     "Middle Data Scientist", "Senior Data Scientist", "Аналитик данных", "Системный аналитик",
-#     "Data Analyst", "Intern Data Analyst", "Junior Data Analyst", "Middle Data Analyst",
+#     , "Intern Data Analyst", "Junior Data Analyst", "Middle Data Analyst",
 #     "Senior Data Analyst", "NLP", "NLP Engineer", "Intern NLP Engineer", "Junior NLP Engineer",
 #     "Middle NLP Engineer", "Senior NLP Engineer", "Machine Learning Engineer",
 #     "Intern Machine Learning Engineer", "Junior Machine Learning Engineer",

@@ -1,3 +1,4 @@
+#cleaning.py
 import logging
 import re
 from database import Database
@@ -109,23 +110,23 @@ def run_cleaning_pipeline(db):
     
     conn = db.get_connection()
     cursor = conn.cursor()
-    try:
-        cursor.execute("SELECT COUNT(*) FROM vacancies WHERE COALESCE(sent_to_telegram, FALSE) = FALSE")
-        count = cursor.fetchone()[0]
-        logging.info(f"🕵️‍♂️ Найдено {count} неотправленных вакансий для удаления")
+    # try:
+    #     cursor.execute("SELECT COUNT(*) FROM vacancies WHERE COALESCE(sent_to_telegram, FALSE) = FALSE")
+    #     count = cursor.fetchone()[0]
+    #     logging.info(f"🕵️‍♂️ Найдено {count} неотправленных вакансий для удаления")
 
-        if count > 0:
-            logging.info("⏳ Удаление всех вакансий, не отправленных в Telegram...")
-            cursor.execute("DELETE FROM vacancies WHERE COALESCE(sent_to_telegram, FALSE) = FALSE")
-            deleted_count = cursor.rowcount
-            conn.commit()
-            logging.info(f"🗑️ Удалено {deleted_count} неотправленных вакансий")
-        else:
-            logging.info("✅ Нет вакансий для удаления")
+    #     if count > 0:
+    #         logging.info("⏳ Удаление всех вакансий, не отправленных в Telegram...")
+    #         cursor.execute("DELETE FROM vacancies WHERE COALESCE(sent_to_telegram, FALSE) = FALSE")
+    #         deleted_count = cursor.rowcount
+    #         conn.commit()
+    #         logging.info(f"🗑️ Удалено {deleted_count} неотправленных вакансий")
+    #     else:
+    #         logging.info("✅ Нет вакансий для удаления")
 
-    except Exception as e:
-        logging.error(f"❌ Ошибка при удалении неотправленных вакансий: {e}")
-        conn.rollback()
+    # except Exception as e:
+    #     logging.error(f"❌ Ошибка при удалении неотправленных вакансий: {e}")
+    #     conn.rollback()
 
     cursor.execute("""
         SELECT id, location, salary, skills, work_format, working_hours, published_date

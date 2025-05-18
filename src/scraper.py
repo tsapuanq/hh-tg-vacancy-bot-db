@@ -1,3 +1,4 @@
+#scraper.py
 import logging
 from src.utils import clean_text_safe
 from src.cleaning import parse_russian_date  
