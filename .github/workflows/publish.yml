@@ -1,7 +1,5 @@
-# Название вашего workflow. Будет отображаться на вкладке Actions.
 name: Vacancy Scraping and Publishing Pipeline
 
-# События, которые запускают workflow
 on:
   schedule:
     - cron: '0 6 * * *'   
@@ -9,94 +7,57 @@ on:
     - cron: '0 16 * * *'  
 
 
-  # Возможность запустить workflow вручную с вкладки Actions
   workflow_dispatch:
-    # Вы можете добавить сюда параметры, если ваш run_all.py принимает аргументы
-    # inputs:
-    #   mode:
-    #     description: 'Режим запуска (daily или full)'
-    #     required: false
-    #     default: 'daily' # Если не указано, по умолчанию daily
 
-# Определение задач (jobs)
 jobs:
-  # Уникальный идентификатор задачи
   run_full_pipeline:
-    # Читаемое имя задачи (отображается внутри запуска workflow)
     name: Run Main Pipeline
 
-    # Операционная система, на которой будет выполняться задача
-    runs-on: ubuntu-latest # Рекомендуется для большинства Python проектов
+    runs-on: ubuntu-latest 
 
-    # Переменные окружения, которые будут доступны для всех шагов в этой задаче.
-    # Здесь мы передаем наши секреты и другие необходимые переменные.
+
     env:
-      # Секреты GitHub
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       CHANNEL_USERNAME: ${{ secrets.CHANNEL_USERNAME }}
-      GEM_API_TOKEN: ${{ secrets.GEM_API_TOKEN }} # Секрет для LLM API
+      GEM_API_TOKEN: ${{ secrets.GEM_API_TOKEN }} 
 
-      # Дополнительные переменные окружения из config.py, если они не читаются через .env
-      # Например, если у вас были переменные прямо в файле config.py, не читаемые из ENV
-      # SCRAPER_MODE: 'daily' # Пример, если режим не определяется по другому
-
-    # Последовательность шагов внутри задачи
     steps:
-      # Шаг 1: Извлечь код вашего репозитория на runner
       - name: Checkout code
-        uses: actions/checkout@v4 # Используем готовое действие GitHub Actions для получения кода
+        uses: actions/checkout@v4 
 
-      # Шаг 2: Настроить среду Python
       - name: Set up Python
-        id: setup-python # Добавляем id, чтобы использовать версию Python в ключе кэша
-        uses: actions/setup-python@v5 # Используем готовое действие для настройки Python
+        id: setup-python 
+        uses: actions/setup-python@v5 
         with:
-          python-version: '3.10' # Укажите здесь версию Python, которую вы используете (например, 3.8, 3.9, 3.10, 3.11)
+          python-version: '3.10' 
 
-      # Шаг 3: Кэширование зависимостей Python (pip cache)
-      # Пытаемся восстановить кэш pip. Ключ зависит от OS, версии Python и хэша requirements.txt.
-      # Если requirements.txt изменился, хэш изменится, и будет создан новый кэш.
       - name: Cache Python dependencies
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip # Стандартный путь к кэшу pip на Ubuntu
-          # Ключ: OS - python - версия_python - хэш_requirements.txt
+          path: ~/.cache/pip 
           key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
-          # Альтернативные ключи для восстановления (если точный ключ не найден, но префикс совпадает)
           restore-keys: |
             ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-
             ${{ runner.os }}-python-
 
-      # Шаг 4: Установить зависимости из requirements.txt (будет быстрее, если кэш pip сработал)
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Шаг 5: Кэширование браузеров Playwright
-      # Пытаемся восстановить кэш браузеров Playwright.
-      # Ключ зависит от OS и хэша requirements.txt (т.к. версия Playwright в нем определяет версию браузеров).
       - name: Cache Playwright browsers
         uses: actions/cache@v4
         with:
-          path: ~/.cache/ms-playwright # Стандартный путь к кэшу браузеров Playwright на Ubuntu
-          # Ключ: OS - playwright - хэш_requirements.txt
+          path: ~/.cache/ms-playwright 
           key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
-          # Альтернативные ключи для восстановления
           restore-keys: |
             ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
             ${{ runner.os }}-playwright-
 
-      # Шаг 6: Устанавливаем браузеры Playwright (будет быстрее, если кэш браузеров сработал)
       - name: Install Playwright browsers
         run: playwright install --with-deps
-        # env: # Можно передать PLAYWRIGHT_BROWSERS_PATH если вы храните их в другом месте
-        #   PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/playwright-browsers
 
-
-      # Шаг 7: Запустить основной скрипт пайплайна
-      # Вашему скрипту run_all.py будут доступны переменные окружения, определенные в секции 'env' выше.
       - name: Run the main pipeline script
         run: |
           # Ваш скрипт run_all.py должен сам читать переменные окружения
