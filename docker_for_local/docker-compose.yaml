@@ -1,8 +1,0 @@
-services:
-  app:
-    image: hh-scraper:latest
-    env_file:
-      - .env
-    command: ["python", "run_all.py"]
-    volumes:
-      - ./data:/app/data
