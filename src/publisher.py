@@ -140,7 +140,7 @@ async def main(db: Database):
             """
             SELECT id, title, description
             FROM vacancies
-            WHERE is_relevant IS NULL AND processed_at >= CURRENT_DATE
+            WHERE is_relevant IS NULL AND published_at = CURRENT_DATE
             """
         )
         rows_to_filter = cursor.fetchall()
@@ -188,6 +188,7 @@ async def main(db: Database):
             -- Выбираем только релевантные вакансии, у которых еще нет полного суммари
             WHERE is_relevant = TRUE
               AND (summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL)
+              AND published_at = CURRENT_DATE
             """
         )
         rows_to_summarize = cursor.fetchall()
@@ -247,7 +248,7 @@ async def main(db: Database):
                    summary_company, url
             FROM vacancies
             WHERE is_relevant = TRUE
-              AND processed_at >= CURRENT_DATE -- Обработано сегодня или позже
+              AND published_at = CURRENT_DATE -- Обработано сегодня или позже
               AND sent_to_telegram = FALSE -- Еще не отправлено
               AND summary_duties IS NOT NULL -- Убедимся, что суммаризация прошла успешно
               AND summary_requirements IS NOT NULL
