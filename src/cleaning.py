@@ -146,10 +146,10 @@ def parse_russian_date(date_str: str) -> str:
         return "Не указано"
 
 
-# def clean_work_format(text: str) -> str:
-#     if not isinstance(text, str):
-#         return "Не указано"
-#     return text.replace("Формат работы:", "").strip().capitalize() or "Не указано"
+def clean_work_format(text: str) -> str:
+    if not isinstance(text, str):
+        return "Не указано"
+    return text.replace("Формат работы:", "").strip().capitalize() or "Не указано"
 
 
 # def run_cleaning_pipeline(db):
