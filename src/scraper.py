@@ -1,6 +1,6 @@
 # scraper.py
 import logging
-from datetime import datetime, date
+from datetime import  date
 
 from src.cleaning import (
     clean_text_safe,
