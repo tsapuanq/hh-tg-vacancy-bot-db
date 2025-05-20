@@ -14,7 +14,7 @@ from src.config import (
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 from src.cleaning import clean_text_safe
 from database import Database
-from datetime import date, datetime 
+from datetime import date
 import psycopg2.extras
 
 def escape_markdown_v2(text: str) -> str:
@@ -364,6 +364,4 @@ async def main(db: Database):
             db.return_connection(conn)
 
 def run_publisher(db):
-    import psycopg2.extras
-
     return asyncio.run(main(db))
