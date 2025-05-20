@@ -60,10 +60,4 @@ jobs:
 
       - name: Run the main pipeline script
         run: |
-          # Ваш скрипт run_all.py должен сам читать переменные окружения
-          # (например, через python-dotenv и os.getenv) для подключения к БД, Telegram и LLM.
           python run_all.py
-
-          # Если ваш скрипт run_all.py принимает аргументы (например, для режима daily/full),
-          # и вы настроили workflow_dispatch inputs, команда может выглядеть так:
-          # python run_all.py ${{ github.event.inputs.mode }}
