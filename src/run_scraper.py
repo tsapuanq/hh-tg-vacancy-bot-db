@@ -11,17 +11,14 @@ from src.scraper import get_vacancy_details
 from src.parser import get_vacancy_links
 from src.utils import setup_logger, canonical_link
 from database import Database
-import os
-from datetime import (
-    datetime,
-)  
+
 
 async def scrape_single(link, semaphore, context, results, idx, total):
     """
     Обрабатывает одну ссылку на вакансию асинхронно.
     """
-    async with semaphore:  # Ограничивает количество одновременно выполняемых задач
-        page = None  # Инициализируем None на случай ошибки до page = await context.new_page()
+    async with semaphore:  
+        page = None  
         try:
             page = await context.new_page()
             logging.info(f"[{idx}/{total}] Обрабатываем: {link}")
