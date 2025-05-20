@@ -322,7 +322,7 @@ async def main(db: Database):
 
         logging.info("🧹 Запуск безопасной очистки старых и нерелевантных вакансий...")
         try:
-            cursor.execute("DELETE FROM vacancies WHERE is_relevant = FALSE;")
+            cursor.execute("DELETE FROM vacancies WHERE is_relevant = FALSE OR is_relevenat IS NULL;")
             deleted_irrelevant_count = cursor.rowcount
             if deleted_irrelevant_count > 0:
                 logging.info(
