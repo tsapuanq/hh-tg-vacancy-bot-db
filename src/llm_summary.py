@@ -206,7 +206,6 @@ FILTER_PROMPT = """
 - Business Intelligence Analyst
 - BI Analyst
 - Business Intelligence Developer
-- Statistician
 - Quantitative Analyst
 - NLP Engineer
 - Computer Vision Engineer
@@ -214,19 +213,11 @@ FILTER_PROMPT = """
 - Artificial Intelligence Engineer
 - AI Researcher
 - Data Researcher
-- Predictive Analytics Specialist
-- Data Science Manager
-- Analytics Consultant
 - Data Miner
 - Data Specialist
-- Data Modeler
 - DevOps Engineer
 - MLOps Engineer
 - System Analyst
-- Analytics Engineer
-- Data Platform Engineer
-- Data Visualization Engineer
-- Data Modeler
 ❗️Игнорируй вакансии из других сфер, даже если в тексте встречаются слова типа “data”, “AI”, “model” и т.п., но они не относятся к профессиям из списка.
 
 Профессия: "{title}"
