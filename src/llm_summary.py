@@ -194,12 +194,9 @@ FILTER_PROMPT = """
 Профессия считается релевантной, если она относится к одной из следующих:
 
 - Data Scientist
-- Senior Data Scientist
-- Junior Data Scientist
 - Machine Learning Engineer
 - ML Engineer
 - Data Analyst
-- Senior Data Analyst
 - Data Engineer
 - Big Data Engineer
 - Data Architect
