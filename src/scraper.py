@@ -19,7 +19,7 @@ from src.config import SCRAPER_TIMEOUT_GOTO, SCRAPER_TIMEOUT_SELECTOR
 
 async def get_vacancy_details(link: str, page) -> dict | None:
     """
-    Переходит по ссылке вакансии, извлекает и очищает детали.
+    Переходит по ссылке вакансии, извлекает и очищает детали
     """
     try:
         await page.goto(
