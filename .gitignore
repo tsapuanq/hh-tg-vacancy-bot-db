@@ -4,6 +4,6 @@ __pycache__/
 .env
 .vscode/
 
-
+*cache
 notebooks/
 .ipynb_checkpoints/
