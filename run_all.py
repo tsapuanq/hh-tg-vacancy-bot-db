@@ -33,4 +33,4 @@ if __name__ == "__main__":
     finally:
         if db:
             db.close_all()
-            logging.info("🔌 Соединения БД закрыты.")
+            logging.info("Соединения БД закрыты.")

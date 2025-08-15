@@ -2,10 +2,7 @@
 import logging
 import re  
 
-
-
 def setup_logger():
-    """Настраивает базовый логгер."""
     if not logging.getLogger().handlers:
         logging.basicConfig(
             format="%(asctime)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -28,6 +25,7 @@ def canonical_link(link: str) -> str | None:
         return (
             link.strip() if isinstance(link, str) else None
         )  
+
 
 def extract_vacancy_id(link: str) -> str | None:
     """Извлекает ID вакансии из URL."""
