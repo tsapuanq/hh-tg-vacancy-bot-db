@@ -193,10 +193,20 @@ def summarize_description_llm(description: str) -> dict:
     return clean_gemini_response(raw)
 
 FILTER_PROMPT = """
-Определи релевантность вакансии для направлений: Data/ML/BI/Analytics/DE/DS/DA/DevOps/Systems.
-Если не относится к этим профессиям — ответь no.
+Определи, относится ли вакансия К СТРОГО следующему списку профессий:
+Data Scientist, Machine Learning Engineer, Data Analyst, Data Engineer,
+Big Data Engineer, Data Architect, BI Analyst/Developer, DevOps Engineer,
+MLOps Engineer, System Analyst, AI/ML/NLP/CV Engineer, Researcher в области данных/ML.
+
+Если профессия НЕ относится — ответь "no".
+
+⚠️ Формат ответа:
+- Только одно слово, либо "yes", либо "no".
+- Без пояснений, без дополнительных слов.
+
 Профессия: "{title}"
 Описание: "{description}"
+
 Ответь строго: yes или no.
 """
 
