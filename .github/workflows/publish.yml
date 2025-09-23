@@ -17,10 +17,11 @@ jobs:
 
 
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      CHANNEL_USERNAME: ${{ secrets.CHANNEL_USERNAME }}
-      GEM_API_TOKEN: ${{ secrets.GEM_API_TOKEN }} 
+    DATABASE_URL: ${{ secrets.DATABASE_URL }}
+    TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    CHANNEL_USERNAME: ${{ secrets.CHANNEL_USERNAME }}
+    GEM_API_TOKEN: ${{ github.event.schedule == '0 8 * * 1-5' && secrets.GEM_API_TOKEN_AM || secrets.GEM_API_TOKEN_PM }}
+
 
     steps:
       - name: Checkout code
