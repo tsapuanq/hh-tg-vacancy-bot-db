@@ -130,16 +130,16 @@ month_map = {
 }
 
 
-def parse_russian_date(date_str: str) -> str:
+def parse_russian_date(date_str):
     try:
         parts = date_str.strip().split()
         if len(parts) != 3:
-            return "Не указано"
+            return None
         day, month_rus, year = parts
         month = month_map.get(month_rus.lower())
-        return f"{year}-{month}-{day.zfill(2)}" if month else "Не указано"
+        return f"{year}-{month}-{day.zfill(2)}" if month else None
     except:
-        return "Не указано"
+        return None
 
 
 def clean_work_format(text: str) -> str:
