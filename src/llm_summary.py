@@ -200,7 +200,7 @@ def clean_gemini_response(raw: str) -> dict:
 def summarize_description_llm(description: str) -> dict:
     if not description or description.strip() == "Не указано":
         return {"about_company": "Не указано", "responsibilities": ["Не указано"], "requirements": ["Не указано"]}
-    prompt = SUMMARY_PROMPT_TEMPLATE.format(description=description)
+    prompt = SUMMARY_PROMPT_TEMPLATE.replace("{description}", description)
     raw = gemini_api_call(prompt) or ""
     logging.info("[Gemini-summary] Сырый ответ:\n" + raw)
     return clean_gemini_response(raw)
