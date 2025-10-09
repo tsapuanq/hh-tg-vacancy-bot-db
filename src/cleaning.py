@@ -9,7 +9,7 @@ def clean_schedule(text):
             return text.split("График:")[1].strip()
         elif "Не указано" in text:
             return "Не указано"
-    return np.nan
+    return "Не указано"
 
 
 def clean_text_safe(text):
