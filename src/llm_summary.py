@@ -232,3 +232,4 @@ def filter_vacancy_llm(title: str, description: str) -> bool:
     raw = (gemini_api_call(prompt) or "").strip().lower()
     logging.info("[Gemini-filter] Сырый ответ:\n" + raw)
     return raw == "yes"
+
