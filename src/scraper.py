@@ -55,9 +55,7 @@ async def get_vacancy_details(link: str, page) -> dict | None:
         location_and_date_raw = await safe_inner_text(
             "p.vacancy-creation-time-redesigned"
         )
-        published_date_raw = await safe_inner_text(
-            "p.vacancy-creation-time-redesigned span"
-        )
+        published_date_raw = await safe_inner_text("div.magritte-text___pbpft_4-2-3 span")
 
         salary_raw = await safe_inner_text(
             'span[data-qa="vacancy-salary-compensation-type-net"]'
