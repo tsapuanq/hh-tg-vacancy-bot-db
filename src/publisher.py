@@ -138,6 +138,8 @@ async def main(db: Database):
         logging.info("🕵️‍♂️ Шаг 1: Проверка релевантности новых вакансий...")
         cursor.execute(
             """
+            SELECT id, title, description
+            FROM vacancies
             WHERE is_relevant IS NULL 
             AND published_at >= CURRENT_DATE - INTERVAL '1 day'
             """
