@@ -113,8 +113,7 @@ def clean_skills(skills_str):
     except:
         return "Не указано"
 
-
-month_map = {
+MONTH_MAP = {
     "января": "01",
     "февраля": "02",
     "марта": "03",
@@ -129,16 +128,24 @@ month_map = {
     "декабря": "12",
 }
 
-
-def parse_russian_date(date_str):
+def parse_russian_date(date_str: str | None) -> str | None:
+    """
+    Преобразует '6 октября 2025' → '2025-10-06'
+    Возвращает None, если не удалось распарсить.
+    """
+    if not date_str:
+        return None
     try:
-        parts = date_str.strip().split()
-        if len(parts) != 3:
+        date_str = date_str.strip().lower()
+        match = re.search(r"(\d{1,2})\s+([а-я]+)\s+(\d{4})", date_str)
+        if not match:
             return None
-        day, month_rus, year = parts
-        month = month_map.get(month_rus.lower())
-        return f"{year}-{month}-{day.zfill(2)}" if month else None
-    except:
+        day, month_rus, year = match.groups()
+        month = MONTH_MAP.get(month_rus)
+        if not month:
+            return None
+        return f"{year}-{month}-{day.zfill(2)}"
+    except Exception:
         return None
 
 
