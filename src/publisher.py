@@ -186,10 +186,9 @@ async def main(db: Database):
             """
             SELECT id, description
             FROM vacancies
-            -- Выбираем только релевантные вакансии, у которых еще нет полного суммари
             WHERE is_relevant = TRUE
-              AND (summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL)
-              AND published_at = CURRENT_DATE
+            AND (summary_duties IS NULL OR summary_requirements IS NULL OR summary_company IS NULL)
+            AND published_at >= CURRENT_DATE - INTERVAL '1 day';
             """
         )
         rows_to_summarize = cursor.fetchall()
@@ -244,17 +243,16 @@ async def main(db: Database):
         logging.info("📬 Шаг 3: Публикация в Telegram...")
         cursor.execute(
             """
-            SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule,
-                   working_hours, work_format, published_at, summary_duties, summary_requirements,
-                   summary_company, url
-            FROM vacancies
-            WHERE is_relevant = TRUE
-              AND published_at = CURRENT_DATE -- Обработано сегодня или позже
-              AND sent_to_telegram = FALSE -- Еще не отправлено
-              AND summary_duties IS NOT NULL -- Убедимся, что суммаризация прошла успешно
-              AND summary_requirements IS NOT NULL
-              AND summary_company IS NOT NULL
-              AND summary_company IS NOT NULL
+                SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule,
+                    working_hours, work_format, published_at, summary_duties, summary_requirements,
+                    summary_company, url
+                FROM vacancies
+                WHERE is_relevant = TRUE
+                AND published_at >= CURRENT_DATE - INTERVAL '1 day'
+                AND sent_to_telegram = FALSE
+                AND summary_duties IS NOT NULL
+                AND summary_requirements IS NOT NULL
+                AND summary_company IS NOT NULL;
             """
         )
         rows_to_publish = cursor.fetchall()
