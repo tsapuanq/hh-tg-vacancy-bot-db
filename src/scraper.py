@@ -10,17 +10,13 @@ from src.cleaning import (
     clean_skills,
     clean_working_hours,
     clean_work_format,
-    clean_schedule,
-    extract_city_from_block
+    clean_schedule
 )
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 from src.config import SCRAPER_TIMEOUT_GOTO, SCRAPER_TIMEOUT_SELECTOR
 
 
 async def get_vacancy_details(link: str, page) -> dict | None:
-    """
-    Переходит по ссылке вакансии, извлекает и очищает детали.
-    """
     try:
         await page.goto(link, timeout=SCRAPER_TIMEOUT_GOTO, wait_until="domcontentloaded")
         await page.wait_for_selector('h1[data-qa="vacancy-title"]', timeout=SCRAPER_TIMEOUT_SELECTOR)
@@ -32,9 +28,6 @@ async def get_vacancy_details(link: str, page) -> dict | None:
         return None
 
     async def safe_inner_text(selector: str, default="Не указано") -> str:
-        """
-        Безопасно извлекает inner_text, применяет clean_text_safe и обрабатывает ошибки.
-        """
         try:
             text = await page.inner_text(selector)
             return clean_text_safe(text)
@@ -81,7 +74,21 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             else []
         )
 
-        city_raw = extract_city_from_block(location_and_date_raw)
+        # ✅ Заменили ТОЛЬКО извлечение города
+        city_raw = None
+        try:
+            sidebar_elems = await page.query_selector_all("[class*='magritte-text']")
+            for elem in sidebar_elems:
+                raw_text = (await elem.inner_text()).strip()
+                if "опубликована" in raw_text.lower():
+                    cleaned = re.sub(r"<!--.*?-->", "", raw_text)
+                    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+                    parts = cleaned.split(" ")
+                    city_raw = parts[-1] if parts else None
+                    break
+        except:
+            city_raw = None
+
         location_cleaned = normalize_city_name(city_raw or "Не указано")
 
         data = {
