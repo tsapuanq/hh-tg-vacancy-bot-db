@@ -46,9 +46,10 @@ async def get_vacancy_details(link: str, page) -> dict | None:
     try:
         title_raw = await safe_inner_text('h1[data-qa="vacancy-title"]')
         company_raw = await safe_inner_text('a[data-qa="vacancy-company-name"]')
-        location_and_date_raw = await safe_inner_text("p.vacancy-creation-time-redesigned")
-
-        # ✅ Новый надёжный парсинг даты публикации
+        location_and_date_raw = await safe_inner_text(
+            "div[class*='magritte-text'][class*='typography-label']")
+        
+        # Новый надёжный парсинг даты публикации
         try:
             elem = await page.query_selector("div:has-text('Вакансия опубликована')")
             if elem:
