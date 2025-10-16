@@ -38,3 +38,32 @@ def extract_vacancy_id(link: str) -> str | None:
         return None
     except Exception:
         return None
+
+
+
+# for pre-filter
+
+BASE_KEYWORDS = [
+    "data", "аналит", "sql", "python", "ml", "машинн", "etl",
+    "dwh", "postgres", "backend", "developer", "разработ"
+]
+
+DENY_WORDS = [
+    "курьер", "продав", "официант", "администратор", "водител", "охран",
+    "повар", "учитель", "менеджер по продаж", "smm", "копирайт", "hr",
+    "строител", "уборщ", "кладовщ", "медицин", "секретар"
+]
+
+
+def is_potentially_relevant(title: str, description: str | None) -> bool:
+    """
+    Возвращает True, если вакансию можно отправлять на LLM.
+    """
+    text = (title + " " + (description or "")).lower()
+
+    # 1. Явный треш — сразу отсекаем
+    if any(word in text for word in DENY_WORDS):
+        return False
+
+    # 2. Должны быть ключевые признаки "датовой" профессии
+    return any(word in text for word in BASE_KEYWORDS)
