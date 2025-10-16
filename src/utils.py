@@ -41,11 +41,23 @@ def extract_vacancy_id(link: str) -> str | None:
 
 
 
-# for pre-filter
+TARGET_KEYWORDS = [
+    # английские
+    "data science", "data scientist", "data analyst", "data engineer",
+    "analytics engineer", "machine learning", "ml engineer",
+    "nlp", "computer vision", "cv", "deep learning", "ai engineer",
+    "mlops", "bi analyst", "big data",
+
+    # русские
+    "аналитик дан", "машинн обуч", "инженер дан", "биот аналитик",
+    "data sci", "data analyt", "датасаент", "дата сайнс",
+    "data engineer", "data scient", "мониторинг данных",
+    "ml специалист", "ml разработчик", "ml инженер"
+]
 
 BASE_KEYWORDS = [
     "data", "аналит", "sql", "python", "ml", "машинн", "etl",
-    "dwh", "postgres", "backend", "developer", "разработ"
+    "dwh", "postgres", "developer", "разработ"
 ]
 
 DENY_WORDS = [
@@ -54,16 +66,16 @@ DENY_WORDS = [
     "строител", "уборщ", "кладовщ", "медицин", "секретар"
 ]
 
-
 def is_potentially_relevant(title: str, description: str | None) -> bool:
-    """
-    Возвращает True, если вакансию можно отправлять на LLM.
-    """
     text = (title + " " + (description or "")).lower()
 
-    # 1. Явный треш — сразу отсекаем
+    # 1. Жёсткий отсев (мусорные профессии)
     if any(word in text for word in DENY_WORDS):
         return False
 
-    # 2. Должны быть ключевые признаки "датовой" профессии
+    # 2. Целевые вакансии — сразу пропускаем в LLM
+    if any(word in text for word in TARGET_KEYWORDS):
+        return True
+
+    # 3. Остальные проверяем по базовым словам
     return any(word in text for word in BASE_KEYWORDS)
