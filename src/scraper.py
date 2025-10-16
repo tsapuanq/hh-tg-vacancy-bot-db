@@ -5,13 +5,13 @@ from datetime import date
 from src.cleaning import (
     clean_text_safe,
     parse_russian_date,
-    extract_city,
     normalize_city_name,
     extract_salary_range_with_currency,
     clean_skills,
     clean_working_hours,
     clean_work_format,
     clean_schedule,
+    extract_city_from_block
 )
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 from src.config import SCRAPER_TIMEOUT_GOTO, SCRAPER_TIMEOUT_SELECTOR
@@ -47,9 +47,9 @@ async def get_vacancy_details(link: str, page) -> dict | None:
         title_raw = await safe_inner_text('h1[data-qa="vacancy-title"]')
         company_raw = await safe_inner_text('a[data-qa="vacancy-company-name"]')
         location_and_date_raw = await safe_inner_text(
-            "div[class*='magritte-text'][class*='typography-label']")
-        
-        # Новый надёжный парсинг даты публикации
+            "div[class*='magritte-text'][class*='typography-label']"
+        )
+
         try:
             elem = await page.query_selector("div:has-text('Вакансия опубликована')")
             if elem:
@@ -81,8 +81,8 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             else []
         )
 
-        city_extracted = extract_city(location_and_date_raw)
-        location_cleaned = normalize_city_name(city_extracted)
+        city_raw = extract_city_from_block(location_and_date_raw)
+        location_cleaned = normalize_city_name(city_raw or "Не указано")
 
         data = {
             "title": clean_text_safe(title_raw),

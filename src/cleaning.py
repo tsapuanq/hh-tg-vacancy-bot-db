@@ -39,12 +39,20 @@ def normalize_city_name(city: str) -> str:
     return corrections.get(city, city)
 
 
-def extract_city(pub_text: str) -> str:
-    if not pub_text or " в " not in pub_text:
-        return "Не указано"
-    city = pub_text.split(" в ")[-1].strip()
-    city = re.sub(r"[.,\s]+$", "", city)
-    return city.capitalize()
+def extract_city_from_block(info_block: str):
+    if not info_block:
+        return None
+
+    parts = [p.strip() for p in info_block.split("\n") if p.strip()]
+    if not parts:
+        return None
+
+    for i, p in enumerate(parts):
+        if p.lower() == "в" and i + 1 < len(parts):
+            return parts[i + 1]
+
+    last = parts[-1]
+    return last if not any(ch.isdigit() for ch in last) else None
 
 
 def clean_working_hours(hours_str: str) -> str:
