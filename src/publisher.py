@@ -15,7 +15,7 @@ from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 from src.cleaning import clean_text_safe
 from database import Database
 from datetime import date
-from src.utils import is_potentially_relevant
+from src.utils import is_relevant_soft
 import psycopg2.extras
 
 def escape_markdown_v2(text: str) -> str:
@@ -154,7 +154,7 @@ async def main(db: Database):
             vacancy_id = row["id"]
             title = row["title"]
             description = row["description"]
-            if not is_potentially_relevant(title, description):
+            if not is_relevant_soft(title, description):
                 logging.info(f"[PreFilter] Пропуск без LLM: {title}")
                 cursor.execute(
                     "UPDATE vacancies SET is_relevant = FALSE WHERE id = %s",
