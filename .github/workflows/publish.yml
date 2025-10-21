@@ -17,7 +17,8 @@ jobs:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       CHANNEL_USERNAME: ${{ secrets.CHANNEL_USERNAME }}
-      GEM_API_TOKEN: ${{ (github.event_name == 'schedule' && github.event.schedule == '0 8 * * 1-5') && secrets.GEM_API_TOKEN_AM || secrets.GEM_API_TOKEN_PM }}
+      GEM_API_TOKEN: ${{ (github.event_name == 'schedule' &&(github.event.schedule == '0 7 * * 1-6' || github.event.schedule == '0 11 * * 1-6')) && secrets.GEM_API_TOKEN_AM || secrets.GEM_API_TOKEN_PM }}
+
 
     steps:
       - name: Checkout code
