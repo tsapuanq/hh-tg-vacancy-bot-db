@@ -1,7 +1,5 @@
 # cleaning.py
 import re
-import numpy as np
-
 
 def clean_schedule(text):
     if isinstance(text, str):
