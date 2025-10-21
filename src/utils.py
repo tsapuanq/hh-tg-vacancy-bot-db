@@ -1,6 +1,7 @@
 # utils.py
 import logging
 import re  
+from typing import Optional
 
 def setup_logger():
     if not logging.getLogger().handlers:
@@ -41,41 +42,51 @@ def extract_vacancy_id(link: str) -> str | None:
 
 
 
-TARGET_KEYWORDS = [
-    # английские
-    "data science", "data scientist", "data analyst", "data engineer",
-    "analytics engineer", "machine learning", "ml engineer",
-    "nlp", "computer vision", "cv", "deep learning", "ai engineer",
-    "mlops", "bi analyst", "big data",
+TARGET_KEYWORDS_FINAL = [
+    "data sci", "data scientist", "data analyst", "data science", "analyt", 
+    "аналитик дан", "bi analyst", "business intelligence", "датасаент", 
+    "дата сайнс", "аналитич конс", "data miner", "data specialist",
 
-    # русские
-    "аналитик дан", "машинн обуч", "инженер дан", "биот аналитик",
-    "data sci", "data analyt", "датасаент", "дата сайнс",
-    "data engineer", "data scient", "мониторинг данных",
-    "ml специалист", "ml разработчик", "ml инженер"
+    "machine learning", "ml engineer", "ml engin", "ml разраб", "nlp", 
+    "computer vision", "cv engin", "deep learn", "ai engineer", "ai researcher", 
+    "машинн обуч", "мл инженер", "мл специалист", "cv", 
+    
+    "data engin", "data engineer", "инженер дан", "big data", "big data engineer", 
+    "data architect", "etl", "dwh", "мониторинг данных", "биот аналитик",
+
+    "mlops", "mlops engineer", "devops", "devops engineer"
 ]
 
-BASE_KEYWORDS = [
-    "data", "аналит", "sql", "python", "ml", "машинн", "etl",
-    "dwh", "postgres", "developer", "разработ"
+BASE_KEYWORDS_ROOT = [
+    "data", "аналит", "sql", "python", "ml", "etl", "dwh",
+    "postgres", "spark", "airflow", "cloud", "aws", "gcp", "azure", 
+    "обработк", "статистик", "моделирован"
 ]
 
-DENY_WORDS = [
+DENY_WORDS_ROOT = [
     "курьер", "продав", "официант", "администратор", "водител", "охран",
-    "повар", "учитель", "менеджер по продаж", "smm", "копирайт", "hr",
-    "строител", "уборщ", "кладовщ", "медицин", "секретар"
+    "повар", "учител", "менеджер по продаж", "копирайт", "hr",
+    "техподдержк", "кассир", "сварщ", "бухгалтер"
 ]
 
-def is_potentially_relevant(title: str, description: str | None) -> bool:
-    text = (title + " " + (description or "")).lower()
+def normalize_text(text: str) -> str:
+    if not text:
+        return ""
+    
+    text = re.sub(r'[^a-zа-я0-9]+', ' ', text.lower())
 
-    # 1. Жёсткий отсев (мусорные профессии)
-    if any(word in text for word in DENY_WORDS):
+    return re.sub(r'\s+', ' ', text).strip()
+
+def is_relevant_soft(title: str, description: Optional[str]) -> bool:
+
+    text = normalize_text(title + " " + (description or ""))
+
+    if any(word in text for word in DENY_WORDS_ROOT):
         return False
 
-    # 2. Целевые вакансии — сразу пропускаем в LLM
-    if any(word in text for word in TARGET_KEYWORDS):
+    if any(word in text for word in TARGET_KEYWORDS_FINAL):
         return True
 
-    # 3. Остальные проверяем по базовым словам
-    return any(word in text for word in BASE_KEYWORDS)
+    base_matches = sum(1 for word in BASE_KEYWORDS_ROOT if word in text)
+
+    return base_matches >= 2
