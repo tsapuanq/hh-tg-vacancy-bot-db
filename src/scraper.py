@@ -1,6 +1,5 @@
 import logging
 import re
-from datetime import date
 
 from src.cleaning import (
     clean_text_safe,
@@ -65,7 +64,6 @@ async def get_vacancy_details(link: str, page) -> dict | None:
         working_hours_raw = await safe_inner_text('div[data-qa="working-hours-text"]')
         work_format_raw = await safe_inner_text('p[data-qa="work-formats-text"]')
 
-        # Извлечение навыков
         skills_selector = '[data-qa="skills-element"]'
         skills_elements = page.locator(skills_selector)
         raw_skills_list = (
@@ -74,7 +72,6 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             else []
         )
 
-        # ✅ Заменили ТОЛЬКО извлечение города
         city_raw = None
         try:
             sidebar_elems = await page.query_selector_all("[class*='magritte-text']")

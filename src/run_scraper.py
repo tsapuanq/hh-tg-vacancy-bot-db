@@ -3,8 +3,7 @@ import asyncio
 import logging
 import random
 from playwright.async_api import (
-    async_playwright,
-    TimeoutError as PlaywrightTimeoutError,
+    async_playwright
 )
 from src.config import SEARCH_KEYWORDS, MAX_CONCURRENT_TASKS
 from src.scraper import get_vacancy_details
