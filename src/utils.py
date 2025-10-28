@@ -44,7 +44,8 @@ def extract_vacancy_id(link: str) -> str | None:
 
 TARGET_KEYWORDS_FINAL = [
     "data sci", "data scientist", "data analyst", "data science", "analyt", 
-    "аналитик дан", "bi analyst", "business intelligence", "датасаент", 
+    "аналитик дан", "analyst", "business analyst", "system analyst",
+    "bi analyst", "business intelligence", "датасаент", 
     "дата сайнс", "аналитич конс", "data miner", "data specialist",
 
     "machine learning", "ml engineer", "ml engin", "ml разраб", "nlp", 
@@ -53,6 +54,8 @@ TARGET_KEYWORDS_FINAL = [
     
     "data engin", "data engineer", "инженер дан", "big data", "big data engineer", 
     "data architect", "etl", "dwh", "мониторинг данных", "биот аналитик",
+    "cloud engineer", "data analytics", "data analysis",
+    "power bi", "powerbi", "junior analyst",
 
     "mlops", "mlops engineer", "devops", "devops engineer"
 ]
