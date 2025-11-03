@@ -56,7 +56,16 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             logging.warning(f"[Date Parse] ❌ Ошибка при извлечении даты: {e}")
             published_date_raw, published_at_parsed = None, None
 
-        salary_raw = await safe_inner_text('span[data-qa="vacancy-salary-compensation-type-net"]')
+        salary_raw = "Не указано"
+        salary_selectors = (
+            'span[data-qa="vacancy-salary-compensation-type-net"]',
+            'span[data-qa="vacancy-salary-compensation-type-gross"]',
+        )
+        for selector in salary_selectors:
+            candidate = await safe_inner_text(selector, default=None)
+            if candidate:
+                salary_raw = candidate
+                break
         description_raw = await safe_inner_text('div[data-qa="vacancy-description"]')
         experience_raw = await safe_inner_text('span[data-qa="vacancy-experience"]')
         employment_type_raw = await safe_inner_text('div[data-qa="common-employment-text"]')
