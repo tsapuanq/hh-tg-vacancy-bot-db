@@ -17,6 +17,7 @@ from database import Database
 from datetime import date
 from src.utils import is_relevant_soft
 import psycopg2.extras
+from src.company_cache import CompanyCache
 
 def escape_markdown_v2(text: str) -> str:
     """Экранирует специальные символы MarkdownV2 в строке."""
@@ -131,6 +132,7 @@ async def main(db: Database):
     """
     conn = None
     cursor = None
+    company_cache = CompanyCache(db)
 
     try:
         conn = db.get_connection()
@@ -209,9 +211,18 @@ async def main(db: Database):
                 f"[Gemini Summary] [{idx}/{len(rows_to_summarize)}] Генерируем суммари для вакансии {vacancy_id}..."
             )
             try:
-                summary = summarize_description_llm(
-                    description
-                ) 
+                cursor.execute("SELECT company FROM vacancies WHERE id = %s", (vacancy_id,))
+                company_row = cursor.fetchone()
+                company_name = company_row[0] if company_row else None
+                
+                summary = summarize_description_llm(description)
+
+                summary_company = company_cache.get_summary(
+                    company_name,
+                    description,
+                    existing_summary=summary.get("about_company")
+                )
+                summary["about_company"] = summary_company
  
                 responsibilities_list = summary.get("responsibilities", ["Не указано"])
                 requirements_list = summary.get("requirements", ["Не указано"])
