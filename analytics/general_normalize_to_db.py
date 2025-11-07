@@ -44,7 +44,7 @@ def normalize_titles_in_db(db: Database):
                 level = %s
             WHERE id = %s;
         """, (
-            normalized["normalized_title"],
+            normalized["general_title"],
             normalized["category"],
             normalized["level"],
             vid

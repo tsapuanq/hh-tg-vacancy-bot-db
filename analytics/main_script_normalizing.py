@@ -1,6 +1,6 @@
 """
 📊 Скрипт для нормализации вакансий под формат hh-tg-vacancy-bot
-Берёт CSV с вакансиями → добавляет normalized_title, category, level
+Берёт CSV с вакансиями → добавляет general_title, category, level
 """
 
 import csv
@@ -46,7 +46,7 @@ class JobTitleNormalizer:
 
         return {
             "original_title": title,
-            "normalized_title": normalized or "Other",
+            "general_title": normalized or "Other",
             "category": category or "Other",
             "level": level or ""
         }
@@ -66,7 +66,7 @@ class JobTitleNormalizer:
         return 'Other'
 
     def _empty(self, title: str):
-        return {"original_title": title or "", "normalized_title": "Other", "category": "Other", "level": ""}
+        return {"original_title": title or "", "general_title": "Other", "category": "Other", "level": ""}
 
 
 def normalize_vacancies_csv(input_file: str, output_file: str = None):

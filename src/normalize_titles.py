@@ -45,7 +45,7 @@ class JobTitleNormalizer:
 
         return {
             "original_title": title,
-            "normalized_title": normalized or "Other",
+            "general_title": normalized or "Other",
             "category": category or "Other",
             "level": level or ""
         }
@@ -65,12 +65,12 @@ class JobTitleNormalizer:
         return 'Other'
 
     def _empty(self, title: str):
-        return {"original_title": title or "", "normalized_title": "Other", "category": "Other", "level": ""}
+        return {"original_title": title or "", "general_title": "Other", "category": "Other", "level": ""}
 
 def normalize_titles_in_db(db: Database, only_missing: bool = True, batch_limit: int = 2000) -> int:
     """
     Нормализует вакансии прямо в БД.
-    - Берём строки из vacancies (у которых normalized_title/category/level пусты — если only_missing=True)
+    - Берём строки из vacancies (у которых general_title/category/level пусты — если only_missing=True)
     - Считаем нормализацию
     - Пишем обратно UPDATE
     Возвращает количество обновлённых строк.
@@ -90,7 +90,7 @@ def normalize_titles_in_db(db: Database, only_missing: bool = True, batch_limit:
                 """
                 SELECT id, title
                 FROM vacancies
-                WHERE (normalized_title IS NULL OR normalized_title = '')
+                WHERE (general_title IS NULL OR general_title = '')
                   AND title IS NOT NULL
                 ORDER BY id
                 LIMIT %s
@@ -126,13 +126,13 @@ def normalize_titles_in_db(db: Database, only_missing: bool = True, batch_limit:
             cur.execute(
                 """
                 UPDATE vacancies
-                SET normalized_title = %s,
+                SET general_title = %s,
                     category = %s,
                     level = %s
                 WHERE id = %s
                 """,
                 (
-                    norm["normalized_title"],
+                    norm["general_title"],
                     norm["category"],
                     norm["level"],
                     vid,
