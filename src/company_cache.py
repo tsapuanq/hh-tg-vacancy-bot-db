@@ -43,19 +43,16 @@ class CompanyCache:
 
         company_name = company_name.strip()
 
-        # 1️⃣ Проверяем кэш
         if company_name in self.cache:
             logging.info(f"♻️ Кэш найден для компании: {company_name}")
             return self.cache[company_name]
 
-        # 2️⃣ Если LLM уже вернул summary — используем его
         if existing_summary:
             summary_text = str(existing_summary).strip()
         else:
             summary_data = summarize_description_llm(description or "")
             summary_text = str(summary_data.get("about_company") or "Не указано").strip()
 
-        # 3️⃣ Сохраняем в кэш и в БД (если валидно)
         if summary_text and summary_text.lower() not in ("не указано", "нет данных"):
             self.cache[company_name] = summary_text
             self._save_to_db(company_name, summary_text)
@@ -70,6 +67,7 @@ class CompanyCache:
         conn = self.db.get_connection()
         cursor = conn.cursor()
         try:
+            logging.info(f"Начинаем insert новых summary в company_summaries")
             cursor.execute("""
                 INSERT INTO public.company_summaries (company_name, summary_company, updated_at)
                 VALUES (%s, %s, NOW())
