@@ -18,6 +18,7 @@ from datetime import date
 from src.utils import is_relevant_soft
 import psycopg2.extras
 from src.company_cache import CompanyCache
+from src.normalize_titles import normalize_titles_in_db
 
 def escape_markdown_v2(text: str) -> str:
     """Экранирует специальные символы MarkdownV2 в строке."""
@@ -258,7 +259,14 @@ async def main(db: Database):
 
         conn.commit()
 
+        logging.info("🧠 Шаг 2.5: Нормализация названий вакансий...")
+        try:
+            normalized_count = normalize_titles_in_db(db, only_missing=True, batch_limit=5000)
+            logging.info(f"✅ Нормализовано записей: {normalized_count}")
+        except Exception as e:
+            logging.error(f"❌ Ошибка на этапе нормализации: {e}", exc_info=True)        
         logging.info("📬 Шаг 3: Публикация в Telegram...")
+        
         cursor.execute(
             """
                 SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule,
