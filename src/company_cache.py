@@ -67,7 +67,7 @@ class CompanyCache:
         conn = self.db.get_connection()
         cursor = conn.cursor()
         try:
-            logging.info(f"Начинаем insert новых summary в company_summaries")
+            logging.info(f"🧠 Начинаем insert новых summary в company_summaries")
             cursor.execute("""
                 INSERT INTO public.company_summaries (company_name, summary_company, updated_at)
                 VALUES (%s, %s, NOW())
