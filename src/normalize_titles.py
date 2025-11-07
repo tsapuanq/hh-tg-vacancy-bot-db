@@ -2,6 +2,8 @@
 
 from typing import Dict, Optional
 import logging
+import psycopg2.extras
+from database import Database
 
 class JobTitleNormalizer:
     """Нормализатор названий вакансий"""
