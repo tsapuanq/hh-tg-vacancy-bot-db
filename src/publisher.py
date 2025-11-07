@@ -20,6 +20,27 @@ import psycopg2.extras
 from src.company_cache import CompanyCache
 from src.normalize_titles import normalize_titles_in_db
 
+
+def build_hashtags(vacancy: dict) -> str:
+    """
+    Создаёт хэштеги из general_title (или normalized_title) и level.
+    Если level отсутствует — добавляем только профессию.
+    Пример:
+      Data Analyst + Junior → #data_analyst #junior
+      BI Analyst + (null)   → #bi_analyst
+    """
+    tags = []
+
+    title = vacancy.get("general_title") or vacancy.get("normalized_title")
+    if title:
+        tags.append("#" + title.lower().replace(" ", "_"))
+
+    level = vacancy.get("level")
+    if level and str(level).strip().lower() not in ("", "none", "null"):
+        tags.append("#" + level.lower().replace(" ", "_"))
+
+    return " ".join(tags)
+
 def escape_markdown_v2(text: str) -> str:
     """Экранирует специальные символы MarkdownV2 в строке."""
     if not isinstance(text, str):
@@ -54,7 +75,7 @@ def _to_bullets(x) -> str:
     return "\n".join(bullets) if bullets else "Не указано"
 
 
-def format_message(data: dict, summary: dict) -> str:
+def format_message(data: dict, summary: dict, hashtags_text: str | None = None) -> str:
     """
     Форматирует данные о вакансии и summary для отправки в Telegram в MarkdownV2.
     Применяет экранирование для всех текстовых полей.
@@ -123,6 +144,8 @@ def format_message(data: dict, summary: dict) -> str:
 
 🔎 [{link_text}]({url})
 """
+    if hashtags_text:
+        message_text += f"\n\n{hashtags_text}"
 
     return message_text
 
@@ -305,7 +328,8 @@ async def main(db: Database):
                         "requirements": data.get("summary_requirements"),
                         "about_company": data.get("summary_company"),
                     }
-                    text = format_message(data, summary)
+                    hashtags = build_hashtags(data)
+                    text = format_message(data, summary, hashtags_text=hashtags)
 
                     try:
                         await bot.send_message(
