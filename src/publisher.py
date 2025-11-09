@@ -23,21 +23,22 @@ from src.normalize_titles import normalize_titles_in_db
 
 def build_hashtags(vacancy: dict) -> str:
     """
-    Создаёт хэштеги из general_title (или normalized_title) и level.
-    Если level отсутствует — добавляем только профессию.
-    Пример:
-      Data Analyst + Junior → #data_analyst #junior
-      BI Analyst + (null)   → #bi_analyst
+    Создаёт хэштеги вида #category и #level (если level есть).
+    Внутри тега просто убираем все пробелы.
     """
     tags = []
 
-    title = vacancy.get("general_title") or vacancy.get("normalized_title")
-    if title:
-        tags.append("#" + title.lower().replace(" ", "_"))
+    category = vacancy.get("category")
+    if isinstance(category, str):
+        category = category.strip()
+    if category:
+        tags.append("#" + re.sub(r"\s+", "", str(category)))
 
     level = vacancy.get("level")
-    if level and str(level).strip().lower() not in ("", "none", "null"):
-        tags.append("#" + level.lower().replace(" ", "_"))
+    if isinstance(level, str):
+        level = level.strip()
+    if level:
+        tags.append("#" + re.sub(r"\s+", "", str(level)))
 
     return " ".join(tags)
 
@@ -294,7 +295,7 @@ async def main(db: Database):
             """
                 SELECT id, title, company, location, salary, salary_range, experience, employment_type, schedule,
                     working_hours, work_format, published_at, summary_duties, summary_requirements,
-                    summary_company, url
+                    summary_company, url, category, general_title, level
                 FROM vacancies
                 WHERE is_relevant = TRUE
                 AND published_at >= CURRENT_DATE - INTERVAL '1 day'
