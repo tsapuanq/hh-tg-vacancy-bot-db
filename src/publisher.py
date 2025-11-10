@@ -40,7 +40,8 @@ def build_hashtags(vacancy: dict) -> str:
     if level:
         tags.append("#" + re.sub(r"\s+", "", str(level)))
 
-    return " ".join(tags)
+    hashtags = " ".join(tags)
+    return escape_markdown_v2(hashtags) if hashtags else ""
 
 def escape_markdown_v2(text: str) -> str:
     """Экранирует специальные символы MarkdownV2 в строке."""
