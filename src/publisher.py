@@ -147,7 +147,7 @@ def format_message(data: dict, summary: dict, hashtags_text: str | None = None) 
 🔎 [{link_text}]({url})
 """
     if hashtags_text:
-        message_text += f"\n\n{hashtags_text}"
+        message_text = f"{hashtags_text}\n\n{message_text}"
 
     return message_text
 
