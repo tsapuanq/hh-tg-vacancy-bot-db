@@ -83,22 +83,15 @@ def normalize_text(text: str) -> str:
 def is_relevant_soft(title: str, description: Optional[str]) -> bool:
     text = normalize_text(title + " " + (description or ""))
 
-    has_deny = any(word in text for word in DENY_WORDS_ROOT)
-    has_target = any(word in text for word in TARGET_KEYWORDS_FINAL)
-    base_matches = sum(1 for word in BASE_KEYWORDS_ROOT if word in text)
-
-    if has_deny and not has_target and base_matches == 0:
+    if any(word in text for word in DENY_WORDS_ROOT):
         return False
 
-    if has_target:
+    if any(word in text for word in TARGET_KEYWORDS_FINAL):
         return True
 
-    if base_matches >= 3:
-        return True
+    base_matches = sum(
+        1 for word in BASE_KEYWORDS_ROOT
+        if word in text
+    )
 
-    if base_matches >= 1 and not has_deny:
-        important_roots = ["data", "аналит", "данн", "ml"]
-        if any(root in text for root in important_roots):
-            return True
-
-    return False
+    return base_matches >= 2
