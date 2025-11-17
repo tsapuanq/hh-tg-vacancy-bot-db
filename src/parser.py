@@ -3,7 +3,7 @@ from playwright.async_api import (
     async_playwright,
     TimeoutError as PlaywrightTimeoutError,
 )
-from src.config import BASE_URL, REGION_ID, SCRAPER_TIMEOUT_SELECTOR
+from src.config import BASE_URL, REGION_ID, SCRAPER_TIMEOUT_SELECTOR, SAFE_TIMEOUT_GOTO
 import logging
 
 
@@ -20,6 +20,11 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
         browser = await p.chromium.launch(headless=True)
         try:
             page = await browser.new_page()
+            
+            await page.set_extra_http_headers({
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36'
+            })
+            await page.set_viewport_size({"width": 1280, "height": 800})
 
             for page_number in range(max_pages):
                 url = f"{BASE_URL}?text={keyword}&area={REGION_ID}&page={page_number}&order_by=publication_time"
@@ -29,7 +34,7 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
 
                 try:
                     await page.goto(
-                        url, timeout=20000
+                        url, timeout=SAFE_TIMEOUT_GOTO, wait_until='domcontentloaded'
                     )  
                     await page.wait_for_selector(
                         'a[data-qa="serp-item__title"]',
@@ -60,7 +65,8 @@ async def get_vacancy_links(keyword: str, max_pages: int = 10) -> list[str]:
                     )
                     links.extend(page_links)
 
-                    if not page_links and page_number > 0:
+                    # ✅ ИЗМЕНЕНО: Исправлена логика завершения пагинации (убрано 'and page_number > 0')
+                    if not page_links:
                         logging.info(
                             f"ℹ️ Нет ссылок на странице {page_number + 1}, завершаем парсинг для '{keyword}'."
                         )
