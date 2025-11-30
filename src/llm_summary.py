@@ -156,6 +156,21 @@ SUMMARY_PROMPT_TEMPLATE = """
 {description}
 """
 
+DESCRIPTION_PROMPT_MAX_CHARS = 4000
+
+
+def _prepare_description_for_prompt(description: str) -> str:
+    if not description:
+        return ""
+    clean = re.sub(r"\s+", " ", description).strip()
+    if len(clean) <= DESCRIPTION_PROMPT_MAX_CHARS:
+        return clean
+    truncated = clean[:DESCRIPTION_PROMPT_MAX_CHARS]
+    boundary = truncated.rfind(" ")
+    if boundary > DESCRIPTION_PROMPT_MAX_CHARS - 100 and boundary > 0:
+        truncated = truncated[:boundary]
+    return truncated.strip()
+
 
 def clean_gemini_response(raw: str) -> dict:
     try:
@@ -202,7 +217,8 @@ def clean_gemini_response(raw: str) -> dict:
 def summarize_description_llm(description: str) -> dict:
     if not description or description.strip() == "Не указано":
         return {"about_company": "Не указано", "responsibilities": ["Не указано"], "requirements": ["Не указано"]}
-    prompt = SUMMARY_PROMPT_TEMPLATE.replace("{description}", description)
+    prompt_description = _prepare_description_for_prompt(description)
+    prompt = SUMMARY_PROMPT_TEMPLATE.replace("{description}", prompt_description)
     raw = gemini_api_call(prompt) or ""
     logging.info("[Gemini-summary] Сырый ответ:\n" + raw)
     return clean_gemini_response(raw)
@@ -228,8 +244,8 @@ MLOps Engineer, System Analyst, AI/ML/NLP/CV Engineer, Researcher в облас�
 def filter_vacancy_llm(title: str, description: str) -> bool:
     if not title or not description:
         return False
-    prompt = FILTER_PROMPT.format(title=title, description=description)
+    prompt_description = _prepare_description_for_prompt(description)
+    prompt = FILTER_PROMPT.format(title=title, description=prompt_description)
     raw = (gemini_api_call(prompt) or "").strip().lower()
     logging.info("[Gemini-filter] Сырый ответ:\n" + raw)
     return raw == "yes"
-
