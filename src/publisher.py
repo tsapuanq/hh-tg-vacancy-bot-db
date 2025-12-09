@@ -190,12 +190,12 @@ async def main(db: Database):
                 )
                 continue
             logging.info(
-                f"[Gemini Filter] [{idx}/{len(rows_to_filter)}] Проверяем релевантность для: {title}"
+                f"[OpenAI Filter] [{idx}/{len(rows_to_filter)}] Проверяем релевантность для: {title}"
             )
             try:
                 is_relevant = filter_vacancy_llm(title, description)
                 logging.info(
-                    f"[Gemini Filter] {title} → {'✅ Релевантно' if is_relevant else '❌ Не релевантно'}"
+                    f"[OpenAI Filter] {title} → {'✅ Релевантно' if is_relevant else '❌ Не релевантно'}"
                 )
 
                 cursor.execute(
@@ -234,7 +234,7 @@ async def main(db: Database):
             description = row["description"]
 
             logging.info(
-                f"[Gemini Summary] [{idx}/{len(rows_to_summarize)}] Генерируем суммари для вакансии {vacancy_id}..."
+                f"[OpenAI Summary] [{idx}/{len(rows_to_summarize)}] Генерируем суммари для вакансии {vacancy_id}..."
             )
             try:
                 cursor.execute("SELECT company FROM vacancies WHERE id = %s", (vacancy_id,))

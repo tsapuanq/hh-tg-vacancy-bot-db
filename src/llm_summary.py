@@ -8,9 +8,10 @@ import requests
 from collections import deque
 
 from src.config import (
-    GEMINI_API_KEY,
-    GEMINI_API_URL,
-    HEADERS,
+    OPENAI_API_KEY,
+    OPENAI_API_URL,
+    OPENAI_MODEL,
+    OPENAI_HEADERS,
     LLM_API_RETRIES,
     LLM_API_TIMEOUT,
     LLM_API_MIN_INTERVAL,
@@ -48,37 +49,70 @@ def _mark_call():
 def _sleep_with_jitter(base_seconds: float):
     time.sleep(base_seconds + random.uniform(0, 0.5))
 
-def gemini_api_call(prompt: str) -> str:
-    if not GEMINI_API_KEY:
-        logging.warning("[Gemini] ❌ Не найден GEMINI_API_KEY")
+def _collect_output_text(obj):
+    if obj is None:
+        return []
+    if isinstance(obj, str):
+        return [obj]
+    if isinstance(obj, dict):
+        collected = []
+        text = obj.get("text")
+        if isinstance(text, str):
+            collected.append(text)
+        for child_key in ("content", "message", "output", "choices"):
+            if child_key in obj:
+                collected.extend(_collect_output_text(obj[child_key]))
+        return collected
+    if isinstance(obj, list):
+        collected = []
+        for item in obj:
+            collected.extend(_collect_output_text(item))
+        return collected
+    return []
+
+
+def _extract_openai_text(response_data: dict) -> str:
+    if not response_data:
+        return ""
+    texts = _collect_output_text(response_data.get("output"))
+    if not texts:
+        texts = _collect_output_text(response_data.get("choices"))
+    cleaned = [text.strip() for text in texts if isinstance(text, str) and text.strip()]
+    return "\n".join(cleaned).strip()
+
+
+def openai_api_call(prompt: str) -> str:
+    if not OPENAI_API_KEY:
+        logging.warning("[OpenAI] ❌ Не найден OPENAI_API_KEY")
         return ""
 
-    headers = dict(HEADERS or {})
+    headers = dict(OPENAI_HEADERS or {})
     headers.setdefault("Content-Type", "application/json; charset=utf-8")
+    headers.setdefault("Authorization", f"Bearer {OPENAI_API_KEY}")
+
+    payload = {
+        "model": OPENAI_MODEL,
+        "input": prompt,
+    }
 
     for attempt in range(1, LLM_API_RETRIES + 1):
         _rate_limit_wait()
         try:
             resp = _session.post(
-                f"{GEMINI_API_URL}?key={GEMINI_API_KEY}",
+                OPENAI_API_URL,
                 headers=headers,
-                json={"contents": [{"parts": [{"text": prompt}]}]},
+                json=payload,
                 timeout=LLM_API_TIMEOUT,
             )
             _mark_call()
             resp.raise_for_status()
 
             data = resp.json()
-            if (
-                data
-                and data.get("candidates")
-                and data["candidates"][0].get("content")
-                and data["candidates"][0]["content"].get("parts")
-                and data["candidates"][0]["content"]["parts"][0].get("text")
-            ):
-                return data["candidates"][0]["content"]["parts"][0]["text"]
+            text = _extract_openai_text(data)
+            if text:
+                return text
 
-            logging.warning(f"[Gemini] Пустой/нетипичный ответ API: {resp.text}")
+            logging.warning(f"[OpenAI] Пустой/нетипичный ответ API: {resp.text}")
             return ""
 
         except requests.exceptions.HTTPError as e:
@@ -97,35 +131,35 @@ def gemini_api_call(prompt: str) -> str:
                         LLM_API_BACKOFF_CAP,
                         LLM_API_BACKOFF_BASE * (2 ** (attempt - 1))
                     )
-                    logging.warning(f"[Gemini] 429 Too Many Requests — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
+                    logging.warning(f"[OpenAI] 429 Too Many Requests — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
                     _sleep_with_jitter(wait)
                     continue
 
-                logging.warning("[Gemini] 429: исчерпаны попытки")
+                logging.warning("[OpenAI] 429: исчерпаны попытки")
                 return ""
 
             if code and 500 <= code < 600 and attempt < LLM_API_RETRIES:
                 wait = min(LLM_API_BACKOFF_CAP, LLM_API_BACKOFF_BASE * (2 ** (attempt - 1)))
-                logging.warning(f"[Gemini] {code} серверная ошибка — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
+                logging.warning(f"[OpenAI] {code} серверная ошибка — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
                 _sleep_with_jitter(wait)
                 continue
 
             body = r.text if r is not None else ""
-            logging.warning(f"[Gemini] HTTP ошибка: {code} — {body[:500]}")
+            logging.warning(f"[OpenAI] HTTP ошибка: {code} — {body[:500]}")
             return ""
 
         except requests.exceptions.RequestException as e:
             if attempt < LLM_API_RETRIES:
                 wait = min(LLM_API_BACKOFF_CAP, LLM_API_BACKOFF_BASE * (2 ** (attempt - 1)))
-                logging.warning(f"[Gemini] Сетевая ошибка: {e} — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
+                logging.warning(f"[OpenAI] Сетевая ошибка: {e} — попытка {attempt}/{LLM_API_RETRIES}, пауза {wait:.2f}с")
                 _sleep_with_jitter(wait)
                 continue
 
-            logging.warning(f"[Gemini] Сетевая ошибка, попытки исчерпаны: {e}")
+            logging.warning(f"[OpenAI] Сетевая ошибка, попытки исчерпаны: {e}")
             return ""
 
         except Exception as e:
-            logging.warning(f"[Gemini] Общая ошибка при запросе: {e}", exc_info=True)
+            logging.warning(f"[OpenAI] Общая ошибка при запросе: {e}", exc_info=True)
             return ""
 
     return ""
@@ -172,7 +206,7 @@ def _prepare_description_for_prompt(description: str) -> str:
     return truncated.strip()
 
 
-def clean_gemini_response(raw: str) -> dict:
+def clean_openai_response(raw: str) -> dict:
     try:
         cleaned = re.sub(r"^\s*```json\s*\n|\n\s*```\s*$", "", raw, flags=re.I | re.S).strip()
         obj = json.loads(cleaned)
@@ -206,12 +240,12 @@ def clean_gemini_response(raw: str) -> dict:
         }
 
     except json.JSONDecodeError as e:
-        logging.warning(f"[Gemini-summary] ❌ Ошибка парсинга JSON: {e}")
-        logging.warning("[Gemini-summary] Сырой ответ:\n" + (raw or ""))
+        logging.warning(f"[OpenAI-summary] ❌ Ошибка парсинга JSON: {e}")
+        logging.warning("[OpenAI-summary] Сырой ответ:\n" + (raw or ""))
         return {"about_company": "Не указано", "responsibilities": ["Не указано"], "requirements": ["Не указано"]}
     except Exception as e:
-        logging.warning(f"[Gemini-summary] ❌ Неожиданная ошибка: {e}", exc_info=True)
-        logging.warning("[Gemini-summary] Сырой ответ:\n" + (raw or ""))
+        logging.warning(f"[OpenAI-summary] ❌ Неожиданная ошибка: {e}", exc_info=True)
+        logging.warning("[OpenAI-summary] Сырой ответ:\n" + (raw or ""))
         return {"about_company": "Не указано", "responsibilities": ["Не указано"], "requirements": ["Не указано"]}
 
 def summarize_description_llm(description: str) -> dict:
@@ -219,9 +253,9 @@ def summarize_description_llm(description: str) -> dict:
         return {"about_company": "Не указано", "responsibilities": ["Не указано"], "requirements": ["Не указано"]}
     prompt_description = _prepare_description_for_prompt(description)
     prompt = SUMMARY_PROMPT_TEMPLATE.replace("{description}", prompt_description)
-    raw = gemini_api_call(prompt) or ""
-    logging.info("[Gemini-summary] Сырый ответ:\n" + raw)
-    return clean_gemini_response(raw)
+    raw = openai_api_call(prompt) or ""
+    logging.info("[OpenAI-summary] Сырый ответ:\n" + raw)
+    return clean_openai_response(raw)
 
 FILTER_PROMPT = """
 Определи, относится ли вакансия К СТРОГО следующему списку профессий:
@@ -246,6 +280,6 @@ def filter_vacancy_llm(title: str, description: str) -> bool:
         return False
     prompt_description = _prepare_description_for_prompt(description)
     prompt = FILTER_PROMPT.format(title=title, description=prompt_description)
-    raw = (gemini_api_call(prompt) or "").strip().lower()
-    logging.info("[Gemini-filter] Сырый ответ:\n" + raw)
+    raw = (openai_api_call(prompt) or "").strip().lower()
+    logging.info("[OpenAI-filter] Сырый ответ:\n" + raw)
     return raw == "yes"

@@ -25,10 +25,10 @@ CHANNEL_USERNAME = os.getenv("CHANNEL_USERNAME")
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-GEMINI_API_KEY = os.getenv("GEM_API_TOKEN")
-
-GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
-HEADERS = {"Content-Type": "application/json"}  
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_URL = os.getenv("OPENAI_API_URL", "https://api.openai.com/v1/responses")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4.1-mini")
+OPENAI_HEADERS = {"Content-Type": "application/json"}
 
 MAX_CONCURRENT_TASKS = 10  
 SCRAPER_TIMEOUT_GOTO = 20000
@@ -48,4 +48,3 @@ LLM_API_BACKOFF_BASE = 2.0
 LLM_API_BACKOFF_CAP = 30.0
 
 OTHER_LABEL = "Other"
-
