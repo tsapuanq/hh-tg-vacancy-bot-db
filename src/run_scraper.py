@@ -5,7 +5,7 @@ import random
 from playwright.async_api import (
     async_playwright
 )
-from src.config import SEARCH_KEYWORDS, MAX_CONCURRENT_TASKS
+from src.config import SEARCH_KEYWORDS, MAX_CONCURRENT_TASKS, SCRAPER_MAX_PAGES_DAILY, SCRAPER_MAX_PAGES_FULL
 from src.scraper import get_vacancy_details
 from src.parser import get_vacancy_links
 from src.utils import setup_logger, canonical_link
@@ -37,7 +37,7 @@ async def scrape_single(link, semaphore, context, results, idx, total):
                 await page.close()  
 
 
-async def run_scraper(db: Database, mode: str = "daily"):
+async def run_scraper(db: Database, mode: str = "daily"):  # noqa: ARG001 — mode kept for future use
     """
     Основная функция для запуска процесса скрейпинга.
     """
@@ -68,7 +68,7 @@ async def run_scraper(db: Database, mode: str = "daily"):
 
     all_links = set()
     for keyword in SEARCH_KEYWORDS:
-        max_pages = 100 if mode == "full" else 1
+        max_pages = SCRAPER_MAX_PAGES_FULL if mode == "full" else SCRAPER_MAX_PAGES_DAILY
         raw_links = await get_vacancy_links(keyword, max_pages=max_pages)
         for raw in raw_links:
             canonical = canonical_link(raw)
@@ -114,7 +114,13 @@ async def run_scraper(db: Database, mode: str = "daily"):
         finally:
             await browser.close()  
 
-    successful_results = [r for r in results if r is not None]
+    successful_results = [
+        r for r in results
+        if r is not None and r.get("description", "").strip()
+    ]
+    skipped = len(results) - len(successful_results)
+    if skipped:
+        logging.info(f"⚠️ Пропущено {skipped} вакансий с пустым описанием.")
     logging.info(
         f"✅ Успешно обработано деталей для {len(successful_results)} вакансий."
     )

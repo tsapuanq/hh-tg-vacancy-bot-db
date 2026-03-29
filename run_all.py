@@ -3,33 +3,37 @@ import asyncio
 import logging
 from src.run_scraper import run_scraper
 from src.publisher import run_publisher
-from src.utils import setup_logger, determine_mode
+from src.utils import setup_logger
 from database import Database
 import os
 
 if __name__ == "__main__":
-    setup_logger()  
+    setup_logger()
 
-    db = None  
+    db = None
+    scraper_ok = False
     try:
         logging.info("🚀 Запуск основного пайплайна...")
         db = Database(os.getenv("DATABASE_URL"))
 
-        mode = determine_mode()  
-        logging.info(f"[MODE] Выбран режим: {mode.upper()}")
-
         logging.info("[STEP 1/2] Scraping raw data...")
-        asyncio.run(run_scraper(db, mode=mode))
+        try:
+            asyncio.run(run_scraper(db))
+            scraper_ok = True
+        except Exception as e:
+            logging.critical(f"❌ Ошибка скрейпера: {e}", exc_info=True)
 
-        logging.info("[STEP 2/2] Publishing to Telegram...")
-        run_publisher(db)
+        if scraper_ok:
+            logging.info("[STEP 2/2] Publishing to Telegram...")
+            try:
+                run_publisher(db)
+            except Exception as e:
+                logging.critical(f"❌ Ошибка публикации: {e}", exc_info=True)
 
-        logging.info("✅ Pipeline completed successfully!")
+        logging.info("✅ Pipeline completed.")
 
     except Exception as e:
-        logging.critical(
-            f"❌ Критическая ошибка выполнения пайплайна: {e}", exc_info=True
-        )  
+        logging.critical(f"❌ Критическая ошибка инициализации: {e}", exc_info=True)
     finally:
         if db:
             db.close_all()

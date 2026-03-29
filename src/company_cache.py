@@ -32,10 +32,15 @@ class CompanyCache:
             cursor.close()
             self.db.return_connection(conn)
 
+    # Sentinel-значение: компания уже запрашивалась, но LLM вернул пустоту.
+    # Хранится в кэше чтобы повторно не вызывать LLM.
+    _EMPTY_SENTINEL = "__empty__"
+
     def get_summary(self, company_name, description=None, existing_summary=None):
         """
         Возвращает summary компании:
         - если уже есть в кэше → берёт из памяти
+        - если sentinel → сразу "Не указано", без LLM
         - если передано existing_summary → использует его
         - иначе вызывает LLM
         """
@@ -45,8 +50,11 @@ class CompanyCache:
         company_name = company_name.strip()
 
         if company_name in self.cache:
+            cached = self.cache[company_name]
+            if cached == self._EMPTY_SENTINEL:
+                return "Не указано"
             logging.info(f"♻️ Кэш найден для компании: {company_name}")
-            return self.cache[company_name]
+            return cached
 
         if existing_summary:
             summary_text = str(existing_summary).strip()
@@ -59,7 +67,9 @@ class CompanyCache:
             self._save_to_db(company_name, summary_text)
             logging.info(f"💾 Добавлено в кэш: {company_name}")
         else:
-            logging.info(f"⚠️ Пустой summary для компании: {company_name}")
+            # Кэшируем sentinel чтобы не вызывать LLM повторно
+            self.cache[company_name] = self._EMPTY_SENTINEL
+            logging.info(f"⚠️ Пустой summary для компании: {company_name}, закэшировано как пустое.")
 
         return summary_text or "Не указано"
 

@@ -1,6 +1,6 @@
 # utils.py
 import logging
-import re  
+import re
 from typing import Optional, Tuple, List
 
 def setup_logger():
@@ -11,10 +11,6 @@ def setup_logger():
         logging.info("✅ Логгер настроен.")
     else:
         logging.debug("Логгер уже настроен, пропускаем.")
-
-
-def determine_mode() -> str:
-    return "daily"  
 
 
 def canonical_link(link: str) -> str | None:

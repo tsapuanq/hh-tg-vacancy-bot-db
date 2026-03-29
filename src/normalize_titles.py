@@ -4,6 +4,7 @@ from typing import Dict, Optional
 import logging
 import psycopg2.extras
 from database import Database
+from src.config import NORMALIZE_BATCH_LIMIT
 
 class JobTitleNormalizer:
     """Нормализатор названий вакансий"""
@@ -67,7 +68,7 @@ class JobTitleNormalizer:
     def _empty(self, title: str):
         return {"original_title": title or "", "general_title": "Other", "category": "Other", "level": ""}
 
-def normalize_titles_in_db(db: Database, only_missing: bool = True, batch_limit: int = 2000) -> int:
+def normalize_titles_in_db(db: Database, only_missing: bool = True, batch_limit: int = NORMALIZE_BATCH_LIMIT) -> int:
     """
     Нормализует вакансии прямо в БД.
     - Берём строки из vacancies (у которых general_title/category/level пусты — если only_missing=True)

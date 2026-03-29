@@ -18,6 +18,7 @@ from src.config import (
     LLM_API_MAX_PER_MIN,
     LLM_API_BACKOFF_BASE,
     LLM_API_BACKOFF_CAP,
+    DESCRIPTION_PROMPT_MAX_CHARS,
 )
 
 _session = requests.Session()
@@ -189,9 +190,6 @@ SUMMARY_PROMPT_TEMPLATE = """
 Входные данные (описание вакансии):
 {description}
 """
-
-DESCRIPTION_PROMPT_MAX_CHARS = 4000
-
 
 def _prepare_description_for_prompt(description: str) -> str:
     if not description:
