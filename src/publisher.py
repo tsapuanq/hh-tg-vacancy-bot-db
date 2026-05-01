@@ -5,14 +5,18 @@ import logging
 import re
 from telegram import Bot
 from telegram.error import TelegramError
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 from src.config import (
     TELEGRAM_BOT_TOKEN,
     CHANNEL_USERNAME,
     TELEGRAM_DELAY_SECONDS,
     TELEGRAM_MAX_DELAY_SECONDS,
+    SCRAPER_TIMEOUT_GOTO,
+    SCRAPER_TIMEOUT_SELECTOR,
 )
 from src.llm_summary import summarize_description_llm, filter_vacancy_llm
 from src.cleaning import clean_text_safe
+from src.scraper import extract_vacancy_title
 from database import Database
 from datetime import date
 from src.utils import is_relevant_soft
@@ -124,7 +128,7 @@ def format_message(data: dict, summary: dict, hashtags_text: str | None = None) 
 
     message_text = f"""\
 🌐 Город: {location}
-📅 Должность: **{title}**
+📅 Должность: *{title}*
 💼 Компания: {company}
 💰 ЗП: {salary_info}
 
@@ -152,6 +156,76 @@ def format_message(data: dict, summary: dict, hashtags_text: str | None = None) 
     return message_text
 
 
+async def repair_missing_titles(cursor, conn) -> int:
+    cursor.execute(
+        """
+        SELECT id, url
+        FROM vacancies
+        WHERE url IS NOT NULL
+        AND (
+            title IS NULL
+            OR btrim(title) = ''
+            OR lower(btrim(title)) = 'не указано'
+        )
+        AND published_at >= CURRENT_DATE - INTERVAL '7 days'
+        """
+    )
+    rows = cursor.fetchall()
+    if not rows:
+        return 0
+
+    repaired = 0
+    logging.info(f"🛠️ Найдено {len(rows)} вакансий без названия, пробуем восстановить title.")
+
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        try:
+            context = await browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/123.0.0.0 Safari/537.36"
+                ),
+                locale="ru-RU",
+            )
+            for row in rows:
+                page = await context.new_page()
+                try:
+                    await page.goto(row["url"], timeout=SCRAPER_TIMEOUT_GOTO, wait_until="domcontentloaded")
+                    try:
+                        await page.wait_for_selector(
+                            'h1[data-qa="vacancy-title"], h1',
+                            timeout=SCRAPER_TIMEOUT_SELECTOR,
+                        )
+                    except PlaywrightTimeoutError:
+                        logging.warning(
+                            f"[Title Repair] ⏳ h1 не дождались, читаем метаданные: {row['url']}"
+                        )
+
+                    title = clean_text_safe(await extract_vacancy_title(page))
+                    if title and title.lower() != "не указано":
+                        cursor.execute(
+                            "UPDATE vacancies SET title = %s WHERE id = %s",
+                            (title, row["id"]),
+                        )
+                        repaired += 1
+                        logging.info(f"[Title Repair] ✅ {row['id']}: {title}")
+                    else:
+                        logging.warning(
+                            f"[Title Repair] ❌ Не удалось восстановить title: {row['url']}"
+                        )
+                except Exception as e:
+                    logging.warning(f"[Title Repair] ❌ Ошибка восстановления {row['url']}: {e}")
+                finally:
+                    await page.close()
+        finally:
+            await browser.close()
+
+    if repaired:
+        conn.commit()
+    return repaired
+
+
 async def main(db: Database):
     """
     Основная функция пайплайна публикации: фильтрация, суммаризация, отправка в Telegram.
@@ -163,6 +237,10 @@ async def main(db: Database):
     try:
         conn = db.get_connection()
         cursor = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+        logging.info("🛠️ Шаг 0.5: Восстановление отсутствующих названий вакансий...")
+        repaired_titles = await repair_missing_titles(cursor, conn)
+        logging.info(f"✅ Восстановлено названий вакансий: {repaired_titles}")
 
         logging.info("🕵️‍♂️ Шаг 1: Проверка релевантности новых вакансий...")
         cursor.execute(
@@ -194,6 +272,11 @@ async def main(db: Database):
             )
             try:
                 is_relevant = filter_vacancy_llm(title, description)
+                if is_relevant is None:
+                    logging.warning(
+                        f"[OpenAI Filter] Пустой ответ для вакансии {vacancy_id}, оставляем на повторную проверку."
+                    )
+                    continue
                 logging.info(
                     f"[OpenAI Filter] {title} → {'✅ Релевантно' if is_relevant else '❌ Не релевантно'}"
                 )
@@ -373,7 +456,13 @@ async def main(db: Database):
 
         logging.info("🧹 Запуск безопасной очистки старых и нерелевантных вакансий...")
         try:
-            cursor.execute("DELETE FROM vacancies WHERE is_relevant = FALSE OR is_relevant IS NULL;")
+            cursor.execute(
+                """
+                DELETE FROM vacancies
+                WHERE is_relevant = FALSE
+                OR (is_relevant IS NULL AND processed_at < CURRENT_DATE - INTERVAL '7 days');
+                """
+            )
             deleted_irrelevant_count = cursor.rowcount
             if deleted_irrelevant_count > 0:
                 logging.info(

@@ -273,11 +273,13 @@ MLOps Engineer, System Analyst, AI/ML/NLP/CV Engineer, Researcher в облас�
 Ответь строго: yes или no.
 """
 
-def filter_vacancy_llm(title: str, description: str) -> bool:
+def filter_vacancy_llm(title: str, description: str) -> bool | None:
     if not title or not description:
         return False
     prompt_description = _prepare_description_for_prompt(description)
     prompt = FILTER_PROMPT.format(title=title, description=prompt_description)
     raw = (openai_api_call(prompt) or "").strip().lower()
     logging.info("[OpenAI-filter] Сырый ответ:\n" + raw)
+    if not raw:
+        return None
     return raw == "yes"

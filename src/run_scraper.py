@@ -12,6 +12,11 @@ from src.utils import setup_logger, canonical_link
 from database import Database
 
 
+def _has_required_fields(row: dict) -> bool:
+    description = str(row.get("description") or "").strip()
+    return bool(description)
+
+
 async def scrape_single(link, semaphore, context, results, idx, total):
     """
     Обрабатывает одну ссылку на вакансию асинхронно.
@@ -114,13 +119,10 @@ async def run_scraper(db: Database, mode: str = "daily"):  # noqa: ARG001 — mo
         finally:
             await browser.close()  
 
-    successful_results = [
-        r for r in results
-        if r is not None and r.get("description", "").strip()
-    ]
+    successful_results = [r for r in results if r is not None and _has_required_fields(r)]
     skipped = len(results) - len(successful_results)
     if skipped:
-        logging.info(f"⚠️ Пропущено {skipped} вакансий с пустым описанием.")
+        logging.info(f"⚠️ Пропущено {skipped} вакансий без обязательных полей.")
     logging.info(
         f"✅ Успешно обработано деталей для {len(successful_results)} вакансий."
     )

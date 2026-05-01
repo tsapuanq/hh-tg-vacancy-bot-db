@@ -15,16 +15,95 @@ from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 from src.config import SCRAPER_TIMEOUT_GOTO, SCRAPER_TIMEOUT_SELECTOR
 
 
+def _is_missing(value: str | None) -> bool:
+    if not isinstance(value, str):
+        return True
+    value = value.strip()
+    return not value or value.lower() == "не указано"
+
+
+def _clean_hh_title(value: str | None) -> str:
+    title = clean_text_safe(value)
+    if not title:
+        return ""
+
+    title = re.sub(r"^вакансия\s+", "", title, flags=re.IGNORECASE).strip()
+    title = re.split(r"\s+[—-]\s+hh\.", title, maxsplit=1, flags=re.IGNORECASE)[0].strip()
+    title = re.split(r"\s+\|\s+hh\.", title, maxsplit=1, flags=re.IGNORECASE)[0].strip()
+    return title
+
+
+async def _first_visible_text(page, selectors: tuple[str, ...], timeout: int = 3000) -> str:
+    for selector in selectors:
+        try:
+            locator = page.locator(selector).first
+            if await locator.count() == 0:
+                continue
+            text = await locator.inner_text(timeout=timeout)
+            text = clean_text_safe(text)
+            if text:
+                return text
+        except Exception:
+            continue
+    return ""
+
+
+async def _first_meta_content(page, selectors: tuple[str, ...]) -> str:
+    for selector in selectors:
+        try:
+            content = await page.locator(selector).first.get_attribute("content", timeout=1000)
+            content = clean_text_safe(content)
+            if content:
+                return content
+        except Exception:
+            continue
+    return ""
+
+
+async def extract_vacancy_title(page) -> str:
+    title = await _first_visible_text(
+        page,
+        (
+            'h1[data-qa="vacancy-title"]',
+            '[data-qa="vacancy-title"]',
+            "main h1",
+            "h1",
+        ),
+    )
+    if title:
+        return _clean_hh_title(title)
+
+    title = await _first_meta_content(
+        page,
+        (
+            'meta[property="og:title"]',
+            'meta[name="twitter:title"]',
+            'meta[name="title"]',
+        ),
+    )
+    if title:
+        return _clean_hh_title(title)
+
+    try:
+        return _clean_hh_title(await page.title())
+    except Exception:
+        return ""
+
+
 async def get_vacancy_details(link: str, page) -> dict | None:
     try:
         await page.goto(link, timeout=SCRAPER_TIMEOUT_GOTO, wait_until="domcontentloaded")
-        await page.wait_for_selector('h1[data-qa="vacancy-title"]', timeout=SCRAPER_TIMEOUT_SELECTOR)
     except PlaywrightTimeoutError:
-        logging.warning(f"[Vacancy Load] ⏳ Таймаут при загрузке или ожидании селектора для {link}")
+        logging.warning(f"[Vacancy Load] ⏳ Таймаут при загрузке страницы {link}")
         return None
     except Exception as e:
         logging.warning(f"[Vacancy Load] ❌ Не удалось загрузить {link}: {e}")
         return None
+
+    try:
+        await page.wait_for_selector('h1[data-qa="vacancy-title"], h1', timeout=SCRAPER_TIMEOUT_SELECTOR)
+    except PlaywrightTimeoutError:
+        logging.warning(f"[Vacancy Load] ⏳ Таймаут ожидания h1, пробуем извлечь title из метаданных: {link}")
 
     async def safe_inner_text(selector: str, default="Не указано") -> str:
         try:
@@ -36,7 +115,7 @@ async def get_vacancy_details(link: str, page) -> dict | None:
             return default
 
     try:
-        title_raw = await safe_inner_text('h1[data-qa="vacancy-title"]')
+        title_raw = await extract_vacancy_title(page)
         company_raw = await safe_inner_text('a[data-qa="vacancy-company-name"]')
         location_and_date_raw = await safe_inner_text(
             "div[class*='magritte-text'][class*='typography-label']"
@@ -97,13 +176,24 @@ async def get_vacancy_details(link: str, page) -> dict | None:
 
         location_cleaned = normalize_city_name(city_raw or "Не указано")
 
+        title_cleaned = clean_text_safe(title_raw)
+        description_cleaned = clean_text_safe(description_raw)
+
+        if _is_missing(title_cleaned):
+            title_cleaned = "Не указано"
+            logging.warning(f"[Vacancy Parse] ⚠️ Не удалось спарсить реальное название вакансии: {link}")
+
+        if _is_missing(description_cleaned):
+            logging.warning(f"[Vacancy Parse] ⚠️ Пропуск вакансии без описания: {link}")
+            return None
+
         data = {
-            "title": clean_text_safe(title_raw),
+            "title": title_cleaned,
             "company": clean_text_safe(company_raw),
             "location": location_cleaned,
             "salary": clean_text_safe(salary_raw),
             "salary_range": extract_salary_range_with_currency(salary_raw),
-            "description": clean_text_safe(description_raw),
+            "description": description_cleaned,
             "experience": clean_text_safe(experience_raw),
             "employment_type": clean_text_safe(employment_type_raw),
             "schedule": clean_schedule(schedule_raw),
