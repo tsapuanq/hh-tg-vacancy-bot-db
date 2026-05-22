@@ -35,6 +35,8 @@ Rules:
 
 - `is_job=false` for news, courses, memes, generic programming posts, or events.
 - `is_relevant=false` for jobs outside Data, ML, Analytics, BI, Data Engineering, DevOps, MLOps, AI/NLP/CV, or System Analysis.
+- `is_relevant=false` for jobs that are clearly outside Kazakhstan.
+- If the country is unclear, keep the job instead of rejecting it.
 - `message=null` when the post must not be published.
 - Missing details should be written as `Не указано`; GPT must not invent facts.
 - The final message should be rewritten, not copied verbatim from the source.

@@ -30,6 +30,12 @@ PROMPT_TEMPLATE = """\
 - общие программистские посты без вакансии;
 - вакансии вне целевых направлений.
 
+География:
+- Публикуй вакансии по Казахстану.
+- Если явно указана другая страна, например Узбекистан, Россия, Европа, США, и нет Казахстана или remote для Казахстана, ставь is_relevant=false.
+- Если страна или город непонятны, не отсекай вакансию только из-за географии.
+- Если указано remote/global без ограничений по стране, оставляй вакансию.
+
 Верни только JSON без markdown:
 {{
   "is_job": true,
@@ -107,6 +113,16 @@ def run_dry_demo() -> None:
             channel_username="@source_channel",
             message_id=102,
             raw_text="New article: how to prepare for Python interviews in 2026.",
+        ),
+        TelegramPost(
+            channel_username="@source_channel",
+            message_id=103,
+            raw_text="Senior ML Engineer, Tashkent office. Uzbekistan only.",
+        ),
+        TelegramPost(
+            channel_username="@source_channel",
+            message_id=104,
+            raw_text="Data Engineer, remote. Stack: Airflow, Python, SQL.",
         ),
     ]
 
