@@ -71,11 +71,13 @@ TELEGRAM_API_ID=12345678
 TELEGRAM_API_HASH=your_api_hash
 TELEGRAM_SOURCE_CHANNEL=@source_channel
 TELEGRAM_PHONE=+77001234567
+TELEGRAM_PASSWORD=your_telegram_2fa_password
 ```
 
 `TELEGRAM_PHONE` is optional. If it is missing, Telethon asks for the phone
 number in the terminal. The first login also asks for the Telegram login code
-and 2FA password if enabled.
+and 2FA password if enabled. `TELEGRAM_PASSWORD` is optional and is only used
+for local 2FA login.
 
 Read recent posts without GPT, DB writes, or publishing:
 

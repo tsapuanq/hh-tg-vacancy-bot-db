@@ -50,11 +50,15 @@ async def main() -> None:
     api_hash = get_required_env("TELEGRAM_API_HASH")
     channel = normalize_channel(get_required_env("TELEGRAM_SOURCE_CHANNEL"))
     phone = os.getenv("TELEGRAM_PHONE")
+    password = os.getenv("TELEGRAM_PASSWORD")
 
     SESSION_DIR.mkdir(parents=True, exist_ok=True)
 
     client = TelegramClient(str(SESSION_NAME), api_id, api_hash)
-    await client.start(phone=phone.strip() if phone else None)
+    await client.start(
+        phone=phone.strip() if phone else None,
+        password=password.strip() if password else None,
+    )
     try:
         entity = await client.get_entity(channel)
         print(f"Reading last {args.limit} posts from: {channel}")
