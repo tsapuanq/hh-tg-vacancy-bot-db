@@ -87,3 +87,31 @@ python3 test/telegram_read_channel.py --limit 5
 
 Telethon stores the local login session under `test/.sessions/`; this folder is
 ignored by git.
+
+## GPT + Test Publish
+
+The end-to-end test reads Telegram posts, asks GPT for a publish/skip decision,
+and sends only approved messages to `CHANNEL_USERNAME_TEST`.
+
+Required `.env` values:
+
+```env
+TELEGRAM_BOT_TOKEN=your_bot_token
+CHANNEL_USERNAME_TEST=@your_test_channel
+OPENAI_API_KEY=your_openai_key
+```
+
+Run a safe dry-run without sending:
+
+```bash
+python3 test/telegram_gpt_publish_test.py --limit 5 --dry-run
+```
+
+Send approved messages to the test channel:
+
+```bash
+python3 test/telegram_gpt_publish_test.py --limit 5 --send
+```
+
+Processed Telegram source message ids are stored under `test/.state/`, which is
+ignored by git. Use `--reprocess` to ignore the local state for another test.
