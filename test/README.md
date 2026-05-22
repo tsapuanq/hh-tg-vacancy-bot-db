@@ -55,3 +55,33 @@ Run:
 ```bash
 python3 test/telegram_gpt_contract.py
 ```
+
+## Read Telegram Channel
+
+Install the read-only test dependency:
+
+```bash
+python3 -m pip install telethon
+```
+
+Local `.env` values:
+
+```env
+TELEGRAM_API_ID=12345678
+TELEGRAM_API_HASH=your_api_hash
+TELEGRAM_SOURCE_CHANNEL=@source_channel
+TELEGRAM_PHONE=+77001234567
+```
+
+`TELEGRAM_PHONE` is optional. If it is missing, Telethon asks for the phone
+number in the terminal. The first login also asks for the Telegram login code
+and 2FA password if enabled.
+
+Read recent posts without GPT, DB writes, or publishing:
+
+```bash
+python3 test/telegram_read_channel.py --limit 5
+```
+
+Telethon stores the local login session under `test/.sessions/`; this folder is
+ignored by git.
