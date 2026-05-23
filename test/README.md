@@ -88,6 +88,16 @@ python3 test/telegram_read_channel.py --limit 5
 Telethon stores the local login session under `test/.sessions/`; this folder is
 ignored by git.
 
+For GitHub Actions, export a session string locally and store it as the
+`TELEGRAM_SESSION_STRING` repository secret:
+
+```bash
+python3 test/telegram_export_session_string.py
+```
+
+Treat the printed value as a secret. It authorizes the Telegram account without
+an interactive login code.
+
 ## GPT + Test Publish
 
 The end-to-end test reads Telegram posts, asks GPT for a publish/skip decision,

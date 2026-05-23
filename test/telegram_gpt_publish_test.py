@@ -4,6 +4,7 @@ import argparse
 import asyncio
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -90,9 +91,10 @@ def clean_gpt_json(raw: str) -> str:
 
 
 def ensure_source_line(message: str, source_url: str) -> str:
-    if source_url in message:
-        return message
-    return f"{message.rstrip()}\n\nИсточник: {source_url}"
+    text = message.replace(source_url, "")
+    text = re.sub(r"(?im)^\s*источник\s*:.*$", "", text)
+    text = re.sub(r"\n{3,}", "\n\n", text)
+    return text.strip()
 
 
 async def read_source_posts(
