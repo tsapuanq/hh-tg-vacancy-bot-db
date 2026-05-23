@@ -2,9 +2,18 @@ __pycache__/
 *.pyc
 
 .env
+.env.*
 .vscode/
 
 *cache
 notebooks/
 .ipynb_checkpoints/
 .DS_Store
+.omx/
+
+*.session
+*.session-journal
+.telegram_source_reader*
+telegram_source_reader.session*
+test/.sessions/
+test/.state/

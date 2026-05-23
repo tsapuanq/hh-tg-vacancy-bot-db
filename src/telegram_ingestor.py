@@ -26,8 +26,6 @@ from src.config import (
     TELEGRAM_LOOKBACK_DAYS,
     TELEGRAM_MAX_DELAY_SECONDS,
     TELEGRAM_PROCESS_LIMIT,
-    TELEGRAM_PASSWORD,
-    TELEGRAM_PHONE,
     TELEGRAM_SESSION_FILE,
     TELEGRAM_SESSION_STRING,
     TELEGRAM_SOURCE_CHANNEL,
@@ -119,9 +117,6 @@ def normalize_channel(value: str) -> str:
 def resolve_file_session_name() -> str:
     if TELEGRAM_SESSION_FILE:
         return TELEGRAM_SESSION_FILE
-    test_session = ROOT_DIR / "test" / ".sessions" / "telegram_source_reader"
-    if test_session.with_suffix(".session").exists():
-        return str(test_session)
     return str(ROOT_DIR / ".telegram_source_reader")
 
 
@@ -211,8 +206,6 @@ async def read_source_posts(
     limit: int,
     lookback_days: int,
     session_string: str | None,
-    phone: str | None,
-    password: str | None,
 ) -> list[TelegramSourcePost]:
     if not TELEGRAM_API_ID or not TELEGRAM_API_HASH:
         raise RuntimeError("TELEGRAM_API_ID and TELEGRAM_API_HASH are required")
@@ -220,15 +213,26 @@ async def read_source_posts(
         raise RuntimeError("TELEGRAM_SESSION_STRING is required in GitHub Actions")
 
     channel = normalize_channel(source_channel)
-    session = StringSession(session_string) if session_string else resolve_file_session_name()
+    file_session_name = resolve_file_session_name()
+    file_session_exists = Path(file_session_name).with_suffix(".session").exists()
+    if not session_string and not file_session_exists:
+        raise RuntimeError(
+            "Telegram auth is not configured. Set TELEGRAM_SESSION_STRING or run "
+            "scripts/export_telegram_session.py locally to create one."
+        )
+
+    session = StringSession(session_string) if session_string else file_session_name
     client = TelegramClient(session, int(TELEGRAM_API_ID), TELEGRAM_API_HASH)
     cutoff = datetime.now(timezone.utc) - timedelta(days=lookback_days)
     posts: list[TelegramSourcePost] = []
 
-    await client.start(
-        phone=phone.strip() if phone else None,
-        password=password.strip() if password else None,
-    )
+    await client.connect()
+    if not await client.is_user_authorized():
+        await client.disconnect()
+        raise RuntimeError(
+            "Telegram session is not authorized. Set TELEGRAM_SESSION_STRING from "
+            "scripts/export_telegram_session.py before running the production pipeline."
+        )
     try:
         entity = await client.get_entity(channel)
         async for message in client.iter_messages(entity, limit=limit):
@@ -426,8 +430,6 @@ async def run_telegram_ingestor(db: Database, publish: bool = True) -> None:
         limit=TELEGRAM_SOURCE_LIMIT,
         lookback_days=TELEGRAM_LOOKBACK_DAYS,
         session_string=TELEGRAM_SESSION_STRING,
-        phone=TELEGRAM_PHONE,
-        password=TELEGRAM_PASSWORD,
     )
     logging.info("[Telegram Source] Read %s posts from source channel.", len(posts))
     saved = save_raw_posts(db, posts)

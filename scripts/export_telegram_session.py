@@ -10,7 +10,7 @@ from telethon.sessions import StringSession
 
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
-SESSION_FILE = ROOT_DIR / "test" / ".sessions" / "telegram_source_reader"
+DEFAULT_SESSION_FILE = ROOT_DIR / ".telegram_source_reader"
 
 
 def get_required_env(name: str) -> str:
@@ -24,19 +24,19 @@ async def main() -> None:
     load_dotenv(ROOT_DIR / ".env")
     api_id = int(get_required_env("TELEGRAM_API_ID"))
     api_hash = get_required_env("TELEGRAM_API_HASH")
+    phone = os.getenv("TELEGRAM_PHONE")
+    password = os.getenv("TELEGRAM_PASSWORD")
+    session_file = Path(os.getenv("TELEGRAM_SESSION_FILE") or DEFAULT_SESSION_FILE)
 
-    file_client = TelegramClient(str(SESSION_FILE), api_id, api_hash)
-    await file_client.connect()
+    client = TelegramClient(str(session_file), api_id, api_hash)
+    await client.start(
+        phone=phone.strip() if phone else None,
+        password=password.strip() if password else None,
+    )
     try:
-        if not await file_client.is_user_authorized():
-            raise SystemExit(
-                "Local file session is not authorized. Run telegram_read_channel.py first."
-            )
-        session_string = StringSession.save(file_client.session)
+        print(StringSession.save(client.session))
     finally:
-        await file_client.disconnect()
-
-    print(session_string)
+        await client.disconnect()
 
 
 if __name__ == "__main__":
