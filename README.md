@@ -74,6 +74,11 @@ python run_telegram.py --no-publish
 TELEGRAM_LOOKBACK_DAYS=2
 TELEGRAM_SOURCE_LIMIT=50
 TELEGRAM_PROCESS_LIMIT=20
+OPENAI_VISION_MODEL=gpt-4.1-mini
+TELEGRAM_PHOTO_OCR_ENABLED=true
+TELEGRAM_PHOTO_OCR_WITH_CAPTION=true
+TELEGRAM_PHOTO_OCR_LIMIT_PER_RUN=20
+TELEGRAM_PHOTO_OCR_DETAIL=low
 ```
 
 Пайплайн читает посты за последние 2 дня, но повторно не отправляет уже
@@ -82,6 +87,12 @@ TELEGRAM_PROCESS_LIMIT=20
 постов даёт ориентир около 25k-40k input tokens за худший запуск. Ссылка на
 исходный Telegram-канал используется только внутри БД для дедупликации и не
 публикуется в итоговом сообщении.
+
+Если в source-канале приходит фото с вакансией, Telegram pipeline скачивает
+картинку, извлекает текст через OpenAI vision OCR и сохраняет его в `raw_text`.
+Текстовые посты обрабатываются как раньше; caption + photo объединяются, чтобы
+не терять детали из изображения. `TELEGRAM_PHOTO_OCR_LIMIT_PER_RUN` ограничивает
+количество OCR-запросов за один запуск.
 
 
 

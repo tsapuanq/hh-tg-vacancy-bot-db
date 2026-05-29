@@ -82,7 +82,7 @@ def _extract_openai_text(response_data: dict) -> str:
     return "\n".join(cleaned).strip()
 
 
-def openai_api_call(prompt: str) -> str:
+def openai_responses_call(input_payload, model: str | None = None) -> str:
     if not OPENAI_API_KEY:
         logging.warning("[OpenAI] ❌ Не найден OPENAI_API_KEY")
         return ""
@@ -92,8 +92,8 @@ def openai_api_call(prompt: str) -> str:
     headers.setdefault("Authorization", f"Bearer {OPENAI_API_KEY}")
 
     payload = {
-        "model": OPENAI_MODEL,
-        "input": prompt,
+        "model": model or OPENAI_MODEL,
+        "input": input_payload,
     }
 
     for attempt in range(1, LLM_API_RETRIES + 1):
@@ -164,6 +164,10 @@ def openai_api_call(prompt: str) -> str:
             return ""
 
     return ""
+
+
+def openai_api_call(prompt: str) -> str:
+    return openai_responses_call(prompt)
 
 SUMMARY_PROMPT_TEMPLATE = """
 Ты — строгий JSON-парсер.  

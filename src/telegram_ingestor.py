@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import base64
 import json
 import logging
 import os
@@ -19,19 +20,25 @@ from telegram.error import TelegramError
 from database import Database
 from src.config import (
     CHANNEL_USERNAME,
+    OPENAI_VISION_MODEL,
     TELEGRAM_API_HASH,
     TELEGRAM_API_ID,
     TELEGRAM_BOT_TOKEN,
     TELEGRAM_DELAY_SECONDS,
     TELEGRAM_LOOKBACK_DAYS,
     TELEGRAM_MAX_DELAY_SECONDS,
+    TELEGRAM_PHOTO_OCR_DETAIL,
+    TELEGRAM_PHOTO_OCR_ENABLED,
+    TELEGRAM_PHOTO_OCR_LIMIT_PER_RUN,
+    TELEGRAM_PHOTO_OCR_MAX_BYTES,
+    TELEGRAM_PHOTO_OCR_WITH_CAPTION,
     TELEGRAM_PROCESS_LIMIT,
     TELEGRAM_SESSION_FILE,
     TELEGRAM_SESSION_STRING,
     TELEGRAM_SOURCE_CHANNEL,
     TELEGRAM_SOURCE_LIMIT,
 )
-from src.llm_summary import openai_api_call
+from src.llm_summary import openai_api_call, openai_responses_call
 from src.utils import setup_logger
 
 try:
@@ -45,6 +52,17 @@ except ImportError as exc:
 
 MAX_TELEGRAM_MESSAGE_LEN = 3900
 ROOT_DIR = Path(__file__).resolve().parents[1]
+TELEGRAM_PHOTO_MIME_TYPE = "image/jpeg"
+
+PHOTO_OCR_PROMPT = """\
+Транскрибируй текст вакансии с изображения.
+
+Правила:
+- Верни только текст, который реально виден на картинке.
+- Не дописывай отсутствующие поля.
+- Сохрани контакты, ссылки, город, зарплату и требования, если они видны.
+- Если на изображении нет вакансии или текст нечитаемый, верни пустую строку.
+"""
 
 GPT_PROMPT_TEMPLATE = """\
 Ты фильтруешь Telegram-посты для канала с Data/ML/Analytics/BI/Data Engineering/DevOps/MLOps/AI вакансиями.
@@ -100,6 +118,7 @@ class TelegramSourcePost:
     message_id: int
     raw_text: str
     published_at: datetime | None
+    raw_source_type: str = "text"
 
     @property
     def source_url(self) -> str:
@@ -165,6 +184,50 @@ def strip_source_links(message: str, source_url: str) -> str:
     return text.strip()
 
 
+def build_image_data_url(image_bytes: bytes, mime_type: str = TELEGRAM_PHOTO_MIME_TYPE) -> str:
+    encoded = base64.b64encode(image_bytes).decode("ascii")
+    return f"data:{mime_type};base64,{encoded}"
+
+
+def build_photo_ocr_input(image_bytes: bytes) -> list[dict[str, Any]]:
+    return [
+        {
+            "role": "user",
+            "content": [
+                {"type": "input_text", "text": PHOTO_OCR_PROMPT},
+                {
+                    "type": "input_image",
+                    "image_url": build_image_data_url(image_bytes),
+                    "detail": TELEGRAM_PHOTO_OCR_DETAIL,
+                },
+            ],
+        }
+    ]
+
+
+def extract_text_from_photo(image_bytes: bytes) -> str:
+    if not TELEGRAM_PHOTO_OCR_ENABLED:
+        return ""
+    if not image_bytes:
+        return ""
+    if len(image_bytes) > TELEGRAM_PHOTO_OCR_MAX_BYTES:
+        logging.warning("[Telegram OCR] Photo is too large: %s bytes", len(image_bytes))
+        return ""
+    return openai_responses_call(build_photo_ocr_input(image_bytes), model=OPENAI_VISION_MODEL).strip()
+
+
+def combine_caption_and_photo_text(caption: str, photo_text: str) -> tuple[str, str]:
+    caption = caption.strip()
+    photo_text = photo_text.strip()
+    if caption and photo_text:
+        return f"{caption}\n\n[Текст с изображения]\n{photo_text}", "caption_and_photo_ocr"
+    if photo_text:
+        return photo_text, "photo_ocr"
+    if caption:
+        return caption, "text"
+    return "", "empty"
+
+
 def ensure_schema(db: Database) -> None:
     conn = None
     cursor = None
@@ -191,6 +254,12 @@ def ensure_schema(db: Database) -> None:
                 created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
                 UNIQUE (source_channel, message_id)
             );
+            """
+        )
+        cursor.execute(
+            """
+            ALTER TABLE telegram_posts
+            ADD COLUMN IF NOT EXISTS raw_source_type TEXT NOT NULL DEFAULT 'text';
             """
         )
         conn.commit()
@@ -225,6 +294,7 @@ async def read_source_posts(
     client = TelegramClient(session, int(TELEGRAM_API_ID), TELEGRAM_API_HASH)
     cutoff = datetime.now(timezone.utc) - timedelta(days=lookback_days)
     posts: list[TelegramSourcePost] = []
+    photo_ocr_count = 0
 
     await client.connect()
     if not await client.is_user_authorized():
@@ -238,7 +308,31 @@ async def read_source_posts(
         async for message in client.iter_messages(entity, limit=limit):
             if message.date and message.date < cutoff:
                 continue
-            text = (message.message or "").strip()
+            caption = (message.message or "").strip()
+            text = caption
+            raw_source_type = "text" if caption else "empty"
+
+            if TELEGRAM_PHOTO_OCR_ENABLED and getattr(message, "photo", None):
+                should_ocr = (not caption) or TELEGRAM_PHOTO_OCR_WITH_CAPTION
+                if should_ocr and photo_ocr_count < TELEGRAM_PHOTO_OCR_LIMIT_PER_RUN:
+                    try:
+                        photo_bytes = await message.download_media(bytes)
+                        photo_ocr_count += 1
+                        photo_text = extract_text_from_photo(photo_bytes or b"")
+                        text, raw_source_type = combine_caption_and_photo_text(caption, photo_text)
+                    except Exception as exc:
+                        logging.warning(
+                            "[Telegram OCR] Failed for message_id=%s: %s",
+                            getattr(message, "id", "unknown"),
+                            exc,
+                        )
+                        text, raw_source_type = combine_caption_and_photo_text(caption, "")
+                elif should_ocr:
+                    logging.info(
+                        "[Telegram OCR] Per-run OCR limit reached, skipping photo OCR for message_id=%s",
+                        getattr(message, "id", "unknown"),
+                    )
+
             if not text:
                 continue
             posts.append(
@@ -247,6 +341,7 @@ async def read_source_posts(
                     message_id=message.id,
                     raw_text=text,
                     published_at=message.date,
+                    raw_source_type=raw_source_type,
                 )
             )
         return list(reversed(posts))
@@ -267,11 +362,12 @@ def save_raw_posts(db: Database, posts: list[TelegramSourcePost]) -> int:
             cursor.execute(
                 """
                 INSERT INTO telegram_posts (
-                    source_channel, message_id, source_url, raw_text, published_at
-                ) VALUES (%s, %s, %s, %s, %s)
+                    source_channel, message_id, source_url, raw_text, published_at, raw_source_type
+                ) VALUES (%s, %s, %s, %s, %s, %s)
                 ON CONFLICT (source_url) DO UPDATE
                 SET raw_text = EXCLUDED.raw_text,
-                    published_at = EXCLUDED.published_at
+                    published_at = EXCLUDED.published_at,
+                    raw_source_type = EXCLUDED.raw_source_type
                 WHERE telegram_posts.gpt_result_json IS NULL
                 """,
                 (
@@ -280,6 +376,7 @@ def save_raw_posts(db: Database, posts: list[TelegramSourcePost]) -> int:
                     post.source_url,
                     post.raw_text,
                     post.published_at,
+                    post.raw_source_type,
                 ),
             )
             inserted += max(cursor.rowcount, 0)
@@ -420,7 +517,7 @@ async def run_telegram_ingestor(db: Database, publish: bool = True) -> None:
     if not TELEGRAM_SOURCE_CHANNEL:
         logging.info("[Telegram Source] TELEGRAM_SOURCE_CHANNEL is not set, skipping.")
         return
-    if not TELEGRAM_BOT_TOKEN or not CHANNEL_USERNAME:
+    if publish and (not TELEGRAM_BOT_TOKEN or not CHANNEL_USERNAME):
         logging.info("[Telegram Source] TELEGRAM_BOT_TOKEN or CHANNEL_USERNAME is not set, skipping publish.")
         return
 
@@ -440,5 +537,5 @@ async def run_telegram_ingestor(db: Database, publish: bool = True) -> None:
         logging.info("[Telegram Source] Publish disabled, leaving approved posts unsent.")
         return
 
-    sent = await publish_approved_posts(db, CHANNEL_USERNAME, TELEGRAM_BOT_TOKEN)
+    sent = await publish_approved_posts(db, CHANNEL_USERNAME or "", TELEGRAM_BOT_TOKEN or "")
     logging.info("[Telegram Source] Published %s approved posts.", sent)
